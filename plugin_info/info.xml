@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+    <id>script</id>
+    <name>Script</name>
+    <description>Plugin pour gerer des scripts (PHP,Shell)</description>
+    <icon>fa fa-file</icon>
+    <licence>AGPL</licence>
+    <author>Loïc Gevrey</author>
+    <installation>Aucune</installation>
+    <require>1.10</require>
+    <version>2.0</version>
+    <category>programming</category>
+</info>
+
