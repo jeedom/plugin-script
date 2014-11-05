@@ -67,7 +67,7 @@ class script extends eqLogic {
     public static function getFromMarket(&$market, $_path) {
         $cibDir = calculPath(config::byKey('userScriptDir', 'script'));
         if (!file_exists($cibDir)) {
-            throw new Exception(__('Impossible d\'installer le script le repertoire n\éxiste pas : ', __FILE__) . $cibDir);
+            throw new Exception(__('Impossible d\'installer le script le repertoire n\existe pas : ', __FILE__) . $cibDir);
         }
         $zip = new ZipArchive;
         $res = $zip->open($_path);
@@ -145,10 +145,10 @@ class scriptCmd extends cmd {
 
     public function preSave() {
         if ($this->getConfiguration('request') == '') {
-            throw new Exception(__('Le champs requête ne peut etre vide', __FILE__));
+            throw new Exception(__('Le champ requête ne peut être vide', __FILE__));
         }
         if ($this->getConfiguration('requestType') == '') {
-            throw new Exception(__('Le champs requête type ne peut etre vide', __FILE__));
+            throw new Exception(__('Le champ requête type ne peut être vide', __FILE__));
         }
         if ($this->getConfiguration('requestType') == 'xml' && $this->getType() == 'action') {
             throw new Exception(__('Vous ne pouvez avoir un script de type XML et action', __FILE__));
@@ -159,7 +159,7 @@ class scriptCmd extends cmd {
         $result = false;
         $request = str_replace('#API#', config::byKey('api'), $this->getConfiguration('request'));
         if (trim($request) == '') {
-            throw new Exception(__('La requete ne peut etre vide : ', __FILE__) . print_r($this, true));
+            throw new Exception(__('La requête ne peut être vide : ', __FILE__) . print_r($this, true));
         }
         if ($_options != null) {
             switch ($this->getType()) {
