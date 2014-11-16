@@ -1,0 +1,10 @@
+== Alarme
+
+=== Description
+Plugin permetant de'éxecuter des scripts (shell, php, ruby...), des requetes http, de recuperer des informations dans du XML ou JSON
+
+=== Configuration
+include::configuration.asciidoc[]
+
+=== Changelog
+include::changelog.asciidoc[]
