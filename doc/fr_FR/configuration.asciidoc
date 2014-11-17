@@ -1,1 +1,25 @@
-TODO
+Comme pour tous les autres plugins on crée d’abord un équipement, on lui donne un nom, un objet (pour rappel un objet peut être une pièce, un meuble, une personne…), on l’active ou non et on le rend visible ou non.
+
+Ensuite vient la création des commandes, elles ont :
+
+- Un nom
+- Un type script : script ou http (le script peut être de tout type : shell, python, php, ruby…)
+- Un type
+* Action et un sous-type :
+** Défaut : une commande simple sans paramètre
+** Slider : une commande avec une option de slider (ex : intensité d’une lampe)
+** Message : avec en paramètre un titre et un message
+** Couleur : avec en paramètre le code hexa de la couleur voulue
+* Info et un sous-type :
+** Numérique
+** Binaire
+** Autre  : chaîne de caractère
+- Le chemin jusqu’au script avec certaines actions possible :
+* Ajouter un script prédéfini (actuellement il y en a 3 : un pour savoir si une IP ou une MAC est sur le réseaux, un pour savoir si Jeedom a internet et un pour contrôler une neufBox)
+* Rechercher un script
+* Éditer le script
+* Créer un nouveau script (ils sont tous mis dans un répertoire par défaut)
+* Supprimer le script
+- Des options de configuration en fonction du type et sous-type (min, max, unité, durée du cache…)
+- Des paramètres : s’il faut le mettre en cache, s’il faut l’historiser….
+Ça peut sembler un peu compliqué mais au final on a un plugin qui permet de pratiquement tout faire :-)
