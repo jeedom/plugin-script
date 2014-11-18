@@ -226,7 +226,7 @@ Si vous voulez la valeur de la led0 dans requête vous mettez led0.<br>Si vous v
 Notez que l'élément racine <root> n'est pas à préciser dans le champ requête.
 
 ====== Cas d'un XML plus complexe (répartition par tableau)
-[source.xml]
+
 ----
  <root>
    <led0>1</led0>
