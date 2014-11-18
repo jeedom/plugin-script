@@ -1,14 +1,4 @@
-Comme pour tous les autres plugins on crée d’abord un équipement, on lui donne un nom, un objet (pour rappel un objet peut être une pièce, un meuble, une personne…), on l’active ou non et on le rend visible ou non.
-
 image::../images/script.JPG[]
-
-=== But
-
-Expliquer, en terme courant, un plugin plutôt accès programmeur
-
-Wiki écrit à partir de la version 1.107.0
-
-Plugin beta en version du 2014-08-29 22:06:38
 
 === Définition
 Ce plugin est un peu la "boite à outils" intégrée de Jeedom, il est un des liens de communication depuis/vers l'extérieur.
@@ -73,10 +63,13 @@ Si le choix du type de script est "http":
 - un champ "Essai maximum" : 4 essais par défaut
 - un champ "utilisateur" : pour renseigner un nom d'utilisateur
 - un champ "Password" : pour renseigner un mot de passe
+
 ==== Le choix XML
 - le champ option possède un champ "URL du fichier XML" : ce champ contient donc le lien vers la machine hébergeant l'XML en question
+
 ==== Le choix JSON
 - le champ option possède	un champ "URL du fichier JSON" : ce champ contient donc le lien vers la machine hébergeant le JSON en question
+
 === Le champ Divers
 - Un champ "Unité" : Ce sera l'unité physique associée à la valeur (W, Kw, V, A, lux, km/h ...) pour affichage dans les widgets associés
 - Un champ "Min" et "Max" : permet d'adapter les échelles sur les widgets
