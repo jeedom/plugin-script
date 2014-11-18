@@ -259,7 +259,7 @@ Tout d'abord, avant de se lancer dans la configuration du plugin script JSON il 
 Valider l'affichage des informations à partir de votre navigateur (test sous Chrome). 
 
 Exemple de retour :
-[source.json]
+
 ----
  {
      "data": [
