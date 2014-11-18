@@ -77,9 +77,7 @@ Si le choix du type de script est "http":
 - Un champ "Unité" : Ce sera l'unité physique associée à la valeur (W, Kw, V, A, lux, km/h ...) pour affichage dans les widgets associés
 - Un champ "Min" et "Max" : permet d'adapter les échelles sur les widgets
 
-===== Exemples : http
-
-====== Exemples http : Pilotage d'une Vera
+==== Exemples http : Pilotage d'une Vera
 L'exemple est basé sur une Vera qui consiste à piloter une ampoule dimmable.
 Je ne vais pas m'étendre sur la manière de piloter une Vera par requête http, le forum TLD est rempli de réponses.
 De plus, l'exemple correspond à mon type de matériel et devra être adapté au vôtre.
@@ -113,12 +111,12 @@ Le bouton "test" vous permet de tester votre commande !
 Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60% pour une lumière tamisée,
 créer une troisième à 30% pour les déplacements nocturnes à associer dans un scénario ...
 
-====== Association à un virtuel
+===== Association à un virtuel
 Lorsque vous aurez multiplié les scripts, il est intéressant de regrouper les actions.
 Par exemple : regrouper tous les ordre d'extinction ou stop de chaque équipement dans un seul bouton sur le dashboard
 Pour cela, regrouper toutes les infos dans un virtuel !
 
-====== Exemple 2 : Envoyer une notification à XBMC
+==== Exemple 2 : Envoyer une notification à XBMC
 - But : Envoyer une notification vers XBMC lors de l'ouverture d'une porte d'entrée.
 
 * NOM : PUSH XBMC
@@ -140,7 +138,7 @@ Tester sur un scénario #[EXTERIEUR][EXTERIEUR][TEMPERATURE]# < 15 par exemple
 
 Action : Lancer le script, via un virtuel, lié à votre script !   
 
-====== Type de Script : script
+==== Type de Script : script
 Le plus sympa mais pas le plus simple à expliquer.
 
 Prérequis : savoir développer un script en php, python ou ruby.
@@ -167,7 +165,7 @@ Vue de configuration Jeedom:
 
 Précisions : le sous type Numérique permet donc de remonter une valeur numérique à Jeedom!
 
-====== Les paramètres
+===== Les paramètres
 
 - Récupérer les infos de Jeedom pour les exploiter dans un script.La récupération dépend du type de script utilisé :  
 
@@ -193,7 +191,7 @@ TIPS : Loïc préconise de tester les paramètres de cette façon dans le script
  } 
 ----
 
-====== Type de Script : XML
+==== Type de Script : XML
 
 Pour expliquer, je vais me baser sur les informations XML issues d'un Ecodevice CGE. L’accès à ce fichier est possible grâce à l'URL suivante :
 
@@ -223,7 +221,7 @@ Si vous voulez la valeur de la led0 dans requête vous mettez led0.<br>Si vous v
 
 Notez que l'élément racine <root> n'est pas à préciser dans le champ requête.
 
-====== Cas d'un XML plus complexe (répartition par tableau)
+===== Cas d'un XML plus complexe (répartition par tableau)
 
 ----
  <root>
@@ -241,7 +239,7 @@ la syntaxe est :
 
 leds > 1 > led1 qui donne en réponse tata, 1 étant le numéro de rang du tableau ! 
 
-====== Type de Script : JSON
+==== Type de Script : JSON
 A l’instar du type XML, il est possible de lire des informations issues d'un retour JSON.
 
 Pour expliquer, je vais me baser sur les informations JSON avec l'application Sickbeard (bouh ... cpasbien) mais ici seule la technique prime, pas l'outil !
@@ -318,7 +316,7 @@ Inconvénients :
 
 MAIS il y a une petite subtilité grâce à la variable #state#, ça fera l'objet d'un paragraphe particulier.
 
-====== La variable #state#
+==== La variable #state#
 Cette variable est le lien entre nos scripts et les widgets associés.
 
 Créons un nouveau widget, comme ceci par exemple
