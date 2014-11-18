@@ -102,8 +102,7 @@ Explications :
 - TYPE DE SCRIPT : http
 - TYPE : Action (c'est une commande)
 -	SOUS TYPE : défaut
--	REQUETE :  (pioché sur le forum TLD): 
-	http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100	
+-	REQUETE :  (pioché sur le forum TLD): link:http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100[ici]	
 
 TIPS : le "100" à la fin de la requête correspond au pourcentage de puissance à affecter donc mettre "0" à la fin de la requête correspond à éteindre l'ampoule
 
@@ -124,10 +123,10 @@ Pour cela, regrouper toutes les infos dans un virtuel !
 - TYPE DE SCRIPT : http
 - TYPE : Action (c'est une commande)
 - SOUS TYPE : défaut
-- REQUETE :  (pioché sur le net): [http://maison-et-domotique.com/books/xbmc-afficher-des-notifications-domotiques/ source] http://IP_DE_XBMC:8080/jsonrpc?request={%22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{%22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+- REQUETE :  (pioché sur le net): link:http://maison-et-domotique.com/books/xbmc-afficher-des-notifications-domotiques/[source] http://IP_DE_XBMC:8080/jsonrpc?request={%22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{%22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
 A vous de tester ça dans un scénario par exemple !
 
-API XBMC : [http://wiki.xbmc.org/index.php?title=JSON-RPC_API/v6 içi] (seuls les champs "required" sont obligatoires)     
+API XBMC : link:http://wiki.xbmc.org/index.php?title=JSON-RPC_API/v6[içi] (seuls les champs "required" sont obligatoires)     
 
 2) But : Envoyer une notification vers XBMC lorsque la température tombe sous un certain seuil   
 
@@ -211,7 +210,7 @@ Cet exemple est relativement simple, car le retour XML n'est pas trop complexe.
 
 N'ayant pas d'autres éléments à vous proposer gérant l'XML, je vous soumets les indications de Loïc sur l'utilisation du plugin.
 
-Source : [https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=10#p6425 içi] et [https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=30#p7390 içi]
+Source : link:https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=10#p6425[içi] et link:https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=30#p7390[içi]
 [source.php]
 ----
 : <code><root>
@@ -335,4 +334,3 @@ Si vous avez été curieux, dans l'exemple précédent, la ligne à la fin du sc
 La variable #state# prend donc la valeur retournée par la fonction echo, dans ce cas 3 chaines de caractères suivies d'un retour chariot chacune.
 
 On peut donc afficher ce que l'on veut, avec un minimum de code propre à Jeedom, remonter un tableau complet par exemple.
-
