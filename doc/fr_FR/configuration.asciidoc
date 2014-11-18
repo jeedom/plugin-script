@@ -65,12 +65,15 @@ Si le choix du type de script est "http":
 - un champ "Password" : pour renseigner un mot de passe
 
 ==== Le choix XML
+
 - le champ option possède un champ "URL du fichier XML" : ce champ contient donc le lien vers la machine hébergeant l'XML en question
 
 ==== Le choix JSON
+
 - le champ option possède	un champ "URL du fichier JSON" : ce champ contient donc le lien vers la machine hébergeant le JSON en question
 
 === Le champ Divers
+
 - Un champ "Unité" : Ce sera l'unité physique associée à la valeur (W, Kw, V, A, lux, km/h ...) pour affichage dans les widgets associés
 - Un champ "Min" et "Max" : permet d'adapter les échelles sur les widgets
 
@@ -83,10 +86,12 @@ L'exemple est basé sur une Vera qui consiste à piloter une ampoule dimmable.
 Je ne vais pas m'étendre sur la manière de piloter une Vera par requête http, le forum TLD est rempli de réponses.
 De plus, l'exemple correspond à mon type de matériel et devra être adapté au vôtre.
 TIPS : 
+
 - Une méthode pour ceux qui tâtonnent pour l'écriture de requêtes http, valider d'abord la syntaxe dans votre navigateur et seulement ensuite passer à la configuration sous Jeedom.
 - Quand un script Action ne fonctionne pas, passer en script Info/Autre permet de voir l erreur en retour.
  
 Allons - y  :
+
 - On crée un équipement : par exemple LUM CUISINE (je pense qu'on a tous une cuisine sous la main)
 -  On l'associe à un objet parent : par exemple VERA, moi ça me permet de centraliser toutes les commandes liées à la VERA sur un unique parent.
 -  Choisissez votre catégorie
