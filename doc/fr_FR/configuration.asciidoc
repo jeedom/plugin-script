@@ -1,5 +1,7 @@
 Comme pour tous les autres plugins on crée d’abord un équipement, on lui donne un nom, un objet (pour rappel un objet peut être une pièce, un meuble, une personne…), on l’active ou non et on le rend visible ou non.
 
+image::../images/script.JPG[]
+
 Ensuite vient la création des commandes, elles ont :
 
 - Un nom
