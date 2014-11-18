@@ -83,18 +83,17 @@ L'exemple est basé sur une Vera qui consiste à piloter une ampoule dimmable.
 Je ne vais pas m'étendre sur la manière de piloter une Vera par requête http, le forum TLD est rempli de réponses.
 De plus, l'exemple correspond à mon type de matériel et devra être adapté au vôtre.
 TIPS : 
-1) Une méthode pour ceux qui tâtonnent pour l'écriture de requêtes http, valider d'abord la syntaxe dans votre navigateur et seulement ensuite passer à la configuration sous Jeedom.
+- Une méthode pour ceux qui tâtonnent pour l'écriture de requêtes http, valider d'abord la syntaxe dans votre navigateur et seulement ensuite passer à la configuration sous Jeedom.
+- Quand un script Action ne fonctionne pas, passer en script Info/Autre permet de voir l erreur en retour.
  
-2) Quand un script Action ne fonctionne pas, passer en script Info/Autre permet de voir l erreur en retour.
- 
-Allons - y !
- 1°) On crée un équipement : par exemple LUM CUISINE (je pense qu'on a tous une cuisine sous la main)
- 2°) On l'associe à un objet parent : par exemple VERA, moi ça me permet de centraliser toutes les commandes liées à la VERA sur un unique parent.
- 3°) Choisissez votre catégorie
- 4°) Activez-le, ne cochez pas visible, on verra un peu plus tard comment l'associer à un virtuel (plus sexy, plus WAF)
- 5°) Pour l'auto-actualisation, ne rien mettre, il s'agit d'une commande impulsionnelle liée à un appui sur un bouton ou un scénario !
- 6°) On ajoute une commande script
- 7°) Penser à sauvegarder
+Allons - y  :
+- On crée un équipement : par exemple LUM CUISINE (je pense qu'on a tous une cuisine sous la main)
+-  On l'associe à un objet parent : par exemple VERA, moi ça me permet de centraliser toutes les commandes liées à la VERA sur un unique parent.
+-  Choisissez votre catégorie
+-  Activez-le, ne cochez pas visible, on verra un peu plus tard comment l'associer à un virtuel (plus sexy, plus WAF)
+-  Pour l'auto-actualisation, ne rien mettre, il s'agit d'une commande impulsionnelle liée à un appui sur un bouton ou un scénario !
+-  On ajoute une commande script
+- Penser à sauvegarder
 
 Explications :
 
@@ -117,22 +116,22 @@ Par exemple : regrouper tous les ordre d'extinction ou stop de chaque équipemen
 Pour cela, regrouper toutes les infos dans un virtuel !
 
 ====== Exemple 2 : Envoyer une notification à XBMC
-1) But : Envoyer une notification vers XBMC lors de l'ouverture d'une porte d'entrée.
+- But : Envoyer une notification vers XBMC lors de l'ouverture d'une porte d'entrée.
 
-- NOM : PUSH XBMC
-- TYPE DE SCRIPT : http
-- TYPE : Action (c'est une commande)
-- SOUS TYPE : défaut
-- REQUETE :  (pioché sur le net): link:http://maison-et-domotique.com/books/xbmc-afficher-des-notifications-domotiques/[source] http://IP_DE_XBMC:8080/jsonrpc?request={%22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{%22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+* NOM : PUSH XBMC
+*  TYPE DE SCRIPT : http
+*  TYPE : Action (c'est une commande)
+*  SOUS TYPE : défaut
+*  REQUETE :  (pioché sur le net): link:http://maison-et-domotique.com/books/xbmc-afficher-des-notifications-domotiques/[source] http://IP_DE_XBMC:8080/jsonrpc?request={%22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{%22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
 A vous de tester ça dans un scénario par exemple !
 
 API XBMC : link:http://wiki.xbmc.org/index.php?title=JSON-RPC_API/v6[içi] (seuls les champs "required" sont obligatoires)     
 
-2) But : Envoyer une notification vers XBMC lorsque la température tombe sous un certain seuil   
+- But : Envoyer une notification vers XBMC lorsque la température tombe sous un certain seuil   
 
 Prendre l'exemple ci dessus :
-- remplacer "Mouvement%20Détecté" par "Risque%20de%20gel" 
-- remplacer "Porte%20Entrée" par "Température%20extérieur%20:%20#[EXTERIEUR][EXTERIEUR][TEMPERATURE]#%20" 
+* remplacer "Mouvement%20Détecté" par "Risque%20de%20gel" 
+* remplacer "Porte%20Entrée" par "Température%20extérieur%20:%20#[EXTERIEUR][EXTERIEUR][TEMPERATURE]#%20" 
 
 Tester sur un scénario #[EXTERIEUR][EXTERIEUR][TEMPERATURE]# < 15 par exemple 
 
