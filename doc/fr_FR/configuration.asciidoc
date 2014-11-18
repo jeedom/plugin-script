@@ -154,7 +154,7 @@ Après avoir téléchargé le script depuis le market, le bouton "Parcourir" vou
 Par curiosité, vous pouvez aller voir le contenu du fichier en appuyant sur le bouton "Editer", vous devriez obtenir le code suivant :
 
 Ceci est un script php qui peut tout à fait être réutilisé hors Jeedom !
-[source.php]
+
 ----
  <?php   
     $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
@@ -183,7 +183,7 @@ Vous voulez récupérer la valeur de la température de la cuisine pour l'histor
 Passer #[CUISINE][CUISINE][Température]# comme paramètre au script et Jeedom le remplacera par la valeur lue lors de l'envoi.
 
 TIPS : Loïc préconise de tester les paramètres de cette façon dans le script php :
-[source.php]
+
 ----
  if (isset($argv)) {
      foreach ($argv as $arg) {
@@ -215,7 +215,7 @@ Cet exemple est relativement simple, car le retour XML n'est pas trop complexe.
 N'ayant pas d'autres éléments à vous proposer gérant l'XML, je vous soumets les indications de Loïc sur l'utilisation du plugin.
 
 Source : link:https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=10#p6425[içi] et link:https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=30#p7390[içi]
-[source.php]
+
 ----
 : <code><root>
 :     <led0>1</led0><br>      <leds><br>         <led1>toto</led1><br>      </leds><br>  </root><br></code>
