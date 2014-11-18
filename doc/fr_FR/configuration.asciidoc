@@ -112,7 +112,7 @@ Le bouton "test" vous permet de tester votre commande !
 Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60% pour une lumière tamisée,
 créer une troisième à 30% pour les déplacements nocturnes à associer dans un scénario ...
 
-======= Association à un virtuel
+====== Association à un virtuel
 Lorsque vous aurez multiplié les scripts, il est intéressant de regrouper les actions.
 Par exemple : regrouper tous les ordre d'extinction ou stop de chaque équipement dans un seul bouton sur le dashboard
 Pour cela, regrouper toutes les infos dans un virtuel !
@@ -139,10 +139,6 @@ Tester sur un scénario #[EXTERIEUR][EXTERIEUR][TEMPERATURE]# < 15 par exemple
 
 Action : Lancer le script, via un virtuel, lié à votre script !   
 
-Note du rédacteur :  
-
-AJOUTER INTERACTION VARIABLE #message# 
-
 ===== Type de Script : script
 Le plus sympa mais pas le plus simple à expliquer.
 
@@ -166,25 +162,20 @@ Ceci est un script php qui peut tout à fait être réutilisé hors Jeedom !
 ---- 
 Note : concrètement, c'est la fonction php "echo" qui va affecter la variable #state# au widget associé à la commande ! 
 
-Je tacherai de revenir plus en détail, plus tard, sur cette variable #state#. 
-
 Vue de configuration Jeedom:
 
 Précisions : le sous type Numérique permet donc de remonter une valeur numérique à Jeedom!
 
 ====== Les paramètres
+
 - Récupérer les infos de Jeedom pour les exploiter dans un script.La récupération dépend du type de script utilisé :  
 
 Exemple : 
-1) dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON_SCRIPT_PHP.php list , l'argument "list" est une chaine de caractère (fixe) récupérée dans le script php grâce à la fonction suivante $argv[1] cf : google pour plus de détail sur la récupération de paramêtre en PHP
-2) Nous avons vu précédement qu'il était possible de récupérer des valeurs dynamiques à partir de Jeedom. 
-a) dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py VOL #slider# , l'argument "#slider#" est récupéré de cette façon argv[2]
 
-Au moment de l'exécution du script par jeedom, il remplacera automatiquement #slider# par la valeur (numérique) du slider. cf : google pour plus de détail sur la récupération de paramètre en Python.
-
-b) Plus fort !
-
-Potentiellement, toutes les variables accessibles par Jeedom sont exploitables par le plugin script :
+-  dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON_SCRIPT_PHP.php list , l'argument "list" est une chaine de caractère (fixe) récupérée dans le script php grâce à la fonction suivante $argv[1] cf : google pour plus de détail sur la récupération de paramêtre en PHP
+-  Nous avons vu précédement qu'il était possible de récupérer des valeurs dynamiques à partir de Jeedom. 
+* dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py VOL #slider# , l'argument "#slider#" est récupéré de cette façon argv[2]Au moment de l'exécution du script par jeedom, il remplacera automatiquement #slider# par la valeur (numérique) du slider. cf : google pour plus de détail sur la récupération de paramètre en Python.
+* Plus fort : Potentiellement, toutes les variables accessibles par Jeedom sont exploitables par le plugin script :
 Vous voulez récupérer la valeur de la température de la cuisine pour l'historiser en dehors de Jeedom !
 Passer #[CUISINE][CUISINE][Température]# comme paramètre au script et Jeedom le remplacera par la valeur lue lors de l'envoi.
 
