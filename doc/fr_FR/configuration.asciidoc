@@ -1,16 +1,16 @@
 image::../images/script.JPG[]
 
-=== Définition
+==== Définition
 Ce plugin est un peu la "boite à outils" intégrée de Jeedom, il est un des liens de communication depuis/vers l'extérieur.
 Je vais tacher d'expliquer au travers d'exemples concrets, tirés de mon expérience personnelle, et fonctionnels à l'écriture de ce wiki, comment se servir au mieux de ses nombreuses options.
 
-=== Généralités
+==== Généralités
 
 Il permet entre autre de faire exécuter à Jeedom des fichiers de programmation type php (.php), python(.py), ruby (.rb) et des scripts shell (.sh)
 Jeedom se base sur le nom de l'extension pour exécuter les scripts.
 
 
-=== Liste et définition des options disponibles
+==== Liste et définition des options disponibles
 
 - Dans cette partie (rébarbative), je vais expliquer chaque paramètre afin d'être le plus exaustif possible, les exemples suivront.
 - Le champ NOM : Pas un des plus compliqués car ce champ contient le nom que vous souhaité donner à votre commande/information
@@ -21,7 +21,7 @@ Jeedom se base sur le nom de l'extension pour exécuter les scripts.
 * Le type XML : permet de rapatrier des informations encodées en XML depuis un équipement distant. L'exemple qui servira de support au type XML sera la configuration du script pour interroger un Eco-Device
 * Le type JSON : permet de rapatrier des informations encodées en JSON depuis un équipement distant. L'exemple qui servira de support au type JSON sera la configuration du script pour interroger Sickbeard (ou XBMC).
 
-==== Le champ type
+===== Le champ type
 
 - 1er choix : le choix info
 Ce choix consiste à indiquer à Jeedom qu'il doit recevoir (ou pas) une information du script.
@@ -31,13 +31,13 @@ Note : si le champ "auto-actualisation" n'est pas renseigné, le rafraîchisseme
 - 2e choix : le choix action
 Ce choix consiste à indiquer à Jeedom qu'il doit envoyer une information au script.
 
-==== Le champ sous-type
+===== Le champ sous-type
 - Le sous-type associé "défaut" : rien de particulier
 - Le sous-type associé "slider" : permet de récupérer de Jeedom vers le script une valeur numérique "slidée" par l'utilisateur
 - Le sous-type associé "message" et "title" : permet de récupérer de Jeedom vers le script un texte (plutôt 2) saisi par l'utilisateur
 - Le sous-type associé "couleur" : permet de récupérer de Jeedom vers le script un code couleur (au format HTML) saisi par l'utilisateur
 
-==== Le champ requête
+===== Le champ requête
 - Ce champ doit contenir la requête en elle-même, ou le chemin du script si le champ "type de script" est script.
 Le bouton "parcourir" : permet de sélectionner le fichier contenu dans le répertoire interne à Jeedom.
 TIPS :  
@@ -50,10 +50,10 @@ TIPS :
 -Le bouton "Supprimer" : permet de supprimer un fichier de commande.
 -Le bouton "Partager" : un des plus importants, et après avoir validé les CGU développeurs dans votre profil sur le market, permet de partager votre création au restant de la communauté. 
 
-==== Le champ Options
+===== Le champ Options
 Champ aux options variables suivant le choix du type de script.
 
-==== Le choix http
+===== Le choix http
 Si le choix du type de script est "http":
  
 - une case à cocher "Ne pas vérifier SSL" : si cochée, permet à Jeedom de ne pas envoyer les champs "utilisateur" et "Password" à la requête. Jeedom ne cherchera pas à s'identifier au site/machine distant.
@@ -64,24 +64,24 @@ Si le choix du type de script est "http":
 - un champ "utilisateur" : pour renseigner un nom d'utilisateur
 - un champ "Password" : pour renseigner un mot de passe
 
-==== Le choix XML
+===== Le choix XML
 
 - le champ option possède un champ "URL du fichier XML" : ce champ contient donc le lien vers la machine hébergeant l'XML en question
 
-==== Le choix JSON
+===== Le choix JSON
 
 - le champ option possède	un champ "URL du fichier JSON" : ce champ contient donc le lien vers la machine hébergeant le JSON en question
 
-=== Le champ Divers
+==== Le champ Divers
 
 - Un champ "Unité" : Ce sera l'unité physique associée à la valeur (W, Kw, V, A, lux, km/h ...) pour affichage dans les widgets associés
 - Un champ "Min" et "Max" : permet d'adapter les échelles sur les widgets
 
-==== Exemples
+===== Exemples
 
-===== Type de Script : http
+====== Type de Script : http
 
-====== Exemple 1 : Pilotage d'une Vera
+======= Exemple 1 : Pilotage d'une Vera
 L'exemple est basé sur une Vera qui consiste à piloter une ampoule dimmable.
 Je ne vais pas m'étendre sur la manière de piloter une Vera par requête http, le forum TLD est rempli de réponses.
 De plus, l'exemple correspond à mon type de matériel et devra être adapté au vôtre.
@@ -115,12 +115,12 @@ Le bouton "test" vous permet de tester votre commande !
 Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60% pour une lumière tamisée,
 créer une troisième à 30% pour les déplacements nocturnes à associer dans un scénario ...
 
-====== Association à un virtuel
+======= Association à un virtuel
 Lorsque vous aurez multiplié les scripts, il est intéressant de regrouper les actions.
 Par exemple : regrouper tous les ordre d'extinction ou stop de chaque équipement dans un seul bouton sur le dashboard
 Pour cela, regrouper toutes les infos dans un virtuel !
 
-====== Exemple 2 : Envoyer une notification à XBMC
+======= Exemple 2 : Envoyer une notification à XBMC
 - But : Envoyer une notification vers XBMC lors de l'ouverture d'une porte d'entrée.
 
 * NOM : PUSH XBMC
@@ -142,7 +142,7 @@ Tester sur un scénario #[EXTERIEUR][EXTERIEUR][TEMPERATURE]# < 15 par exemple
 
 Action : Lancer le script, via un virtuel, lié à votre script !   
 
-===== Type de Script : script
+====== Type de Script : script
 Le plus sympa mais pas le plus simple à expliquer.
 
 Prérequis : savoir développer un script en php, python ou ruby.
@@ -169,7 +169,7 @@ Vue de configuration Jeedom:
 
 Précisions : le sous type Numérique permet donc de remonter une valeur numérique à Jeedom!
 
-====== Les paramètres
+======= Les paramètres
 
 - Récupérer les infos de Jeedom pour les exploiter dans un script.La récupération dépend du type de script utilisé :  
 
@@ -195,7 +195,7 @@ TIPS : Loïc préconise de tester les paramètres de cette façon dans le script
  } 
 ----
 
-===== Type de Script : XML
+====== Type de Script : XML
 
 Pour expliquer, je vais me baser sur les informations XML issues d'un Ecodevice CGE. L’accès à ce fichier est possible grâce à l'URL suivante :
 
@@ -243,7 +243,7 @@ la syntaxe est :
 
 leds > 1 > led1 qui donne en réponse tata, 1 étant le numéro de rang du tableau ! 
 
-===== Type de Script : JSON
+====== Type de Script : JSON
 A l’instar du type XML, il est possible de lire des informations issues d'un retour JSON.
 
 Pour expliquer, je vais me baser sur les informations JSON avec l'application Sickbeard (bouh ... cpasbien) mais ici seule la technique prime, pas l'outil !
@@ -320,7 +320,7 @@ Inconvénients :
 
 MAIS il y a une petite subtilité grâce à la variable #state#, ça fera l'objet d'un paragraphe particulier.
 
-===== La variable #state#
+====== La variable #state#
 Cette variable est le lien entre nos scripts et les widgets associés.
 
 Créons un nouveau widget, comme ceci par exemple
