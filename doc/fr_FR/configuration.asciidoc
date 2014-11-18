@@ -77,11 +77,9 @@ Si le choix du type de script est "http":
 - Un champ "Unité" : Ce sera l'unité physique associée à la valeur (W, Kw, V, A, lux, km/h ...) pour affichage dans les widgets associés
 - Un champ "Min" et "Max" : permet d'adapter les échelles sur les widgets
 
-===== Exemples
+===== Exemples : http
 
-====== Type de Script : http
-
-======= Exemple 1 : Pilotage d'une Vera
+====== Exemples http : Pilotage d'une Vera
 L'exemple est basé sur une Vera qui consiste à piloter une ampoule dimmable.
 Je ne vais pas m'étendre sur la manière de piloter une Vera par requête http, le forum TLD est rempli de réponses.
 De plus, l'exemple correspond à mon type de matériel et devra être adapté au vôtre.
@@ -115,12 +113,12 @@ Le bouton "test" vous permet de tester votre commande !
 Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60% pour une lumière tamisée,
 créer une troisième à 30% pour les déplacements nocturnes à associer dans un scénario ...
 
-======= Association à un virtuel
+====== Association à un virtuel
 Lorsque vous aurez multiplié les scripts, il est intéressant de regrouper les actions.
 Par exemple : regrouper tous les ordre d'extinction ou stop de chaque équipement dans un seul bouton sur le dashboard
 Pour cela, regrouper toutes les infos dans un virtuel !
 
-======= Exemple 2 : Envoyer une notification à XBMC
+====== Exemple 2 : Envoyer une notification à XBMC
 - But : Envoyer une notification vers XBMC lors de l'ouverture d'une porte d'entrée.
 
 * NOM : PUSH XBMC
@@ -169,7 +167,7 @@ Vue de configuration Jeedom:
 
 Précisions : le sous type Numérique permet donc de remonter une valeur numérique à Jeedom!
 
-======= Les paramètres
+====== Les paramètres
 
 - Récupérer les infos de Jeedom pour les exploiter dans un script.La récupération dépend du type de script utilisé :  
 
