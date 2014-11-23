@@ -22,7 +22,7 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 </style>
 
 <div class="row row-overflow">
-    <div class="col-lg-2">
+    <div class="col-lg-2 col-md-3 col-sm-4">
         <div class="bs-sidebar">
             <ul id="ul_eqLogic" class="nav nav-list bs-sidenav">
                 <a class="btn btn-default btn-sm tooltips" id="bt_getFromMarket" title="Récuperer du market" style="width : 100%"><i class="fa fa-shopping-cart"></i> {{Market}}</a>
@@ -37,7 +37,7 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
             </ul>
         </div>
     </div>
-    <div class="col-lg-10 eqLogic" style="border-left: solid 1px #EEE; padding-left: 25px;display: none;">
+    <div class="col-lg-10 col-md-9 col-sm-8 eqLogic" style="border-left: solid 1px #EEE; padding-left: 25px;display: none;">
         <form class="form-horizontal">
             <fieldset>
                 <legend>
@@ -45,15 +45,15 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
                     <a class="btn btn-xs btn-default pull-right eqLogicAction" data-action="copy"><i class="fa fa-files-o"></i> {{Dupliquer}}</a>
                 </legend>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">{{Nom de l'équipement script}}</label>
-                    <div class="col-lg-3">
+                    <label class="col-sm-3 control-label">{{Nom de l'équipement script}}</label>
+                    <div class="col-sm-3">
                         <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
                         <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement script}}"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label" >{{Objet parent}}</label>
-                    <div class="col-lg-3">
+                    <label class="col-sm-3 control-label" >{{Objet parent}}</label>
+                    <div class="col-sm-3">
                         <select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
                             <option value="">{{Aucun}}</option>
                             <?php
@@ -65,8 +65,8 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label">{{Catégorie}}</label>
-                    <div class="col-lg-8">
+                    <label class="col-sm-3 control-label">{{Catégorie}}</label>
+                    <div class="col-sm-8">
                         <?php
                         foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
                             echo '<label class="checkbox-inline">';
@@ -78,25 +78,25 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-3 control-label"></label>
-                    <div class="col-lg-1">
+                    <label class="col-sm-3 control-label"></label>
+                    <div class="col-sm-1">
                         <label class="checkbox-inline">
                             <input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked/> Activer 
                         </label>
                     </div>
-                    <label class="col-lg-1 control-label"></label>
-                    <div class="col-lg-1">
+                    <label class="col-sm-1 control-label"></label>
+                    <div class="col-sm-1">
                         <label class="checkbox-inline">
                             <input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/> Visible 
                         </label>
                     </div>
                 </div>
                 <div class="form-group expertModeVisible">
-                    <label class="col-lg-3 control-label">{{Auto-actualisation (cron)}}</label>
-                    <div class="col-lg-2">
+                    <label class="col-sm-3 control-label">{{Auto-actualisation (cron)}}</label>
+                    <div class="col-sm-2">
                         <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Auto-actualisation (cron)}}"/>
                     </div>
-                    <div class="col-lg-1">
+                    <div class="col-sm-1">
                         <i class="fa fa-question-circle cursor bt_pageHelp floatright" data-name="cronSyntaxe"></i>
                     </div>
                 </div>
