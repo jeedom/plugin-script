@@ -248,7 +248,7 @@ class scriptCmd extends cmd {
                     if (isset($json[$tag])) {
                         $json = $json[$tag];
                     } else if (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
-                        $json = $json[$tag];
+                        $json = $json[intval($tag)];
                     } else {
                         $json = '';
                         break;
@@ -291,7 +291,7 @@ class scriptCmd extends cmd {
                     if (isset($json[$tag])) {
                         $json = $json[$tag];
                     } else if (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
-                        $json = $json[$tag];
+                        $json = $json[intval($tag)];
                     } else {
                         $json = '';
                         break;
