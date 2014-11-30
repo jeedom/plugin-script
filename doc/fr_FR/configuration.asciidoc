@@ -301,7 +301,7 @@ Exemple de retour :
  }
 ----
 
-Dans l'hypothèse ou nous voudrions retourner le show_name du 3e élément en php (repéré ICI) , il faudrait faire : data[2]->show_name, l'index du tableau de retour commençant à Zéro.
+Dans l'hypothèse ou nous voudrions retourner le show_name du 3e élément en php (repéré ICI) , il faudrait faire : data > 2 >show_name, l'index du tableau de retour commençant à Zéro.
 
 Dans cette exemple, le bouton "Tester" nous retournera "Totovaplusauski mais Totovaalaplage S1E1".
 
