@@ -1,4 +1,4 @@
-image::../images/script.JPG[]
+image::../images/script_screenshot1.JPG[]
 
 ==== Définition
 Ce plugin est un peu la "boite à outils" intégrée de Jeedom, il est un des liens de communication depuis/vers l'extérieur.
