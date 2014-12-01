@@ -183,7 +183,7 @@ class scriptCmd extends cmd {
                     break;
             }
         }
-        $request = jeedom::evaluateExpression($request);
+        $request = scenarioExpression::setTags($request);
 
         switch ($this->getConfiguration('requestType')) {
             case 'http' :
@@ -284,7 +284,6 @@ class scriptCmd extends cmd {
                     $json = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
                     $json = json_decode($json, true);
                 }
-
                 $tags = explode('>', $request);
                 foreach ($tags as $tag) {
                     $tag = trim($tag);
