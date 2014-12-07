@@ -30,8 +30,9 @@ class script extends eqLogic {
                     if ($c->isDue()) {
                         try {
                             foreach ($eqLogic->getCmd('info') as $cmd) {
+                                log::add('script', 'debug', 'Rafrachissement de : ' . $cmd->getHumanName());
                                 $value = $cmd->formatValue($cmd->execute());
-                                if ($cmd->execCmd(null, 2) != $value) {
+                                if ($cmd->execCmd() != $value) {
                                     $cmd->setCollectDate('');
                                     $cmd->event($value);
                                 }
