@@ -16,6 +16,7 @@ include_file('3rdparty', 'codemirror/mode/perl/perl', 'js');
 
 sendVarToJS('eqType', 'script');
 sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir', 'script'));
+$eqLogics = eqLogic::byType('script');
 ?>
 <style>
     .CodeMirror-scroll {height: 100%; overflow-y: auto; overflow-x: auto;}
@@ -27,21 +28,45 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
             <ul id="ul_eqLogic" class="nav nav-list bs-sidenav">
                 <a class="btn btn-default btn-sm tooltips" id="bt_getFromMarket" title="Récuperer du market" style="width : 100%"><i class="fa fa-shopping-cart"></i> {{Market}}</a>
 
-                <a class="btn btn-default eqLogicAction" style="width : 100%;margin-top : 5px;margin-bottom: 5px;" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter un équipement}}</a>
+                <a class="btn btn-default eqLogicAction" style="width : 100%;margin-top : 5px;margin-bottom: 5px;" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter un script}}</a>
                 <li class="filter" style="margin-bottom: 5px;"><input class="filter form-control input-sm" placeholder="{{Rechercher}}" style="width: 100%"/></li>
                 <?php
-                foreach (eqLogic::byType('script') as $eqLogic) {
+                foreach ($eqLogics as $eqLogic) {
                     echo '<li class="cursor li_eqLogic" data-eqLogic_id="' . $eqLogic->getId() . '"><a>' . $eqLogic->getHumanName(true) . '</a></li>';
                 }
                 ?>
             </ul>
         </div>
     </div>
+
+    <div class="col-lg-10 col-md-9 col-sm-8 eqLogicThumbnailDisplay" style="border-left: solid 1px #EEE; padding-left: 25px;">
+        <legend>{{Mes scripts}}
+        </legend>
+        <?php
+        if (count($eqLogics) == 0) {
+            echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Vous n'avez pas encore de script, cliquez sur Ajouter  un script pour commencer}}</span></center>";
+        } else {
+            ?>
+            <div class="eqLogicThumbnailContainer">
+                <?php
+                foreach ($eqLogics as $eqLogic) {
+                    echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >';
+                    echo "<center>";
+                    echo '<img src="plugins/script/doc/images/script_icon.png" height="105" width="95" />';
+                    echo "</center>";
+                    echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;"><center>' . $eqLogic->getHumanName(true, true) . '</center></span>';
+                    echo '</div>';
+                }
+                ?>
+            </div>
+        <?php } ?>
+    </div>
+
     <div class="col-lg-10 col-md-9 col-sm-8 eqLogic" style="border-left: solid 1px #EEE; padding-left: 25px;display: none;">
         <form class="form-horizontal">
             <fieldset>
                 <legend>
-                    {{Général}}
+                    <i class="fa fa-arrow-circle-left eqLogicAction cursor" data-action="returnToThumbnailDisplay"></i> {{Général}}
                     <a class="btn btn-xs btn-default pull-right eqLogicAction" data-action="copy"><i class="fa fa-files-o"></i> {{Dupliquer}}</a>
                 </legend>
                 <div class="form-group">
