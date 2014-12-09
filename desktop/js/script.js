@@ -24,19 +24,19 @@ $("#md_browseScriptFile").dialog({
     height: (jQuery(window).height() - 150),
 });
 
-$("#table_cmd tbody").delegate(".cmdAttr[data-l1key=configuration][data-l2key=requestType]", 'change', function(event) {
+$("#table_cmd tbody").delegate(".cmdAttr[data-l1key=configuration][data-l2key=requestType]", 'change', function (event) {
     $(this).closest('tr').find('.requestTypeConfig').hide();
     $(this).closest('tr').find('.requestTypeConfig[data-type=' + $(this).value() + ']').show();
 });
 
-$("#table_cmd tbody").delegate(".browseScriptFile", 'click', function(event) {
+$("#table_cmd tbody").delegate(".browseScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
     $("#md_browseScriptFile").dialog('open');
     $('#div_browseScriptFileTree').fileTree({
         root: '/',
         script: '3rdparty/jquery.fileTree/jqueryFileTree.php?dir=' + encodeURIComponent(userScriptDir),
         folderEvent: 'click'
-    }, function(file) {
+    }, function (file) {
         $("#md_browseScriptFile").dialog('close');
         tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').value(file);
     });
@@ -51,7 +51,7 @@ $("#md_editScriptFile").dialog({
     width: (jQuery(window).width() - 150)
 });
 
-$("#table_cmd tbody").delegate(".editScriptFile", 'click', function(event) {
+$("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
     var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
     if (path.indexOf(' ') > 0) {
@@ -65,12 +65,12 @@ $("#table_cmd tbody").delegate(".editScriptFile", 'click', function(event) {
     if (editor != null) {
         editor.getDoc().setValue(data.content);
         editor.setOption("mode", data.mode);
-        setTimeout(function() {
+        setTimeout(function () {
             editor.refresh();
         }, 1);
     } else {
         $('#ta_editScriptFile').val(data.content);
-        setTimeout(function() {
+        setTimeout(function () {
             editor = CodeMirror.fromTextArea(document.getElementById("ta_editScriptFile"), {
                 lineNumbers: true,
                 mode: data.mode,
@@ -82,10 +82,10 @@ $("#table_cmd tbody").delegate(".editScriptFile", 'click', function(event) {
     }
 
     $("#md_editScriptFile").dialog('option', 'buttons', {
-        "Annuler": function() {
+        "Annuler": function () {
             $(this).dialog("close");
         },
-        "Enregistrer": function() {
+        "Enregistrer": function () {
             if (saveScriptFile(path, editor.getValue())) {
                 $(this).dialog("close");
             }
@@ -95,9 +95,9 @@ $("#table_cmd tbody").delegate(".editScriptFile", 'click', function(event) {
 });
 
 
-$("#table_cmd tbody").delegate(".newScriptFile", 'click', function(event) {
+$("#table_cmd tbody").delegate(".newScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
-    bootbox.prompt("Nom du script ?", function(result) {
+    bootbox.prompt("Nom du script ?", function (result) {
         if (result !== null) {
             var path = addUserScript(result);
             if (path !== false) {
@@ -109,21 +109,21 @@ $("#table_cmd tbody").delegate(".newScriptFile", 'click', function(event) {
     });
 });
 
-$("#table_cmd tbody").delegate(".removeScriptFile", 'click', function(event) {
+$("#table_cmd tbody").delegate(".removeScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
     var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
     if (path.indexOf(' ') > 0) {
         path = path.substr(0, path.indexOf(' '));
     }
     $.hideAlert();
-    bootbox.confirm('{{Etes-vous sûr de vouloir supprimer le script :}} <span style="font-weight: bold ;">' + path + '</span> ?', function(result) {
+    bootbox.confirm('{{Etes-vous sûr de vouloir supprimer le script :}} <span style="font-weight: bold ;">' + path + '</span> ?', function (result) {
         if (result) {
             tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val('');
         }
     });
 });
 
-$("#table_cmd tbody").delegate('.bt_shareOnMarket', 'click', function() {
+$("#table_cmd tbody").delegate('.bt_shareOnMarket', 'click', function () {
     var tr = $(this).closest('tr');
     var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
     var logicalId = getLogicalIdFromPath(path);
@@ -135,7 +135,7 @@ $("#table_cmd tbody").delegate('.bt_shareOnMarket', 'click', function() {
     $('#md_modal').load('index.php?v=d&modal=market.send&type=script&logicalId=' + encodeURI(logicalId) + '&name=' + encodeURI(logicalId) + "&hidden=" + encodeURI(path)).dialog('open');
 });
 
-$('#bt_getFromMarket').on('click', function() {
+$('#bt_getFromMarket').on('click', function () {
     $('#md_modal').dialog({title: "{{Partager sur le market}}"});
     $('#md_modal').load('index.php?v=d&modal=market.list&type=script').dialog('open');
 });
@@ -191,7 +191,7 @@ function addCmdToTable(_cmd) {
     tr += '<div class="requestTypeConfig" data-type="http">';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" />{{Ne pas vérifier SSL}}<br/>';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" />{{Autoriser reponse vide}}';
-     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportHttpError" />{{Ne jamais remonter les erreurs}}';
+    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportHttpError" />{{Ne jamais remonter les erreurs}}';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout}}" title="Par défaut 2 secondes"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxHttpRetry" placeholder="{{Essai maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
@@ -249,6 +249,7 @@ function addCmdToTable(_cmd) {
     tr += '</td>';
     tr += '<td>';
     if (is_numeric(_cmd.id)) {
+        tr += '<a class="btn btn-default btn-xs cmdAction expertModeVisible" data-action="configure"><i class="fa fa-cogs"></i></a> ';
         tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';
     }
     tr += '<i class="fa fa-minus-circle pull-right cmdAction cursor" data-action="remove"></i></td>';
@@ -294,10 +295,10 @@ function loadScriptFile(_path) {
         },
         dataType: 'json',
         async: false,
-        error: function(request, status, error) {
+        error: function (request, status, error) {
             handleAjaxError(request, status, error, $('#div_alert'));
         },
-        success: function(data) { // si l'appel a bien fonctionné
+        success: function (data) { // si l'appel a bien fonctionné
             if (data.state != 'ok') {
                 $('#div_alert').showAlert({message: data.result, level: 'danger'});
                 return false;
@@ -341,10 +342,10 @@ function saveScriptFile(_path, _content) {
         },
         dataType: 'json',
         async: false,
-        error: function(request, status, error) {
+        error: function (request, status, error) {
             handleAjaxError(request, status, error, $('#div_editScriptFileAlert'));
         },
-        success: function(data) { // si l'appel a bien fonctionné
+        success: function (data) { // si l'appel a bien fonctionné
             if (data.state != 'ok') {
                 $('#div_editScriptFileAlert').showAlert({message: data.result, level: 'danger'});
                 return;
@@ -368,10 +369,10 @@ function addUserScript(_name) {
         },
         dataType: 'json',
         async: false,
-        error: function(request, status, error) {
+        error: function (request, status, error) {
             handleAjaxError(request, status, error, $('#div_newUserScriptAlert'));
         },
-        success: function(data) { // si l'appel a bien fonctionné
+        success: function (data) { // si l'appel a bien fonctionné
             if (data.state != 'ok') {
                 $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
                 return;
@@ -394,10 +395,10 @@ function removeScript(_path) {
         },
         dataType: 'json',
         async: false,
-        error: function(request, status, error) {
+        error: function (request, status, error) {
             handleAjaxError(request, status, error, $('#div_newUserScriptAlert'));
         },
-        success: function(data) { // si l'appel a bien fonctionné
+        success: function (data) { // si l'appel a bien fonctionné
             if (data.state != 'ok') {
                 $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
                 return;
