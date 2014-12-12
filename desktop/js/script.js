@@ -244,6 +244,7 @@ function addCmdToTable(_cmd) {
     tr += '<span><input type="checkbox" class="cmdAttr" data-l1key="isHistorized" /> {{Historiser}}<br/></span>';
     tr += '<span><input type="checkbox" class="cmdAttr" data-l1key="isVisible" checked/> {{Afficher}}<br/></span>';
     tr += '<span class="expertModeVisible"><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary" /> {{Inverser}}<br/></span>';
+    tr += '<span><input type="checkbox" class="cmdAttr expertModeVisible" data-l1key="eventOnly" /> Evénement<br/></span>';
     tr += '<span><input type="checkbox" class="cmdAttr" data-l1key="cache" data-l2key="enable" checked /> {{Autoriser memcache}}</span>';
     tr += '<input style="width : 100px;" class="tooltips cmdAttr form-control input-sm" data-l1key="cache" data-l2key="lifetime" placeholder="{{Lifetime cache}}" title="Lifetime cache">';
     tr += '</td>';
