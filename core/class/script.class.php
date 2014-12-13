@@ -32,10 +32,10 @@ class script extends eqLogic {
                             foreach ($eqLogic->getCmd('info') as $cmd) {
                                 $value = $cmd->formatValue($cmd->execute());
                                 if ($cmd->execCmd() != $value) {
-                                    log::add('script', 'debug', 'Rafrachissement de : ' . $cmd->getHumanName() . ' => Debut');
+                                    log::add('script', 'debug', 'Rafraîchissement de : ' . $cmd->getHumanName() . ' => Debut');
                                     $cmd->setCollectDate('');
                                     $cmd->event($value);
-                                    log::add('script', 'debug', 'Rafrachissement de : ' . $cmd->getHumanName() . ' => Fin, value => '.$value);
+                                    log::add('script', 'debug', 'Rafraîchissement de : ' . $cmd->getHumanName() . ' => Fin, value => '.$value);
                                 }
                             }
                         } catch (Exception $exc) {
@@ -69,7 +69,7 @@ class script extends eqLogic {
     public static function getFromMarket(&$market, $_path) {
         $cibDir = calculPath(config::byKey('userScriptDir', 'script'));
         if (!file_exists($cibDir)) {
-            throw new Exception(__('Impossible d\'installer le script le repertoire n\existe pas : ', __FILE__) . $cibDir);
+            throw new Exception(__('Impossible d\'installer le script. Le dossier n\'existe pas : ', __FILE__) . $cibDir);
         }
         $zip = new ZipArchive;
         $res = $zip->open($_path);
@@ -79,34 +79,34 @@ class script extends eqLogic {
         } else {
             switch ($res) {
                 case ZipArchive::ER_EXISTS:
-                    $ErrMsg = "File already exists.";
+                    $ErrMsg = "Le fichier existe déjà.";
                     break;
                 case ZipArchive::ER_INCONS:
-                    $ErrMsg = "Zip archive inconsistent.";
+                    $ErrMsg = "L'archive est inconsistante.";
                     break;
                 case ZipArchive::ER_MEMORY:
-                    $ErrMsg = "Malloc failure.";
+                    $ErrMsg = "Echec d'allocation mémoire (malloc).";
                     break;
                 case ZipArchive::ER_NOENT:
-                    $ErrMsg = "No such file.";
+                    $ErrMsg = "Le fichier n'existe pas.";
                     break;
                 case ZipArchive::ER_NOZIP:
-                    $ErrMsg = "Not a zip archive.";
+                    $ErrMsg = "Ce n'est pas une archive zip.";
                     break;
                 case ZipArchive::ER_OPEN:
-                    $ErrMsg = "Can't open file.";
+                    $ErrMsg = "Le fichier ne peut pas être ouvert.";
                     break;
                 case ZipArchive::ER_READ:
-                    $ErrMsg = "Read error.";
+                    $ErrMsg = "Erreur de lecture.";
                     break;
                 case ZipArchive::ER_SEEK:
-                    $ErrMsg = "Seek error.";
+                    $ErrMsg = "Erreur de recherche.";
                     break;
                 default:
                     $ErrMsg = "Unknow (Code $res)";
                     break;
             }
-            throw new Exception(__('Impossible de décompresser le zip : ', __FILE__) . $_path . 'Erreur : ' . $ErrMsg);
+            throw new Exception(__('Impossible de décompresser l\'archive zip : ', __FILE__) . $_path . 'Erreur : ' . $ErrMsg);
         }
         $scriptPath = realpath(dirname(__FILE__) . '/../../../../' . config::byKey('userScriptDir', 'script') . '/' . $market->getLogicalId());
         if (!file_exists($scriptPath)) {
@@ -140,20 +140,20 @@ class scriptCmd extends cmd {
     /*     * *************************Attributs****************************** */
 
 
-    /*     * ***********************Methode static*************************** */
+    /*     * ***********************Méthodes statiques*************************** */
 
 
-    /*     * *********************Methode d'instance************************* */
+    /*     * *********************Méthodes d'instance************************* */
 
     public function preSave() {
         if ($this->getConfiguration('request') == '') {
-            throw new Exception(__('Le champ requête ne peut être vide', __FILE__));
+            throw new Exception(__('Le champ requête ne peut pas être vide', __FILE__));
         }
         if ($this->getConfiguration('requestType') == '') {
-            throw new Exception(__('Le champ requête type ne peut être vide', __FILE__));
+            throw new Exception(__('Le champ requête type ne peut pas être vide', __FILE__));
         }
         if ($this->getConfiguration('requestType') == 'xml' && $this->getType() == 'action') {
-            throw new Exception(__('Vous ne pouvez avoir un script de type XML et action', __FILE__));
+            throw new Exception(__('Vous ne pouvez pas avoir un script de type XML et action', __FILE__));
         }
     }
 
@@ -161,7 +161,7 @@ class scriptCmd extends cmd {
         $result = false;
         $request = str_replace('#API#', config::byKey('api'), $this->getConfiguration('request'));
         if (trim($request) == '') {
-            throw new Exception(__('La requête ne peut être vide : ', __FILE__) . print_r($this, true));
+            throw new Exception(__('La requête ne peut pas être vide : ', __FILE__) . print_r($this, true));
         }
         if ($_options != null) {
             switch ($this->getType()) {
@@ -177,7 +177,7 @@ class scriptCmd extends cmd {
                             $replace = array('#title#', '#message#');
                             $replaceBy = array(urlencode($_options['title']), urlencode($_options['message']));
                             if ($_options['message'] == '' || $_options['title'] == '') {
-                                throw new Exception(__('Le message et le sujet ne peuvent être vide', __FILE__));
+                                throw new Exception(__('Le message et le sujet ne peuvent pas être vide', __FILE__));
                             }
                             $request = str_replace($replace, $replaceBy, $request);
                             break;
