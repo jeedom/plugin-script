@@ -1,5 +1,5 @@
 [panel,danger]
-.Mes valeurs ne se rafraichissent pas toute seules
+.Mes valeurs ne se rafraîchissent pas toute seules.
 --
-Verifiez si, en mode expert, vous avez bien mis un auto-refresh
+Vérifiez si, en mode expert, vous avez bien mis un auto-refresh.
 --
