@@ -27,7 +27,7 @@ try {
     if (init('action') == 'getScriptContent') {
         $path = init('path');
         if (!file_exists($path)) {
-            throw new Exception(__('Aucune fichier trouvé : ', __FILE__) . $path);
+            throw new Exception(__('Aucun fichier trouvé : ', __FILE__) . $path);
         }
         if (!is_readable($path)) {
             throw new Exception(__('Impossible de lire : ', __FILE__) . $path);
@@ -38,7 +38,7 @@ try {
         $allowReadPath = config::byKey('allowReadDir', 'script');
         $allowReadPath[] = config::byKey('userScriptDir', 'script');
         if (!hadFileRight($allowReadPath, $path)) {
-            throw new Exception(__('Vous n\'etes pas autoriser à lire : ', __FILE__) . $path);
+            throw new Exception(__('Vous n\'êtes pas autorisé à lire : ', __FILE__) . $path);
         }
         $pathinfo = pathinfo($path);
         $return = array(
@@ -51,7 +51,7 @@ try {
     if (init('action') == 'saveScriptContent') {
         $path = init('path');
         if (!file_exists($path)) {
-            throw new Exception(__('Aucune fichier trouvé : ', __FILE__) . $path);
+            throw new Exception(__('Aucun fichier trouvé : ', __FILE__) . $path);
         }
         if (!is_writable($path)) {
             throw new Exception(__('Impossible d\'écrire dans : ', __FILE__) . $path);
@@ -62,7 +62,7 @@ try {
         $allowWritePath = config::byKey('allowWriteDir', 'script');
         $allowWritePath[] = config::byKey('userScriptDir', 'script');
         if (!hadFileRight($allowWritePath, $path)) {
-            throw new Exception(__('Vous n\'etes pas autoriser à écrire : ', __FILE__) . $path);
+            throw new Exception(__('Vous n\'êtes pas autorisé à écrire : ', __FILE__) . $path);
         }
         file_put_contents($path, init('content'));
         chmod($path, 0770);
@@ -72,7 +72,7 @@ try {
     if (init('action') == 'removeScript') {
         $path = init('path');
         if (!file_exists($path)) {
-            throw new Exception(__('Aucune fichier trouvé : ', __FILE__) . $path);
+            throw new Exception(__('Aucun fichier trouvé : ', __FILE__) . $path);
         }
         if (!is_writable($path)) {
             throw new Exception(__('Impossible d\'écrire dans : ', __FILE__) . $path);
@@ -83,7 +83,7 @@ try {
         $allowRemovePath = config::byKey('allowRemoveDir', 'script');
         $allowRemovePath[] = config::byKey('userScriptDir', 'script');
         if (!hadFileRight($allowRemovePath, $path)) {
-            throw new Exception(__('Vous n\'etes pas autoriser supprimer : ', __FILE__) . $path);
+            throw new Exception(__('Vous n\'êtes pas autorisé à supprimer : ', __FILE__) . $path);
         }
         unlink($path);
         ajax::success();
@@ -98,7 +98,7 @@ try {
         ajax::success($path);
     }
 
-    throw new Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));
+    throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
 } catch (Exception $e) {
     ajax::error(displayExeption($e), $e->getCode());
 }
