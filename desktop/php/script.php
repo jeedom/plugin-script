@@ -26,7 +26,7 @@ $eqLogics = eqLogic::byType('script');
     <div class="col-lg-2 col-md-3 col-sm-4">
         <div class="bs-sidebar">
             <ul id="ul_eqLogic" class="nav nav-list bs-sidenav">
-                <a class="btn btn-default btn-sm tooltips" id="bt_getFromMarket" title="Récuperer du market" style="width : 100%"><i class="fa fa-shopping-cart"></i> {{Market}}</a>
+                <a class="btn btn-default btn-sm tooltips" id="bt_getFromMarket" title="Récupérer du market" style="width : 100%"><i class="fa fa-shopping-cart"></i> {{Market}}</a>
 
                 <a class="btn btn-default eqLogicAction" style="width : 100%;margin-top : 5px;margin-bottom: 5px;" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter un script}}</a>
                 <li class="filter" style="margin-bottom: 5px;"><input class="filter form-control input-sm" placeholder="{{Rechercher}}" style="width: 100%"/></li>
@@ -44,7 +44,7 @@ $eqLogics = eqLogic::byType('script');
         </legend>
         <?php
         if (count($eqLogics) == 0) {
-            echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Vous n'avez pas encore de script, cliquez sur Ajouter  un script pour commencer}}</span></center>";
+            echo "<br/><br/><br/><center><span style='color:#767676;font-size:1.2em;font-weight: bold;'>{{Vous n'avez pas encore de script. Cliquez sur Ajouter un script pour commencer}}</span></center>";
         } else {
             ?>
             <div class="eqLogicThumbnailContainer">
@@ -133,8 +133,8 @@ $eqLogics = eqLogic::byType('script');
         <a class="btn btn-success btn-sm cmdAction" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter une commande script}}</a><br/><br/>
         <div class="alert alert-info">
             {{ Sous type : <br/>
-            - Slider : mettre #slider# pour recupérer la valeur<br/>
-            - Color : mettre #color# pour recupérer la valeur<br/>
+            - Slider : mettre #slider# pour récupérer la valeur<br/>
+            - Color : mettre #color# pour récupérer la valeur<br/>
             - Message : mettre #title# et #message#}}
         </div>
         <table id="table_cmd" class="table table-bordered table-condensed">
