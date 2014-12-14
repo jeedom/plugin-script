@@ -17,7 +17,7 @@
 */
 
 
-//Script qui renvoit 1 si il y a internet 0 sinon
+// Script qui renvoie 1 si la connexion à internet est détectée, 0 sinon
 
 if (php_sapi_name() != 'cli' || isset($_SERVER['REQUEST_METHOD']) || !isset($_SERVER['argc'])) {
     header("Status: 404 Not Found");
