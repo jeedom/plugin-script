@@ -15,13 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
 
-#Script shell permettant de savoir si une adresse mac ou ip est présente sur le réseaux
-# Necessite arp-scan
+#Script shell permettant de savoir si une adresse mac ou ip est présente sur le réseau
+# Nécessite arp-scan
 # $1  : mac ou ip
 # $2  : adresse
-# Il faut ajouter les droits à apache (www-data) d'éxécuter la commande arp-scan
+# Il faut ajouter les droits à apache (www-data) d'exécuter la commande arp-scan
 # Dans un terminal :
-# sudo apt-get install arp-scan fping #installation du paquet permetant de scanner le réseaux et du paquet pour faire un ping rapide
+# sudo apt-get install arp-scan fping #installation du paquet permettant de scanner le réseau et du paquet pour faire un ping rapide
 # sudo visudo -s
 # Ajouter la ligne :
 # www-data ALL=NOPASSWD: /usr/bin/arp-scan
