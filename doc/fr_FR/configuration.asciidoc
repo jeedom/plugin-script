@@ -12,9 +12,9 @@ Jeedom se base sur le nom de l'extension pour exécuter les scripts.
 
 ==== Liste et définition des options disponibles
 
-- Dans cette partie (rébarbative), je vais expliquer chaque paramètre afin d'être le plus exaustif possible, les exemples suivront.
-- Le champ NOM : Pas un des plus compliqués car ce champ contient le nom que vous souhaité donner à votre commande/information
-- Le champ Icône : Pas un des plus compliqué non plus car il permet d'associer une icône à votre nom (dans ce cas Jeedom remplace le nom par l’icône dans le dashboard)
+- Dans cette partie (rébarbative), je vais expliquer chaque paramètre afin d'être le plus exhaustif possible, les exemples suivront.
+- Le champ NOM : Pas un des plus compliqués car ce champ contient le nom que vous souhaitez donner à votre commande/information
+- Le champ Icône : Pas un des plus compliqués non plus car il permet d'associer une icône à votre nom (dans ce cas Jeedom remplace le nom par l’icône dans le dashboard)
 - Le champ type de script : 4 options possibles
 * Le type http : permet d'envoyer une requête vers un équipement externe sans forcément attendre un retour de cette commande. L'exemple qui servira de support au type http sera la configuration d'une requête vers une Vera pour allumer une lumière.
 * Le type script : sert principalement à lancer des scripts internes à Jeedom. L'exemple qui servira de support au type script sera la configuration du script de monitoring température du raspberry disponible sur le market.
@@ -28,7 +28,7 @@ Ce choix consiste à indiquer à Jeedom qu'il doit recevoir (ou pas) une informa
 L'option associée "Numérique", "binaire" ou "autre" sert à spécifier l'information de retour.
 Note : si le champ "auto-actualisation" n'est pas renseigné, le rafraîchissement par défaut de Jeedom est de 5 min ! 
 
-- 2e choix : le choix action
+- 2ème choix : le choix action
 Ce choix consiste à indiquer à Jeedom qu'il doit envoyer une information au script.
 
 ===== Le champ sous-type
@@ -39,16 +39,16 @@ Ce choix consiste à indiquer à Jeedom qu'il doit envoyer une information au sc
 
 ===== Le champ requête
 - Ce champ doit contenir la requête en elle-même, ou le chemin du script si le champ "type de script" est script.
-Le bouton "parcourir" : permet de sélectionner le fichier contenu dans le répertoire interne à Jeedom.
+Le bouton "parcourir" : permet de sélectionner le fichier contenu dans le dossier interne à Jeedom.
 TIPS :  
- Ce répertoire est accessible en SSH dans /usr/share/nginx/www/jeedom/plugins/script/core/ressources/
- Pour info, la commande SSH pour attribuer les droits www-data à un fichier est : sudo chown www-data:www-data NOMDUSCRIPT.EXTENSION. A savoir que pour exécuter un script, celui ci doit avoir les droits www-data.
+ Ce dossier est accessible en SSH dans /usr/share/nginx/www/jeedom/plugins/script/core/ressources/
+ Pour info, la commande SSH pour attribuer les droits www-data à un fichier est : sudo chown www-data:www-data NOMDUSCRIPT.EXTENSION. A savoir que pour exécuter un script, celui-ci doit avoir les droits www-data.
 - Le bouton "Editer" : permet d'éditer à l'aide d'un éditeur de code interne un des fichiers contenus dans le répertoire permettant l'accès au code du fichier.
 - Le bouton "Nouveau" : permet de créer un fichier de commande.
 TIPS : 
- Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sous peine de voir votre superbe script ne pas fonctionner.Sans extension Jeedom ne saura pas reconnaitre le langage associé à votre fichier. CF : Généralité
+ Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sous peine de voir votre superbe script ne pas fonctionner. Sans extension Jeedom ne saura pas reconnaitre le langage associé à votre fichier. CF : Généralité
 -Le bouton "Supprimer" : permet de supprimer un fichier de commande.
--Le bouton "Partager" : un des plus importants, et après avoir validé les CGU développeurs dans votre profil sur le market, permet de partager votre création au restant de la communauté. 
+-Le bouton "Partager" : un des plus importants, et après avoir validé les CGU développeurs dans votre profil sur le market, permet de partager votre création avec la communauté. 
 
 ===== Le champ Options
 Champ aux options variables suivant le choix du type de script.
@@ -56,21 +56,21 @@ Champ aux options variables suivant le choix du type de script.
 ===== Le choix http
 Si le choix du type de script est "http":
  
-- une case à cocher "Ne pas vérifier SSL" : si cochée, permet à Jeedom de ne pas envoyer les champs "utilisateur" et "Password" à la requête. Jeedom ne cherchera pas à s'identifier au site/machine distant.
-- une case à cocher "Autoriser réponse vide" : si cochée,permet à Jeedom de ne pas attendre de réponse, ou d'ignorer toute réponse à la trame émise.En général, on coche si Jeedom nous insulte d'un "Curl error : Empty reply from server"
+- une case à cocher "Ne pas vérifier SSL" : si cochée, permet à Jeedom de ne pas envoyer les champs "Utilisateur" et "Mot de passe" à la requête. Jeedom ne cherchera pas à s'identifier au site/machine distant.
+- une case à cocher "Autoriser réponse vide" : si cochée, permet à Jeedom de ne pas attendre de réponse, ou d'ignorer toute réponse à la trame émise. En général, on coche si Jeedom nous insulte d'un "Curl error : Empty reply from server"
 - une case à cocher "Ne jamais remonter les erreurs" : ???
 - un champ "timeout" : sans être renseigné, le timeout de la requête vaut par défaut 2 secondes, sinon vaut la valeur renseignée
-- un champ "Essai maximum" : 4 essais par défaut
-- un champ "utilisateur" : pour renseigner un nom d'utilisateur
-- un champ "Password" : pour renseigner un mot de passe
+- un champ "Essais au maximum" : 4 essais au maximum par défaut
+- un champ "Utilisateur" : pour renseigner un nom d'utilisateur
+- un champ "Mot de passe" : pour renseigner un mot de passe
 
 ===== Le choix XML
 
-- le champ option possède un champ "URL du fichier XML" : ce champ contient donc le lien vers la machine hébergeant l'XML en question
+- le champ option possède un champ "URL du fichier XML" : ce champ contient donc le lien vers la machine hébergeant le fichier XML en question
 
 ===== Le choix JSON
 
-- le champ option possède	un champ "URL du fichier JSON" : ce champ contient donc le lien vers la machine hébergeant le JSON en question
+- le champ option possède	un champ "URL du fichier JSON" : ce champ contient donc le lien vers la machine hébergeant le fichier JSON en question
 
 ==== Le champ Divers
 
@@ -84,17 +84,17 @@ De plus, l'exemple correspond à mon type de matériel et devra être adapté au
 TIPS : 
 
 - Une méthode pour ceux qui tâtonnent pour l'écriture de requêtes http, valider d'abord la syntaxe dans votre navigateur et seulement ensuite passer à la configuration sous Jeedom.
-- Quand un script Action ne fonctionne pas, passer en script Info/Autre permet de voir l erreur en retour.
+- Quand un script Action ne fonctionne pas, passer en script Info/Autre permet de voir l'erreur retournée.
  
-Allons - y  :
+Allons-y  :
 
 - On crée un équipement : par exemple LUM CUISINE (je pense qu'on a tous une cuisine sous la main)
 -  On l'associe à un objet parent : par exemple VERA, moi ça me permet de centraliser toutes les commandes liées à la VERA sur un unique parent.
 -  Choisissez votre catégorie
 -  Activez-le, ne cochez pas visible, on verra un peu plus tard comment l'associer à un virtuel (plus sexy, plus WAF)
 -  Pour l'auto-actualisation, ne rien mettre, il s'agit d'une commande impulsionnelle liée à un appui sur un bouton ou un scénario !
--  On ajoute une commande script
-- Penser à sauvegarder
+-  Ajoutez une commande script
+- Pensez à sauvegarder
 
 Explications :
 
@@ -102,19 +102,18 @@ Explications :
 - TYPE DE SCRIPT : http
 - TYPE : Action (c'est une commande)
 -	SOUS TYPE : défaut
--	REQUETE :  (pioché sur le forum TLD): link:http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100[ici]	
+-	REQUÊTE :  (piochée sur le forum TLD): link:http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100[ici]	
 
 TIPS : le "100" à la fin de la requête correspond au pourcentage de puissance à affecter donc mettre "0" à la fin de la requête correspond à éteindre l'ampoule
 
 Le bouton "test" vous permet de tester votre commande !
 
-Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60% pour une lumière tamisée,
-créer une troisième à 30% pour les déplacements nocturnes à associer dans un scénario ...
+Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60% pour une lumière tamisée, créer une troisième à 30% pour les déplacements nocturnes à associer dans un scénario, ...
 
 ===== Association à un virtuel
-Lorsque vous aurez multiplié les scripts, il est intéressant de regrouper les actions.
-Par exemple : regrouper tous les ordre d'extinction ou stop de chaque équipement dans un seul bouton sur le dashboard
-Pour cela, regrouper toutes les infos dans un virtuel !
+Lorsque vous aurez multiplié les scripts, il sera intéressant de regrouper les actions.
+Par exemple : regrouper tous les ordres d'extinction ou d'arrêt de chaque équipement dans un seul bouton sur le dashboard
+Pour cela, regroupez toutes les infos dans un équipement virtuel !
 
 ==== Exemple 2 : Envoyer une notification à XBMC
 - But : Envoyer une notification vers XBMC lors de l'ouverture d'une porte d'entrée.
@@ -126,22 +125,22 @@ Pour cela, regrouper toutes les infos dans un virtuel !
 *  REQUETE :  (pioché sur le net): link:http://maison-et-domotique.com/books/xbmc-afficher-des-notifications-domotiques/[source] http://IP_DE_XBMC:8080/jsonrpc?request={%22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{%22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
 A vous de tester ça dans un scénario par exemple !
 
-API XBMC : link:http://wiki.xbmc.org/index.php?title=JSON-RPC_API/v6[içi] (seuls les champs "required" sont obligatoires)     
+API XBMC : link:http://wiki.xbmc.org/index.php?title=JSON-RPC_API/v6[içi] (seuls les champs notés "required" sont obligatoires)     
 
 - But : Envoyer une notification vers XBMC lorsque la température tombe sous un certain seuil   
 
-Prendre l'exemple ci dessus :
-* remplacer "Mouvement%20Détecté" par "Risque%20de%20gel" 
-* remplacer "Porte%20Entrée" par "Température%20extérieur%20:%20#[EXTERIEUR][EXTERIEUR][TEMPERATURE]#%20" 
+Prenez l'exemple ci-dessus :
+* remplacez "Mouvement%20Détecté" par "Risque%20de%20gel" 
+* remplacez "Porte%20Entrée" par "Température%20extérieur%20:%20#[EXTERIEUR][EXTERIEUR][TEMPERATURE]#%20" 
 
-Tester sur un scénario #[EXTERIEUR][EXTERIEUR][TEMPERATURE]# < 15 par exemple 
+Testez sur un scénario #[EXTERIEUR][EXTERIEUR][TEMPERATURE]# < 15 par exemple 
 
-Action : Lancer le script, via un virtuel, lié à votre script !   
+Action : Lancez le script, via un équipement virtuel, lié à votre script !   
 
 ==== Type de Script : script
 Le plus sympa mais pas le plus simple à expliquer.
 
-Prérequis : savoir développer un script en php, python ou ruby.
+Pré-requis : savoir développer un script en php, python ou ruby.
 
 Le script de monitoring température du Raspberry va servir d'exemple pour l'utilisation du type de script : Script
 
@@ -163,17 +162,17 @@ Note : concrètement, c'est la fonction php "echo" qui va affecter la variable #
 
 Vue de configuration Jeedom:
 
-Précisions : le sous type Numérique permet donc de remonter une valeur numérique à Jeedom!
+Précisions : le sous-type Numérique permet donc de remonter une valeur numérique à Jeedom !
 
 ===== Les paramètres
 
-- Récupérer les infos de Jeedom pour les exploiter dans un script.La récupération dépend du type de script utilisé :  
+- Récupérer les infos de Jeedom pour les exploiter dans un script. La récupération dépend du type de script utilisé :  
 
 Exemple : 
 
--  dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON_SCRIPT_PHP.php list , l'argument "list" est une chaine de caractère (fixe) récupérée dans le script php grâce à la fonction suivante $argv[1] cf : google pour plus de détail sur la récupération de paramêtre en PHP
+-  dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON_SCRIPT_PHP.php list , l'argument "list" est une chaine de caractère (fixe) récupérée dans le script php grâce à la fonction suivante $argv[1] cf : Google pour plus de détails sur la récupération de paramêtre en PHP
 -  Nous avons vu précédement qu'il était possible de récupérer des valeurs dynamiques à partir de Jeedom. 
-* dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py VOL #slider# , l'argument "#slider#" est récupéré de cette façon argv[2]Au moment de l'exécution du script par jeedom, il remplacera automatiquement #slider# par la valeur (numérique) du slider. cf : google pour plus de détail sur la récupération de paramètre en Python.
+* dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py VOL #slider# , l'argument "#slider#" est récupéré de cette façon argv[2]. Au moment de l'exécution du script par jeedom, il remplacera automatiquement #slider# par la valeur (numérique) du slider. cf : Google pour plus de détails sur la récupération de paramètre en Python.
 * Plus fort : Potentiellement, toutes les variables accessibles par Jeedom sont exploitables par le plugin script :
 Vous voulez récupérer la valeur de la température de la cuisine pour l'historiser en dehors de Jeedom !
 Passer #[CUISINE][CUISINE][Température]# comme paramètre au script et Jeedom le remplacera par la valeur lue lors de l'envoi.
@@ -197,14 +196,14 @@ Pour expliquer, je vais me baser sur les informations XML issues d'un Ecodevice 
 
 http://<IP_ECODEVICE>/protect/settings/teleinfo1.xml
 
-Tout d'abord, avant de se lancer dans la configuration du plugin script XML il s'agit d'identifier correctement les infos à récupérer.
+Tout d'abord, avant de se lancer dans la configuration du plugin script XML, il s'agit d'identifier correctement les infos à récupérer.
 
 Valider l'affichage des informations à partir de votre navigateur (copie d'écran sous Chrome) 
 
 
-Pour l'exemple, nous allons chercher l'information T1_PTEC indiquant si on est en heure creuse ou en heure pleine ainsi que la valeur de l'information T1_PPAP indiquant la puissance instannée
+Pour l'exemple, nous allons chercher l'information T1_PTEC indiquant si on est en heure creuse ou en heure pleine ainsi que la valeur de l'information T1_PPAP indiquant la puissance instantanée.
 
-Voiçi donc la configuration du plugin script XML à appliquer : 
+Voici donc la configuration du plugin script XML à appliquer : 
 
 Cet exemple est relativement simple, car le retour XML n'est pas trop complexe.
 
@@ -250,7 +249,7 @@ http://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3
 
 NOTE : XXXX est le numéro de clef api propre à chaque SICKBEARD.
 
-Tout d'abord, avant de se lancer dans la configuration du plugin script JSON il s'agit d'identifier correctement les infos à récupérer. Car ici nous allons intégrer une notion de tableau dans les retours.
+Tout d'abord, avant de se lancer dans la configuration du plugin script JSON, il s'agit d'identifier correctement les infos à récupérer. Car ici nous allons intégrer une notion de tableau dans les retours.
 
 Valider l'affichage des informations à partir de votre navigateur (test sous Chrome). 
 
@@ -301,9 +300,9 @@ Exemple de retour :
  }
 ----
 
-Dans l'hypothèse ou nous voudrions retourner le show_name du 3e élément en php (repéré ICI) , il faudrait faire : data > 2 >show_name, l'index du tableau de retour commençant à Zéro.
+Dans l'hypothèse ou nous voudrions retourner le show_name du 3ème élément en php (repéré ICI) , il faudrait faire : data > 2 >show_name, l'index du tableau de retour commençant à Zéro.
 
-Dans cette exemple, le bouton "Tester" nous retournera "Totovaplusauski mais Totovaalaplage S1E1".
+Dans cet exemple, le bouton "Tester" nous retournera "Totovaplusauski mais Totovaalaplage S1E1".
 
 Précisions : 
 
@@ -319,7 +318,7 @@ MAIS il y a une petite subtilité grâce à la variable #state#, ça fera l'obje
 ==== La variable #state#
 Cette variable est le lien entre nos scripts et les widgets associés.
 
-Créons un nouveau widget, comme ceci par exemple
+Créons un nouveau widget, comme ceci par exemple :
 
 La balise #name# contient le nom du widget.
 
