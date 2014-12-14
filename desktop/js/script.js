@@ -128,7 +128,7 @@ $("#table_cmd tbody").delegate('.bt_shareOnMarket', 'click', function () {
     var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
     var logicalId = getLogicalIdFromPath(path);
     if (logicalId == '') {
-        $('#div_alert').showAlert({message: '{{Vous devez d\'abord séléctioner un script}}', level: 'danger'});
+        $('#div_alert').showAlert({message: '{{Vous devez d\'abord sélectioner un script}}', level: 'danger'});
         return;
     }
     $('#md_modal').dialog({title: "{{Partager sur le market}}"});
@@ -190,16 +190,16 @@ function addCmdToTable(_cmd) {
 
     tr += '<div class="requestTypeConfig" data-type="http">';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" />{{Ne pas vérifier SSL}}<br/>';
-    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" />{{Autoriser reponse vide}}';
+    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" />{{Autoriser réponse vide}}';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportHttpError" />{{Ne jamais remonter les erreurs}}';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout}}" title="Par défaut 2 secondes"/>';
-    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxHttpRetry" placeholder="{{Essai maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxHttpRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
     tr += '<div class="col-sm-6">';
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="http_username" placeholder="{{Utilisateur}}"/>';
     tr += '</div>';
     tr += '<div class="col-sm-6">';
-    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="http_password" placeholder="{{Password}}"/>';
+    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="http_password" placeholder="{{Mot de passe}}"/>';
     tr += '</div>';
     tr += '</div>';
     tr += '</div>';
@@ -208,13 +208,13 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlXml" placeholder="URL du fichier XML"/>';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="xmlNoSslCheck" />{{Ne pas vérifier SSL}}<br/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="xmlTimeout" placeholder="{{Timeout}}" title="Par défaut 2 secondes"/>';
-    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxXmlRetry" placeholder="{{Essai maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxXmlRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
     tr += '<div class="col-sm-6">';
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xml_username" placeholder="{{Utilisateur}}"/>';
     tr += '</div>';
     tr += '<div class="col-sm-6">';
-    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xml_password" placeholder="{{Password}}"/>';
+    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xml_password" placeholder="{{Mot de passe}}"/>';
     tr += '</div>';
     tr += '</div>';
     tr += '</div>';
@@ -223,13 +223,13 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlJson" placeholder="URL du fichier JSON"/>';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="jsonNoSslCheck" />{{Ne pas vérifier SSL}}<br/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="jsonTimeout" placeholder="{{Timeout}}" title="Par défaut 2 secondes"/>';
-    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxJsonRetry" placeholder="{{Essai maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxJsonRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
     tr += '<div class="col-sm-6">';
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="json_username" placeholder="{{Utilisateur}}"/>';
     tr += '</div>';
     tr += '<div class="col-sm-6">';
-    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="json_password" placeholder="{{Password}}"/>';
+    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="json_password" placeholder="{{Mot de passe}}"/>';
     tr += '</div>';
     tr += '</div>';
     tr += '</div>';
@@ -288,7 +288,7 @@ function loadScriptFile(_path) {
     $.hideAlert();
     var result = false;
     $.ajax({// fonction permettant de faire de l'ajax
-        type: "POST", // methode de transmission des données au fichier php
+        type: "POST", // méthode de transmission des données au fichier php
         url: "plugins/script/core/ajax/script.ajax.php", // url du fichier php
         data: {
             action: "getScriptContent",
@@ -334,7 +334,7 @@ function saveScriptFile(_path, _content) {
     $.hideAlert();
     var success = false;
     $.ajax({// fonction permettant de faire de l'ajax
-        type: "POST", // methode de transmission des données au fichier php
+        type: "POST", // méthode de transmission des données au fichier php
         url: "plugins/script/core/ajax/script.ajax.php", // url du fichier php
         data: {
             action: "saveScriptContent",
@@ -362,7 +362,7 @@ function addUserScript(_name) {
     $.hideAlert();
     var success = false;
     $.ajax({// fonction permettant de faire de l'ajax
-        type: "POST", // methode de transmission des données au fichier php
+        type: "POST", // méthode de transmission des données au fichier php
         url: "plugins/script/core/ajax/script.ajax.php", // url du fichier php
         data: {
             action: "addUserScript",
@@ -388,7 +388,7 @@ function removeScript(_path) {
     $.hideAlert();
     var success = false;
     $.ajax({// fonction permettant de faire de l'ajax
-        type: "POST", // methode de transmission des données au fichier php
+        type: "POST", // méthode de transmission des données au fichier php
         url: "plugins/script/core/ajax/script.ajax.php", // url du fichier php
         data: {
             action: "removeScript",
