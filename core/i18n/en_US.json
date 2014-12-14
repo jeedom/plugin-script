@@ -1,20 +1,20 @@
 {
     "plugins\/script\/desktop\/js\/script.js": {
-        "Etes-vous sûr de vouloir supprimer le script :": "Etes-vous sûr de vouloir supprimer le script :",
-        "Vous devez d\\'abord séléctioner un script": "Vous devez d\\'abord séléctioner un script",
-        "Partager sur le market": "Partager sur le market",
+        "Etes-vous sûr de vouloir supprimer le script :": "Are you sure to delete the script :",
+        "Vous devez d\\'abord sélectioner un script": "You must first select a script",
+        "Partager sur le market": "Share on the market",
         "Script": "Script",
         "Http": "Http",
-        "Parcourir": "Parcourir",
-        "Nouveau": "Nouveau",
-        "Voir": "Voir",
-        "Unité": "Unité",
+        "Parcourir": "Browse",
+        "Nouveau": "New",
+        "Voir": "See",
+        "Unité": "Unit",
         "Lifetime cache": "Lifetime cache",
-        "Historiser": "Historiser",
-        "Autoriser memcache": "Autoriser memcache",
-        "Tester": "Tester"
+        "Historiser": "Make history",
+        "Autoriser memcache": "Allow memcache",
+        "Tester": "Test"
     },
     "plugins\/script\/core\/class\/script.class.php": {
-        "Execution shell de \"": "Execution shell de \""
+        "Execution shell de \"": "Shell execution of \""
     }
 }
