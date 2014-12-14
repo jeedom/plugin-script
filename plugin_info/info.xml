@@ -2,7 +2,7 @@
 <info>
     <id>script</id>
     <name>Script</name>
-    <description>Plugin pour gerer des scripts (PHP,Shell)</description>
+    <description>Plugin pour gérer des scripts (PHP, Shell, ...)</description>
     <icon>fa fa-file</icon>
     <licence>AGPL</licence>
     <author>Loïc Gevrey</author>
