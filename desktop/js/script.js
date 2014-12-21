@@ -187,12 +187,12 @@ function addCmdToTable(_cmd) {
     tr += '</td>';
     tr += '<td>';
 
-
     tr += '<div class="requestTypeConfig" data-type="http">';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" />{{Ne pas vérifier SSL}}<br/>';
-    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" />{{Autoriser réponse vide}}';
-    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportHttpError" />{{Ne jamais remonter les erreurs}}';
-    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout}}" title="Par défaut 2 secondes"/>';
+    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" />{{Autoriser réponse vide}}<br/>';
+    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportHttpError" />{{Ne jamais remonter les erreurs}}<br/>';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="reponseMustContain" placeholder="{{La réponse doit contenir}}" title="Vide pour ne mettre aucun contrainte"/>';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout}}" title="Par défaut 2 secondes" style="margin-top : 5px;"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxHttpRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
     tr += '<div class="col-sm-6">';
