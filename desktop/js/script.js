@@ -192,7 +192,7 @@ function addCmdToTable(_cmd) {
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" />{{Autoriser réponse vide}}<br/>';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportHttpError" />{{Ne jamais remonter les erreurs}}<br/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="reponseMustContain" placeholder="{{La réponse doit contenir}}" title="Vide pour ne mettre aucun contrainte"/>';
-    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout}}" title="Par défaut 2 secondes" style="margin-top : 5px;"/>';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes" style="margin-top : 5px;"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxHttpRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
     tr += '<div class="col-sm-6">';
@@ -207,7 +207,7 @@ function addCmdToTable(_cmd) {
     tr += '<div class="requestTypeConfig" data-type="xml" style="display : none;">';
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlXml" placeholder="URL du fichier XML"/>';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="xmlNoSslCheck" />{{Ne pas vérifier SSL}}<br/>';
-    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="xmlTimeout" placeholder="{{Timeout}}" title="Par défaut 2 secondes"/>';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="xmlTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxXmlRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
     tr += '<div class="col-sm-6">';
@@ -222,7 +222,7 @@ function addCmdToTable(_cmd) {
     tr += '<div class="requestTypeConfig" data-type="json" style="display : none;">';
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlJson" placeholder="URL du fichier JSON"/>';
     tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="jsonNoSslCheck" />{{Ne pas vérifier SSL}}<br/>';
-    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="jsonTimeout" placeholder="{{Timeout}}" title="Par défaut 2 secondes"/>';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="jsonTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxJsonRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
     tr += '<div class="col-sm-6">';
