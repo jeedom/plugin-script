@@ -102,7 +102,7 @@ Explications :
 - TYPE DE SCRIPT : http
 - TYPE : Action (c'est une commande)
 -	SOUS TYPE : défaut
--	REQUÊTE :  (piochée sur le forum TLD): "http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100"[ici]	
+-	REQUÊTE :  (piochée sur le forum TLD): http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
 
 TIPS : le "100" à la fin de la requête correspond au pourcentage de puissance à affecter donc mettre "0" à la fin de la requête correspond à éteindre l'ampoule
 
@@ -192,37 +192,21 @@ TIPS : Loïc préconise de tester les paramètres de cette façon dans le script
 
 ==== Type de Script : XML
 
-Pour expliquer, je vais me baser sur les informations XML issues d'un Ecodevice CGE. L’accès à ce fichier est possible grâce à l'URL suivante :
-
-http://<IP_ECODEVICE>/protect/settings/teleinfo1.xml
-
-Tout d'abord, avant de se lancer dans la configuration du plugin script XML, il s'agit d'identifier correctement les infos à récupérer.
-
-Valider l'affichage des informations à partir de votre navigateur (copie d'écran sous Chrome) 
-
-
-Pour l'exemple, nous allons chercher l'information T1_PTEC indiquant si on est en heure creuse ou en heure pleine ainsi que la valeur de l'information T1_PPAP indiquant la puissance instantanée.
-
-Voici donc la configuration du plugin script XML à appliquer : 
-
-Cet exemple est relativement simple, car le retour XML n'est pas trop complexe.
-
-N'ayant pas d'autres éléments à vous proposer gérant l'XML, je vous soumets les indications de Loïc sur l'utilisation du plugin.
+je vous soumets les indications de Loïc sur l'utilisation du plugin.
 
 Source : link:https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=10#p6425[içi] et link:https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=30#p7390[içi]
 
 ----
-: <code>
-: <root><br>
-:     <led0>1</led0><br>
-: . . <leds><br>
-: . . <led1>toto</led1><br>
-: . . </leds><br>  
-: </root><br>
-: </code>
+<root>
+    <led0>1</led0>
+    <leds>
+      <led1>toto</led1>
+    </leds>
+</root>
 ----
 
-Si vous voulez la valeur de la led0 dans requête vous mettez led0.<br>Si vous voulez la valeur de la led1 qui est le fils de leds vous mettez leds > led1.
+Si vous voulez la valeur de la led0 dans requête vous mettez led0.
+Si vous voulez la valeur de la led1 qui est le fils de leds vous mettez leds > led1.
 
 Notez que l'élément racine <root> n'est pas à préciser dans le champ requête.
 
