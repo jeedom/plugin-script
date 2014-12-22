@@ -102,7 +102,7 @@ Explications :
 - TYPE DE SCRIPT : http
 - TYPE : Action (c'est une commande)
 -	SOUS TYPE : défaut
--	REQUÊTE :  (piochée sur le forum TLD): link:http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100[ici]	
+-	REQUÊTE :  (piochée sur le forum TLD): "http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100"[ici]	
 
 TIPS : le "100" à la fin de la requête correspond au pourcentage de puissance à affecter donc mettre "0" à la fin de la requête correspond à éteindre l'ampoule
 
@@ -212,8 +212,14 @@ N'ayant pas d'autres éléments à vous proposer gérant l'XML, je vous soumets 
 Source : link:https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=10#p6425[içi] et link:https://forum.jeedom.fr/viewtopic.php?f=58&t=417&hilit=xml&start=30#p7390[içi]
 
 ----
-: <code><root>
-:     <led0>1</led0><br>      <leds><br>         <led1>toto</led1><br>      </leds><br>  </root><br></code>
+: <code>
+: <root><br>
+:     <led0>1</led0><br>
+: . . <leds><br>
+: . . <led1>toto</led1><br>
+: . . </leds><br>  
+: </root><br>
+: </code>
 ----
 
 Si vous voulez la valeur de la led0 dans requête vous mettez led0.<br>Si vous voulez la valeur de la led1 qui est le fils de leds vous mettez leds > led1.
