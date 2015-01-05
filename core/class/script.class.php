@@ -205,7 +205,7 @@ class scriptCmd extends cmd {
                 $request_http->setNoReportError(true);
             }
             $result = trim($request_http->exec($this->getConfiguration('timeout', 2), $this->getConfiguration('maxHttpRetry', 3)));
-            if ($this->getConfiguration('reponseMustContain') != '' && strpos($result, $this->getConfiguration('reponseMustContain')) !== false) {
+            if ($this->getConfiguration('reponseMustContain') != '' && strpos($result, $this->getConfiguration('reponseMustContain')) === false) {
                 throw new Exception(__('La réponse ne contient pas : ', __FILE__) . $this->getConfiguration('reponseMustContain') . ' : ' . $result);
             }
             break;
