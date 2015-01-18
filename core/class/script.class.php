@@ -221,6 +221,7 @@ class scriptCmd extends cmd {
             } else {
                 $request_shell = new com_shell($request . ' 2>&1');
             }
+            log::add('script','debug','Execution de : '.$request_shell->getCmd());
             $result = trim($request_shell->exec());
             break;
             case 'xml' :
