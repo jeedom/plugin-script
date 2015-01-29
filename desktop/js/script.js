@@ -51,7 +51,13 @@
     width: (jQuery(window).width() - 150)
 });
 
- $("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
+$('#bt_cronGenerator').on('click',function(){
+    jeedom.getCronSelectModal({},function (result) {
+        $('.eqLogicAttr[data-l1key=configuration][data-l2key=autorefresh]').value(result.value);
+    });
+});
+
+$("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
     var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
     if (path.indexOf(' ') > 0) {

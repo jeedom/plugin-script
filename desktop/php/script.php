@@ -123,7 +123,7 @@ $eqLogics = eqLogic::byType('script');
                         <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Auto-actualisation (cron)}}"/>
                     </div>
                     <div class="col-sm-1">
-                        <i class="fa fa-question-circle cursor bt_pageHelp floatright" data-name="cronSyntaxe"></i>
+                        <i class="fa fa-question-circle cursor floatright" id="bt_cronGenerator"></i>
                     </div>
                 </div>
             </fieldset> 
