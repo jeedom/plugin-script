@@ -30,12 +30,14 @@ class script extends eqLogic {
                     if ($c->isDue()) {
                         try {
                             foreach ($eqLogic->getCmd('info') as $cmd) {
-                                $value = $cmd->formatValue($cmd->execute());
-                                if ($cmd->execCmd() != $value) {
-                                    log::add('script', 'debug', 'Rafraîchissement de : ' . $cmd->getHumanName() . ' => Debut');
-                                    $cmd->setCollectDate('');
-                                    $cmd->event($value);
-                                    log::add('script', 'debug', 'Rafraîchissement de : ' . $cmd->getHumanName() . ' => Fin, value => ' . $value);
+                                if($cmd->getConfiguration('request') != ''){
+                                    $value = $cmd->formatValue($cmd->execute());
+                                    if ($cmd->execCmd() != $value) {
+                                        log::add('script', 'debug', 'Rafraîchissement de : ' . $cmd->getHumanName() . ' => Debut');
+                                        $cmd->setCollectDate('');
+                                        $cmd->event($value);
+                                        log::add('script', 'debug', 'Rafraîchissement de : ' . $cmd->getHumanName() . ' => Fin, value => ' . $value);
+                                    }
                                 }
                             }
                         } catch (Exception $exc) {
@@ -146,7 +148,10 @@ class scriptCmd extends cmd {
     /*     * *********************Méthodes d'instance************************* */
 
     public function preSave() {
-        if ($this->getConfiguration('request') == '') {
+        if ($this->getConfiguration('request') == '' && $this->getType() == 'info') {
+            $this->setEventOnly(1);
+        }
+        if ($this->getConfiguration('request') == '' && $this->getType() != 'info') {
             throw new Exception(__('Le champ requête ne peut pas être vide', __FILE__));
         }
         if ($this->getConfiguration('requestType') == '') {
@@ -158,7 +163,6 @@ class scriptCmd extends cmd {
     }
 
     public function execute($_options = null) {
-
         $result = false;
         $request = str_replace('#API#', config::byKey('api'), $this->getConfiguration('request'));
         if (trim($request) == '') {
