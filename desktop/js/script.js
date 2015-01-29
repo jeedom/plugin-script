@@ -16,20 +16,20 @@
  */
 
 
-editor = null;
+ editor = null;
 
-$("#md_browseScriptFile").dialog({
+ $("#md_browseScriptFile").dialog({
     autoOpen: false,
     modal: true,
     height: (jQuery(window).height() - 150),
 });
 
-$("#table_cmd tbody").delegate(".cmdAttr[data-l1key=configuration][data-l2key=requestType]", 'change', function (event) {
+ $("#table_cmd tbody").delegate(".cmdAttr[data-l1key=configuration][data-l2key=requestType]", 'change', function (event) {
     $(this).closest('tr').find('.requestTypeConfig').hide();
     $(this).closest('tr').find('.requestTypeConfig[data-type=' + $(this).value() + ']').show();
 });
 
-$("#table_cmd tbody").delegate(".browseScriptFile", 'click', function (event) {
+ $("#table_cmd tbody").delegate(".browseScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
     $("#md_browseScriptFile").dialog('open');
     $('#div_browseScriptFileTree').fileTree({
@@ -42,16 +42,16 @@ $("#table_cmd tbody").delegate(".browseScriptFile", 'click', function (event) {
     });
 });
 
-$("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
+ $("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
 
-$("#md_editScriptFile").dialog({
+ $("#md_editScriptFile").dialog({
     autoOpen: false,
     modal: true,
     height: (jQuery(window).height() - 150),
     width: (jQuery(window).width() - 150)
 });
 
-$("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
+ $("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
     var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
     if (path.indexOf(' ') > 0) {
@@ -239,6 +239,10 @@ function addCmdToTable(_cmd) {
     tr += '<input class="cmdAttr form-control tooltips input-sm" data-l1key="unite"  style="width : 100px;" placeholder="{{Unité}}" title="{{Unité}}">';
     tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}"> ';
     tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}">';
+    tr += '<select class="cmdAttr form-control tooltips input-sm" data-l1key="configuration" data-l2key="updateCmdId" style="display : none;margin-top : 5px;" title="Commande d\'information à mettre à jour">';
+    tr += '<option value="">Aucune</option>';
+    tr += '</select>';
+    tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdToValue" placeholder="Valeur de l\'information" style="display : none;margin-top : 5px;">';
     tr += '</td>';
     tr += '<td>';
     tr += '<span><input type="checkbox" class="cmdAttr" data-l1key="isHistorized" /> {{Historiser}}<br/></span>';
@@ -267,8 +271,21 @@ function addCmdToTable(_cmd) {
     if (isset(_cmd.type)) {
         $('#table_cmd tbody tr:last .cmdAttr[data-l1key=type]').value(init(_cmd.type));
     }
-    jeedom.cmd.changeType($('#table_cmd tbody tr:last'), init(_cmd.subType));
-    initTooltips();
+    var tr = $('#table_cmd tbody tr:last');
+    jeedom.eqLogic.builSelectCmd({
+        id: $(".li_eqLogic.active").attr('data-eqLogic_id'),
+        filter: {type: 'info'},
+        error: function (error) {
+            $('#div_alert').showAlert({message: error.message, level: 'danger'});
+        },
+        success: function (result) {
+            tr.find('.cmdAttr[data-l1key=value]').append(result);
+            tr.find('.cmdAttr[data-l1key=configuration][data-l2key=updateCmdId]').append(result);
+            tr.setValues(_cmd, '.cmdAttr');
+            jeedom.cmd.changeType(tr, init(_cmd.subType));
+            initTooltips();
+        }
+    });
 }
 
 function getLogicalIdFromPath(_path) {
@@ -300,34 +317,34 @@ function loadScriptFile(_path) {
             handleAjaxError(request, status, error, $('#div_alert'));
         },
         success: function (data) { // si l'appel a bien fonctionné
-            if (data.state != 'ok') {
-                $('#div_alert').showAlert({message: data.result, level: 'danger'});
-                return false;
-            }
-            result = data.result;
-            switch (result.extension) {
-                case 'php' :
-                    result.mode = 'text/x-php';
-                    break;
-                case 'sh' :
-                    result.mode = 'shell';
-                    break;
-                case 'pl' :
-                    result.mode = 'text/x-php';
-                    break;
-                case 'py' :
-                    result.mode = 'text/x-python';
-                    break;
-                case 'rb' :
-                    result.mode = 'text/x-ruby';
-                    break;
-                default :
-                    result.mode = 'text/x-php';
-                    break;
-            }
+        if (data.state != 'ok') {
+            $('#div_alert').showAlert({message: data.result, level: 'danger'});
+            return false;
         }
-    });
-    return result;
+        result = data.result;
+        switch (result.extension) {
+            case 'php' :
+            result.mode = 'text/x-php';
+            break;
+            case 'sh' :
+            result.mode = 'shell';
+            break;
+            case 'pl' :
+            result.mode = 'text/x-php';
+            break;
+            case 'py' :
+            result.mode = 'text/x-python';
+            break;
+            case 'rb' :
+            result.mode = 'text/x-ruby';
+            break;
+            default :
+            result.mode = 'text/x-php';
+            break;
+        }
+    }
+});
+return result;
 }
 
 function saveScriptFile(_path, _content) {
@@ -347,14 +364,14 @@ function saveScriptFile(_path, _content) {
             handleAjaxError(request, status, error, $('#div_editScriptFileAlert'));
         },
         success: function (data) { // si l'appel a bien fonctionné
-            if (data.state != 'ok') {
-                $('#div_editScriptFileAlert').showAlert({message: data.result, level: 'danger'});
-                return;
-            }
-            success = true;
-            $('#div_alert').showAlert({message: 'Script sauvegardé', level: 'success'});
+        if (data.state != 'ok') {
+            $('#div_editScriptFileAlert').showAlert({message: data.result, level: 'danger'});
+            return;
         }
-    });
+        success = true;
+        $('#div_alert').showAlert({message: 'Script sauvegardé', level: 'success'});
+    }
+});
     return success;
 }
 
@@ -374,13 +391,13 @@ function addUserScript(_name) {
             handleAjaxError(request, status, error, $('#div_newUserScriptAlert'));
         },
         success: function (data) { // si l'appel a bien fonctionné
-            if (data.state != 'ok') {
-                $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
-                return;
-            }
-            success = data.result;
+        if (data.state != 'ok') {
+            $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
+            return;
         }
-    });
+        success = data.result;
+    }
+});
     return success;
 }
 
@@ -400,14 +417,14 @@ function removeScript(_path) {
             handleAjaxError(request, status, error, $('#div_newUserScriptAlert'));
         },
         success: function (data) { // si l'appel a bien fonctionné
-            if (data.state != 'ok') {
-                $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
-                return;
-            }
-            $('#div_alert').showAlert({message: 'Script supprimé', level: 'success'});
-            success = true;
+        if (data.state != 'ok') {
+            $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
+            return;
         }
-    });
+        $('#div_alert').showAlert({message: 'Script supprimé', level: 'success'});
+        success = true;
+    }
+});
     return success;
 }
 

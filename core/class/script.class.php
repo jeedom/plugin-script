@@ -158,11 +158,13 @@ class scriptCmd extends cmd {
     }
 
     public function execute($_options = null) {
+
         $result = false;
         $request = str_replace('#API#', config::byKey('api'), $this->getConfiguration('request'));
         if (trim($request) == '') {
             throw new Exception(__('La requête ne peut pas être vide : ', __FILE__) . print_r($this, true));
         }
+
         if ($_options != null) {
             switch ($this->getType()) {
                 case 'action' :
@@ -188,6 +190,7 @@ class scriptCmd extends cmd {
         $request = scenarioExpression::setTags($request);
         $request = str_replace('"','',$request);
 
+
         switch ($this->getConfiguration('requestType')) {
             case 'http' :
             if ($this->getConfiguration('http_username') != '' && $this->getConfiguration('http_password') != '') {
@@ -205,8 +208,8 @@ class scriptCmd extends cmd {
                 $request_http->setNoReportError(true);
             }
             $result = trim($request_http->exec($this->getConfiguration('timeout', 2), $this->getConfiguration('maxHttpRetry', 3)));
-            if ($this->getConfiguration('reponseMustContain') != '' && strpos($result, $this->getConfiguration('reponseMustContain')) === false) {
-                throw new Exception(__('La réponse ne contient pas : ', __FILE__) . $this->getConfiguration('reponseMustContain') . ' : ' . $result);
+            if (trim($this->getConfiguration('reponseMustContain')) != '' && strpos($result, trim($this->getConfiguration('reponseMustContain'))) === false) {
+                throw new Exception(__('La réponse ne contient pas "', __FILE__) . $this->getConfiguration('reponseMustContain') . '" : "' . $result.'"');
             }
             break;
             case 'script' :
@@ -309,7 +312,7 @@ class scriptCmd extends cmd {
             }
             return $result;
         }
-        if ($this->getType() == 'action') {
+        /*if ($this->getType() == 'action') {
             sleep(1);
             foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
                 $value = $cmd->formatValue($cmd->execute());
@@ -317,7 +320,7 @@ class scriptCmd extends cmd {
                     $cmd->event($value);
                 }
             }
-        }
+        }*/
         return $this->formatValue($result);
     }
 
