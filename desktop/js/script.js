@@ -34,7 +34,7 @@
     $("#md_browseScriptFile").dialog('open');
     $('#div_browseScriptFileTree').fileTree({
         root: '/',
-        script: '3rdparty/jquery.fileTree/jqueryFileTree.php?dir=' + encodeURIComponent(userScriptDir),
+        script: '3rdparty/jquery.fileTree/jqueryFileTree.php?root=' + encodeURIComponent(userScriptDir),
         folderEvent: 'click'
     }, function (file) {
         $("#md_browseScriptFile").dialog('close');
