@@ -38,7 +38,7 @@
         folderEvent: 'click'
     }, function (file) {
         $("#md_browseScriptFile").dialog('close');
-        tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').value(file);
+        tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').value(userScriptDir+file);
     });
 });
 
