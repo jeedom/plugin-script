@@ -1,0 +1,20 @@
+{
+"plugins\/script\/desktop\/js\/script.js": {
+"Etes-vous sûr de vouloir supprimer le script :": "Sind Sie sicher, das sie das Skript löschen möchten?:",
+"Vous devez d\\'abord sélectioner un script": "Sie müssen zunächst ein Skript auswählen.",
+"Partager sur le market": "Teilen auf dem Markt",
+"Script": "Script",
+"Http": "Http",
+"Parcourir": "Durchsehen",
+"Nouveau": "Neu",
+"Voir": "Ansicht",
+"Unité": "Unit",
+"Lifetime cache": "Cache Lebensdauer",
+"Historiser": "Schreiben in Chronik",
+"Autoriser memcache": "erlauben memcache",
+"Tester": "Test"
+},
+"plugins\/script\/core\/class\/script.class.php": {
+"Execution shell de \"": "Shell Ausführung \""
+}
+}
