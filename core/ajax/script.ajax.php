@@ -35,11 +35,6 @@ try {
         if (is_dir($path)) {
             throw new Exception(__('Impossible de lire un dossier : ', __FILE__) . $path);
         }
-        $allowReadPath = config::byKey('allowReadDir', 'script');
-        $allowReadPath[] = config::byKey('userScriptDir', 'script');
-        if (!hadFileRight($allowReadPath, $path)) {
-            throw new Exception(__('Vous n\'êtes pas autorisé à lire : ', __FILE__) . $path);
-        }
         $pathinfo = pathinfo($path);
         $return = array(
             'content' => file_get_contents($path),
@@ -59,11 +54,6 @@ try {
         if (is_dir($path)) {
             throw new Exception(__('Impossible d\'écrire un dossier : ', __FILE__) . $path);
         }
-        $allowWritePath = config::byKey('allowWriteDir', 'script');
-        $allowWritePath[] = config::byKey('userScriptDir', 'script');
-        if (!hadFileRight($allowWritePath, $path)) {
-            throw new Exception(__('Vous n\'êtes pas autorisé à écrire : ', __FILE__) . $path);
-        }
         file_put_contents($path, init('content'));
         chmod($path, 0770);
         ajax::success();
@@ -80,12 +70,9 @@ try {
         if (is_dir($path)) {
             throw new Exception(__('Impossible de supprimer un dossier : ', __FILE__) . $path);
         }
-        $allowRemovePath = config::byKey('allowRemoveDir', 'script');
-        $allowRemovePath[] = config::byKey('userScriptDir', 'script');
-        if (!hadFileRight($allowRemovePath, $path)) {
-            throw new Exception(__('Vous n\'êtes pas autorisé à supprimer : ', __FILE__) . $path);
+        if(!unlink($path)){
+            throw new Exception(__('Impossible de supprimer le fichier : ', __FILE__) . $path);
         }
-        unlink($path);
         ajax::success();
     }
 

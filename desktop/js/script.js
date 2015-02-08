@@ -124,6 +124,7 @@ $("#table_cmd tbody").delegate(".removeScriptFile", 'click', function (event) {
     $.hideAlert();
     bootbox.confirm('{{Etes-vous sûr de vouloir supprimer le script :}} <span style="font-weight: bold ;">' + path + '</span> ?', function (result) {
         if (result) {
+            removeScript(path);
             tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val('');
         }
     });
