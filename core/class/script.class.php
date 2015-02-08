@@ -181,8 +181,12 @@ class scriptCmd extends cmd {
                     break;
                     case 'message':
                     $replace = array('#title#', '#message#');
-                    $replaceBy = array(urlencode($_options['title']), urlencode($_options['message']));
-                    if ($_options['message'] == '' || $_options['title'] == '') {
+                    if($this->getConfiguration('requestType') == 'http'){
+                        $replaceBy = array(urlencode($_options['title']), urlencode($_options['message']));
+                    }else{
+                        $replaceBy = array($_options['title'], $_options['message']);
+                    }
+                    if ($_options['message'] == '' && $_options['title'] == '') {
                         throw new Exception(__('Le message et le sujet ne peuvent pas être vide', __FILE__));
                     }
                     $request = str_replace($replace, $replaceBy, $request);
