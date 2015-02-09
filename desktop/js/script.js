@@ -38,6 +38,9 @@
         folderEvent: 'click'
     }, function (file) {
         $("#md_browseScriptFile").dialog('close');
+        if(userScriptDir.slice(-1) == '/' && file.slice(0,1) == '/'){
+            file = file.slice(1);
+        }
         tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').value(userScriptDir+file);
     });
 });
