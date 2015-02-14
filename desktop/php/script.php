@@ -140,14 +140,14 @@ $eqLogics = eqLogic::byType('script');
         <table id="table_cmd" class="table table-bordered table-condensed">
             <thead>
                 <tr>
-                    <th style="width: 250px;">{{Nom}}</th>
+                    <th style="width: 200px;">{{Nom}}</th>
                     <th style="width: 100px;">{{Type script}}</th>
                     <th style="width: 70px;">{{Type}}</th>
                     <th>{{Requête}}</th>
                     <th style="width: 250px;">{{Options}}</th>
                     <th style="width: 110px;">{{Divers}}</th>
                     <th style="width: 170px;">{{Paramètres}}</th>
-                    <th style="width: 100px;"></th>
+                    <th style="width: 150px;"></th>
                 </tr>
             </thead>
             <tbody>
