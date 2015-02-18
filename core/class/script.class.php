@@ -184,8 +184,8 @@ class scriptCmd extends cmd {
                     if($this->getConfiguration('requestType') == 'http'){
                         $replaceBy = array(urlencode($_options['title']), urlencode($_options['message']));
                     }elseif($this->getConfiguration('requestType') == 'script'){
-                       $replaceBy = array($_options['title'], $_options['message']);
-                   }else{
+                     $replaceBy = array($_options['title'], $_options['message']);
+                 }else{
                     $replaceBy = array(escapeshellcmd($_options['title']), escapeshellcmd($_options['message']));
                 }
                 if ($_options['message'] == '' && $_options['title'] == '') {
@@ -323,19 +323,21 @@ class scriptCmd extends cmd {
         }
         return $result;
     }
-        /*if ($this->getType() == 'action') {
-            sleep(1);
-            foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
+    if ($this->getType() == 'action') {
+        sleep(1);
+        foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
+            if($cmd->getEventOnly() == 0){
                 $value = $cmd->formatValue($cmd->execute());
                 if ($cmd->execCmd(null, 2) != $value) {
                     $cmd->event($value);
                 }
             }
-        }*/
-        return $this->formatValue($result);
+        }
     }
+    return $this->formatValue($result);
+}
 
-    /*     * **********************Getteur Setteur*************************** */
+/*     * **********************Getteur Setteur*************************** */
 }
 
 ?>
