@@ -57,5 +57,9 @@
         "Autoriser memcache": "Autoriser memcache",
         "Lifetime cache": "Lifetime cache",
         "Tester": "Tester"
+    },
+    "plugins\/script\/plugin_info\/info.xml": {
+        "Plugin pour gérer des scripts (PHP, Shell, ...)": "Plugin pour gérer des scripts (PHP, Shell, ...)",
+        "Aucune": "Aucune"
     }
 }
