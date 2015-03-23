@@ -238,7 +238,7 @@ class scriptCmd extends cmd {
 				} else if (strpos($request, '.pl') !== false) {
 					$request_shell = new com_shell('perl ' . $request . ' 2>&1');
 				} else {
-					$request_shell = new com_shell($request . ' 2>&1');
+					$request_shell = new com_shell('/bin/bash ' . $request . ' 2>&1');
 				}
 				log::add('script', 'debug', 'Execution de : ' . $request_shell->getCmd());
 				$result = trim($request_shell->exec());
