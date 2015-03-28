@@ -1,3 +1,0 @@
-==== 21/12/2014
-
-- Possibilité d'ajouter un texte obligatoire dans la reponse à une requete http
