@@ -1,0 +1,13 @@
+{
+    "name": "jeedom/plugin-script",
+    "description": "Plugin script for Jeedom",
+    "require": {
+        "electrolinux/phpquery": "0.9.*"
+    },
+    "authors": [
+        {
+            "name": "Loic Gevrey",
+            "email": "loic@jeedom.com"
+        }
+    ]
+}

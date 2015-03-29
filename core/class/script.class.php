@@ -18,6 +18,7 @@
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+require_once dirname(__FILE__) . '/../../core/php/script.inc.php';
 
 class script extends eqLogic {
 
@@ -328,6 +329,18 @@ class scriptCmd extends cmd {
 					$result = $json;
 				}
 				return $result;
+			case 'html':
+				if ($this->getConfiguration('html_username') != '' && $this->getConfiguration('html_password') != '') {
+					$request_http = new com_http($this->getConfiguration('urlHtml'), $this->getConfiguration('html_username'), $this->getConfiguration('html_password'));
+				} else {
+					$request_http = new com_http($this->getConfiguration('urlHtml'));
+				}
+				if ($this->getConfiguration('htmlNoSslCheck') == 1) {
+					$request_http->setNoSslCheck(true);
+				}
+				$html = $request_http->exec($this->getConfiguration('htmlTimeout', 2), $this->getConfiguration('maxHtmlRetry', 3));
+				phpQuery::newDocumentHTML($html);
+				return pq(trim($request))->html();
 		}
 		if ($this->getType() == 'action') {
 			sleep(1);

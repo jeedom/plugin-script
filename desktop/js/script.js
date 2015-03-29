@@ -27,6 +27,19 @@
  $("#table_cmd tbody").delegate(".cmdAttr[data-l1key=configuration][data-l2key=requestType]", 'change', function (event) {
     $(this).closest('tr').find('.requestTypeConfig').hide();
     $(this).closest('tr').find('.requestTypeConfig[data-type=' + $(this).value() + ']').show();
+    if($(this).value() == 'script'){
+        $(this).closest('tr').find('.browseScriptFile').show();
+        $(this).closest('tr').find('.editScriptFile').show();
+        $(this).closest('tr').find('.removeScriptFile').show();
+        $(this).closest('tr').find('.newScriptFile').show();
+        $(this).closest('tr').find('.bt_shareOnMarket').show();
+    }else{
+        $(this).closest('tr').find('.browseScriptFile').hide();
+        $(this).closest('tr').find('.editScriptFile').hide();
+        $(this).closest('tr').find('.removeScriptFile').hide();
+        $(this).closest('tr').find('.newScriptFile').hide();
+        $(this).closest('tr').find('.bt_shareOnMarket').hide();
+    }
 });
 
  $("#table_cmd tbody").delegate(".browseScriptFile", 'click', function (event) {
@@ -54,13 +67,13 @@
     width: (jQuery(window).width() - 150)
 });
 
-$('#bt_cronGenerator').on('click',function(){
+ $('#bt_cronGenerator').on('click',function(){
     jeedom.getCronSelectModal({},function (result) {
         $('.eqLogicAttr[data-l1key=configuration][data-l2key=autorefresh]').value(result.value);
     });
 });
 
-$("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
+ $("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
     var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
     if (path.indexOf(' ') > 0) {
@@ -162,7 +175,8 @@ function addCmdToTable(_cmd) {
     }
 
     var selRequestType = '<select style="width : 90px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="requestType">';
-    selRequestType += '<option value="http">{{Http}}</option>';
+    selRequestType += '<option value="http">{{HTTP}}</option>';
+    selRequestType += '<option value="html">{{HTML}}</option>';
     selRequestType += '<option value="script">{{Script}}</option>';
     selRequestType += '<option value="xml">{{XML}}</option>';
     selRequestType += '<option value="json">{{JSON}}</option>';
@@ -225,6 +239,21 @@ function addCmdToTable(_cmd) {
     tr += '</div>';
     tr += '<div class="col-sm-6">';
     tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xml_password" placeholder="{{Mot de passe}}"/>';
+    tr += '</div>';
+    tr += '</div>';
+    tr += '</div>';
+
+    tr += '<div class="requestTypeConfig" data-type="html" style="display : none;">';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlHtml" placeholder="URL du HTML"/>';
+    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="htmlNoSslCheck" />{{Ne pas vérifier SSL}}<br/>';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="htmlTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
+    tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxHtmlRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
+    tr += '<div class="row" style="margin-top : 5px;">';
+    tr += '<div class="col-sm-6">';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="html_username" placeholder="{{Utilisateur}}"/>';
+    tr += '</div>';
+    tr += '<div class="col-sm-6">';
+    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="html_password" placeholder="{{Mot de passe}}"/>';
     tr += '</div>';
     tr += '</div>';
     tr += '</div>';
