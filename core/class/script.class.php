@@ -167,6 +167,9 @@ class scriptCmd extends cmd {
 		if ($this->getConfiguration('requestType') == 'xml' && $this->getType() == 'action') {
 			throw new Exception(__('Vous ne pouvez pas avoir un script de type XML et action', __FILE__));
 		}
+		if ($this->getEqLogic()->getConfiguration('autorefresh') != '') {
+			$this->setEventOnly(1);
+		}
 	}
 
 	public function execute($_options = null) {
