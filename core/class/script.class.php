@@ -22,10 +22,39 @@ require_once dirname(__FILE__) . '/../../core/php/script.inc.php';
 
 class script extends eqLogic {
 
+	public static function pull() {
+		foreach (eqLogic::byType('script') as $eqLogic) {
+			$autorefresh = $eqLogic->getConfiguration('autorefresh');
+			if ($eqLogic->getIsEnable() == 1 && $autorefresh == '*') {
+				try {
+					foreach ($eqLogic->getCmd('info') as $cmd) {
+						if ($cmd->getConfiguration('request') != '') {
+							$value = $cmd->formatValue($cmd->execute());
+							if ($cmd->getEventOnly() == 0) {
+								if ($cmd->execCmd(null, 2) != $value) {
+									$cmd->setCollectDate('');
+									$cmd->event($value);
+								}
+							} else {
+								if ($cmd->execCmd() != $value) {
+									$cmd->setCollectDate('');
+									$cmd->event($value);
+								}
+							}
+						}
+					}
+				} catch (Exception $exc) {
+					log::add('script', 'error', __('Erreur pour ', __FILE__) . $eqLogic->getHumanName() . ' : ' . $exc->getMessage());
+				}
+			}
+		}
+
+	}
+
 	public static function cron() {
 		foreach (eqLogic::byType('script') as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
-			if ($eqLogic->getIsEnable() == 1 && $autorefresh != '') {
+			if ($eqLogic->getIsEnable() == 1 && $autorefresh != '' && $autorefresh != '*') {
 				try {
 					$c = new Cron\CronExpression($autorefresh, new Cron\FieldFactory);
 					if ($c->isDue()) {
@@ -314,6 +343,7 @@ class scriptCmd extends cmd {
 					$json = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
 					$json = json_decode($json, true);
 				}
+				print_r($json);
 				$tags = explode('>', $request);
 				foreach ($tags as $tag) {
 					$tag = trim($tag);
@@ -327,7 +357,7 @@ class scriptCmd extends cmd {
 					}
 				}
 				if (is_array($json)) {
-					$result = '';
+					$result = json_encode($json);
 				} else {
 					$result = $json;
 				}
