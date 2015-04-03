@@ -308,6 +308,8 @@ class scriptCmd extends cmd {
 						$json = $json[$tag];
 					} else if (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
 						$json = $json[intval($tag)];
+					} else if (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
+						$json = $json[count($json) + intval($tag)];
 					} else {
 						$json = '';
 						break;
@@ -343,7 +345,6 @@ class scriptCmd extends cmd {
 					$json = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
 					$json = json_decode($json, true);
 				}
-				print_r($json);
 				$tags = explode('>', $request);
 				foreach ($tags as $tag) {
 					$tag = trim($tag);
@@ -351,6 +352,8 @@ class scriptCmd extends cmd {
 						$json = $json[$tag];
 					} else if (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
 						$json = $json[intval($tag)];
+					} else if (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
+						$json = $json[count($json) + intval($tag)];
 					} else {
 						$json = '';
 						break;
