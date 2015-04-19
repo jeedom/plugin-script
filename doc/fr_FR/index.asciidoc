@@ -2,7 +2,7 @@
 == Script
 
 === Description
-Plugin permettant d'exécuter des scripts (shell, php, ruby...), des requêtes http, de récupérer des informations dans du XML ou JSON
+Plugin permettant d'exécuter des scripts (shell, php, ruby...), des requêtes http, de récupérer des informations dans du XML ou JSON.
 
 '''
 === Configuration
