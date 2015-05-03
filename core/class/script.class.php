@@ -238,6 +238,7 @@ class scriptCmd extends cmd {
 		}
 		$request = scenarioExpression::setTags($request);
 		$request = str_replace('"', '', $request);
+		$request = str_replace('\'', '', $request);
 
 		switch ($this->getConfiguration('requestType')) {
 			case 'http':
