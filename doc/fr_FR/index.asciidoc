@@ -5,12 +5,7 @@
 Plugin permettant d'exécuter des scripts (shell, php, ruby...), des requêtes http, de récupérer des informations dans du XML ou JSON.
 
 '''
-=== Configuration
 include::configuration.asciidoc[]
-
-'''
-=== FAQ
-include::faq.asciidoc[]
 
 '''
 === Troubleshoting
