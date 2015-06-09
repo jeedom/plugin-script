@@ -382,11 +382,9 @@ class scriptCmd extends cmd {
 		if ($this->getType() == 'action') {
 			sleep(1);
 			foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
-				if ($cmd->getEventOnly() == 0) {
-					$value = $cmd->formatValue($cmd->execute());
-					if ($cmd->execCmd(null, 2) != $value) {
-						$cmd->event($value);
-					}
+				$value = $cmd->formatValue($cmd->execute());
+				if ($cmd->execCmd(null, 2) != $value) {
+					$cmd->event($value);
 				}
 			}
 		}
