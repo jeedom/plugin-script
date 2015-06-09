@@ -137,6 +137,9 @@ $("#table_cmd tbody").delegate(".removeScriptFile", 'click', function (event) {
     if (path.indexOf(' ') > 0) {
         path = path.substr(0, path.indexOf(' '));
     }
+    if (path.indexOf('?') > 0) {
+        path = path.substr(0, path.indexOf('?'));
+    }
     $.hideAlert();
     bootbox.confirm('{{Etes-vous sûr de vouloir supprimer le script :}} <span style="font-weight: bold ;">' + path + '</span> ?', function (result) {
         if (result) {
