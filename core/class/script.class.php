@@ -324,11 +324,7 @@ class scriptCmd extends cmd {
 						break;
 					}
 				}
-				if (is_array($json)) {
-					$result = '';
-				} else {
-					$result = $json;
-				}
+				$result = (is_array($json)) ? '' : $json;
 				return $result;
 			case 'json':
 				if ($this->getConfiguration('json_username') != '' && $this->getConfiguration('json_password') != '') {
