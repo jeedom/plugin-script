@@ -1,5 +1,0 @@
-[panel,danger]
-.Meine Werte werden nicht aktualisiert.
---
-Überprüfen Sie, ob Sie im Experten-Modus, die Selbstaktualisierung aktiviert haben.
---
