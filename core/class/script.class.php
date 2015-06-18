@@ -257,6 +257,11 @@ class scriptCmd extends cmd {
 				if ($this->getConfiguration('doNotReportHttpError') == 1) {
 					$request_http->setNoReportError(true);
 				}
+				if (isset($_options['speedAndNoErrorReport']) && $_options['speedAndNoErrorReport'] == true) {
+					$request_http->setNoReportError(true);
+					$request_http->exec(0.1, 1);
+					return;
+				}
 				$result = trim($request_http->exec($this->getConfiguration('timeout', 2), $this->getConfiguration('maxHttpRetry', 3)));
 				if (trim($this->getConfiguration('reponseMustContain')) != '' && strpos($result, trim($this->getConfiguration('reponseMustContain'))) === false) {
 					throw new Exception(__('La réponse ne contient pas "', __FILE__) . $this->getConfiguration('reponseMustContain') . '" : "' . $result . '"');
@@ -275,6 +280,9 @@ class scriptCmd extends cmd {
 					$request_shell = new com_shell($request . ' 2>&1');
 				}
 				log::add('script', 'debug', 'Execution de : ' . $request_shell->getCmd());
+				if (isset($_options['speedAndNoErrorReport']) && $_options['speedAndNoErrorReport'] == true) {
+					$request_shell->setBackground(true);
+				}
 				$result = trim($request_shell->exec());
 				break;
 			case 'xml':
