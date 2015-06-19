@@ -219,9 +219,11 @@ function addCmdToTable(_cmd) {
     tr += '<td>';
 
     tr += '<div class="requestTypeConfig" data-type="http">';
+    tr += '<center>';
     tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="noSslCheck" data-label-text="{{Vérifier SSL}}" /> ';
-    tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="allowEmptyResponse" data-label-text="{{Autoriser réponse vide}}" /> ';
-    tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="doNotReportHttpError" data-label-text="{{Ne jamais remonter les erreurs}}"" /> ';
+    tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="allowEmptyResponse" data-label-text="{{Retour vide}}" /> ';
+    tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="doNotReportHttpError" data-label-text="{{Pas d\'erreurs}}"" /> ';
+    tr += '</center>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="reponseMustContain" placeholder="{{La réponse doit contenir}}" title="Vide pour ne mettre aucun contrainte"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes" style="margin-top : 5px;"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxHttpRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
@@ -237,7 +239,9 @@ function addCmdToTable(_cmd) {
 
     tr += '<div class="requestTypeConfig" data-type="xml" style="display : none;">';
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlXml" placeholder="URL du fichier XML"/>';
+    tr += '<center>';
     tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="xmlNoSslCheck" data-label-text="{{Vérifier SSL}}" /> ';
+    tr += '</center>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="xmlTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxXmlRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
@@ -267,7 +271,9 @@ function addCmdToTable(_cmd) {
 
     tr += '<div class="requestTypeConfig" data-type="json" style="display : none;">';
     tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlJson" placeholder="URL du fichier JSON"/>';
+    tr += '<center>';
     tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="jsonNoSslCheck" data-label-text="{{Vérifier SSL}}" /> ';
+    tr += '</center>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="jsonTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="maxJsonRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
     tr += '<div class="row" style="margin-top : 5px;">';
@@ -279,7 +285,6 @@ function addCmdToTable(_cmd) {
     tr += '</div>';
     tr += '</div>';
     tr += '</div>';
-
     tr += '</td>';
     tr += '<td>';
     tr += '<input class="cmdAttr form-control tooltips input-sm" data-l1key="unite"  style="width : 100px;" placeholder="{{Unité}}" title="{{Unité}}">';
@@ -291,12 +296,14 @@ function addCmdToTable(_cmd) {
     tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdToValue" placeholder="Valeur de l\'information" style="display : none;margin-top : 5px;">';
     tr += '</td>';
     tr += '<td>';
+    tr += '<center>';
     tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="isHistorized" data-label-text="{{Historiser}}" /></span> ';
     tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="isVisible" data-label-text="{{Afficher}}" checked/> ';
     tr += '<span class="expertModeVisible"><input type="checkbox" data-size="mini" class="cmdAttr bootstrapSwitch" data-l1key="display" data-label-text="{{Inverser}}" data-l2key="invertBinary" /></span> ';
     tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch expertModeVisible" data-size="mini" data-l1key="eventOnly" data-label-text="{{Evénement}}" /></span> ';
-    tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="cache" data-l2key="enable" checked data-label-text="{{Autoriser cache}}" /></span> ';
-    tr += '<input style="width : 100px;" class="tooltips cmdAttr form-control input-sm" data-l1key="cache" data-l2key="lifetime" placeholder="{{Lifetime cache}}" title="Lifetime cache">';
+    tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="cache" data-l2key="enable" checked data-label-text="{{Cache}}" /></span> ';
+    tr += '<input style="width : 100px;" class="tooltips cmdAttr form-control input-sm" data-l1key="cache" data-l2key="lifetime" placeholder="{{Durée de vie du cache (s)}}" title="Durée de vie du cache (s)">';
+    tr += '</center>';
     tr += '</td>';
     tr += '<td>';
     if (is_numeric(_cmd.id)) {
