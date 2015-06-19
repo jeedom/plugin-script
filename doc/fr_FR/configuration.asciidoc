@@ -4,7 +4,7 @@ La configuration est très simple, après téléchargement du plugin, il vous su
 
 image::../images/script1.PNG[]
 
-La seul option est l'endroit ou jeedom mets les scripts par defaut, il est conseillé de ne pas y toucher
+La seule option est l'endroit où jeedom met les scripts par défaut, il est conseillé de ne pas y toucher.
 
 === Configuration des équipements
 
@@ -16,13 +16,13 @@ Voilà à quoi ressemble la page du plugin Script (ici avec déjà 1 équipement
 
 image::../images/script3.PNG[]
 
-Vous retrouvez ici la liste de vos Script. Une fois que vous cliquez sur un équipement vous obtenez :
+Vous retrouvez ici la liste de vos Scripts. Une fois que vous cliquez sur un équipement vous obtenez :
 
 image::../images/script4.PNG[]
 
 [icon="../images/plugin/tip.png"]
 [TIP]
-Comme à beaucoup d'endroit sur Jeedom, mettre la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez à partir de votre profils le laisser toujours visible)
+Comme à beaucoup d'endroits sur Jeedom, mettre la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez à partir de votre profil le laisser toujours visible).
 
 Vous retrouvez ici toute la configuration de votre équipement : 
 
@@ -31,20 +31,20 @@ Vous retrouvez ici toute la configuration de votre équipement :
 * *Activer* : permet de rendre votre équipement actif
 * *Visible* : le rend visible sur le dashboard
 * *Objet parent* : indique l'objet parent auquel appartient l'équipement
-* *Auto-actualisation* : permet de spécifier un cron d'actualisation automatique pour toute les commandes de type info. Vous pouvez aussi mettre juste * pour avoir une actualisation à la seconde
+* *Auto-actualisation* : permet de spécifier un cron d'actualisation automatique pour toutes les commandes de type info. Vous pouvez aussi mettre juste * pour avoir une actualisation à la seconde.
 [icon="../images/plugin/important.png"]
 [IMPORTANT]
-Une actualisation à la seconde peut fortement ralentir le système
+Une actualisation à la seconde peut fortement ralentir le système.
 
 
 En dessous vous retrouvez la liste des commandes : 
 
-* Nom : Pas un des plus compliqués car ce champ contient le nom que vous souhaitez donner à votre commande/information
-* Icône : Pas un des plus compliqués non plus car il permet d'associer une icône à votre nom (dans ce cas Jeedom remplace le nom par l’icône dans le dashboard)
+* Nom : Ce champ contient le nom que vous souhaitez donner à votre commande/information.
+* Icône : Ce champ permet d'associer une icône à votre nom (dans ce cas Jeedom remplace le nom par l’icône dans le dashboard).
 * Type de script : 
 ** Le type http : permet d'envoyer une requête vers un équipement externe sans forcément attendre un retour de cette commande. L'exemple qui servira de support au type http sera la configuration d'une requête vers une Vera pour allumer une lumière.
 ** Le type script : sert principalement à lancer des scripts internes à Jeedom. L'exemple qui servira de support au type script sera la configuration du script de monitoring température du raspberry disponible sur le market.
-** Le type XML : permet de rapatrier des informations encodées en XML depuis un équipement distant. L'exemple qui servira de support au type XML sera la configuration du script pour interroger un Eco-Device
+** Le type XML : permet de rapatrier des informations encodées en XML depuis un équipement distant. L'exemple qui servira de support au type XML sera la configuration du script pour interroger un Eco-Device.
 ** Le type JSON : permet de rapatrier des informations encodées en JSON depuis un équipement distant. L'exemple qui servira de support au type JSON sera la configuration du script pour interroger Sickbeard (ou XBMC).
 * le type et le sous-type
 * Le champ requête
@@ -57,63 +57,63 @@ Ce dossier est accessible en SSH dans /usr/share/nginx/www/jeedom/plugins/script
 ** Le bouton "Nouveau" : permet de créer un fichier de commande.
 [icon="../images/plugin/tip.png"]
 [TIP]
-Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sous peine de voir votre superbe script ne pas fonctionner. Sans extension Jeedom ne saura pas reconnaitre le langage associé à votre fichier. CF : Généralité
+Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sous peine de voir votre superbe script ne pas fonctionner. Sans extension Jeedom ne saura pas reconnaiître le langage associé à votre fichier. CF : Généralité
 ** Le bouton "Supprimer" : permet de supprimer un fichier de commande.
 ** Le bouton "Partager" : un des plus importants, et après avoir validé les CGU développeurs dans votre profil sur le market, permet de partager votre création avec la communauté. 
 * Le champ Options : Champ aux options variables suivant le choix du type de script.
-* unité : unité de la donnée (peut être vide)
-* min/max : bornes de la donnée (peuvent être vides)
-* historiser : permet d'historiser la donnée
-* afficher : permet d'afficher la donnée sur le dashboard
-* évènement : dans le cas du RFXcom cette case doit toujours être cochée car on ne peut pas interroger un module RFXcom
-* Autoriser memcache : autorise Jeedom a utiliser du cache pour la valeur (par defaut 5 min) avant de réexecuter le script pour avoir à nouveau la valeur
-* Lifetime cache : permet de modifier la durée de vie du cache (par defaut 5min)
+* unité : unité de la donnée (peut être vide).
+* min/max : bornes de la donnée (peuvent être vides).
+* historiser : permet d'historiser la donnée.
+* afficher : permet d'afficher la donnée sur le dashboard.
+* évènement : retour en cas d'évènements. Dans le cas du RFXcom cette case doit toujours être cochée car on ne peut pas interroger un module RFXcom.
+* Autoriser memcache : autorise Jeedom à utiliser du cache pour la valeur (par défaut 5 min) avant de réexécuter le script pour avoir à nouveau la valeur.
+* Lifetime cache : permet de modifier la durée de vie du cache (par défaut 5 min).
 
 === Le choix HTTP
 
 image::../images/script5.PNG[]
 
-Permet d'appels une url ou de recuperer le retour d'une url
+Permet d'appeller une url ou de récupérer le retour d'une URL.
  
 * une case à cocher "Ne pas vérifier SSL" : si cochée, permet à Jeedom de ne pas envoyer les champs "Utilisateur" et "Mot de passe" à la requête. Jeedom ne cherchera pas à s'identifier au site/machine distant.
-* une case à cocher "Autoriser réponse vide" : si cochée, permet à Jeedom de ne pas attendre de réponse, ou d'ignorer toute réponse à la trame émise. En général, on coche si Jeedom nous insulte d'un "Curl error : Empty reply from server"
-* une case à cocher "Ne jamais remonter les erreurs" : ???
-* un champ "timeout" : sans être renseigné, le timeout de la requête vaut par défaut 2 secondes, sinon vaut la valeur renseignée
-* un champ "Essais au maximum" : 4 essais au maximum par défaut
-* un champ "Utilisateur" : pour renseigner un nom d'utilisateur
-* un champ "Mot de passe" : pour renseigner un mot de passe
+* une case à cocher "Autoriser réponse vide" : si cochée, permet à Jeedom de ne pas attendre de réponse, ou d'ignorer toute réponse à la trame émise. En général, on coche si Jeedom nous renvoit un "Curl error : Empty reply from server".
+* une case à cocher "Ne jamais remonter les erreurs" : permet de ne pas remonter d'alerte en cas d'erreur.
+* un champ "timeout" : sans être renseigné, le timeout de la requête vaut par défaut 2 secondes, sinon il vaut la valeur renseignée.
+* un champ "Essais au maximum" : 4 essais au maximum par défaut.
+* un champ "Utilisateur" : pour renseigner un nom d'utilisateur.
+* un champ "Mot de passe" : pour renseigner un mot de passe.
 
 === Le choix HTML
 
 image::../images/script8.PNG[]
 
-Permet de parser une page Web (fichier HTML) pour recuperer une valeur dessus. La syntaxe est la meme que pour jquery
+Permet de parser une page Web (fichier HTML) pour récupérer une valeur dessus. La syntaxe est la même que pour jquery.
 
-Le champ option possède un champ "URL du fichier HTML" : ce champ contient donc le lien vers la machine hébergeant le fichier HTML en question
+Le champ option possède un champ "URL du fichier HTML" : ce champ contient donc le lien vers la machine hébergeant le fichier HTML en question.
 
 === Le choix XML
 
 image::../images/script6.PNG[]
 
-Permet de recuperer du xml et d'aller chercher spécifiquement une valeur dedans
+Permet de récupérer du xml et d'aller chercher spécifiquement une valeur dedans.
 
-Le champ option possède un champ "URL du fichier XML" : ce champ contient donc le lien vers la machine hébergeant le fichier XML en question
+Le champ option possède un champ "URL du fichier XML" : ce champ contient donc le lien vers la machine hébergeant le fichier XML en question.
 
 [icon="../images/plugin/important.png"]
 [IMPORTANT]
-Il n'est possible de récuperer que des valeurs, les attributs ne peuvent être recuperé
+Il n'est possible de récupérer que des valeurs, les attributs ne peuvent être récuperés.
 
 === Le choix JSON
 
 image::../images/script7.PNG[]
 
-Permet de recuperer du json et d'aller chercher spécifiquement une valeur dedans
+Permet de récupérer du json et d'aller chercher spécifiquement une valeur dedans.
 
-Le champ option possède	un champ "URL du fichier JSON" : ce champ contient donc le lien vers la machine hébergeant le fichier JSON en question
+Le champ option possède	un champ "URL du fichier JSON" : ce champ contient donc le lien vers la machine hébergeant le fichier JSON en question.
 
 === Exemple HTTP : Pilotage d'une Vera
 
-L'exemple est basé sur une Vera qui consiste à piloter une ampoule dimmable.
+L'exemple est basé sur une Vera et consiste à piloter une ampoule dimmable.
 Je ne vais pas m'étendre sur la manière de piloter une Vera par requête http, le forum TLD est rempli de réponses.
 De plus, l'exemple correspond à mon type de matériel et devra être adapté au vôtre.
 [icon="../images/plugin/tip.png"]
@@ -124,19 +124,19 @@ Allons-y  :
 
 * On crée un équipement : par exemple LUM CUISINE (je pense qu'on a tous une cuisine sous la main)
 * On l'associe à un objet parent : par exemple VERA, moi ça me permet de centraliser toutes les commandes liées à la VERA sur un unique parent.
-* Choisissez votre catégorie
-* Activez-le, ne cochez pas visible, on verra un peu plus tard comment l'associer à un virtuel (plus sexy, plus WAF)
+* Choisissez votre catégorie.
+* Activez votre équipement, ne cochez pas visible, on verra un peu plus tard comment l'associer à un virtuel (plus sexy, plus WAF)
 * Pour l'auto-actualisation, ne rien mettre, il s'agit d'une commande impulsionnelle liée à un appui sur un bouton ou un scénario !
 * Ajoutez une commande script
 * Pensez à sauvegarder
 
 Explications :
 
-* Nom : 100% car on va allumer une lumière à pleine puissance
+* Nom : 100 % car on va allumer une lumière à pleine puissance
 * Type de script : http
 * Type : Action (c'est une commande)
 * Sous type : défaut
-* Requete : 
+* Requête : 
 
 ----
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
@@ -144,13 +144,13 @@ http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&
 
 [icon="../images/plugin/tip.png"]
 [TIP]
-le "100" à la fin de la requête correspond au pourcentage de puissance à affecter donc mettre "0" à la fin de la requête correspond à éteindre l'ampoule
+le "100" à la fin de la requête correspond au pourcentage de puissance à affecter donc mettre "0" à la fin de la requête correspond à éteindre l'ampoule.
 
 Le bouton "test" vous permet de tester votre commande !
 
-Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60% pour une lumière tamisée, créer une troisième à 30% pour les déplacements nocturnes à associer dans un scénario, ...
+Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60 % pour une lumière tamisée, créer une troisième à 30 % pour les déplacements nocturnes à associer dans un scénario, ...
 
-Il est aussi possible de creer une commande de type slider en mettant le tag #slider# dans la requete : 
+Il est aussi possible de créer une commande de type slider en mettant le tag #slider# dans la requête : 
 
 ----
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
@@ -164,7 +164,7 @@ But : Envoyer une notification vers XBMC lors de l'ouverture d'une porte d'entr�
 * Type de script : http
 * Type : Action (c'est une commande)
 * Sous-type : défaut
-* Requete :
+* Requête :
 
 ----
 http://IP_DE_XBMC:8080/jsonrpc?request={%22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{%22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
@@ -216,11 +216,11 @@ Récupérer les infos de Jeedom pour les exploiter dans un script. La récupéra
 
 Exemple : 
 
-* Dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON_SCRIPT_PHP.php list , l'argument "list" est une chaine de caractère (fixe) récupérée dans le script php grâce à la fonction suivante $argv[1] cf : Google pour plus de détails sur la récupération de paramêtre en PHP
+* Dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON_SCRIPT_PHP.php list , l'argument "list" est une chaîne de caractères (fixe) récupérée dans le script php grâce à la fonction suivante $argv[1] cf : Google pour plus de détails sur la récupération de paramètres en PHP.
 * Nous avons vu précédement qu'il était possible de récupérer des valeurs dynamiques à partir de Jeedom. 
-* Dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py VOL #slider# , l'argument "#slider#" est récupéré de cette façon argv[2]. Au moment de l'exécution du script par jeedom, il remplacera automatiquement #slider# par la valeur (numérique) du slider. cf : Google pour plus de détails sur la récupération de paramètre en Python.
+* Dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py VOL #slider# , l'argument "#slider#" est récupéré de cette façon argv[2]. Au moment de l'exécution du script par jeedom, il remplacera automatiquement #slider# par la valeur (numérique) du slider. cf : Google pour plus de détails sur la récupération de paramètres en Python.
 * Plus fort : Potentiellement, toutes les variables accessibles par Jeedom sont exploitables par le plugin script : 
-** Vous voulez récupérer la valeur de la température de la cuisine pour l'historiser en dehors de Jeedom !
+** Vous voulez récupérer la valeur de la température de la cuisine pour l'historiser en dehors de Jeedom ?
 ** Passer #[CUISINE][CUISINE][Température]# comme paramètre au script et Jeedom le remplacera par la valeur lue lors de l'envoi.
 
 Préconisation pour tester les paramètres dans le script php :
@@ -286,7 +286,7 @@ http://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3
 
 NOTE : XXXX est le numéro de clef api propre à chaque SICKBEARD.
 
-Tout d'abord, avant de se lancer dans la configuration du plugin script JSON, il s'agit d'identifier correctement les infos à récupérer. Car ici nous allons intégrer une notion de tableau dans les retours.
+Tout d'abord, avant de se lancer dans la configuration du plugin script JSON, il s'agit d'identifier correctement les infos à récupérer., car ici nous allons intégrer une notion de tableau dans les retours.
 
 Valider l'affichage des informations à partir de votre navigateur (test sous Chrome). 
 
@@ -337,7 +337,7 @@ Exemple de retour :
  }
 ----
 
-Dans l'hypothèse ou nous voudrions retourner le show_name du 3ème élément en php (repéré ICI) , il faudrait faire : data > 2 >show_name, l'index du tableau de retour commençant à Zéro.
+Dans l'hypothèse où nous voudrions retourner le show_name du 3ème élément en php (repéré ICI) , il faudrait faire : data > 2 >show_name, l'index du tableau de retour commençant à Zéro.
 
 Dans cet exemple, le bouton "Tester" nous retournera "Totovaplusauski mais Totovaalaplage S1E1".
 
@@ -352,7 +352,7 @@ Inconvénients :
 
 === Exemple HTML
 
-Ici nous allons essayer de recuperer la dernier VDM.
+Ici nous allons essayer de récupérer la dernière VDM.
 
 Tout d'adord il faut configurer l'url :
 
@@ -360,20 +360,20 @@ Tout d'adord il faut configurer l'url :
 http://www.viedemerde.fr
 ----
 
-Ensuite il faut trouver le "chemin" de la derniere VDM, pour se faire il faut aller sur le site puis faire clique droit sur l'élement voulu puis inspecter l'element, on obtient : 
+Ensuite il faut trouver le "chemin" de la dernière VDM. Pour ce faire, il faut aller sur le site puis faire clic droit sur l'élément voulu puis inspecter l'élément, on obtient : 
 
 image::../images/script9.PNG[]
 
-La c'est la partie la plus complexe et qui demande un peu d'analyse. Ici mon texte est dans une balise "a" qui est lui dans un element de type p qui est une div de class "post article". Il faut donc que je selectionne le premiere element div de class "post" et "article" puis le premiere élément p et que je recupere tous ce qui est dans les balises "a" qu'il contient. J'ai donc : "div.post.article:first p:first a"
+Là c'est la partie la plus complexe et qui demande un peu d'analyse. Ici mon texte est dans une balise "a" qui est lui dans un élément de type p qui est une div de class "post article". Il faut donc que je sélectionne le premier élément div de class "post" et "article" puis le premier élément p et que je récupère tout ce qui est dans les balises "a" qu'il contient. J'ai donc : "div.post.article:first p:first a".
 
 On obtient donc : 
 
 image::../images/script10.PNG[]
 
-Pour une actualisation en temps reel il est possible de mettre un cron de mise à jour.
+Pour une actualisation en temps réel, il est possible de mettre un cron de mise à jour.
 
 [icon="../images/plugin/tip.png"]
 [TIP]
-Lors de la mise en place d'un cron de mise à jour Jeedom va automatiquement cocher la case Evènement, c'est tout à fait normal
+Lors de la mise en place d'un cron de mise à jour, Jeedom va automatiquement cocher la case Evènement, c'est tout à fait normal.
 
-Voila ensuite vous pouvez imaginer un scénario qui vous envoi par SMS la derniere VDM
+Voilà ensuite vous pouvez imaginer un scénario qui vous envoie par SMS la dernière VDM.
