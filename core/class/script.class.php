@@ -29,14 +29,13 @@ class script extends eqLogic {
 				try {
 					foreach ($eqLogic->getCmd('info') as $cmd) {
 						if ($cmd->getConfiguration('request') != '') {
-							$value = $cmd->formatValue($cmd->execute());
 							if ($cmd->getEventOnly() == 0) {
-								if ($cmd->execCmd(null, 2) != $value) {
+								if ($cmd->execCmd(null, 2) != $cmd->formatValue($cmd->execute())) {
 									$cmd->setCollectDate('');
 									$cmd->event($value);
 								}
 							} else {
-								if ($cmd->execCmd() != $value) {
+								if ($cmd->execCmd() != $cmd->formatValue($cmd->execute())) {
 									$cmd->setCollectDate('');
 									$cmd->event($value);
 								}
@@ -386,14 +385,13 @@ class scriptCmd extends cmd {
 		if ($this->getType() == 'action') {
 			sleep(1);
 			foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
-				$value = $cmd->formatValue($cmd->execute());
-				if ($cmd->execCmd(null, 2) != $value) {
+				if ($cmd->execCmd(null, 2) != $cmd->formatValue($cmd->execute())) {
 					$cmd->setCollectDate('');
 					$cmd->event($value);
 				}
 			}
 		}
-		return $this->formatValue($result);
+		return $result;
 	}
 
 /*     * **********************Getteur Setteur*************************** */
