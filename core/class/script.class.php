@@ -22,6 +22,22 @@ require_once dirname(__FILE__) . '/../../core/php/script.inc.php';
 
 class script extends eqLogic {
 
+	public static function health() {
+		$return = array();
+		$cron = cron::byClassAndFunction('script', 'pull');
+		$running = false;
+		if (is_object($cron)) {
+			$running = $cron->running();
+		}
+		$return[] = array(
+			'test' => __('Tâche de mise à jour', __FILE__),
+			'result' => ($running) ? __('OK', __FILE__) : __('NOK', __FILE__),
+			'advice' => ($running) ? '' : __('Allez sur la page du moteur des tâches et vérifiez lancer la tache openzwave::pull', __FILE__),
+			'state' => $running,
+		);
+		return $return;
+	}
+
 	public static function pull() {
 		foreach (eqLogic::byType('script') as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
@@ -48,7 +64,6 @@ class script extends eqLogic {
 				}
 			}
 		}
-
 	}
 
 	public static function cron() {
@@ -212,13 +227,13 @@ class scriptCmd extends cmd {
 			switch ($this->getType()) {
 				case 'action':
 					switch ($this->getSubType()) {
-					case 'slider':
+						case 'slider':
 							$request = str_replace('#slider#', $_options['slider'], $request);
 							break;
-					case 'color':
+						case 'color':
 							$request = str_replace('#color#', $_options['color'], $request);
 							break;
-					case 'message':
+						case 'message':
 							$replace = array('#title#', '#message#');
 							if ($this->getConfiguration('requestType') == 'http') {
 								$replaceBy = array(urlencode($_options['title']), urlencode($_options['message']));
