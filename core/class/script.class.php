@@ -32,7 +32,7 @@ class script extends eqLogic {
 		$return[] = array(
 			'test' => __('Tâche de mise à jour', __FILE__),
 			'result' => ($running) ? __('OK', __FILE__) : __('NOK', __FILE__),
-			'advice' => ($running) ? '' : __('Allez sur la page du moteur des tâches et vérifiez lancer la tache openzwave::pull', __FILE__),
+			'advice' => ($running) ? '' : __('Allez sur la page du moteur des tâches et vérifiez lancer la tache script::pull', __FILE__),
 			'state' => $running,
 		);
 		return $return;
