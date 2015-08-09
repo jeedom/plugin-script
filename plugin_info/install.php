@@ -18,40 +18,10 @@
 
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
-function script_install() {
-	$cron = cron::byClassAndFunction('script', 'pull');
-	if (!is_object($cron)) {
-		$cron = new cron();
-		$cron->setClass('script');
-		$cron->setFunction('pull');
-		$cron->setEnable(1);
-		$cron->setDeamon(1);
-		$cron->setSchedule('* * * * *');
-		$cron->setTimeout(1440);
-		$cron->save();
-	}
-}
-
 function script_update() {
-	$cron = cron::byClassAndFunction('script', 'pull');
-	if (!is_object($cron)) {
-		$cron = new cron();
-	}
-	$cron->setClass('script');
-	$cron->setFunction('pull');
-	$cron->setEnable(1);
-	$cron->setDeamon(1);
-	$cron->setSchedule('* * * * *');
-	$cron->setTimeout(1440);
-	$cron->save();
-	$cron->stop();
-}
-
-function script_remove() {
 	$cron = cron::byClassAndFunction('script', 'pull');
 	if (is_object($cron)) {
 		$cron->remove();
 	}
 }
-
 ?>
