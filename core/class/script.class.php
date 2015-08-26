@@ -21,10 +21,11 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 require_once dirname(__FILE__) . '/../../core/php/script.inc.php';
 
 class script extends eqLogic {
+
 	public static function cron() {
 		foreach (eqLogic::byType('script') as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
-			if ($eqLogic->getIsEnable() == 1 && $autorefresh != '' && $autorefresh != '*') {
+			if ($eqLogic->getIsEnable() == 1 && $autorefresh != '') {
 				try {
 					$c = new Cron\CronExpression($autorefresh, new Cron\FieldFactory);
 					if ($c->isDue()) {
@@ -253,6 +254,7 @@ class scriptCmd extends cmd {
 				if (isset($_options['speedAndNoErrorReport']) && $_options['speedAndNoErrorReport'] == true) {
 					$request_shell->setBackground(true);
 				}
+
 				$result = trim($request_shell->exec());
 				break;
 			case 'xml':
@@ -363,6 +365,7 @@ class scriptCmd extends cmd {
 				}
 			}
 		}
+		log::add('script', 'debug', 'Result : ' . $result);
 		return $result;
 	}
 
