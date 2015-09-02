@@ -1,4 +1,4 @@
-=== Configuration du plugin
+== Configuration du plugin
 
 La configuration est très simple, après téléchargement du plugin, il vous suffit de l'activer et c'est tout.
 
@@ -6,7 +6,7 @@ image::../images/script1.PNG[]
 
 La seule option est l'endroit où jeedom met les scripts par défaut, il est conseillé de ne pas y toucher.
 
-=== Configuration des équipements
+== Configuration des équipements
 
 La configuration des équipements Script est accessible à partir du menu plugin : 
 
@@ -20,7 +20,6 @@ Vous retrouvez ici la liste de vos Scripts. Une fois que vous cliquez sur un éq
 
 image::../images/script4.PNG[]
 
-[icon="../images/plugin/tip.png"]
 [TIP]
 Comme à beaucoup d'endroits sur Jeedom, mettre la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez à partir de votre profil le laisser toujours visible).
 
@@ -32,7 +31,6 @@ Vous retrouvez ici toute la configuration de votre équipement :
 * *Visible* : le rend visible sur le dashboard
 * *Objet parent* : indique l'objet parent auquel appartient l'équipement
 * *Auto-actualisation* : permet de spécifier un cron d'actualisation automatique pour toutes les commandes de type info. Vous pouvez aussi mettre juste * pour avoir une actualisation à la seconde.
-[icon="../images/plugin/important.png"]
 [IMPORTANT]
 Une actualisation à la seconde peut fortement ralentir le système.
 
@@ -50,12 +48,10 @@ En dessous vous retrouvez la liste des commandes :
 * Le champ requête
 ** Ce champ doit contenir la requête en elle-même, ou le chemin du script si le champ "type de script" est script.
 Le bouton "parcourir" : permet de sélectionner le fichier contenu dans le dossier interne à Jeedom.
-[icon="../images/plugin/tip.png"]
 [TIP]
 Ce dossier est accessible en SSH dans /usr/share/nginx/www/jeedom/plugins/script/core/ressources/. Pour info, la commande SSH pour attribuer les droits www-data à un fichier est : sudo chown www-data:www-data NOMDUSCRIPT.EXTENSION. A savoir que pour exécuter un script, celui-ci doit avoir les droits www-data.
 ** Le bouton "Editer" : permet d'éditer à l'aide d'un éditeur de code interne un des fichiers contenus dans le répertoire permettant l'accès au code du fichier.
 ** Le bouton "Nouveau" : permet de créer un fichier de commande.
-[icon="../images/plugin/tip.png"]
 [TIP]
 Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sous peine de voir votre superbe script ne pas fonctionner. Sans extension Jeedom ne saura pas reconnaiître le langage associé à votre fichier. CF : Généralité
 ** Le bouton "Supprimer" : permet de supprimer un fichier de commande.
@@ -69,7 +65,10 @@ Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sou
 * Autoriser memcache : autorise Jeedom à utiliser du cache pour la valeur (par défaut 5 min) avant de réexécuter le script pour avoir à nouveau la valeur.
 * Lifetime cache : permet de modifier la durée de vie du cache (par défaut 5 min).
 
-=== Le choix HTTP
+[IMPORTANT]
+Il faut eviter,autant que possible, dans le chemin du script ou dans les parametres de celui-ci les caractères spéciaux. Les caractères autorisés étant : les chiffres, les lettres (majuscule ou minuscule)
+
+== Le choix HTTP
 
 image::../images/script5.PNG[]
 
@@ -83,7 +82,7 @@ Permet d'appeller une url ou de récupérer le retour d'une URL.
 * un champ "Utilisateur" : pour renseigner un nom d'utilisateur.
 * un champ "Mot de passe" : pour renseigner un mot de passe.
 
-=== Le choix HTML
+== Le choix HTML
 
 image::../images/script8.PNG[]
 
@@ -99,11 +98,10 @@ Permet de récupérer du xml et d'aller chercher spécifiquement une valeur deda
 
 Le champ option possède un champ "URL du fichier XML" : ce champ contient donc le lien vers la machine hébergeant le fichier XML en question.
 
-[icon="../images/plugin/important.png"]
 [IMPORTANT]
 Il n'est possible de récupérer que des valeurs, les attributs ne peuvent être récuperés.
 
-=== Le choix JSON
+== Le choix JSON
 
 image::../images/script7.PNG[]
 
@@ -111,12 +109,11 @@ Permet de récupérer du json et d'aller chercher spécifiquement une valeur ded
 
 Le champ option possède	un champ "URL du fichier JSON" : ce champ contient donc le lien vers la machine hébergeant le fichier JSON en question.
 
-=== Exemple HTTP : Pilotage d'une Vera
+== Exemple HTTP : Pilotage d'une Vera
 
 L'exemple est basé sur une Vera et consiste à piloter une ampoule dimmable.
 Je ne vais pas m'étendre sur la manière de piloter une Vera par requête http, le forum TLD est rempli de réponses.
 De plus, l'exemple correspond à mon type de matériel et devra être adapté au vôtre.
-[icon="../images/plugin/tip.png"]
 [TIP]
 Une méthode pour ceux qui tâtonnent pour l'écriture de requêtes http, valider d'abord la syntaxe dans votre navigateur et seulement ensuite passer à la configuration sous Jeedom. Quand un script Action ne fonctionne pas, passer en script Info/Autre permet de voir l'erreur retournée.
  
@@ -142,7 +139,6 @@ Explications :
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
 ----
 
-[icon="../images/plugin/tip.png"]
 [TIP]
 le "100" à la fin de la requête correspond au pourcentage de puissance à affecter donc mettre "0" à la fin de la requête correspond à éteindre l'ampoule.
 
@@ -150,13 +146,16 @@ Le bouton "test" vous permet de tester votre commande !
 
 Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60 % pour une lumière tamisée, créer une troisième à 30 % pour les déplacements nocturnes à associer dans un scénario, ...
 
-Il est aussi possible de créer une commande de type slider en mettant le tag #slider# dans la requête : 
+Il est aussi possible de créer une commande de type slider en mettant le tag \#slider# dans la requête : 
 
 ----
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 ----
 
-=== Exemple HTTP : Envoyer une notification à XBMC
+[TIP]
+Si votre commande est de type message vous pouvez utiliser les tags \#message# et \#title#, idem pour une commande de type couleur avec le tag \#color#
+
+== Exemple HTTP : Envoyer une notification à XBMC
 
 But : Envoyer une notification vers XBMC lors de l'ouverture d'une porte d'entrée.
 
@@ -185,7 +184,7 @@ Testez sur un scénario #[EXTERIEUR][EXTERIEUR][TEMPERATURE]# < 15 par exemple
 
 Action : Lancez le script, via un équipement virtuel, lié à votre script !   
 
-=== Exemple SCRIPT
+== Exemple SCRIPT
 
 Le plus sympa mais pas le plus simple à expliquer.
 
@@ -254,7 +253,7 @@ Si vous voulez la valeur de la led1 qui est le fils de leds vous mettez leds > l
 
 Notez que l'élément racine <root> n'est pas à préciser dans le champ requête.
 
-=== Exemple XML complexe
+== Exemple XML complexe
 
 ----
  <root>
@@ -350,7 +349,7 @@ Inconvénients :
 * cette méthode ne permet que de récupérer un seul élément à la fois. 
 * Si on désire retourner l'ensemble des valeurs de "show_name", ce n'est malheureusement pas possible, il faudra dupliquer le script autant de fois que nécessaire.
 
-=== Exemple HTML
+== Exemple HTML
 
 Ici nous allons essayer de récupérer la dernière VDM.
 
@@ -372,7 +371,6 @@ image::../images/script10.PNG[]
 
 Pour une actualisation en temps réel, il est possible de mettre un cron de mise à jour.
 
-[icon="../images/plugin/tip.png"]
 [TIP]
 Lors de la mise en place d'un cron de mise à jour, Jeedom va automatiquement cocher la case Evènement, c'est tout à fait normal.
 
