@@ -300,7 +300,6 @@ function addCmdToTable(_cmd) {
     tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="isHistorized" data-label-text="{{Historiser}}" /></span> ';
     tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="isVisible" data-label-text="{{Afficher}}" checked/> ';
     tr += '<span class="expertModeVisible"><input type="checkbox" data-size="mini" class="cmdAttr bootstrapSwitch" data-l1key="display" data-label-text="{{Inverser}}" data-l2key="invertBinary" /></span> ';
-    tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch expertModeVisible" data-size="mini" data-l1key="eventOnly" data-label-text="{{Evénement}}" /></span> ';
     tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="cache" data-l2key="enable" checked data-label-text="{{Cache}}" /></span> ';
     tr += '<input style="width : 100px;" class="tooltips cmdAttr form-control input-sm" data-l1key="cache" data-l2key="lifetime" placeholder="{{Durée de vie du cache (s)}}" title="Durée de vie du cache (s)">';
     tr += '</center>';
