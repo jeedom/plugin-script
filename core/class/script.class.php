@@ -208,11 +208,11 @@ class scriptCmd extends cmd {
 			}
 		}
 		$request = scenarioExpression::setTags($request);
-		$request = str_replace('"', '', $request);
 		$request = str_replace('\'', '', $request);
 
 		switch ($this->getConfiguration('requestType')) {
 			case 'http':
+				$request = str_replace('"', '%22', $request);
 				$request = str_replace(' ', '%20', $request);
 				if ($this->getConfiguration('http_username') != '' && $this->getConfiguration('http_password') != '') {
 					$request_http = new com_http($request, $this->getConfiguration('http_username'), $this->getConfiguration('http_password'));
@@ -258,6 +258,7 @@ class scriptCmd extends cmd {
 				$result = trim($request_shell->exec());
 				break;
 			case 'xml':
+				$request = str_replace('"', '', $request);
 				if ($this->getConfiguration('xml_username') != '' && $this->getConfiguration('xml_password') != '') {
 					$request_http = new com_http($this->getConfiguration('urlXml'), $this->getConfiguration('xml_username'), $this->getConfiguration('xml_password'));
 				} else {
@@ -299,6 +300,7 @@ class scriptCmd extends cmd {
 				$result = (is_array($json)) ? '' : $json;
 				return $result;
 			case 'json':
+				$request = str_replace('"', '', $request);
 				if ($this->getConfiguration('json_username') != '' && $this->getConfiguration('json_password') != '') {
 					$request_http = new com_http($this->getConfiguration('urlJson'), $this->getConfiguration('json_username'), $this->getConfiguration('json_password'));
 				} else {
@@ -343,6 +345,7 @@ class scriptCmd extends cmd {
 				}
 				return $result;
 			case 'html':
+				$request = str_replace('"', '', $request);
 				if ($this->getConfiguration('html_username') != '' && $this->getConfiguration('html_password') != '') {
 					$request_http = new com_http($this->getConfiguration('urlHtml'), $this->getConfiguration('html_username'), $this->getConfiguration('html_password'));
 				} else {
