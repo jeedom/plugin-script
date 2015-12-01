@@ -178,9 +178,9 @@ function addCmdToTable(_cmd) {
     }
 
     var selRequestType = '<select style="width : 90px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="requestType">';
+    selRequestType += '<option value="script">{{Script}}</option>';
     selRequestType += '<option value="http">{{HTTP}}</option>';
     selRequestType += '<option value="html">{{HTML}}</option>';
-    selRequestType += '<option value="script">{{Script}}</option>';
     selRequestType += '<option value="xml">{{XML}}</option>';
     selRequestType += '<option value="json">{{JSON}}</option>';
     selRequestType += '</select>';
