@@ -2,7 +2,7 @@
 if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
-include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'css');
+include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'css', 'script');
 include_file('3rdparty', 'codemirror/lib/codemirror', 'js');
 include_file('3rdparty', 'codemirror/lib/codemirror', 'css');
 include_file('3rdparty', 'codemirror/addon/edit/matchbrackets', 'js');
@@ -139,9 +139,9 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
             <th style="width: 100px;">{{Type script}}</th>
             <th style="width: 70px;">{{Type}}</th>
             <th>{{Requête}}</th>
-            <th style="width: 250px;">{{Options}}</th>
+            <th style="width: 400px;">{{Options}}</th>
             <th style="width: 110px;">{{Divers}}</th>
-            <th style="width: 170px;">{{Paramètres}}</th>
+            <th style="width: 100px;">{{Paramètres}}</th>
             <th style="width: 150px;"></th>
         </tr>
     </thead>
@@ -171,7 +171,7 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
     <textarea id="ta_editScriptFile" class="form-control" style="height: 100%;"></textarea>
 </div>
 
-<?php include_file('3rdparty', 'jquery.fileTree/jquery.easing.1.3', 'js');?>
-<?php include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'js');?>
+<?php include_file('3rdparty', 'jquery.fileTree/jquery.easing.1.3', 'js', 'script');?>
+<?php include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'js', 'script');?>
 <?php include_file('desktop', 'script', 'js', 'script');?>
 <?php include_file('core', 'plugin.template', 'js');?>

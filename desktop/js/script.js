@@ -47,7 +47,7 @@
     $("#md_browseScriptFile").dialog('open');
     $('#div_browseScriptFileTree').fileTree({
         root: '/',
-        script: '3rdparty/jquery.fileTree/jqueryFileTree.php?root=' + encodeURIComponent(userScriptDir),
+        script: 'plugins/script/3rdparty/jquery.fileTree/jqueryFileTree.php?root=' + encodeURIComponent(userScriptDir),
         folderEvent: 'click'
     }, function (file) {
         $("#md_browseScriptFile").dialog('close');
@@ -220,9 +220,9 @@ function addCmdToTable(_cmd) {
 
     tr += '<div class="requestTypeConfig" data-type="http">';
     tr += '<center>';
-    tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="noSslCheck" data-label-text="{{Vérifier SSL}}" /> ';
-    tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="allowEmptyResponse" data-label-text="{{Retour vide}}" /> ';
-    tr += '<input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="configuration" data-l2key="doNotReportHttpError" data-label-text="{{Pas d\'erreurs}}"" /> ';
+    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" />{{Vérifier SSL}} ';
+    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" style="margin-left : 20px;"/>{{Retour vide}} ';
+    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportHttpError" style="margin-left : 20px;"/>{{Pas d\'erreurs}} ';
     tr += '</center>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="reponseMustContain" placeholder="{{La réponse doit contenir}}" title="Vide pour ne mettre aucun contrainte"/>';
     tr += '<input class="cmdAttr form-control input-sm tooltips" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes" style="margin-top : 5px;"/>';
@@ -288,8 +288,8 @@ function addCmdToTable(_cmd) {
     tr += '</td>';
     tr += '<td>';
     tr += '<input class="cmdAttr form-control tooltips input-sm" data-l1key="unite"  style="width : 100px;" placeholder="{{Unité}}" title="{{Unité}}">';
-    tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}"> ';
-    tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}">';
+    tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}} style="margin-top : 5px;""> ';
+    tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}} style="margin-top : 5px;"">';
     tr += '<select class="cmdAttr form-control tooltips input-sm" data-l1key="configuration" data-l2key="updateCmdId" style="display : none;margin-top : 5px;" title="Commande d\'information à mettre à jour">';
     tr += '<option value="">Aucune</option>';
     tr += '</select>';
@@ -300,8 +300,6 @@ function addCmdToTable(_cmd) {
     tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="isHistorized" data-label-text="{{Historiser}}" /></span> ';
     tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="isVisible" data-label-text="{{Afficher}}" checked/> ';
     tr += '<span class="expertModeVisible"><input type="checkbox" data-size="mini" class="cmdAttr bootstrapSwitch" data-l1key="display" data-label-text="{{Inverser}}" data-l2key="invertBinary" /></span> ';
-    tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-l1key="cache" data-l2key="enable" checked data-label-text="{{Cache}}" /></span> ';
-    tr += '<input style="width : 100px;" class="tooltips cmdAttr form-control input-sm" data-l1key="cache" data-l2key="lifetime" placeholder="{{Durée de vie du cache (s)}}" title="Durée de vie du cache (s)">';
     tr += '</center>';
     tr += '</td>';
     tr += '<td>';

@@ -23,5 +23,8 @@ function script_update() {
 	if (is_object($cron)) {
 		$cron->remove();
 	}
+	foreach (script::byType('script') as $script) {
+		$script->save();
+	}
 }
 ?>

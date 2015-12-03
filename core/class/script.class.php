@@ -155,7 +155,7 @@ class scriptCmd extends cmd {
 	/*     * *********************Méthodes d'instance************************* */
 
 	public function preSave() {
-		if ($this->getConfiguration('request') == '' && $this->getType() == 'info') {
+		if ($this->getType() == 'info') {
 			$this->setEventOnly(1);
 		}
 		if ($this->getConfiguration('request') == '' && $this->getType() != 'info') {
@@ -166,9 +166,6 @@ class scriptCmd extends cmd {
 		}
 		if ($this->getConfiguration('requestType') == 'xml' && $this->getType() == 'action') {
 			throw new Exception(__('Vous ne pouvez pas avoir un script de type XML et action', __FILE__));
-		}
-		if ($this->getEqLogic()->getConfiguration('autorefresh') != '') {
-			$this->setEventOnly(1);
 		}
 	}
 
