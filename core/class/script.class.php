@@ -22,6 +22,10 @@ require_once dirname(__FILE__) . '/../../core/php/script.inc.php';
 
 class script extends eqLogic {
 
+	/*     * *************************Attributs****************************** */
+
+	/*     * ***********************Méthodes statiques*************************** */
+
 	public static function cron() {
 		foreach (eqLogic::byType('script') as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
@@ -30,22 +34,7 @@ class script extends eqLogic {
 					$c = new Cron\CronExpression($autorefresh, new Cron\FieldFactory);
 					if ($c->isDue()) {
 						try {
-							foreach ($eqLogic->getCmd('info') as $cmd) {
-								if ($cmd->getConfiguration('request') != '') {
-									$value = $cmd->execute();
-									if ($cmd->getEventOnly() == 0) {
-										if ($cmd->execCmd(null, 2) != $cmd->formatValue($value)) {
-											$cmd->setCollectDate('');
-											$cmd->event($value);
-										}
-									} else {
-										if ($cmd->execCmd() != $cmd->formatValue($value)) {
-											$cmd->setCollectDate('');
-											$cmd->event($value);
-										}
-									}
-								}
-							}
+							$eqLogic->updateInfo();
 						} catch (Exception $exc) {
 							log::add('script', 'error', __('Erreur pour ', __FILE__) . $eqLogic->getHumanName() . ' : ' . $exc->getMessage());
 						}
@@ -145,6 +134,16 @@ class script extends eqLogic {
 		return $return;
 	}
 
+	/*     * *********************Méthodes d'instance************************* */
+
+	public function updateInfo() {
+		foreach ($this->getCmd('info') as $cmd) {
+			$cmd->updateInfo();
+		}
+	}
+
+	/*     * **********************Getteur Setteur*************************** */
+
 }
 
 class scriptCmd extends cmd {
@@ -153,6 +152,20 @@ class scriptCmd extends cmd {
 	/*     * ***********************Méthodes statiques*************************** */
 
 	/*     * *********************Méthodes d'instance************************* */
+
+	public function updateInfo() {
+		if ($this->getType() != 'info') {
+			return;
+		}
+		if (trim($this->getConfiguration('request')) == '') {
+			return;
+		}
+		$value = $this->execute();
+		if ($this->execCmd() != $this->formatValue($value)) {
+			$this->setCollectDate('');
+			$this->event($value);
+		}
+	}
 
 	public function preSave() {
 		if ($this->getType() == 'info') {
@@ -169,13 +182,16 @@ class scriptCmd extends cmd {
 		}
 	}
 
+	public function postSave() {
+		$this->updateInfo();
+	}
+
 	public function execute($_options = null) {
 		$result = false;
 		$request = str_replace('#API#', config::byKey('api'), $this->getConfiguration('request'));
 		if (trim($request) == '') {
 			throw new Exception(__('La requête ne peut pas être vide : ', __FILE__) . print_r($this, true));
 		}
-
 		if ($_options != null) {
 			switch ($this->getType()) {
 				case 'action':
