@@ -168,9 +168,7 @@ class scriptCmd extends cmd {
 	}
 
 	public function preSave() {
-		if ($this->getType() == 'info') {
-			$this->setEventOnly(1);
-		}
+		$this->setEventOnly(1);
 		if ($this->getConfiguration('request') == '' && $this->getType() != 'info') {
 			throw new Exception(__('Le champ requête ne peut pas être vide', __FILE__));
 		}
