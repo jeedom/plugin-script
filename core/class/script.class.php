@@ -34,7 +34,7 @@ class script extends eqLogic {
 					$c = new Cron\CronExpression($autorefresh, new Cron\FieldFactory);
 					if ($c->isDue()) {
 						try {
-							$eqLogic->updateInfo();
+							$eqLogic->refresh();
 						} catch (Exception $exc) {
 							log::add('script', 'error', __('Erreur pour ', __FILE__) . $eqLogic->getHumanName() . ' : ' . $exc->getMessage());
 						}
@@ -136,9 +136,23 @@ class script extends eqLogic {
 
 	/*     * *********************Méthodes d'instance************************* */
 
-	public function updateInfo() {
+	public function postSave() {
+		$refresh = $this->getCmd(null, 'refresh');
+		if (!is_object($refresh)) {
+			$refresh = new virtualCmd();
+			$refresh->setLogicalId('refresh');
+			$refresh->setIsVisible(1);
+			$refresh->setName(__('Rafraichir', __FILE__));
+		}
+		$refresh->setType('action');
+		$refresh->setSubType('other');
+		$refresh->setEqLogic_id($this->getId());
+		$refresh->save();
+	}
+
+	public function refresh() {
 		foreach ($this->getCmd('info') as $cmd) {
-			$cmd->updateInfo();
+			$cmd->refresh();
 		}
 	}
 
@@ -153,7 +167,14 @@ class scriptCmd extends cmd {
 
 	/*     * *********************Méthodes d'instance************************* */
 
-	public function updateInfo() {
+	public function dontRemoveCmd() {
+		if ($this->getLogicalId() == 'refresh') {
+			return true;
+		}
+		return false;
+	}
+
+	public function refresh() {
 		if ($this->getType() != 'info') {
 			return;
 		}
@@ -168,6 +189,9 @@ class scriptCmd extends cmd {
 	}
 
 	public function preSave() {
+		if ($this->getLogicalId() == 'refresh') {
+			return;
+		}
 		if ($this->getConfiguration('request') == '' && $this->getType() != 'info') {
 			throw new Exception(__('Le champ requête ne peut pas être vide', __FILE__));
 		}
@@ -180,10 +204,17 @@ class scriptCmd extends cmd {
 	}
 
 	public function postSave() {
-		$this->updateInfo();
+		if ($this->getLogicalId() == 'refresh') {
+			return;
+		}
+		$this->refresh();
 	}
 
 	public function execute($_options = null) {
+		if ($this->getLogicalId() == 'refresh') {
+			$this->getEqLogic()->refresh();
+			return;
+		}
 		$result = false;
 		$request = str_replace('#API#', config::byKey('api'), $this->getConfiguration('request'));
 		if (trim($request) == '') {
