@@ -139,7 +139,7 @@ class script extends eqLogic {
 	public function postSave() {
 		$refresh = $this->getCmd(null, 'refresh');
 		if (!is_object($refresh)) {
-			$refresh = new virtualCmd();
+			$refresh = new scriptCmd();
 			$refresh->setLogicalId('refresh');
 			$refresh->setIsVisible(1);
 			$refresh->setName(__('Rafraichir', __FILE__));
