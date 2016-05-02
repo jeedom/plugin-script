@@ -166,6 +166,11 @@ $('#bt_getFromMarket').on('click', function () {
     $('#md_modal').load('index.php?v=d&modal=market.list&type=script').dialog('open');
 });
 
+$('#bt_getFromMarketicon').on('click', function () {
+    $('#md_modal').dialog({title: "{{Partager sur le market}}"});
+    $('#md_modal').load('index.php?v=d&modal=market.list&type=script').dialog('open');
+});
+
 $("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
 
 
