@@ -3,12 +3,9 @@
     <id>script</id>
     <name>Script</name>
     <description>Plugin pour gérer des scripts (PHP, Shell, ...)</description>
-    <icon>fa fa-file</icon>
     <licence>AGPL</licence>
-    <author>Loïc Gevrey</author>
-    <installation>Aucune</installation>
-    <require>1.10</require>
-    <version>2.0</version>
+    <author>Loïc</author>
+    <require>2.0</require>
     <category>programming</category>
     <include type="php">script.inc</include>
 </info>
