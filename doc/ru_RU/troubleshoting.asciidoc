@@ -1,0 +1,2 @@
+Mes valeurs ne se rafraîchissent pas toutes seules::
+Vérifiez si, en mode expert, vous avez bien mis un auto-refresh.
