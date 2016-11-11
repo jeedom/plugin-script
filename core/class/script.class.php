@@ -183,7 +183,6 @@ class scriptCmd extends cmd {
 		}
 		$value = $this->execute();
 		if ($this->execCmd() != $this->formatValue($value)) {
-			$this->setCollectDate('');
 			$this->event($value);
 		}
 	}
@@ -404,7 +403,6 @@ class scriptCmd extends cmd {
 			foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
 				$value = $cmd->execute();
 				if ($cmd->execCmd(null, 2) != $cmd->formatValue($value)) {
-					$cmd->setCollectDate('');
 					$cmd->event($value);
 				}
 			}
