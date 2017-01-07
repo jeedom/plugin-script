@@ -8,7 +8,7 @@ La seule option est l'endroit où jeedom met les scripts par défaut, il est con
 
 == Geräte Konfiguration
 
-La configuration des équipements Script est accessible à partir du menu plugin :
+Die Konfiguration von Script-Geräten ist in dem Plugin-Menü verfügbar :
 
 image::../images/script2.PNG[]
 
