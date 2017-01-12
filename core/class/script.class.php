@@ -181,10 +181,7 @@ class scriptCmd extends cmd {
 		if (trim($this->getConfiguration('request')) == '') {
 			return;
 		}
-		$value = $this->execute();
-		if ($this->execCmd() != $this->formatValue($value)) {
-			$this->event($value);
-		}
+		$this->checkAndUpdateCmd($this,  $this->execute());
 	}
 
 	public function preSave() {
