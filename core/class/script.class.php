@@ -181,7 +181,7 @@ class scriptCmd extends cmd {
 		if (trim($this->getConfiguration('request')) == '') {
 			return;
 		}
-		$this->checkAndUpdateCmd($this,  $this->execute());
+		$this->getEqLogic()->checkAndUpdateCmd($this,  $this->execute());
 	}
 
 	public function preSave() {
