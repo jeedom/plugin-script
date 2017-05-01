@@ -271,6 +271,58 @@ la syntaxe est :
 
 leds > 1 > led1 qui donne en réponse tata, 1 étant le numéro de rang du tableau !
 
+== Exemple XML plus complexe
+----
+<AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55">
+ <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
+   <Name>Tresa - Ponte Tresa, Rocchetta</Name>
+   <Datum>01.05.2017</Datum>
+   <Zeit>18:50</Zeit>
+   <Wert>268.56</Wert>
+   <Wert dt="-24h">268.51</Wert>
+   <Wert Typ="delta24">0.051</Wert>
+   <Wert Typ="m24">268.52</Wert>
+   <Wert Typ="max24">268.56</Wert>
+   <Wert Typ="min24">268.50</Wert>
+ </MesPar>
+ <MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02">
+  <Name>Inn - Tarasp</Name>
+  <Datum>01.05.2017</Datum>
+  <Zeit>18:50</Zeit>
+  <Wert>4.85</Wert>
+  <Wert dt="-24h">7.98</Wert>
+  <Wert Typ="delta24">-3.130</Wert>
+  <Wert Typ="m24">6.15</Wert>
+  <Wert Typ="max24">7.98</Wert>
+  <Wert Typ="min24">4.85</Wert>
+ </MesPar>
+ <MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32">
+  <Name>Doubs - Combe des Sarrasins</Name>
+  <Datum>01.05.2017</Datum>
+  <Zeit>18:00</Zeit>
+  <Wert>500.65</Wert>
+  <Wert dt="-24h">500.65</Wert>
+  <Wert Typ="delta24">0.000</Wert>
+  <Wert Typ="m24">500.65</Wert>
+  <Wert Typ="max24">500.65</Wert>
+  <Wert Typ="min24">500.64</Wert>
+ </MesPar>
+</AKT_Data>
+----
+
+Pour recuperer l'information du champ Wert du 1er bloc:
+
+   MesPar>1>Wert>0 qui retourne donc "268.56 "
+
+Pour retourner l'élément suivant dans la "structure" Wert, il faut simplement indiquer le numéro d'ordre dans la structure.
+Ce qui donne pour l'élément '<Wert Typ="delta24">0.051</Wert>' le code suivant : 
+
+   MesPar>1>Wert>2
+
+Pour passer au bloc " MesPar" suivant, il faut donc changer l'index en conséquence : le 1 par 2, par exemple.
+
+ATENTION : Si dans le fichier XML l'ordre change, la requête ne fonctionne plus. Il faudra réadapter la requete en fonction de l'ordre retourné.
+
 == Exemple JSON
 
 A l’instar du type XML, il est possible de lire des informations issues d'un retour JSON.

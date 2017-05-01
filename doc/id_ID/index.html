@@ -431,9 +431,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_exemple_xml_simple">10. Exemple XML simple</a></li>
 <li><a href="#_exemple_xml_complexe">11. Exemple XML complexe</a></li>
-<li><a href="#_exemple_json">12. Exemple JSON</a></li>
-<li><a href="#_exemple_html">13. Exemple HTML</a></li>
-<li><a href="#_troubleshoting">14. Troubleshoting</a></li>
+<li><a href="#_exemple_xml_plus_complexe">12. Exemple XML plus complexe</a></li>
+<li><a href="#_exemple_json">13. Exemple JSON</a></li>
+<li><a href="#_exemple_html">14. Exemple HTML</a></li>
+<li><a href="#_troubleshoting">15. Troubleshoting</a></li>
 </ul>
 </div>
 </div>
@@ -1055,7 +1056,74 @@ Si vous voulez la valeur de la led1 qui est le fils de leds vous mettez leds &gt
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exemple_json">12. Exemple JSON</h2>
+<h2 id="_exemple_xml_plus_complexe">12. Exemple XML plus complexe</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>&lt;AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55"&gt;
+ &lt;MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02"&gt;
+   &lt;Name&gt;Tresa - Ponte Tresa, Rocchetta&lt;/Name&gt;
+   &lt;Datum&gt;01.05.2017&lt;/Datum&gt;
+   &lt;Zeit&gt;18:50&lt;/Zeit&gt;
+   &lt;Wert&gt;268.56&lt;/Wert&gt;
+   &lt;Wert dt="-24h"&gt;268.51&lt;/Wert&gt;
+   &lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;
+   &lt;Wert Typ="m24"&gt;268.52&lt;/Wert&gt;
+   &lt;Wert Typ="max24"&gt;268.56&lt;/Wert&gt;
+   &lt;Wert Typ="min24"&gt;268.50&lt;/Wert&gt;
+ &lt;/MesPar&gt;
+ &lt;MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02"&gt;
+  &lt;Name&gt;Inn - Tarasp&lt;/Name&gt;
+  &lt;Datum&gt;01.05.2017&lt;/Datum&gt;
+  &lt;Zeit&gt;18:50&lt;/Zeit&gt;
+  &lt;Wert&gt;4.85&lt;/Wert&gt;
+  &lt;Wert dt="-24h"&gt;7.98&lt;/Wert&gt;
+  &lt;Wert Typ="delta24"&gt;-3.130&lt;/Wert&gt;
+  &lt;Wert Typ="m24"&gt;6.15&lt;/Wert&gt;
+  &lt;Wert Typ="max24"&gt;7.98&lt;/Wert&gt;
+  &lt;Wert Typ="min24"&gt;4.85&lt;/Wert&gt;
+ &lt;/MesPar&gt;
+ &lt;MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32"&gt;
+  &lt;Name&gt;Doubs - Combe des Sarrasins&lt;/Name&gt;
+  &lt;Datum&gt;01.05.2017&lt;/Datum&gt;
+  &lt;Zeit&gt;18:00&lt;/Zeit&gt;
+  &lt;Wert&gt;500.65&lt;/Wert&gt;
+  &lt;Wert dt="-24h"&gt;500.65&lt;/Wert&gt;
+  &lt;Wert Typ="delta24"&gt;0.000&lt;/Wert&gt;
+  &lt;Wert Typ="m24"&gt;500.65&lt;/Wert&gt;
+  &lt;Wert Typ="max24"&gt;500.65&lt;/Wert&gt;
+  &lt;Wert Typ="min24"&gt;500.64&lt;/Wert&gt;
+ &lt;/MesPar&gt;
+&lt;/AKT_Data&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour recuperer l&#8217;information du champ Wert du 1er bloc:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>MesPar&gt;1&gt;Wert&gt;0 qui retourne donc "268.56 "</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour retourner l&#8217;élément suivant dans la "structure" Wert, il faut simplement indiquer le numéro d&#8217;ordre dans la structure.
+Ce qui donne pour l&#8217;élément '&lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;' le code suivant :</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>MesPar&gt;1&gt;Wert&gt;2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour passer au bloc " MesPar" suivant, il faut donc changer l&#8217;index en conséquence : le 1 par 2, par exemple.</p>
+</div>
+<div class="paragraph">
+<p>ATENTION : Si dans le fichier XML l&#8217;ordre change, la requête ne fonctionne plus. Il faudra réadapter la requete en fonction de l&#8217;ordre retourné.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemple_json">13. Exemple JSON</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A l’instar du type XML, il est possible de lire des informations issues d&#8217;un retour JSON.</p>
@@ -1157,7 +1225,7 @@ Si vous voulez la valeur de la led1 qui est le fils de leds vous mettez leds &gt
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exemple_html">13. Exemple HTML</h2>
+<h2 id="_exemple_html">14. Exemple HTML</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Ici nous allons essayer de récupérer la dernière VDM.</p>
@@ -1211,7 +1279,7 @@ Lors de la mise en place d&#8217;un cron de mise à jour, Jeedom va automatiquem
 </div>
 </div>
 <div class="sect1">
-<h2 id="_troubleshoting">14. Troubleshoting</h2>
+<h2 id="_troubleshoting">15. Troubleshoting</h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
