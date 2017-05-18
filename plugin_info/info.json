@@ -1,0 +1,8 @@
+{
+	"id" : "script",
+	"name" : "Script",
+	"licence" : "AGPL",
+	"author" : "Loïc",
+	"require" : "2.4",
+	"category" : "programming"
+}
