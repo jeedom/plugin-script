@@ -52,7 +52,7 @@
         "Min": "Min",
         "Max": "Max",
         "Historiser": "Historize",
-        "Afficher": "Show",
+        "Afficher": "Display",
         "Inverser": "Invert",
         "Autoriser memcache": "Allow memcache",
         "Lifetime cache": "Lifetime cache",
@@ -60,6 +60,6 @@
     },
     "plugins/script/plugin_info/info.xml": {
         "Plugin pour gérer des scripts (PHP, Shell, ...)": "Plugin to manage scripts (PHP, Shell...)",
-        "Aucune": "Aucune"
+        "Aucune": "None"
     }
 }
