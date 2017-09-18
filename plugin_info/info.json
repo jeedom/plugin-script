@@ -4,5 +4,7 @@
 	"licence" : "AGPL",
 	"author" : "Loïc",
 	"require" : "2.4",
-	"category" : "programming"
+	"category" : "programming",
+	"changelog" : "https://github.com/jeedom/plugin-script/blob/stable/doc/#language#/changelog.asciidoc",
+	"documentation" : "https://github.com/jeedom/plugin-script/blob/stable/doc/#language#/index.asciidoc"
 }
