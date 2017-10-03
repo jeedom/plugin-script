@@ -4,7 +4,3 @@ Plugin, um Skripts ausführen (Shell, PHP, Ruby ...), HTTP-Anfragen, Abrufen von
 
 '''
 include::configuration.asciidoc[]
-
-'''
-== Fehlersuche
-include::troubleshoting.asciidoc[]

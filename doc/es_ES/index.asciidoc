@@ -4,7 +4,3 @@ Plugin permettant d'exécuter des scripts (shell, php, ruby...), des requêtes h
 
 "
 include::configuration.asciidoc[]
-
-"
-== Troubleshoting
-include::troubleshoting.asciidoc[]
