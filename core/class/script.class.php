@@ -245,7 +245,13 @@ class scriptCmd extends cmd {
 			}
 		}
 		$request = scenarioExpression::setTags($request);
-		$request = trim(str_replace('\'', '', $request));
+		$replace = array(
+			'\'' => '',
+			'#eqLogic_id#' => $this->getEqLogic_id(),
+			'#cmd_id#' => $this->getId()
+		);
+		$request = str_replace(array_keys($replace), $replace, $request);
+
 
 		switch ($this->getConfiguration('requestType')) {
 			case 'http':
