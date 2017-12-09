@@ -400,7 +400,6 @@ class scriptCmd extends cmd {
 				return pq(trim($request))->html();
 		}
 		if ($this->getType() == 'action') {
-			sleep(1);
 			foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
 				$value = $cmd->execute();
 				if ($cmd->execCmd(null, 2) != $cmd->formatValue($value)) {
