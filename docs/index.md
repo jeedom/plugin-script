@@ -8,7 +8,7 @@ key_do_not_edit_label:
 Plugin permettant d’exécuter des scripts (shell, php, ruby…​), des
 requêtes http, de récupérer des informations dans du XML ou JSON.
 
-Configuration du plugin {#_configuration_du_plugin}
+Configuration du plugin 
 =======================
 
 La configuration est très simple, après téléchargement du plugin, il
@@ -19,7 +19,7 @@ vous suffit de l’activer et c’est tout.
 La seule option est l’endroit où jeedom met les scripts par défaut, il
 est conseillé de ne pas y toucher.
 
-Configuration des équipements {#_configuration_des_équipements}
+Configuration des équipements 
 =============================
 
 La configuration des équipements Script est accessible à partir du menu
@@ -184,7 +184,7 @@ Permet d’appeller une url ou de récupérer le retour d’une URL.
 
 -   un champ "Mot de passe" : pour renseigner un mot de passe.
 
-Le choix HTML {#_le_choix_html}
+Le choix HTML 
 =============
 
 ![script8](images/script8.PNG)
@@ -196,7 +196,7 @@ Le champ option possède un champ "URL du fichier HTML" : ce champ
 contient donc le lien vers la machine hébergeant le fichier HTML en
 question.
 
-Le choix XML {#_le_choix_xml}
+Le choix XML 
 ============
 
 ![script6](images/script6.PNG)
@@ -213,7 +213,7 @@ question.
 > Il n’est possible de récupérer que des valeurs, les attributs ne
 > peuvent être récuperés.
 
-Le choix JSON {#_le_choix_json}
+Le choix JSON 
 =============
 
 ![script7](images/script7.PNG)
@@ -225,7 +225,7 @@ Le champ option possède un champ "URL du fichier JSON" : ce champ
 contient donc le lien vers la machine hébergeant le fichier JSON en
 question.
 
-Exemple HTTP : Pilotage d’une Vera {#_exemple_http_pilotage_d_une_vera}
+Exemple HTTP : Pilotage d’une Vera 
 ==================================
 
 L’exemple est basé sur une Vera et consiste à piloter une ampoule
@@ -303,7 +303,7 @@ tag \#slider\# dans la requête :
 > \#message\# et \#title\#, idem pour une commande de type couleur avec
 > le tag \#color\#
 
-Exemple HTTP : Envoyer une notification à XBMC {#_exemple_http_envoyer_une_notification_à_xbmc}
+Exemple HTTP : Envoyer une notification à XBMC 
 ==============================================
 
 But : Envoyer une notification vers XBMC lors de l’ouverture d’une porte
@@ -344,7 +344,7 @@ Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
 Action : Lancez le script, via un équipement virtuel, lié à votre script
 !
 
-Exemple SCRIPT {#_exemple_script}
+Exemple SCRIPT 
 ==============
 
 Le plus sympa mais pas le plus simple à expliquer.
@@ -372,7 +372,7 @@ Ceci est un script php qui peut tout à fait être réutilisé hors Jeedom !
 Note : concrètement, c’est la fonction php "echo" qui va donner la
 valeur à Jeedom
 
-Les paramètres {#_les_paramètres}
+Les paramètres 
 --------------
 
 Récupérer les infos de Jeedom pour les exploiter dans un script. La
@@ -419,7 +419,7 @@ Préconisation pour tester les paramètres dans le script php :
          }
      }
 
-Exemple XML simple {#_exemple_xml_simple}
+Exemple XML simple 
 ==================
 
 Voici la format du xml type :
@@ -438,7 +438,7 @@ leds &gt; led1.
 Notez que l’élément racine &lt;root&gt; n’est pas à préciser dans le
 champ requête.
 
-Exemple XML complexe {#_exemple_xml_complexe}
+Exemple XML complexe 
 ====================
 
      <root>
@@ -456,7 +456,7 @@ la syntaxe est :
 leds &gt; 1 &gt; led1 qui donne en réponse tata, 1 étant le numéro de
 rang du tableau !
 
-Exemple XML plus complexe {#_exemple_xml_plus_complexe}
+Exemple XML plus complexe 
 =========================
 
     <AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55">
@@ -513,7 +513,7 @@ ATENTION : Si dans le fichier XML l’ordre change, la requête ne
 fonctionne plus. Il faudra réadapter la requete en fonction de l’ordre
 retourné.
 
-Exemple JSON {#_exemple_json}
+Exemple JSON 
 ============
 
 A l’instar du type XML, il est possible de lire des informations issues
@@ -601,7 +601,7 @@ Inconvénients :
     n’est malheureusement pas possible, il faudra dupliquer le script
     autant de fois que nécessaire.
 
-Exemple HTML {#_exemple_html}
+Exemple HTML 
 ============
 
 Ici nous allons essayer de récupérer la dernière VDM.
