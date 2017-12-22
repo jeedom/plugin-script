@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Script</title>
+<date>2017-12-22</date>
+</info>
+<simpara>Plugin permettant d&#8217;exécuter des scripts (shell, php, ruby&#8230;&#8203;), des requêtes http, de récupérer des informations dans du XML ou JSON.</simpara>
+<simpara><?asciidoc-hr?></simpara>
+<section xml:id="_configuration_du_plugin">
+<title>Configuration du plugin</title>
+<simpara>La configuration est très simple, après téléchargement du plugin, il vous suffit de l&#8217;activer et c&#8217;est tout.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script1.PNG"/>
+</imageobject>
+<textobject><phrase>script1</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>La seule option est l&#8217;endroit où jeedom met les scripts par défaut, il est conseillé de ne pas y toucher.</simpara>
+</section>
+<section xml:id="_configuration_des_équipements">
+<title>Configuration des équipements</title>
+<simpara>La configuration des équipements Script est accessible à partir du menu plugin :</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script2.PNG"/>
+</imageobject>
+<textobject><phrase>script2</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Voilà à quoi ressemble la page du plugin Script (ici avec déjà 1 équipement) :</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script3.PNG"/>
+</imageobject>
+<textobject><phrase>script3</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Vous retrouvez ici la liste de vos Scripts. Une fois que vous cliquez sur un équipement vous obtenez :</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script4.PNG"/>
+</imageobject>
+<textobject><phrase>script4</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<tip>
+<simpara>Comme à beaucoup d&#8217;endroits sur Jeedom, mettre la souris tout à gauche permet de faire apparaître un menu d&#8217;accès rapide (vous pouvez à partir de votre profil le laisser toujours visible).</simpara>
+</tip>
+<simpara>Vous retrouvez ici toute la configuration de votre équipement :</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">Nom de l&#8217;équipement script</emphasis> : nom de votre équipement script</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Catégorie</emphasis> : les catégories de l&#8217;équipement (il peut appartenir à plusieurs catégories)</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Activer</emphasis> : permet de rendre votre équipement actif</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Visible</emphasis> : le rend visible sur le dashboard</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Objet parent</emphasis> : indique l&#8217;objet parent auquel appartient l&#8217;équipement</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Auto-actualisation</emphasis> : permet de spécifier un cron d&#8217;actualisation automatique pour toutes les commandes de type info.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>En dessous vous retrouvez la liste des commandes :</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">Nom</emphasis> : Ce champ contient le nom que vous souhaitez donner à votre commande/information.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Icône</emphasis> : Ce champ permet d&#8217;associer une icône à votre nom (dans ce cas Jeedom remplace le nom par l’icône dans le dashboard).</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Type de script</emphasis> :</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Le type http : permet d&#8217;envoyer une requête vers un équipement externe sans forcément attendre un retour de cette commande. L&#8217;exemple qui servira de support au type http sera la configuration d&#8217;une requête vers une Vera pour allumer une lumière.</simpara>
+</listitem>
+<listitem>
+<simpara>Le type script : sert principalement à lancer des scripts internes à Jeedom. L&#8217;exemple qui servira de support au type script sera la configuration du script de monitoring température du raspberry disponible sur le market.</simpara>
+</listitem>
+<listitem>
+<simpara>Le type XML : permet de rapatrier des informations encodées en XML depuis un équipement distant. L&#8217;exemple qui servira de support au type XML sera la configuration du script pour interroger un Eco-Device.</simpara>
+</listitem>
+<listitem>
+<simpara>Le type JSON : permet de rapatrier des informations encodées en JSON depuis un équipement distant. L&#8217;exemple qui servira de support au type JSON sera la configuration du script pour interroger Sickbeard (ou XBMC).</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">le type</emphasis> et le <emphasis role="strong">sous-type</emphasis></simpara>
+</listitem>
+<listitem>
+<simpara>Le champ <emphasis role="strong">requête</emphasis></simpara>
+<itemizedlist>
+<listitem>
+<simpara>Ce champ doit contenir la requête en elle-même, ou le chemin du script si le champ "type de script" est script.
+Le bouton "parcourir" : permet de sélectionner le fichier contenu dans le dossier interne à Jeedom.</simpara>
+<tip>
+<simpara>Ce dossier est accessible en SSH dans /usr/share/nginx/www/jeedom/plugins/script/core/ressources/. Pour info, la commande SSH pour attribuer les droits www-data à un fichier est : sudo chown www-data:www-data NOMDUSCRIPT.EXTENSION. A savoir que pour exécuter un script, celui-ci doit avoir les droits www-data.</simpara>
+</tip>
+</listitem>
+<listitem>
+<simpara>Le bouton <emphasis role="strong">Editer</emphasis> : permet d&#8217;éditer à l&#8217;aide d&#8217;un éditeur de code interne un des fichiers contenus dans le répertoire permettant l&#8217;accès au code du fichier.</simpara>
+</listitem>
+<listitem>
+<simpara>Le bouton <emphasis role="strong">Nouveau</emphasis> : permet de créer un fichier de commande.</simpara>
+<tip>
+<simpara>Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sous peine de voir votre superbe script ne pas fonctionner. Sans extension Jeedom ne saura pas reconnaiître le langage associé à votre fichier. CF : Généralité</simpara>
+</tip>
+</listitem>
+<listitem>
+<simpara>Le bouton <emphasis role="strong">Supprimer</emphasis> : permet de supprimer un fichier de commande.</simpara>
+</listitem>
+<listitem>
+<simpara>Le bouton <emphasis role="strong">Partager</emphasis> : un des plus importants, et après avoir validé les CGU développeurs dans votre profil sur le market, permet de partager votre création avec la communauté.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>Le champ <emphasis role="strong">Options</emphasis> : Champ aux options variables suivant le choix du type de script.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">unité</emphasis> : unité de la donnée (peut être vide).</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">min/max</emphasis> : bornes de la donnée (peuvent être vides).</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">historiser</emphasis> : permet d&#8217;historiser la donnée.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">afficher</emphasis> : permet d&#8217;afficher la donnée sur le dashboard.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">évènement</emphasis> : retour en cas d&#8217;évènements. Dans le cas du RFXcom cette case doit toujours être cochée car on ne peut pas interroger un module RFXcom.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Autoriser memcache</emphasis> : autorise Jeedom à utiliser du cache pour la valeur (par défaut 5 min) avant de réexécuter le script pour avoir à nouveau la valeur.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Lifetime cache</emphasis> : permet de modifier la durée de vie du cache (par défaut 5 min).</simpara>
+</listitem>
+</itemizedlist>
+<important>
+<simpara>Il faut eviter,autant que possible, dans le chemin du script ou dans les parametres de celui-ci les caractères spéciaux. Les caractères autorisés étant : les chiffres, les lettres (majuscule ou minuscule)</simpara>
+</important>
+</section>
+<IMPORTANT xml:id="_le_choix_http">
+<title>Le choix HTTP</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script5.PNG"/>
+</imageobject>
+<textobject><phrase>script5</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Permet d&#8217;appeller une url ou de récupérer le retour d&#8217;une URL.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>une case à cocher "Ne pas vérifier SSL" : si cochée, permet à Jeedom de ne pas envoyer les champs "Utilisateur" et "Mot de passe" à la requête. Jeedom ne cherchera pas à s&#8217;identifier au site/machine distant.</simpara>
+</listitem>
+<listitem>
+<simpara>une case à cocher "Autoriser réponse vide" : si cochée, permet à Jeedom de ne pas attendre de réponse, ou d&#8217;ignorer toute réponse à la trame émise. En général, on coche si Jeedom nous renvoit un "Curl error : Empty reply from server".</simpara>
+</listitem>
+<listitem>
+<simpara>une case à cocher "Ne jamais remonter les erreurs" : permet de ne pas remonter d&#8217;alerte en cas d&#8217;erreur.</simpara>
+</listitem>
+<listitem>
+<simpara>un champ "timeout" : sans être renseigné, le timeout de la requête vaut par défaut 2 secondes, sinon il vaut la valeur renseignée.</simpara>
+</listitem>
+<listitem>
+<simpara>un champ "Essais au maximum" : 4 essais au maximum par défaut.</simpara>
+</listitem>
+<listitem>
+<simpara>un champ "Utilisateur" : pour renseigner un nom d&#8217;utilisateur.</simpara>
+</listitem>
+<listitem>
+<simpara>un champ "Mot de passe" : pour renseigner un mot de passe.</simpara>
+</listitem>
+</itemizedlist>
+</IMPORTANT>
+<section xml:id="_le_choix_html">
+<title>Le choix HTML</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script8.PNG"/>
+</imageobject>
+<textobject><phrase>script8</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Permet de parser une page Web (fichier HTML) pour récupérer une valeur dessus. La syntaxe est la même que pour jquery.</simpara>
+<simpara>Le champ option possède un champ "URL du fichier HTML" : ce champ contient donc le lien vers la machine hébergeant le fichier HTML en question.</simpara>
+</section>
+<section xml:id="_le_choix_xml">
+<title>Le choix XML</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script6.PNG"/>
+</imageobject>
+<textobject><phrase>script6</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Permet de récupérer du xml et d&#8217;aller chercher spécifiquement une valeur dedans.</simpara>
+<simpara>Le champ option possède un champ "URL du fichier XML" : ce champ contient donc le lien vers la machine hébergeant le fichier XML en question.</simpara>
+<important>
+<simpara>Il n&#8217;est possible de récupérer que des valeurs, les attributs ne peuvent être récuperés.</simpara>
+</important>
+</section>
+<section xml:id="_le_choix_json">
+<title>Le choix JSON</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script7.PNG"/>
+</imageobject>
+<textobject><phrase>script7</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Permet de récupérer du json et d&#8217;aller chercher spécifiquement une valeur dedans.</simpara>
+<simpara>Le champ option possède	un champ "URL du fichier JSON" : ce champ contient donc le lien vers la machine hébergeant le fichier JSON en question.</simpara>
+</section>
+<section xml:id="_exemple_http_pilotage_d_une_vera">
+<title>Exemple HTTP : Pilotage d&#8217;une Vera</title>
+<simpara>L&#8217;exemple est basé sur une Vera et consiste à piloter une ampoule dimmable.
+Je ne vais pas m&#8217;étendre sur la manière de piloter une Vera par requête http, le forum TLD est rempli de réponses.
+De plus, l&#8217;exemple correspond à mon type de matériel et devra être adapté au vôtre.</simpara>
+<tip>
+<simpara>Une méthode pour ceux qui tâtonnent pour l&#8217;écriture de requêtes http, valider d&#8217;abord la syntaxe dans votre navigateur et seulement ensuite passer à la configuration sous Jeedom. Quand un script Action ne fonctionne pas, passer en script Info/Autre permet de voir l&#8217;erreur retournée.</simpara>
+</tip>
+<simpara>Allons-y  :</simpara>
+<itemizedlist>
+<listitem>
+<simpara>On crée un équipement : par exemple LUM CUISINE (je pense qu&#8217;on a tous une cuisine sous la main)</simpara>
+</listitem>
+<listitem>
+<simpara>On l&#8217;associe à un objet parent : par exemple VERA, moi ça me permet de centraliser toutes les commandes liées à la VERA sur un unique parent.</simpara>
+</listitem>
+<listitem>
+<simpara>Choisissez votre catégorie.</simpara>
+</listitem>
+<listitem>
+<simpara>Activez votre équipement, ne cochez pas visible, on verra un peu plus tard comment l&#8217;associer à un virtuel (plus sexy, plus WAF)</simpara>
+</listitem>
+<listitem>
+<simpara>Pour l&#8217;auto-actualisation, ne rien mettre, il s&#8217;agit d&#8217;une commande impulsionnelle liée à un appui sur un bouton ou un scénario !</simpara>
+</listitem>
+<listitem>
+<simpara>Ajoutez une commande script</simpara>
+</listitem>
+<listitem>
+<simpara>Pensez à sauvegarder</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Explications :</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Nom : 100 % car on va allumer une lumière à pleine puissance</simpara>
+</listitem>
+<listitem>
+<simpara>Type de script : http</simpara>
+</listitem>
+<listitem>
+<simpara>Type : Action (c&#8217;est une commande)</simpara>
+</listitem>
+<listitem>
+<simpara>Sous type : défaut</simpara>
+</listitem>
+<listitem>
+<simpara>Requête :</simpara>
+</listitem>
+</itemizedlist>
+<screen>http://&lt;IP_VERA&gt;:3480/data_request?id=lu_action&amp;output_format=json&amp;DeviceNum=12&amp;serviceId=urn:upnp-org:serviceId:Dimming1&amp;action=SetLoadLevelTarget&amp;newLoadlevelTarget=100</screen>
+<tip>
+<simpara>le "100" à la fin de la requête correspond au pourcentage de puissance à affecter donc mettre "0" à la fin de la requête correspond à éteindre l&#8217;ampoule.</simpara>
+</tip>
+<simpara>Le bouton "test" vous permet de tester votre commande !</simpara>
+<simpara>Vous pouvez donc multiplier les commandes dans le même équipement en mettant par exemple une commande à 60 % pour une lumière tamisée, créer une troisième à 30 % pour les déplacements nocturnes à associer dans un scénario, &#8230;&#8203;</simpara>
+<simpara>Il est aussi possible de créer une commande de type slider en mettant le tag #slider# dans la requête :</simpara>
+<screen>http://&lt;IP_VERA&gt;:3480/data_request?id=lu_action&amp;output_format=json&amp;DeviceNum=12&amp;serviceId=urn:upnp-org:serviceId:Dimming1&amp;action=SetLoadLevelTarget&amp;newLoadlevelTarget=#slider#</screen>
+<tip>
+<simpara>Si votre commande est de type message vous pouvez utiliser les tags #message# et #title#, idem pour une commande de type couleur avec le tag #color#</simpara>
+</tip>
+</section>
+<section xml:id="_exemple_http_envoyer_une_notification_à_xbmc">
+<title>Exemple HTTP : Envoyer une notification à XBMC</title>
+<simpara>But : Envoyer une notification vers XBMC lors de l&#8217;ouverture d&#8217;une porte d&#8217;entrée.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Nom : PUSH XBMC</simpara>
+</listitem>
+<listitem>
+<simpara>Type de script : http</simpara>
+</listitem>
+<listitem>
+<simpara>Type : Action (c&#8217;est une commande)</simpara>
+</listitem>
+<listitem>
+<simpara>Sous-type : défaut</simpara>
+</listitem>
+<listitem>
+<simpara>Requête :</simpara>
+</listitem>
+</itemizedlist>
+<screen>http://IP_DE_XBMC:8080/jsonrpc?request={%22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{%22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}</screen>
+<simpara>A vous de tester ça dans un scénario par exemple !</simpara>
+<simpara>API XBMC <link xl:href="http://wiki.xbmc.org/index.php?title=JSON-RPC_API/v6">ici</link> (seuls les champs notés "required" sont obligatoires)</simpara>
+<simpara>But : Envoyer une notification vers XBMC lorsque la température tombe sous un certain seuil</simpara>
+<simpara>Prenez l&#8217;exemple ci-dessus :</simpara>
+<itemizedlist>
+<listitem>
+<simpara>remplacez "Mouvement%20Détecté" par "Risque%20de%20gel"</simpara>
+</listitem>
+<listitem>
+<simpara>remplacez "Porte%20Entrée" par "Température%20extérieur%20:%20#[EXTERIEUR][EXTERIEUR][TEMPERATURE]#%20"</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Testez sur un scénario <emphasis role="marked">[EXTERIEUR][EXTERIEUR][TEMPERATURE]</emphasis> &lt; 15 par exemple</simpara>
+<simpara>Action : Lancez le script, via un équipement virtuel, lié à votre script !</simpara>
+</section>
+<section xml:id="_exemple_script">
+<title>Exemple SCRIPT</title>
+<simpara>Le plus sympa mais pas le plus simple à expliquer.</simpara>
+<simpara>Pré-requis : savoir développer un script en php, python ou ruby.</simpara>
+<simpara>Le script de monitoring température du Raspberry va servir d&#8217;exemple pour l&#8217;utilisation du type de script : Script</simpara>
+<simpara>Après avoir téléchargé le script depuis le market, le bouton "Parcourir" vous permet de sélectionner le fichier temp_rasp.php.</simpara>
+<simpara>Par curiosité, vous pouvez aller voir le contenu du fichier en appuyant sur le bouton "Editer", vous devriez obtenir le code suivant :</simpara>
+<simpara>Ceci est un script php qui peut tout à fait être réutilisé hors Jeedom !</simpara>
+<screen> &lt;?php
+    $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
+    $temp = $temp / 1000;
+    $temp = round($temp,1);
+    echo $temp
+ ?&gt;</screen>
+<simpara>Note : concrètement, c&#8217;est la fonction php "echo" qui va donner la valeur à Jeedom</simpara>
+<section xml:id="_les_paramètres">
+<title>Les paramètres</title>
+<simpara>Récupérer les infos de Jeedom pour les exploiter dans un script. La récupération dépend du type de script utilisé :</simpara>
+<simpara>Exemple :</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON_SCRIPT_PHP.php list , l&#8217;argument "list" est une chaîne de caractères (fixe) récupérée dans le script php grâce à la fonction suivante $argv[1] cf : Google pour plus de détails sur la récupération de paramètres en PHP.</simpara>
+</listitem>
+<listitem>
+<simpara>Nous avons vu précédement qu&#8217;il était possible de récupérer des valeurs dynamiques à partir de Jeedom.</simpara>
+</listitem>
+<listitem>
+<simpara>Dans la ligne : /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py VOL <emphasis role="marked">slider</emphasis> , l&#8217;argument "<emphasis role="marked">slider</emphasis>" est récupéré de cette façon argv[2]. Au moment de l&#8217;exécution du script par jeedom, il remplacera automatiquement <emphasis role="marked">slider</emphasis> par la valeur (numérique) du slider. cf : Google pour plus de détails sur la récupération de paramètres en Python.</simpara>
+</listitem>
+<listitem>
+<simpara>Plus fort : Potentiellement, toutes les variables accessibles par Jeedom sont exploitables par le plugin script :</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Vous voulez récupérer la valeur de la température de la cuisine pour l&#8217;historiser en dehors de Jeedom ?</simpara>
+</listitem>
+<listitem>
+<simpara>Passer <emphasis role="marked">[CUISINE][CUISINE][Température]</emphasis> comme paramètre au script et Jeedom le remplacera par la valeur lue lors de l&#8217;envoi.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+<simpara>Préconisation pour tester les paramètres dans le script php :</simpara>
+<screen> if (isset($argv)) {
+     foreach ($argv as $arg) {
+         $argList = explode('=', $arg);
+         if (isset($argList[0]) &amp;&amp; isset($argList[1])) {
+             $_GET[$argList[0]] = $argList[1];
+         }
+     }
+ }</screen>
+</section>
+</section>
+<section xml:id="_exemple_xml_simple">
+<title>Exemple XML simple</title>
+<simpara>Voici la format du xml type :</simpara>
+<screen>&lt;root&gt;
+    &lt;led0&gt;1&lt;/led0&gt;
+    &lt;leds&gt;
+      &lt;led1&gt;toto&lt;/led1&gt;
+    &lt;/leds&gt;
+&lt;/root&gt;</screen>
+<simpara>Si vous voulez la valeur de la led0 dans requête vous mettez led0.
+Si vous voulez la valeur de la led1 qui est le fils de leds vous mettez leds &gt; led1.</simpara>
+<simpara>Notez que l&#8217;élément racine &lt;root&gt; n&#8217;est pas à préciser dans le champ requête.</simpara>
+</section>
+<section xml:id="_exemple_xml_complexe">
+<title>Exemple XML complexe</title>
+<screen> &lt;root&gt;
+   &lt;led0&gt;1&lt;/led0&gt;
+   &lt;leds&gt;
+     &lt;led1&gt;toto&lt;/led1&gt;
+   &lt;/leds&gt;
+   &lt;leds&gt;
+     &lt;led1&gt;tata&lt;/led1&gt;
+   &lt;/leds&gt;
+ &lt;/root&gt;</screen>
+<simpara>la syntaxe est :</simpara>
+<simpara>leds &gt; 1 &gt; led1 qui donne en réponse tata, 1 étant le numéro de rang du tableau !</simpara>
+</section>
+<section xml:id="_exemple_xml_plus_complexe">
+<title>Exemple XML plus complexe</title>
+<screen>&lt;AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55"&gt;
+ &lt;MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02"&gt;
+   &lt;Name&gt;Tresa - Ponte Tresa, Rocchetta&lt;/Name&gt;
+   &lt;Datum&gt;01.05.2017&lt;/Datum&gt;
+   &lt;Zeit&gt;18:50&lt;/Zeit&gt;
+   &lt;Wert&gt;268.56&lt;/Wert&gt;
+   &lt;Wert dt="-24h"&gt;268.51&lt;/Wert&gt;
+   &lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;
+   &lt;Wert Typ="m24"&gt;268.52&lt;/Wert&gt;
+   &lt;Wert Typ="max24"&gt;268.56&lt;/Wert&gt;
+   &lt;Wert Typ="min24"&gt;268.50&lt;/Wert&gt;
+ &lt;/MesPar&gt;
+ &lt;MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02"&gt;
+  &lt;Name&gt;Inn - Tarasp&lt;/Name&gt;
+  &lt;Datum&gt;01.05.2017&lt;/Datum&gt;
+  &lt;Zeit&gt;18:50&lt;/Zeit&gt;
+  &lt;Wert&gt;4.85&lt;/Wert&gt;
+  &lt;Wert dt="-24h"&gt;7.98&lt;/Wert&gt;
+  &lt;Wert Typ="delta24"&gt;-3.130&lt;/Wert&gt;
+  &lt;Wert Typ="m24"&gt;6.15&lt;/Wert&gt;
+  &lt;Wert Typ="max24"&gt;7.98&lt;/Wert&gt;
+  &lt;Wert Typ="min24"&gt;4.85&lt;/Wert&gt;
+ &lt;/MesPar&gt;
+ &lt;MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32"&gt;
+  &lt;Name&gt;Doubs - Combe des Sarrasins&lt;/Name&gt;
+  &lt;Datum&gt;01.05.2017&lt;/Datum&gt;
+  &lt;Zeit&gt;18:00&lt;/Zeit&gt;
+  &lt;Wert&gt;500.65&lt;/Wert&gt;
+  &lt;Wert dt="-24h"&gt;500.65&lt;/Wert&gt;
+  &lt;Wert Typ="delta24"&gt;0.000&lt;/Wert&gt;
+  &lt;Wert Typ="m24"&gt;500.65&lt;/Wert&gt;
+  &lt;Wert Typ="max24"&gt;500.65&lt;/Wert&gt;
+  &lt;Wert Typ="min24"&gt;500.64&lt;/Wert&gt;
+ &lt;/MesPar&gt;
+&lt;/AKT_Data&gt;</screen>
+<simpara>Pour recuperer l&#8217;information du champ Wert du 1er bloc:</simpara>
+<literallayout class="monospaced">MesPar&gt;1&gt;Wert&gt;0 qui retourne donc "268.56 "</literallayout>
+<simpara>Pour retourner l&#8217;élément suivant dans la "structure" Wert, il faut simplement indiquer le numéro d&#8217;ordre dans la structure.
+Ce qui donne pour l&#8217;élément '&lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;' le code suivant :</simpara>
+<literallayout class="monospaced">MesPar&gt;1&gt;Wert&gt;2</literallayout>
+<simpara>Pour passer au bloc " MesPar" suivant, il faut donc changer l&#8217;index en conséquence : le 1 par 2, par exemple.</simpara>
+<simpara>ATENTION : Si dans le fichier XML l&#8217;ordre change, la requête ne fonctionne plus. Il faudra réadapter la requete en fonction de l&#8217;ordre retourné.</simpara>
+</section>
+<section xml:id="_exemple_json">
+<title>Exemple JSON</title>
+<simpara>A l’instar du type XML, il est possible de lire des informations issues d&#8217;un retour JSON.</simpara>
+<simpara>Pour expliquer, je vais me baser sur les informations JSON avec l&#8217;application Sickbeard (bouh &#8230;&#8203; cpasbien) mais ici seule la technique prime, pas l&#8217;outil !</simpara>
+<simpara>L’accès à ce fichier est possible grâce à l&#8217;URL suivante :</simpara>
+<screen>http://&lt;IP_DELAMACHINEQUIEBERGESICKBEARD&gt;:8083/api/XXXX/?cmd=history&amp;limit=3</screen>
+<simpara>NOTE : XXXX est le numéro de clef api propre à chaque SICKBEARD.</simpara>
+<simpara>Tout d&#8217;abord, avant de se lancer dans la configuration du plugin script JSON, il s&#8217;agit d&#8217;identifier correctement les infos à récupérer., car ici nous allons intégrer une notion de tableau dans les retours.</simpara>
+<simpara>Valider l&#8217;affichage des informations à partir de votre navigateur (test sous Chrome).</simpara>
+<simpara>Exemple de retour :</simpara>
+<screen> {
+     "data": [
+         {
+             "date": "2014-09-10 01:37",
+             "episode": 4,
+             "provider": "RNT",
+             "quality": "SD TV",
+             "resource": "XXX",
+             "resource_path": "XXXX",
+             "season": 2,
+             "show_name": "Totovaalaplage S2E4",
+             "status": "Downloaded",
+             "tvdbid": XXXXX
+         },
+         {
+             "date": "2014-09-10 01:36",
+             "episode": 3,
+             "provider": "RNT",
+             "quality": "SD TV",
+             "resource": "XXXX",
+             "resource_path": "XXX",
+             "season": 2,
+             "show_name": "Totovaalaplage S2E3",
+             "status": "Downloaded",
+             "tvdbid": XXXXX
+         },
+         {
+             "date": "2014-09-10 01:21",
+             "episode": 1,
+             "provider": "Cpasbien",
+             "quality": "SD TV",
+             "resource": "XXXX",
+             "resource_path": "XXXX",
+             "season": 1,
+ ICI --&gt;     "show_name": "Totovaplusauski mais Totovaalaplage S1E1",
+             "status": "Snatched",
+             "tvdbid": XXXX
+         }
+     ],
+     "message": "",
+     "result": "success"
+ }</screen>
+<simpara>Dans l&#8217;hypothèse où nous voudrions retourner le show_name du 3ème élément en php (repéré ICI) , il faudrait faire : data &gt; 2 &gt;show_name, l&#8217;index du tableau de retour commençant à Zéro.</simpara>
+<simpara>Dans cet exemple, le bouton "Tester" nous retournera "Totovaplusauski mais Totovaalaplage S1E1".</simpara>
+<simpara>Précisions :</simpara>
+<simpara>Notez la syntaxe de la commande Requête, elle est de type élément0 &gt; index du tableau &gt;  élément1</simpara>
+<simpara>Inconvénients :</simpara>
+<itemizedlist>
+<listitem>
+<simpara>cette méthode ne permet que de récupérer un seul élément à la fois.</simpara>
+</listitem>
+<listitem>
+<simpara>Si on désire retourner l&#8217;ensemble des valeurs de "show_name", ce n&#8217;est malheureusement pas possible, il faudra dupliquer le script autant de fois que nécessaire.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="_exemple_html">
+<title>Exemple HTML</title>
+<simpara>Ici nous allons essayer de récupérer la dernière VDM.</simpara>
+<simpara>Tout d&#8217;adord il faut configurer l&#8217;url :</simpara>
+<screen>http://www.viedemerde.fr</screen>
+<simpara>Ensuite il faut trouver le "chemin" de la dernière VDM. Pour ce faire, il faut aller sur le site puis faire clic droit sur l&#8217;élément voulu puis inspecter l&#8217;élément, on obtient :</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script9.PNG"/>
+</imageobject>
+<textobject><phrase>script9</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Là c&#8217;est la partie la plus complexe et qui demande un peu d&#8217;analyse. Ici mon texte est dans une balise "a" qui est lui dans un élément de type p qui est une div de class "post article". Il faut donc que je sélectionne le premier élément div de class "post" et "article" puis le premier élément p et que je récupère tout ce qui est dans les balises "a" qu&#8217;il contient. J&#8217;ai donc : "div.post.article:first p:first a".</simpara>
+<simpara>On obtient donc :</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="../images/script10.PNG"/>
+</imageobject>
+<textobject><phrase>script10</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Pour une actualisation en temps réel, il est possible de mettre un cron de mise à jour.</simpara>
+<tip>
+<simpara>Lors de la mise en place d&#8217;un cron de mise à jour, Jeedom va automatiquement cocher la case Evènement, c&#8217;est tout à fait normal.</simpara>
+</tip>
+<simpara>Voilà ensuite vous pouvez imaginer un scénario qui vous envoie par SMS la dernière VDM.</simpara>
+</section>
+</article>
