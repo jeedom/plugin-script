@@ -8,7 +8,7 @@ themeCustom:
   menu-background-color: 'D7F6C0'
   menu-title-color: '82BA1B'
   menu-color: '1F5615'
-nameLogo: script_icon.jpg
+nameLogo: script_icon.png
 jeedomColor: 96c927
 
 #memo pour dev thème
@@ -21,4 +21,4 @@ memo:
   menu-background-color: '080E49'  
   menu-color: '4F71C2'  
   menu-title-color: 'a9cfff'
-version: 201712221054
+version: 201712221057
