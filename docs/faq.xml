@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Mon widget fait n&#8217;importe quoi</title>
+<date>2017-12-22</date>
+</info>
+<section xml:id="_mon_widget_fait_n_importe_quoi">
+<title>Mon widget fait n&#8217;importe quoi</title>
+<simpara>Vérifiez que dans votre retour de script vous n&#8217;avez pas des ", si c&#8217;est le cas il faut soit les remplacer par ' ou les échapper par \"</simpara>
+</section>
+</article>
