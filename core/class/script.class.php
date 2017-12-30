@@ -224,7 +224,13 @@ class scriptCmd extends cmd {
 							$request = str_replace('#slider#', $_options['slider'], $request);
 							break;
 						case 'color':
-							$request = str_replace('#color#', $_options['color'], $request);
+							if ($this->getConfiguration('requestType') != 'http') {
+								$request = str_replace('#color#', $_options['color'], $request);
+							}
+							else
+							{
+								$request = str_replace('#color#', substr($_options['color'],1), $request);
+							}
 							break;
 						case 'message':
 							$replace = array('#title#', '#message#');
