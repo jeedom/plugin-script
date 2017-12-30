@@ -71,7 +71,7 @@ class script extends eqLogic {
 		}
 		$zip = new ZipArchive;
 		$res = $zip->open($_path);
-		if ($res === TRUE) {
+		if ($res === true) {
 			$zip->extractTo($cibDir . '/');
 			$zip->close();
 		} else {
@@ -284,11 +284,11 @@ class scriptCmd extends cmd {
 			case 'script':
 				if (strpos($request, '.php') !== false) {
 					$request_shell = new com_shell('php ' . $request . ' 2>&1');
-				} else if (strpos($request, '.rb') !== false) {
+				} elseif (strpos($request, '.rb') !== false) {
 					$request_shell = new com_shell('ruby ' . $request . ' 2>&1');
-				} else if (strpos($request, '.py') !== false) {
+				} elseif (strpos($request, '.py') !== false) {
 					$request_shell = new com_shell('python ' . $request . ' 2>&1');
-				} else if (strpos($request, '.pl') !== false) {
+				} elseif (strpos($request, '.pl') !== false) {
 					$request_shell = new com_shell('perl ' . $request . ' 2>&1');
 				} else {
 					$request_shell = new com_shell($request . ' 2>&1');
@@ -331,9 +331,9 @@ class scriptCmd extends cmd {
 					$tag = trim($tag);
 					if (isset($json[$tag])) {
 						$json = $json[$tag];
-					} else if (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
+					} elseif (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
 						$json = $json[intval($tag)];
-					} else if (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
+					} elseif (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
 						$json = $json[count($json) + intval($tag)];
 					} else {
 						$json = '';
@@ -372,9 +372,9 @@ class scriptCmd extends cmd {
 					$tag = trim($tag);
 					if (isset($json[$tag])) {
 						$json = $json[$tag];
-					} else if (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
+					} elseif (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
 						$json = $json[intval($tag)];
-					} else if (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
+					} elseif (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
 						$json = $json[count($json) + intval($tag)];
 					} else {
 						$json = '';
@@ -416,4 +416,4 @@ class scriptCmd extends cmd {
 /*     * **********************Getteur Setteur*************************** */
 }
 
-?>
+
