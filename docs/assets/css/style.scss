@@ -1,123 +1,126 @@
 ---
 ---
+{% if site.couleursPersoActif %}
+   {% assign couleursCustom = site.couleursPerso %}
+{% else %}
+	   {% assign couleursCustom = site.couleursDefaut %}
+{% endif %}
 
 @import "{{ site.theme }}";
+
+/* Titre de page */
 .page-header {
- padding: 1rem 6rem;
- color: #{{ site.themeCustom.head-color }};/*#fff;*/
- text-align:center;
- background-color: #{{ site.themeCustom.head-background-color }};
- background-image: none;
+	 padding: 1rem 6rem;
+	 color: #{{ couleursCustom.head-color }};
+	 text-align:center;
+	 background-color: #{{ couleursCustom.head-background-color }};
+	 background-image: none;
+}
+
+.page-header a.btn{
+  text-transform: uppercase;
+}
+
+
+.page-header a.langActive{
+  box-shadow: 0px 0px 17px 9px rgba(255, 255, 255, 0.2) inset;
+}
+
+#nom-plugin::first-letter{
+   text-transform:uppercase;
+}
+
+/* Core de page */
+body{
+ background-color: #{{ couleursCustom.body-background-color }};
+ color: #{{ couleursCustom.body-color }};
 }
 
 .main-content h1,.main-content h2,.main-content h3,.main-content h4,.main-content h5,.main-content h6 {
  margin-top:2rem;
  margin-bottom:1rem;
  font-weight:normal;
- color:#{{ site.themeCustom.hx-color }};/*#82BA1B;*/
+ color:#{{ couleursCustom.hx-color }};
 }
+
 blockquote {
  background-color:#F3F6FA;
 }
 
-/*
+/* Menu Toc */
+#toc ul a.active{
+	font-style: italic;
+	font-weight: bold;
+}
+
+/* Pied de page */
+
+/*** 
+* 
+* configurations spécifique selon le screen 
 *
-* Personnalisations pour la doc jeedom
-*
-*/
-body{
- background-color: #{{ site.themeCustom.body-background-color }};
- color: #{{ site.themeCustom.body-color }};
-}
+***/
 
-
-#logo_plugin {
-  max-height: 100px;
-  display: inline-block;
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  float: right;
-}
-
-#logo_jeedom{
-  position: relative;
-}
-
-/* Style des éléments quant le header est plus petit*/
-.header-min {
-  height: 80px;
-  position: fixed;
-  width: 100%;
-  z-index: 999;
-}
-
-.header-min .btn {
-  display: none;
-}
-
-.contenu-header-min{
-  padding: 220px 0 40px 0 !important;
-}
-
-.menu-header-min{
-   position: fixed !important;
-   margin-top: 80px;
-   transition: all 0.3s ease;
-}
-
-.header-min #logo_jeedom, .header-min #nom-plugin{
-  display: inline-block;
-}
-
-.header-min #nom-plugin{
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  -moz-transform: translate(-50%, 0%) !important;
-  -webkit-transform: translate(-50%, -25%);
-}
-
-/* Animation du logo jeedom */
-.header-min #logo_jeedom{
-  position: absolute;
-  left: 15%;
-  transform: translate(-50%, 0%);
-  top: 10%;
-    animation-name: animLogoJeedomBas;
-    animation-duration: 2s;
-}
-
-@keyframes animLogoJeedomBas {
-    0%   { left:50%; top:-70%;}
-    100% { left:15%; top:10%;}
-}
-
-.animLogoJeedomHaut{
-    animation-name: animLogoJeedomHaut;
-    animation-duration: 2s;
-}
-
-@keyframes animLogoJeedomHaut {
-    0%   { left:-40%; top:65%;}
-    100% { left:0%; top:0%;}
-}
-
-@media screen and (max-height: 800px) {
-  .project-name {
-    font-size: 2rem !important;
+@media (max-device-width:768px) and (orientation: landscape) {
+  html {
+   -webkit-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
   }
-  .page-header {
-    padding : 0; 
-  }
-  .page-header a {
-     font-size: 0.7rem !important;
-   }
-  #main, #main_content {
-      font-size: 1rem !important;
-  }
-  .header-min #nom-plugin{
-        transform: translate(-50%, 25%);
-        -webkit-transform: translate(-50%, 25%); 
- }
 }
+
+
+@media (max-width: 640px) {
+	* {
+		box-sizing: border-box;
+	}
+	/* passer body (et tous les éléments de largeur fixe) en largeur automatique */
+	body{
+		width: auto;
+		margin: 0;
+		padding: 0;
+	}
+	
+	/* fixer une largeur maximale de 100% aux éléments potentiellement problématiques */
+	img, table, td,	blockquote, code, pre, textarea, input,	iframe,	object,	embed, video {
+		max-width: 100%;
+	}
+	
+	/* conserver le ratio des images */
+	img {
+		height: auto;
+	}
+	
+	/* gestion des mots longs */
+	textarea, table, td, th, code, pre, samp {
+		-webkit-hyphens: auto; /* césure propre */
+		-moz-hyphens: auto;
+		hyphens: auto;
+		word-wrap: break-word; /* passage à la ligne forcé */
+	}
+	
+	code, pre, samp {
+		white-space: pre-wrap; /* passage à la ligne spécifique pour les éléments à châsse fixe */
+	}
+	
+	/* Passer à une seule colonne (à appliquer aux éléments multi-colonnes) */
+	.element1, .element2 {
+		float: none;
+		width: auto;
+	}
+	
+	/* masquer les éléments superflus */
+	.hide_mobile {
+		display: none !important;
+	}
+	
+	/* Un message personnalisé pour les mobiles en haut de body */
+	body:before {
+		content: attr(data-before);
+		display: block;
+		text-align: center;
+		font-style: italic;
+		color: #777;
+	}
+}
+
+
