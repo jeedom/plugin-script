@@ -85,7 +85,7 @@ foreach ($eqLogics as $eqLogic) {
         <fieldset>
             <legend>
                 <i class="fa fa-arrow-circle-left eqLogicAction cursor" data-action="returnToThumbnailDisplay"></i> {{Général}}
-                <i class='fa fa-cogs eqLogicAction pull-right cursor expertModeVisible' data-action='configure'></i>
+                <i class="fa fa-cogs eqLogicAction pull-right cursor" data-action="configure"></i>
                 <a class="btn btn-xs btn-default pull-right eqLogicAction" data-action="copy"><i class="fa fa-files-o"></i> {{Dupliquer}}</a>
             </legend>
             <div class="form-group">
@@ -128,7 +128,7 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
             <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/>{{Visible}}</label>
         </div>
     </div>
-    <div class="form-group expertModeVisible">
+    <div class="form-group">
         <label class="col-sm-3 control-label">{{Auto-actualisation (cron)}}</label>
         <div class="col-sm-2">
             <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Auto-actualisation (cron)}}"/>
