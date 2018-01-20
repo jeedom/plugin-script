@@ -1,4 +1,4 @@
-== Plugin Konfiguration
+== Configuration du plugin
 
 La configuration est très simple, après téléchargement du plugin, il vous suffit de l'activer et c'est tout.
 
@@ -6,9 +6,9 @@ image::../images/script1.PNG[]
 
 La seule option est l'endroit où jeedom met les scripts par défaut, il est conseillé de ne pas y toucher.
 
-== Geräte Konfiguration
+== Configuration des équipements
 
-Die Konfiguration von Script-Geräten ist in dem Plugin-Menü verfügbar :
+La configuration des équipements Script est accessible à partir du menu plugin :
 
 image::../images/script2.PNG[]
 
@@ -27,9 +27,9 @@ Hier finden sie die ganze Konfiguration Ihrer Geräte:
 
 * *Nom de l'équipement script* : nom de votre équipement script
 * *Catégorie* : les catégories de l'équipement (il peut appartenir à plusieurs catégories)
-* *aktivieren* : erlaubt, Ihr Gerät aktiv zu machen
-* *Sichtbar* : macht es auf dem Armaturenbrett sichtbar
-* *Eltern-Objekt* : giebt an welchem Eltern Objekt das Gerät angehört
+* *Activer* : permet de rendre votre équipement actif
+* *Visible* : le rend visible sur le dashboard
+* *Objet parent* : indique l'objet parent auquel appartient l'équipement
 * *Auto-actualisation* : permet de spécifier un cron d'actualisation automatique pour toutes les commandes de type info.
 
 Im unteren Bereich finden sie eine Liste der Befehle:
@@ -184,7 +184,7 @@ Testez sur un scénario #[EXTERIEUR][EXTERIEUR][TEMPERATURE]# < 15 par exemple
 
 Action : Lancez le script, via un équipement virtuel, lié à votre script !
 
-== Skript Beispiel
+== Exemple SCRIPT
 
 Le plus sympa mais pas le plus simple à expliquer.
 
@@ -209,7 +209,7 @@ Ceci est un script php qui peut tout à fait être réutilisé hors Jeedom !
 
 Note : concrètement, c'est la fonction php "echo" qui va donner la valeur à Jeedom
 
-=== Die Parameter
+=== Les paramètres
 
 Récupérer les infos de Jeedom pour les exploiter dans un script. La récupération dépend du type de script utilisé :
 
@@ -235,7 +235,7 @@ Préconisation pour tester les paramètres dans le script php :
  }
 ----
 
-== Einfaches XML Beispiel
+== Exemple XML simple
 
 Hier ist das Format des Xml-Typs :
 
@@ -253,7 +253,7 @@ Si vous voulez la valeur de la led1 qui est le fils de leds vous mettez leds > l
 
 Notez que l'élément racine <root> n'est pas à préciser dans le champ requête.
 
-== Komplexes XML Beispiel
+== Exemple XML complexe
 
 ----
  <root>
@@ -323,7 +323,7 @@ Pour passer au bloc " MesPar" suivant, il faut donc changer l'index en conséque
 
 ATENTION : Si dans le fichier XML l'ordre change, la requête ne fonctionne plus. Il faudra réadapter la requete en fonction de l'ordre retourné.
 
-== JSON Beispiel
+== Exemple JSON
 
 A l’instar du type XML, il est possible de lire des informations issues d'un retour JSON.
 
@@ -401,7 +401,7 @@ Nachteile :
 * cette méthode ne permet que de récupérer un seul élément à la fois.
 * Si on désire retourner l'ensemble des valeurs de "show_name", ce n'est malheureusement pas possible, il faudra dupliquer le script autant de fois que nécessaire.
 
-== HTML Beispiel
+== Exemple HTML
 
 Ici nous allons essayer de récupérer la dernière VDM.
 
