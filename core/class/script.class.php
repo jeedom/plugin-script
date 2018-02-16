@@ -27,12 +27,13 @@ class script extends eqLogic {
 	/*     * ***********************Méthodes statiques*************************** */
 
 	public static function cron() {
+		$dateRun = new DateTime();
 		foreach (eqLogic::byType('script') as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
 			if ($eqLogic->getIsEnable() == 1 && $autorefresh != '') {
 				try {
 					$c = new Cron\CronExpression($autorefresh, new Cron\FieldFactory);
-					if ($c->isDue()) {
+					if ($c->isDue($dateRun)) {
 						try {
 							$eqLogic->refresh();
 						} catch (Exception $exc) {
