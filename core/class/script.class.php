@@ -153,7 +153,11 @@ class script extends eqLogic {
 
 	public function refresh() {
 		foreach ($this->getCmd('info') as $cmd) {
-			$cmd->refresh();
+			try{
+				$cmd->refresh();
+			} catch (Exception $exc) {
+				log::add('script', 'error', __('Erreur pour ', __FILE__) . this->getHumanName() . ' : ' . $exc->getMessage());
+			}
 		}
 	}
 
