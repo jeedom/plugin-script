@@ -156,7 +156,7 @@ class script extends eqLogic {
 			try{
 				$cmd->refresh();
 			} catch (Exception $exc) {
-				log::add('script', 'error', __('Erreur pour ', __FILE__) . this->getHumanName() . ' : ' . $exc->getMessage());
+				log::add('script', 'error', __('Erreur pour ', __FILE__) . $cmd->getHumanName() . ' : ' . $exc->getMessage());
 			}
 		}
 	}
