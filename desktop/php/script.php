@@ -2,6 +2,9 @@
 if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
+$plugin = plugin::byId('alarm');
+sendVarToJS('eqType', $plugin->getId());
+$eqLogics = eqLogic::byType($plugin->getId());
 include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'css', 'script');
 include_file('3rdparty', 'codemirror/lib/codemirror', 'js');
 include_file('3rdparty', 'codemirror/lib/codemirror', 'css');
@@ -13,10 +16,7 @@ include_file('3rdparty', 'codemirror/mode/shell/shell', 'js');
 include_file('3rdparty', 'codemirror/mode/python/python', 'js');
 include_file('3rdparty', 'codemirror/mode/ruby/ruby', 'js');
 include_file('3rdparty', 'codemirror/mode/perl/perl', 'js');
-
-sendVarToJS('eqType', 'script');
 sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir', 'script'));
-$eqLogics = eqLogic::byType('script');
 ?>
 <style>
     .CodeMirror-scroll {height: 100%; overflow-y: auto; overflow-x: auto;}
