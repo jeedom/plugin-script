@@ -2,7 +2,7 @@
 if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
-$plugin = plugin::byId('alarm');
+$plugin = plugin::byId('script');
 sendVarToJS('eqType', $plugin->getId());
 $eqLogics = eqLogic::byType($plugin->getId());
 include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'css', 'script');
