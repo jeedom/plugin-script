@@ -2,6 +2,9 @@
 if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
+$plugin = plugin::byId('script');
+sendVarToJS('eqType', $plugin->getId());
+$eqLogics = eqLogic::byType($plugin->getId());
 include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'css', 'script');
 include_file('3rdparty', 'codemirror/lib/codemirror', 'js');
 include_file('3rdparty', 'codemirror/lib/codemirror', 'css');
@@ -13,10 +16,7 @@ include_file('3rdparty', 'codemirror/mode/shell/shell', 'js');
 include_file('3rdparty', 'codemirror/mode/python/python', 'js');
 include_file('3rdparty', 'codemirror/mode/ruby/ruby', 'js');
 include_file('3rdparty', 'codemirror/mode/perl/perl', 'js');
-
-sendVarToJS('eqType', 'script');
 sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir', 'script'));
-$eqLogics = eqLogic::byType('script');
 ?>
 <style>
     .CodeMirror-scroll {height: 100%; overflow-y: auto; overflow-x: auto;}
@@ -62,7 +62,7 @@ foreach ($eqLogics as $eqLogic) {
 foreach ($eqLogics as $eqLogic) {
 	$opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
 	echo '<div class="eqLogicDisplayCard cursor" data-eqLogic_id="' . $eqLogic->getId() . '" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;' . $opacity . '" >';
-	echo '<img src="plugins/script/doc/images/script_icon.png" height="105" width="95" />';
+	echo '<img src="' . $plugin->getPathImgIcon() . '" height="105" width="95" />';
 	echo "<br>";
 	echo '<span style="font-size : 1.1em;position:relative; top : 15px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;">' . $eqLogic->getHumanName(true, true) . '</span>';
 	echo '</div>';
