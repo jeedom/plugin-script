@@ -109,7 +109,7 @@
         },
         "Enregistrer": function () {
             if (saveScriptFile(path, editor.getValue())) {
-                $(this).dialog("close");
+                $('#div_alert').showAlert({message: '{{Sauvegarde réussie}}', level: 'success'});
             }
         }
     });
