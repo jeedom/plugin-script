@@ -363,9 +363,9 @@ function getLogicalIdFromPath(_path) {
 function loadScriptFile(_path) {
     $.hideAlert();
     var result = false;
-    $.ajax({// fonction permettant de faire de l'ajax
-        type: "POST", // méthode de transmission des données au fichier php
-        url: "plugins/script/core/ajax/script.ajax.php", // url du fichier php
+    $.ajax({
+        type: "POST", 
+        url: "plugins/script/core/ajax/script.ajax.php", 
         data: {
             action: "getScriptContent",
             path: _path,
@@ -375,7 +375,7 @@ function loadScriptFile(_path) {
         error: function (request, status, error) {
             handleAjaxError(request, status, error, $('#div_alert'));
         },
-        success: function (data) { // si l'appel a bien fonctionné
+        success: function (data) { 
         if (data.state != 'ok') {
             $('#div_alert').showAlert({message: data.result, level: 'danger'});
             return false;
@@ -409,9 +409,9 @@ return result;
 function saveScriptFile(_path, _content) {
     $.hideAlert();
     var success = false;
-    $.ajax({// fonction permettant de faire de l'ajax
-        type: "POST", // méthode de transmission des données au fichier php
-        url: "plugins/script/core/ajax/script.ajax.php", // url du fichier php
+    $.ajax({
+        type: "POST", 
+        url: "plugins/script/core/ajax/script.ajax.php", 
         data: {
             action: "saveScriptContent",
             path: _path,
@@ -422,13 +422,13 @@ function saveScriptFile(_path, _content) {
         error: function (request, status, error) {
             handleAjaxError(request, status, error, $('#div_editScriptFileAlert'));
         },
-        success: function (data) { // si l'appel a bien fonctionné
+        success: function (data) { 
         if (data.state != 'ok') {
             $('#div_editScriptFileAlert').showAlert({message: data.result, level: 'danger'});
             return;
         }
         success = true;
-        $('#div_alert').showAlert({message: 'Script sauvegardé', level: 'success'});
+        $('#div_editScriptFileAlert').showAlert({message: 'Script sauvegardé', level: 'success'});
     }
 });
     return success;
@@ -437,9 +437,9 @@ function saveScriptFile(_path, _content) {
 function addUserScript(_name) {
     $.hideAlert();
     var success = false;
-    $.ajax({// fonction permettant de faire de l'ajax
-        type: "POST", // méthode de transmission des données au fichier php
-        url: "plugins/script/core/ajax/script.ajax.php", // url du fichier php
+    $.ajax({
+        type: "POST",
+        url: "plugins/script/core/ajax/script.ajax.php", 
         data: {
             action: "addUserScript",
             name: _name,
@@ -449,7 +449,7 @@ function addUserScript(_name) {
         error: function (request, status, error) {
             handleAjaxError(request, status, error, $('#div_newUserScriptAlert'));
         },
-        success: function (data) { // si l'appel a bien fonctionné
+        success: function (data) {
         if (data.state != 'ok') {
             $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
             return;
