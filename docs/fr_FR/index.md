@@ -344,6 +344,10 @@ Le plus sympa mais pas le plus simple à expliquer.
 
 Pré-requis : savoir développer un script en php, python ou ruby.
 
+>**IMPORTANT**
+>
+> L'extension de votre script doit absolument correspondre à son type. Ex .php pour un type php. En effet Jeedom se base sur l'extension du script pour l'executable à lancer (php si .php, python si .py....)
+
 Le script de monitoring température du Raspberry va servir d’exemple
 pour l’utilisation du type de script : Script
 
