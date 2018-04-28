@@ -1,7 +1,7 @@
 # 25/04/2018
 
-- Mise à jour de la doc
-- La sauvegarde du script ne ferme plus la fenetre d'édition de celui-ci
+- Aktualisierung des Dokuments
+- Die Speicherung des Skripts schließt nicht mehr das Bearbeitungsfenster
 
 # 30/03/2018
 
