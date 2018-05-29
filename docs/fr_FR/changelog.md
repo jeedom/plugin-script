@@ -1,3 +1,8 @@
+# 25/05/2018
+
+- Amélioration de l'interface
+- Ajout d'un message si le json est invalide ou non décodable
+
 # 25/04/2018
 
 - Mise à jour de la doc

@@ -1,4 +1,7 @@
-- La sauvegarde du script ne ferme plus la fenetre d'édition de celui-ci
+# 25/04/2018
+
+- Aktualisierung des Dokuments
+- Die Speicherung des Skripts schließt nicht mehr das Bearbeitungsfenster
 
 # 30/03/2018
 
