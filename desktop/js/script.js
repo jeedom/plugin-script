@@ -108,16 +108,14 @@
             $(this).dialog("close");
         },
         "Enregistrer": function () {
-            if (saveScriptFile(path, editor.getValue())) {
-                $('#div_alert').showAlert({message: '{{Sauvegarde réussie}}', level: 'success'});
-            }
-        }
-    });
+         saveScriptFile(path, editor.getValue());
+     }
+ });
     $("#md_editScriptFile").dialog('open');
 });
 
 
-$("#table_cmd tbody").delegate(".newScriptFile", 'click', function (event) {
+ $("#table_cmd tbody").delegate(".newScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
     bootbox.prompt("Nom du script ?", function (result) {
         if (result !== null) {
@@ -131,7 +129,7 @@ $("#table_cmd tbody").delegate(".newScriptFile", 'click', function (event) {
     });
 });
 
-$("#table_cmd tbody").delegate(".removeScriptFile", 'click', function (event) {
+ $("#table_cmd tbody").delegate(".removeScriptFile", 'click', function (event) {
     var tr = $(this).closest('tr');
     var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
     if (path.indexOf(' ') > 0) {
@@ -149,7 +147,7 @@ $("#table_cmd tbody").delegate(".removeScriptFile", 'click', function (event) {
     });
 });
 
-$("#table_cmd tbody").delegate('.bt_shareOnMarket', 'click', function () {
+ $("#table_cmd tbody").delegate('.bt_shareOnMarket', 'click', function () {
     var tr = $(this).closest('tr');
     var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
     var logicalId = getLogicalIdFromPath(path);
@@ -161,20 +159,20 @@ $("#table_cmd tbody").delegate('.bt_shareOnMarket', 'click', function () {
     $('#md_modal').load('index.php?v=d&modal=update.send&type=script&logicalId=' + encodeURI(logicalId) + '&name=' + encodeURI(logicalId) + "&hidden=" + encodeURI(path)).dialog('open');
 });
 
-$('#bt_getFromMarket').on('click', function () {
+ $('#bt_getFromMarket').on('click', function () {
     $('#md_modal').dialog({title: "{{Partager sur le market}}"});
     $('#md_modal').load('index.php?v=d&modal=update.list&type=script').dialog('open');
 });
 
-$('#bt_getFromMarketicon').on('click', function () {
+ $('#bt_getFromMarketicon').on('click', function () {
     $('#md_modal').dialog({title: "{{Partager sur le market}}"});
     $('#md_modal').load('index.php?v=d&modal=update.list&type=script').dialog('open');
 });
 
-$("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
+ $("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
 
 
-function addCmdToTable(_cmd) {
+ function addCmdToTable(_cmd) {
     if (!isset(_cmd)) {
         var _cmd = {};
     }
@@ -182,169 +180,172 @@ function addCmdToTable(_cmd) {
         _cmd.configuration = {};
     }
     if (init(_cmd.logicalId) == 'refresh') {
-       return;
+     return;
+ }
+
+ var selRequestType = '<select style="width : 90px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="requestType">';
+ selRequestType += '<option value="script">{{Script}}</option>';
+ selRequestType += '<option value="http">{{HTTP}}</option>';
+ selRequestType += '<option value="html">{{HTML}}</option>';
+ selRequestType += '<option value="xml">{{XML}}</option>';
+ selRequestType += '<option value="json">{{JSON}}</option>';
+ selRequestType += '</select>';
+
+ var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
+
+ tr += '<td>';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="id"  style="display : none;">';
+ tr += '<div class="row">';
+ tr += '<div class="col-sm-6">';
+ tr += '<a class="cmdAction btn btn-default btn-sm" data-l1key="chooseIcon"><i class="fa fa-flag"></i> Icone</a>';
+ tr += '<span class="cmdAttr" data-l1key="display" data-l2key="icon" style="margin-left : 10px;"></span>';
+ tr += '</div>';
+ tr += '<div class="col-sm-6">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="name">';
+ tr += '</div>';
+ tr += '</div>';
+ tr += '<select class="cmdAttr form-control input-sm" data-l1key="value" style="display : none;margin-top : 5px;" title="La valeur de la commande vaut par défaut la commande">';
+ tr += '<option value="">Aucune</option>';
+ tr += '</select>';
+ tr += '</td>';
+ tr += '<td class="requestType" type="' + init(_cmd.configuration.requestType) + '" >' + selRequestType;
+ tr += '</td>';
+ tr += '<td>';
+ tr += '<span class="type" type="' + init(_cmd.type) + '">' + jeedom.cmd.availableType() + '</span>';
+ tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>';
+ tr += '</td>';
+ tr += '<td>';
+ tr += '<div class="btn-group" role="group">';
+ tr += '<a class="btn btn-default browseScriptFile btn-xs" style="margin-top : 5px;" placeholder="{{Parcourir}}"><i class="fa fa-folder-open"></i></a> ';
+ tr += '<a class="btn btn-default editScriptFile btn-xs" style="margin-top : 5px;"  placeholder="{{Editer}}"><i class="fa fa-edit"></i></a> ';
+ tr += '<a class="btn btn-success newScriptFile btn-xs" style="margin-top : 5px;"  placeholder="{{Nouveau}}"><i class="fa fa-file-o"></i></a> ';
+ tr += '<a class="btn btn-danger removeScriptFile btn-xs" style="margin-top : 5px;"  placeholder="{{Supprimer}}"><i class="fa fa-trash-o"></i></a> ';
+ tr += '<a class="btn btn-warning bt_shareOnMarket btn-xs" style="margin-top : 5px;"  placeholder="{{Partager}}"><i class="fa fa-cloud-upload"></i></a> ';
+ tr += '</div>';
+ tr += '<textarea style="height : 95px;margin-top:5px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request"></textarea>';
+ tr += '</td>';
+ tr += '<td>';
+
+ tr += '<div class="requestTypeConfig" data-type="http">';
+ tr += '<center>';
+ tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" />{{Vérifier SSL}} ';
+ tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" style="margin-left : 20px;"/>{{Retour vide}} ';
+ tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportHttpError" style="margin-left : 20px;"/>{{Pas d\'erreurs}} ';
+ tr += '</center>';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="reponseMustContain" placeholder="{{La réponse doit contenir}}" title="Vide pour ne mettre aucun contrainte"/>';
+ tr += '<div class="row">';
+ tr += '<div class="col-sm-6">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes" style="margin-top : 3px;"/>';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="http_username" placeholder="{{Utilisateur}}" style="margin-top : 3px;" />';
+ tr += '</div>';
+ tr += '<div class="col-sm-6">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxHttpRetry" placeholder="{{Maximum d\'essai}}" title="Par défaut 4" style="margin-top : 3px;" />';
+ tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="http_password" placeholder="{{Mot de passe}}" style="margin-top : 3px;" />';
+ tr += '</div>';
+ tr += '</div>';
+ tr += '</div>';
+
+ tr += '<div class="requestTypeConfig" data-type="xml" style="display : none;">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlXml" placeholder="URL du fichier XML"/>';
+ tr += '<center>';
+ tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="xmlNoSslCheck"/>{{Vérifier SSL}}</label></span> ';
+ tr += '</center>';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xmlTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxXmlRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
+ tr += '<div class="row" style="margin-top : 5px;">';
+ tr += '<div class="col-sm-6">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xml_username" placeholder="{{Utilisateur}}"/>';
+ tr += '</div>';
+ tr += '<div class="col-sm-6">';
+ tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xml_password" placeholder="{{Mot de passe}}"/>';
+ tr += '</div>';
+ tr += '</div>';
+ tr += '</div>';
+
+ tr += '<div class="requestTypeConfig" data-type="html" style="display : none;">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlHtml" placeholder="URL du HTML"/>';
+ tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="htmlNoSslCheck"/>{{Vérifier SSL}}</label></span> ';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="htmlTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxHtmlRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 3px;" />';
+ tr += '<div class="row" >';
+ tr += '<div class="col-sm-6">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="html_username" placeholder="{{Utilisateur}}" style="margin-top : 3px;"/>';
+ tr += '</div>';
+ tr += '<div class="col-sm-6">';
+ tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="html_password" placeholder="{{Mot de passe}}" style="margin-top : 3px;"/>';
+ tr += '</div>';
+ tr += '</div>';
+ tr += '</div>';
+
+ tr += '<div class="requestTypeConfig" data-type="json" style="display : none;">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlJson" placeholder="URL du fichier JSON"/>';
+ tr += '<center>';
+ tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="jsonNoSslCheck"/>{{Vérifier SSL}}</label></span> ';
+ tr += '</center>';
+ tr += '<div class="row">';
+ tr += '<div class="col-sm-6">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="jsonTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes" style="margin-top : 3px;" />';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="json_username" placeholder="{{Utilisateur}}" style="margin-top : 3px;" />';
+ tr += '</div>';
+ tr += '<div class="col-sm-6">';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxJsonRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 3px;" />';
+ tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="json_password" placeholder="{{Mot de passe}}" style="margin-top : 3px;" />';
+ tr += '</div>';
+ tr += '</div>';
+ tr += '</div>';
+ tr += '</td>';
+ tr += '<td>';
+ tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite"  style="width : 100px;" placeholder="{{Unité}}" title="{{Unité}}" >';
+ tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}} style="margin-top : 3px;"> ';
+ tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}} style="margin-top : 3px;">';
+ tr += '<select class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdId" style="display : none;margin-top : 5px;" title="Commande d\'information à mettre à jour">';
+ tr += '<option value="">Aucune</option>';
+ tr += '</select>';
+ tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdToValue" placeholder="Valeur de l\'information" style="display : none;margin-top : 3px;">';
+ tr += '</td>';
+ tr += '<td>';
+ tr += '<center>';
+ tr += '<input class="tooltips cmdAttr form-control input-sm expertModeVisible" data-l1key="configuration" data-l2key="listValue" placeholder="{{Liste de valeur|texte séparé par ;}}" title="{{Liste}}" style="margin-top : 5px;">';
+ tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label><span> ';
+ tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> ';
+ tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary"/>{{Inverser}}</label></span> ';
+ tr += '</center>';
+ tr += '</td>';
+ tr += '<td>';
+ if (is_numeric(_cmd.id)) {
+    tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fa fa-cogs"></i></a> ';
+    tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';
+}
+tr += ' <a class="btn btn-default btn-xs cmdAction" data-action="copy" title="Dupliquer"><i class="fa fa-files-o"></i></a> ';
+tr += '<i class="fa fa-minus-circle pull-right cmdAction cursor" data-action="remove"></i></td>';
+tr += '</tr>';
+
+$('#table_cmd tbody').append(tr);
+$('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+
+if (isset(_cmd.configuration.requestType)) {
+    $('#table_cmd tbody tr:last .cmdAttr[data-l1key=configuration][data-l2key=requestType]').value(init(_cmd.configuration.requestType));
+    $('#table_cmd tbody tr:last .cmdAttr[data-l1key=configuration][data-l2key=requestType]').trigger('change');
+}
+
+if (isset(_cmd.type)) {
+    $('#table_cmd tbody tr:last .cmdAttr[data-l1key=type]').value(init(_cmd.type));
+}
+var tr = $('#table_cmd tbody tr:last');
+jeedom.eqLogic.builSelectCmd({
+    id: $(".li_eqLogic.active").attr('data-eqLogic_id'),
+    filter: {type: 'info'},
+    error: function (error) {
+        $('#div_alert').showAlert({message: error.message, level: 'danger'});
+    },
+    success: function (result) {
+        tr.find('.cmdAttr[data-l1key=value]').append(result);
+        tr.find('.cmdAttr[data-l1key=configuration][data-l2key=updateCmdId]').append(result);
+        tr.setValues(_cmd, '.cmdAttr');
+        jeedom.cmd.changeType(tr, init(_cmd.subType));
+        initTooltips();
     }
-
-    var selRequestType = '<select style="width : 90px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="requestType">';
-    selRequestType += '<option value="script">{{Script}}</option>';
-    selRequestType += '<option value="http">{{HTTP}}</option>';
-    selRequestType += '<option value="html">{{HTML}}</option>';
-    selRequestType += '<option value="xml">{{XML}}</option>';
-    selRequestType += '<option value="json">{{JSON}}</option>';
-    selRequestType += '</select>';
-
-    var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
-
-    tr += '<td>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="id"  style="display : none;">';
-    tr += '<div class="row">';
-    tr += '<div class="col-sm-6">';
-    tr += '<a class="cmdAction btn btn-default btn-sm" data-l1key="chooseIcon"><i class="fa fa-flag"></i> Icone</a>';
-    tr += '<span class="cmdAttr" data-l1key="display" data-l2key="icon" style="margin-left : 10px;"></span>';
-    tr += '</div>';
-    tr += '<div class="col-sm-6">';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="name">';
-    tr += '</div>';
-    tr += '</div>';
-    tr += '<select class="cmdAttr form-control input-sm" data-l1key="value" style="display : none;margin-top : 5px;" title="La valeur de la commande vaut par défaut la commande">';
-    tr += '<option value="">Aucune</option>';
-    tr += '</select>';
-    tr += '</td>';
-    tr += '<td class="requestType" type="' + init(_cmd.configuration.requestType) + '" >' + selRequestType;
-    tr += '</td>';
-    tr += '<td>';
-    tr += '<span class="type" type="' + init(_cmd.type) + '">' + jeedom.cmd.availableType() + '</span>';
-    tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>';
-    tr += '</td>';
-    tr += '<td><textarea style="height : 95px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request"></textarea>';
-    tr += '<a class="btn btn-default browseScriptFile" style="margin-top : 5px;"><i class="fa fa-folder-open"></i> {{Parcourir}}</a> ';
-    tr += '<a class="btn btn-default editScriptFile" style="margin-top : 5px;"><i class="fa fa-edit"></i> {{Editer}}</a> ';
-    tr += '<a class="btn btn-success newScriptFile" style="margin-top : 5px;"><i class="fa fa-file-o"></i> {{Nouveau}}</a> ';
-    tr += '<a class="btn btn-danger removeScriptFile" style="margin-top : 5px;"><i class="fa fa-trash-o"></i> {{Supprimer}}</a> ';
-    tr += '<a class="btn btn-warning bt_shareOnMarket" style="margin-top : 5px;"><i class="fa fa-cloud-upload"></i> {{Partager}}</a> ';
-    tr += '</div>';
-    tr += '</td>';
-    tr += '<td>';
-
-    tr += '<div class="requestTypeConfig" data-type="http">';
-    tr += '<center>';
-    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" />{{Vérifier SSL}} ';
-    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" style="margin-left : 20px;"/>{{Retour vide}} ';
-    tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportHttpError" style="margin-left : 20px;"/>{{Pas d\'erreurs}} ';
-    tr += '</center>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="reponseMustContain" placeholder="{{La réponse doit contenir}}" title="Vide pour ne mettre aucun contrainte"/>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="timeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes" style="margin-top : 5px;"/>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxHttpRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
-    tr += '<div class="row" style="margin-top : 5px;">';
-    tr += '<div class="col-sm-6">';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="http_username" placeholder="{{Utilisateur}}"/>';
-    tr += '</div>';
-    tr += '<div class="col-sm-6">';
-    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="http_password" placeholder="{{Mot de passe}}"/>';
-    tr += '</div>';
-    tr += '</div>';
-    tr += '</div>';
-
-    tr += '<div class="requestTypeConfig" data-type="xml" style="display : none;">';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlXml" placeholder="URL du fichier XML"/>';
-    tr += '<center>';
-    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="xmlNoSslCheck"/>{{Vérifier SSL}}</label></span> ';
-    tr += '</center>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xmlTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxXmlRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
-    tr += '<div class="row" style="margin-top : 5px;">';
-    tr += '<div class="col-sm-6">';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xml_username" placeholder="{{Utilisateur}}"/>';
-    tr += '</div>';
-    tr += '<div class="col-sm-6">';
-    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="xml_password" placeholder="{{Mot de passe}}"/>';
-    tr += '</div>';
-    tr += '</div>';
-    tr += '</div>';
-
-    tr += '<div class="requestTypeConfig" data-type="html" style="display : none;">';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlHtml" placeholder="URL du HTML"/>';
-    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="htmlNoSslCheck"/>{{Vérifier SSL}}</label></span> ';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="htmlTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxHtmlRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
-    tr += '<div class="row" style="margin-top : 5px;">';
-    tr += '<div class="col-sm-6">';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="html_username" placeholder="{{Utilisateur}}"/>';
-    tr += '</div>';
-    tr += '<div class="col-sm-6">';
-    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="html_password" placeholder="{{Mot de passe}}"/>';
-    tr += '</div>';
-    tr += '</div>';
-    tr += '</div>';
-
-    tr += '<div class="requestTypeConfig" data-type="json" style="display : none;">';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlJson" placeholder="URL du fichier JSON"/>';
-    tr += '<center>';
-    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="jsonNoSslCheck"/>{{Vérifier SSL}}</label></span> ';
-    tr += '</center>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="jsonTimeout" placeholder="{{Timeout (s)}}" title="Par défaut 2 secondes"/>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxJsonRetry" placeholder="{{Essais au maximum}}" title="Par défaut 4" style="margin-top : 5px;" />';
-    tr += '<div class="row" style="margin-top : 5px;">';
-    tr += '<div class="col-sm-6">';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="json_username" placeholder="{{Utilisateur}}"/>';
-    tr += '</div>';
-    tr += '<div class="col-sm-6">';
-    tr += '<input type="password" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="json_password" placeholder="{{Mot de passe}}"/>';
-    tr += '</div>';
-    tr += '</div>';
-    tr += '</div>';
-    tr += '</td>';
-    tr += '<td>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite"  style="width : 100px;" placeholder="{{Unité}}" title="{{Unité}}">';
-    tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}} style="margin-top : 5px;""> ';
-    tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}} style="margin-top : 5px;"">';
-    tr += '<select class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdId" style="display : none;margin-top : 5px;" title="Commande d\'information à mettre à jour">';
-    tr += '<option value="">Aucune</option>';
-    tr += '</select>';
-    tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdToValue" placeholder="Valeur de l\'information" style="display : none;margin-top : 5px;">';
-    tr += '</td>';
-    tr += '<td>';
-    tr += '<center>';
-    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label><span> ';
-    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> ';
-    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary"/>{{Inverser}}</label></span> ';
-    tr += '</center>';
-    tr += '</td>';
-    tr += '<td>';
-    if (is_numeric(_cmd.id)) {
-        tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fa fa-cogs"></i></a> ';
-        tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';
-    }
-    tr += ' <a class="btn btn-default btn-xs cmdAction" data-action="copy" title="Dupliquer"><i class="fa fa-files-o"></i></a> ';
-    tr += '<i class="fa fa-minus-circle pull-right cmdAction cursor" data-action="remove"></i></td>';
-    tr += '</tr>';
-
-    $('#table_cmd tbody').append(tr);
-    $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
-
-    if (isset(_cmd.configuration.requestType)) {
-        $('#table_cmd tbody tr:last .cmdAttr[data-l1key=configuration][data-l2key=requestType]').value(init(_cmd.configuration.requestType));
-        $('#table_cmd tbody tr:last .cmdAttr[data-l1key=configuration][data-l2key=requestType]').trigger('change');
-    }
-
-    if (isset(_cmd.type)) {
-        $('#table_cmd tbody tr:last .cmdAttr[data-l1key=type]').value(init(_cmd.type));
-    }
-    var tr = $('#table_cmd tbody tr:last');
-    jeedom.eqLogic.builSelectCmd({
-        id: $(".li_eqLogic.active").attr('data-eqLogic_id'),
-        filter: {type: 'info'},
-        error: function (error) {
-            $('#div_alert').showAlert({message: error.message, level: 'danger'});
-        },
-        success: function (result) {
-            tr.find('.cmdAttr[data-l1key=value]').append(result);
-            tr.find('.cmdAttr[data-l1key=configuration][data-l2key=updateCmdId]').append(result);
-            tr.setValues(_cmd, '.cmdAttr');
-            jeedom.cmd.changeType(tr, init(_cmd.subType));
-            initTooltips();
-        }
-    });
+});
 }
 
 function getLogicalIdFromPath(_path) {
@@ -376,34 +377,34 @@ function loadScriptFile(_path) {
             handleAjaxError(request, status, error, $('#div_alert'));
         },
         success: function (data) { 
-        if (data.state != 'ok') {
-            $('#div_alert').showAlert({message: data.result, level: 'danger'});
-            return false;
+            if (data.state != 'ok') {
+                $('#div_alert').showAlert({message: data.result, level: 'danger'});
+                return false;
+            }
+            result = data.result;
+            switch (result.extension) {
+                case 'php' :
+                result.mode = 'text/x-php';
+                break;
+                case 'sh' :
+                result.mode = 'shell';
+                break;
+                case 'pl' :
+                result.mode = 'text/x-php';
+                break;
+                case 'py' :
+                result.mode = 'text/x-python';
+                break;
+                case 'rb' :
+                result.mode = 'text/x-ruby';
+                break;
+                default :
+                result.mode = 'text/x-php';
+                break;
+            }
         }
-        result = data.result;
-        switch (result.extension) {
-            case 'php' :
-            result.mode = 'text/x-php';
-            break;
-            case 'sh' :
-            result.mode = 'shell';
-            break;
-            case 'pl' :
-            result.mode = 'text/x-php';
-            break;
-            case 'py' :
-            result.mode = 'text/x-python';
-            break;
-            case 'rb' :
-            result.mode = 'text/x-ruby';
-            break;
-            default :
-            result.mode = 'text/x-php';
-            break;
-        }
-    }
-});
-return result;
+    });
+    return result;
 }
 
 function saveScriptFile(_path, _content) {
@@ -423,14 +424,14 @@ function saveScriptFile(_path, _content) {
             handleAjaxError(request, status, error, $('#div_editScriptFileAlert'));
         },
         success: function (data) { 
-        if (data.state != 'ok') {
-            $('#div_editScriptFileAlert').showAlert({message: data.result, level: 'danger'});
-            return;
+            if (data.state != 'ok') {
+                $('#div_editScriptFileAlert').showAlert({message: data.result, level: 'danger'});
+                return;
+            }
+            success = true;
+            $('#div_editScriptFileAlert').showAlert({message: 'Script sauvegardé', level: 'success'});
         }
-        success = true;
-        $('#div_editScriptFileAlert').showAlert({message: 'Script sauvegardé', level: 'success'});
-    }
-});
+    });
     return success;
 }
 
@@ -450,13 +451,13 @@ function addUserScript(_name) {
             handleAjaxError(request, status, error, $('#div_newUserScriptAlert'));
         },
         success: function (data) {
-        if (data.state != 'ok') {
-            $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
-            return;
+            if (data.state != 'ok') {
+                $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
+                return;
+            }
+            success = data.result;
         }
-        success = data.result;
-    }
-});
+    });
     return success;
 }
 

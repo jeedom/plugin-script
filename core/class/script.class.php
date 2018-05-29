@@ -235,6 +235,9 @@ class scriptCmd extends cmd {
 								$request = str_replace('#color#', substr($_options['color'], 1), $request);
 							}
 							break;
+						case 'select':
+							$request = str_replace('#select#', $_options['select'], $request);
+							break;
 						case 'message':
 							$replace = array('#title#', '#message#');
 							if ($this->getConfiguration('requestType') == 'http') {
