@@ -153,7 +153,7 @@ class script extends eqLogic {
 
 	public function refresh() {
 		foreach ($this->getCmd('info') as $cmd) {
-			try{
+			try {
 				$cmd->refresh();
 			} catch (Exception $exc) {
 				log::add('script', 'error', __('Erreur pour ', __FILE__) . $cmd->getHumanName() . ' : ' . $exc->getMessage());
@@ -186,7 +186,7 @@ class scriptCmd extends cmd {
 		if (trim($this->getConfiguration('request')) == '') {
 			return;
 		}
-		$this->getEqLogic()->checkAndUpdateCmd($this,  $this->execute());
+		$this->getEqLogic()->checkAndUpdateCmd($this, $this->execute());
 	}
 
 	public function preSave() {
@@ -231,10 +231,8 @@ class scriptCmd extends cmd {
 						case 'color':
 							if ($this->getConfiguration('requestType') != 'http') {
 								$request = str_replace('#color#', $_options['color'], $request);
-							}
-							else
-							{
-								$request = str_replace('#color#', substr($_options['color'],1), $request);
+							} else {
+								$request = str_replace('#color#', substr($_options['color'], 1), $request);
 							}
 							break;
 						case 'message':
@@ -259,10 +257,9 @@ class scriptCmd extends cmd {
 		$replace = array(
 			'\'' => '',
 			'#eqLogic_id#' => $this->getEqLogic_id(),
-			'#cmd_id#' => $this->getId()
+			'#cmd_id#' => $this->getId(),
 		);
 		$request = str_replace(array_keys($replace), $replace, $request);
-
 
 		switch ($this->getConfiguration('requestType')) {
 			case 'http':
@@ -363,9 +360,9 @@ class scriptCmd extends cmd {
 				if ($this->getConfiguration('jsonNoSslCheck') == 1) {
 					$request_http->setNoSslCheck(true);
 				}
-				$json = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
+				$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
 				try {
-					$json = json_decode($json, true);
+					$json = json_decode($json_str, true);
 				} catch (Exception $e) {
 					if ($this->getConfiguration('json_username') != '' && $this->getConfiguration('json_username') != '') {
 						$request_http = new com_http($this->getConfiguration('urlJson'), $this->getConfiguration('json_username'), $this->getConfiguration('json_username'));
@@ -375,8 +372,11 @@ class scriptCmd extends cmd {
 					if ($this->getConfiguration('jsonNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
 					}
-					$json = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
-					$json = json_decode($json, true);
+					$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
+					$json = json_decode($json_str, true);
+				}
+				if ($json === null) {
+					throw new Exception(__('Json invalide ou non décodable : ', __FILE__) . $json_str);
 				}
 				$tags = explode('>', $request);
 				foreach ($tags as $tag) {
@@ -426,5 +426,3 @@ class scriptCmd extends cmd {
 
 /*     * **********************Getteur Setteur*************************** */
 }
-
-
