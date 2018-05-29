@@ -294,7 +294,7 @@ tag \#slider\# dans la requête :
 >
 > Si votre commande est de type message vous pouvez utiliser les tags
 > \#message\# et \#title\#, idem pour une commande de type couleur avec
-> le tag \#color\#
+> le tag \#color\#, ou de type slider avec #slider# ou liste avec #select#
 
 Exemple HTTP : Envoyer une notification à XBMC 
 ==============================================

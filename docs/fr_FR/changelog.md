@@ -2,6 +2,7 @@
 
 - Amélioration de l'interface
 - Ajout d'un message si le json est invalide ou non décodable
+- Ajout d'un champs pour configurer les commandes de type select
 
 # 25/04/2018
 
