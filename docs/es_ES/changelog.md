@@ -1,3 +1,7 @@
+# 05/06/2018
+
+- Amélioration de la sécurité du répertoire ressources
+
 # 25/05/2018
 
 - Amélioration de l'interface
