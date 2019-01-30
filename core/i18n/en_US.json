@@ -1,6 +1,6 @@
 {
     "plugins/script/plugin_info/configuration.php": {
-        "Chemin des scripts utilisateur": "User script path"
+        "Chemin des scripts utilisateur": "User scripts path"
     },
     "plugins/script/desktop/php/script.php": {
         "Market": "Market",
@@ -9,7 +9,7 @@
         "Mes scripts": "My scripts",
         "Général": "Main",
         "Dupliquer": "Duplicate",
-        "Nom de l'équipement script": "Script equipment name",
+        "Nom de l'équipement script": "Script device name",
         "Objet parent": "Parent object",
         "Aucun": "None",
         "Catégorie": "Category",
@@ -36,13 +36,13 @@
         "XML": "XML",
         "JSON": "JSON",
         "Parcourir": "Browse",
-        "Editer": "Editer",
+        "Editer": "Edit",
         "Nouveau": "New",
         "Supprimer": "Delete",
         "Partager": "Share",
         "Ne pas vérifier SSL": "Don't check SSL",
         "Autoriser réponse vide": "Allow empty response",
-        "Ne jamais remonter les erreurs": "Never raise any errors",
+        "Ne jamais remonter les erreurs": "Never raise errors",
         "La réponse doit contenir": "The response should contain",
         "Timeout (s)": "Timeout (s)",
         "Essais au maximum": "Maximum tries",
