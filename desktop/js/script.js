@@ -217,11 +217,11 @@
  tr += '<td>';
  tr += '<div class="btn-group" role="group">';
  tr += '<span class="input-group-btn" style="margin-top : 5px;">';
- tr += '<a class="btn btn-default browseScriptFile btn-xs roundedLeft" placeholder="{{Parcourir}}"><i class="fa fa-folder-open"></i></a> ';
- tr += '<a class="btn btn-default editScriptFile btn-xs" placeholder="{{Editer}}"><i class="fa fa-edit"></i></a> ';
- tr += '<a class="btn btn-success newScriptFile btn-xs" placeholder="{{Nouveau}}"><i class="fa fa-file-o"></i></a> ';
- tr += '<a class="btn btn-danger removeScriptFile btn-xs" placeholder="{{Supprimer}}"><i class="fa fa-trash-o"></i></a> ';
- tr += '<a class="btn btn-warning bt_shareOnMarket btn-xs roundedRight" placeholder="{{Partager}}"><i class="fa fa-cloud-upload"></i></a> ';
+ tr += '<a class="btn btn-default browseScriptFile btn-xs roundedLeft" placeholder="{{Parcourir}}"><i class="far fa-folder-open"></i></a> ';
+ tr += '<a class="btn btn-default editScriptFile btn-xs" placeholder="{{Editer}}"><i class="far fa-edit"></i></a> ';
+ tr += '<a class="btn btn-success newScriptFile btn-xs" placeholder="{{Nouveau}}"><i class="far fa-file"></i></a> ';
+ tr += '<a class="btn btn-danger removeScriptFile btn-xs" placeholder="{{Supprimer}}"><i class="far fa-trash-alt"></i></a> ';
+ tr += '<a class="btn btn-warning bt_shareOnMarket btn-xs roundedRight" placeholder="{{Partager}}"><i class="fas fa-cloud-upload-alt"></i></a> ';
  tr += '</span>';
  tr += '</div>';
  tr += '<textarea style="height : 95px;margin-top:5px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request"></textarea>';
