@@ -216,12 +216,12 @@
  tr += '</td>';
  tr += '<td>';
  tr += '<div class="btn-group" role="group">';
- tr += '<span class="input-group-btn" style="margin-top : 5px;">';
- tr += '<a class="btn btn-default browseScriptFile btn-xs roundedLeft" placeholder="{{Parcourir}}"><i class="far fa-folder-open"></i></a> ';
- tr += '<a class="btn btn-default editScriptFile btn-xs" placeholder="{{Editer}}"><i class="far fa-edit"></i></a> ';
- tr += '<a class="btn btn-success newScriptFile btn-xs" placeholder="{{Nouveau}}"><i class="far fa-file"></i></a> ';
- tr += '<a class="btn btn-danger removeScriptFile btn-xs" placeholder="{{Supprimer}}"><i class="far fa-trash-alt"></i></a> ';
- tr += '<a class="btn btn-warning bt_shareOnMarket btn-xs roundedRight" placeholder="{{Partager}}"><i class="fas fa-cloud-upload-alt"></i></a> ';
+ tr += '<span class="input-group" style="margin-top : 5px;">';
+ tr += '<a style="width:30px" class="btn btn-default browseScriptFile btn-xs roundedLeft" placeholder="{{Parcourir}}"><i class="far fa-folder-open"></i></a>';
+ tr += '<a style="width:30px" class="btn btn-default editScriptFile btn-xs" placeholder="{{Editer}}"><i class="far fa-edit"></i></a>';
+ tr += '<a style="width:30px" class="btn btn-success newScriptFile btn-xs" placeholder="{{Nouveau}}"><i class="far fa-file"></i></a>';
+ tr += '<a style="width:30px" class="btn btn-danger removeScriptFile btn-xs" placeholder="{{Supprimer}}"><i class="far fa-trash-alt"></i></a>';
+ tr += '<a style="width:30px" class="btn btn-warning bt_shareOnMarket btn-xs roundedRight" placeholder="{{Partager}}"><i class="fas fa-cloud-upload-alt"></i></a>';
  tr += '</span>';
  tr += '</div>';
  tr += '<textarea style="height : 95px;margin-top:5px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request"></textarea>';
@@ -367,8 +367,8 @@ function loadScriptFile(_path) {
     $.hideAlert();
     var result = false;
     $.ajax({
-        type: "POST", 
-        url: "plugins/script/core/ajax/script.ajax.php", 
+        type: "POST",
+        url: "plugins/script/core/ajax/script.ajax.php",
         data: {
             action: "getScriptContent",
             path: _path,
@@ -378,7 +378,7 @@ function loadScriptFile(_path) {
         error: function (request, status, error) {
             handleAjaxError(request, status, error, $('#div_alert'));
         },
-        success: function (data) { 
+        success: function (data) {
             if (data.state != 'ok') {
                 $('#div_alert').showAlert({message: data.result, level: 'danger'});
                 return false;
@@ -413,8 +413,8 @@ function saveScriptFile(_path, _content) {
     $.hideAlert();
     var success = false;
     $.ajax({
-        type: "POST", 
-        url: "plugins/script/core/ajax/script.ajax.php", 
+        type: "POST",
+        url: "plugins/script/core/ajax/script.ajax.php",
         data: {
             action: "saveScriptContent",
             path: _path,
@@ -425,7 +425,7 @@ function saveScriptFile(_path, _content) {
         error: function (request, status, error) {
             handleAjaxError(request, status, error, $('#div_editScriptFileAlert'));
         },
-        success: function (data) { 
+        success: function (data) {
             if (data.state != 'ok') {
                 $('#div_editScriptFileAlert').showAlert({message: data.result, level: 'danger'});
                 return;
@@ -442,7 +442,7 @@ function addUserScript(_name) {
     var success = false;
     $.ajax({
         type: "POST",
-        url: "plugins/script/core/ajax/script.ajax.php", 
+        url: "plugins/script/core/ajax/script.ajax.php",
         data: {
             action: "addUserScript",
             name: _name,
