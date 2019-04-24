@@ -129,10 +129,11 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
 <div role="tabpanel" class="tab-pane" id="commandtab">
     <a class="btn btn-success btn-sm cmdAction" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter une commande script}}</a><br/><br/>
     <div class="alert alert-info">
-        {{ Sous type : <br/>
-            - Slider : mettre #slider# pour récupérer la valeur<br/>
-            - Color : mettre #color# pour récupérer la valeur<br/>
-            - Message : mettre #title# et #message#}}
+        {{ Sous type :}} <br/>
+            -  {{Slider : mettre #slider# pour récupérer la valeur}}<br/>
+            -  {{Color : mettre #color# pour récupérer la valeur}}<br/>
+            -  {{Message : mettre #title# et #message#}}<br/>
+	    -  {{List: value|display;}}
         </div>
         <table id="table_cmd" class="table table-bordered table-condensed">
             <thead>
