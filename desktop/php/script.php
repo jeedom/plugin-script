@@ -41,8 +41,8 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
           <span>{{Configuration}}</span>
       </div>
   </div>
-  <legend><i class="fa fa-file"></i>  {{Mes Scripts}}
-  </legend>
+  <legend><i class="fa fa-file"></i>  {{Mes Scripts}}</legend>
+  <input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
   <div class="eqLogicThumbnailContainer">
    <?php
 foreach ($eqLogics as $eqLogic) {
