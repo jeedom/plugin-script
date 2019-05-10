@@ -5,10 +5,13 @@ if (!isConnect('admin')) {
 $plugin = plugin::byId('script');
 sendVarToJS('eqType', $plugin->getId());
 $eqLogics = eqLogic::byType($plugin->getId());
+$foldOnStart = config::byKey('foldOnStart', 'script', '0');
+sendVarToJS('foldOnStart', $foldOnStart);
+
 include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'css', 'script');
 include_file('3rdparty', 'codemirror/lib/codemirror', 'js');
 include_file('3rdparty', 'codemirror/lib/codemirror', 'css');
-include_file('3rdparty', 'codemirror/addon/edit/matchbrackets', 'js');
+
 include_file('3rdparty', 'codemirror/mode/htmlmixed/htmlmixed', 'js');
 include_file('3rdparty', 'codemirror/mode/clike/clike', 'js');
 include_file('3rdparty', 'codemirror/mode/php/php', 'js');
@@ -16,6 +19,24 @@ include_file('3rdparty', 'codemirror/mode/shell/shell', 'js');
 include_file('3rdparty', 'codemirror/mode/python/python', 'js');
 include_file('3rdparty', 'codemirror/mode/ruby/ruby', 'js');
 include_file('3rdparty', 'codemirror/mode/perl/perl', 'js');
+
+//Core CodeMirror addons:
+include_file('3rdparty', 'codemirror/addon/edit/matchbrackets', 'js');
+include_file('3rdparty', 'codemirror/addon/selection/active-line', 'js');
+include_file('3rdparty', 'codemirror/addon/search/search', 'js');
+include_file('3rdparty', 'codemirror/addon/search/searchcursor', 'js');
+include_file('3rdparty', 'codemirror/addon/dialog/dialog', 'js');
+include_file('3rdparty', 'codemirror/addon/dialog/dialog', 'css');
+
+include_file('3rdparty', 'codemirror/addon/fold/brace-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/comment-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/foldcode', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/indent-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/markdown-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/xml-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/foldgutter', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/foldgutter', 'css');
+
 sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir', 'script'));
 ?>
 <style>
