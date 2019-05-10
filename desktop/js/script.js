@@ -117,6 +117,9 @@
               "Ctrl-Y": cm => CodeMirror.commands.foldAll(cm),
               "Ctrl-I": cm => CodeMirror.commands.unfoldAll(cm)
             })
+
+            $('.ui-dialog[aria-describedby="md_editScriptFile"] .CodeMirror-wrap').css("height", $(window).height() - 80)
+
             editor.refresh();
 
             $('.ui-dialog[aria-describedby="md_editScriptFile"]').resize(function() {
