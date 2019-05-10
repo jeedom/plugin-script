@@ -28,9 +28,15 @@ if (!isConnect()) {
 <form class="form-horizontal">
     <fieldset>
         <div class="form-group">
-            <label class="col-lg-2 control-label">{{Chemin des scripts utilisateur}}</label>
+            <label class="col-sm-3 col-xs-12 control-label">{{Chemin des scripts utilisateur}}</label>
             <div class="col-lg-4">
                <input type="text" class="configKey form-control" data-l1key="userScriptDir" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 col-xs-12 control-label">{{Collapser le code à l'ouverture}}</label>
+            <div class="col-sm-3 col-xs-12">
+                <input type="checkbox" class="configKey" data-l1key="foldOnStart" />
             </div>
         </div>
     </fieldset>
