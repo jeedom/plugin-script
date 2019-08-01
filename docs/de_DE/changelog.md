@@ -1,12 +1,13 @@
 # 05/06/2018
 
-- Amélioration de la sécurité du répertoire ressources
+- Verbesserte Sicherheit vom Ressourcenverzeichnis
 
 # 25/05/2018
 
-- Amélioration de l'interface
-- Ajout d'un message si le json est invalide ou non décodable
-- Ajout d'un champs pour configurer les commandes de type select
+- Verbesserung der Schnittstelle
+        
+- Hinzufügen einer Nachricht, wenn das JSON ungültig oder nicht decodierbar ist
+- Hinzufügen eines Felds, zum Konfigurieren von Befehlen des Typs select
 
 # 25/04/2018
 
