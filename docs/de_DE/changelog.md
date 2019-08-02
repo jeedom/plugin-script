@@ -1,3 +1,7 @@
+# 01/08/2019
+
+- Support de PHP 7.3
+
 # 05/06/2018
 
 - Verbesserte Sicherheit vom Ressourcenverzeichnis
