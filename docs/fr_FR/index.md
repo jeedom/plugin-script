@@ -494,7 +494,7 @@ Exemple XML plus complexe
 
 Pour recuperer l’information du champ Wert du 1er bloc:
 
-    MesPar>1>Wert>0 qui retourne donc "268.56 "
+    MesPar>0>Wert>0 qui retourne donc "268.56 "
 
 Pour retourner l’élément suivant dans la "structure" Wert, il faut
 simplement indiquer le numéro d’ordre dans la structure. Ce qui donne
@@ -503,7 +503,7 @@ suivant :
 
     MesPar>1>Wert>2
 
-Pour passer au bloc " MesPar" suivant, il faut donc changer l’index en
+Pour passer au bloc "MesPar" suivant, il faut donc changer l’index en
 conséquence : le 1 par 2, par exemple.
 
 ATENTION : Si dans le fichier XML l’ordre change, la requête ne
