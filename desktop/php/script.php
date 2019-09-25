@@ -159,23 +159,23 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
                 -  {{List: value|display;}}
             </div>
             <br/>
-            <table id="table_cmd" class="table table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        <th style="width: 200px;">{{Nom}}</th>
-                        <th style="width: 100px;">{{Type script}}</th>
-                        <th style="width: 70px;">{{Type}}</th>
-                        <th>{{Requête}}</th>
-                        <th style="width: 400px;">{{Options}}</th>
-                        <th style="width: 110px;">{{Divers}}</th>
-                        <th style="width: 150px;">{{Paramètres}}</th>
-                        <th style="width: 150px;"></th>
-                    </tr>
-                </thead>
-                <tbody>
-						
-                </tbody>
-            </table>
+           <table id="table_cmd" class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th style="width: 200px;">{{Nom}}</th>
+                    <th style="width: 100px;">{{Type script}}</th>
+                    <th style="width: 70px;">{{Type}}</th>
+                    <th style="width: 400px;">{{Requête}}</th>
+                    <th style="width: *;">{{Options}}</th>
+                    <th style="width: 110px;">{{Divers}}</th>
+                    <th style="width: 150px;">{{Paramètres}}</th>
+                    <th style="width: 150px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
         </div>
     </div>
 </div>
