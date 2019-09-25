@@ -153,10 +153,10 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
             <br />
             <div class="alert alert-info">
                 {{ Sous type :}} <br/>
-                -  {{Slider : mettre #slider# pour récupérer la valeur}}<br/>
-                -  {{Color : mettre #color# pour récupérer la valeur}}<br/>
+                -  {{Curseur : mettre #slider# pour récupérer la valeur}}<br/>
+                -  {{Couleur : mettre #color# pour récupérer la valeur}}<br/>
                 -  {{Message : mettre #title# et #message#}}<br/>
-                -  {{List: value|display;}}
+                -  {{Liste : value|display;}}
             </div>
             <br/>
            <table id="table_cmd" class="table table-bordered table-condensed">
@@ -179,6 +179,16 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
         </div>
     </div>
 </div>
+<div id="md_browseScriptFile" title="Parcourir...">
+    <div style="display: none;" id="div_browseScriptFileAlert"></div>
+    <div id="div_browseScriptFileTree"></div>
+</div>
+
+<div id="md_editScriptFile" title="Editer...">
+    <div style="display: none;" id="div_editScriptFileAlert"></div>
+    <textarea id="ta_editScriptFile" class="form-control" style="height: 100%;"></textarea>
+</div>
+
 <?php include_file('3rdparty', 'jquery.fileTree/jquery.easing.1.3', 'js', 'script');?>
 <?php include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'js', 'script');?>
 <?php include_file('desktop', 'script', 'js', 'script');?>
