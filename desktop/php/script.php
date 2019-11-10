@@ -63,7 +63,7 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
                 <span>{{Market}}</span>
             </div>
        </div>
-       <legend><i class="fas fa-file"></i> {{Mes Networks}}</legend>
+       <legend><i class="fas fa-file"></i> {{Mes Scripts}}</legend>
        <input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
        <div class="eqLogicThumbnailContainer">
            <?php
