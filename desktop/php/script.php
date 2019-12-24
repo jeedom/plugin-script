@@ -58,7 +58,7 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
                 <span>{{Configuration}}</span>
             </div>
             <div class="cursor logoSecondary" id="bt_getFromMarketicon">
-                <i class="fa fa-shopping-cart"></i>
+                <i class="fas fa-shopping-cart"></i>
                 <br />
                 <span>{{Market}}</span>
             </div>
@@ -141,14 +141,14 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
                             <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Auto-actualisation (cron)}}"/>
                         </div>
                         <div class="col-sm-1">
-                            <i class="fa fa-question-circle cursor floatright" id="bt_cronGenerator"></i>
+                            <i class="fas fa-question-circle cursor floatright" id="bt_cronGenerator"></i>
                         </div>
                     </div>
                 </fieldset>
             </form>
         </div>
         <div role="tabpanel" class="tab-pane" id="commandtab">
-            <a class="btn btn-default btn-sm cmdAction pull-right" style="margin-top:5px;" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter une commande script}}</a>
+            <a class="btn btn-default btn-sm cmdAction pull-right" style="margin-top:5px;" data-action="add"><i class="fas fa-plus-circle"></i> {{Ajouter une commande script}}</a>
             <br />
             <br />
             <div class="alert alert-info">
