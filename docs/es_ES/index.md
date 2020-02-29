@@ -1,425 +1,425 @@
-Plugin que permite ejecutar scripts (shell, php, ruby ​​...),
-solicitudes http, para recuperar información en XML o JSON.
+installant un nouveau
+en parallèle sans avoir à.
 
-Configuración del complemento 
+toucher à votre 
 =======================
 
-La configuración es muy simple, después de descargar el complemento,
-simplemente lo activas y eso es todo.
+existant
+En déplaçant évidemment.
 
 ![script1](../images/script1.PNG)
 
-La única opción es donde jeedom pone los scripts predeterminados,
-se aconseja no tocarlo.
+au fur et à mesure les éventuels contrôleurs de l'un à l'autre
+Si vous utiliser votre RaspberryPi existant, veuillez être certain.
 
-Configuración del equipo 
+d'avoir suivi le chapitre sauvegarde de cette documentation 
 =============================
 
-Se puede acceder a la configuración del equipo guión desde el menú
-plugin :
+si vous utilisez le Raspberry Pi existant qui est actuellement un
+, nous vous conseillons d'utiliser une carte :
 
 ![script2](../images/script2.PNG)
 
-Así es como se ve la página del complemento de guión (aquí ya con 1
-equipos) :
+SD/microSD neuve
+Cela vous permettra de faire retour arrière :
 
 ![script3](../images/script3.PNG)
 
-Aquí está la lista de sus guiones. Una vez que hagas clic
-en el equipo que obtienes :
+facilement si besoin. Installer un nouveau Jeedom sur une nouvelle carte SD (Que cela soit
+pour mettre dans votre :
 
 ![script4](../images/script4.PNG)
 
-> **punta**
+> **existant ou pour un**
 >
-> Como en muchos lugares de Jeedom, coloca el mouse en el extremo izquierdo
-> abre un menú de acceso rápido (puedes
-> desde tu perfil siempre déjalo visible).
+> nouveau Raspberry Pi) en rm /etc/apache2/conf-available/other-vhosts-access-log.conf la [documentation
+> d'installation](domaine pour lequel il sera générés
+> //jeedom.github.io/documentation/installation/fr_FR/doc-installation.html).
 
-Aquí encontrarás toda la configuración de tu equipo :
+Vérifier dans la page Santé que la configuration réseau interne (et :
 
--   **apellidobre del equipo de script** : nombre de su equipo de script
+-   **externe si besoin) du** : est OK
 
--   **categoría** : categorías de equipos (puede pertenecer a
-    categorías múltiples)
+-   **Configuration du Jeedom Source** : Changer le mot de passe de l'utilisateur admin ou/et configurer un
+    nouvel utilisateur
 
--   **Activar** : activa su equipo
+-   **Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour** : et fichiers ⇒ onglet "Market"*)
 
--   **visible** : lo hace visible en el tablero
+-   **Cliquer sur tester après avoir** : sauvegardé, pour valider la saisie de vos identifiants
 
--   **Objeto padre** : indica el objeto padre al que pertenece
-    equipo
+-   **Jeedom Market)** : Installation et activation du , nous vous conseillons d'utiliser une carte "Jeedom Link" sur le nouveau
+    Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser
 
--   **Autorrealización** : permite especificar un cron de actualización
-    automático para todos los comandos de tipo de información.
+-   **(Il est conseillé de les faire un par un, en vérifiant bien à chaque** : fois que les dépendances Renommer vos modules et les placer dans les objets souhaités en vouss démons éventuels sont OK)
+    Recréer l'arborescence des objets (juste ceux qui vont vous.
 
-A continuación encontrará la lista de pedidos. :
+être utiles) du :
 
--   **apellido** : Este campo contiene el nombre que desea dar a
-    su pedido / información.
+-   **(Ancien Maître) sur votre nouveau** : (Ancien Esclave)
+    Configuration des équipements sur le.
 
--   **icono** : Este campo le permite asociar un icono con su nombre (en
-    este caso Jeedom reemplaza el nombre con el ícono en el tablero).
+-   **Pour procéder à l'envoi d'un équipement présent sur le** : vers le
+    via le , nous vous conseillons d'utiliser une carte "Jeedom Link", il est nécessaire.
 
--   **puntao de script** :
+-   **que ce dernier soit déjà opérationnel sur votre nouveau** :
 
-    -   El tipo http : permite enviar una solicitud a un dispositivo
-        externo sin necesariamente esperar el regreso de este comando.
-        El ejemplo que servirá de soporte para el tipo http será el
-        configuración de una solicitud a un Vera para encender
-        una luz.
+    -   Penser au fur et à mesure à désactiver l'historisation des commandes : info de chaque équipement se trouvant sur le
+        afin.
+        d'économiser la carte SD de celui-ci (L'historisation se fera sur le
+        )
+        Vous pouvez aussi au fur et à mesure assigner les équipements aux.
 
-    -   El tipo de script : utilizado principalmente para ejecutar scripts
-        interno a Jeedom. El ejemplo que admitirá el tipo
-        el script será la configuración del script de monitoreo de temperatura
-        frambuesa disponible en el mercado.
+    -   objets recréés sur le : afin qu'ils soient plus tard
+        mis automatiquement dans le bon objet sur le. lors de
+        la déclaration dans le , nous vous conseillons d'utiliser une carte "Jeedom Link"
+        En cas de doublon de nom.
 
-    -   puntao XML : permite recuperar información codificada en
-        XML desde un dispositivo remoto. El ejemplo que servirá como
-        El soporte de tipo XML será la configuración del script para
-        interrogar un dispositivo ecológico.
+    -   avec un équipement déjà présent dans les objets du : ,
+        le , nous vous conseillons d'utiliser une carte ajoutera "remote XXXX" au nom de Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser. Cliquer sur le bouton "Synchroniser" afin de récupérer les modules
+        associés à votre contrôleur
+        (Ils sont gardés dans la mémoire.
 
-    -   El tipo JSON : permite recuperar información codificada en
-        JSON desde un dispositivo remoto. El ejemplo que servirá como
-        la compatibilidad con el tipo JSON será la configuración del script para
-        interrogar a Sickbeard (o XBMC).
+    -   de celui-ci) : ,
+        Remplacer le fichier *Zwà ajouterg. Cliquer sur le bouton "Synchroniser" afin de récupérer les modules
+        Z-wave*. Cliquer sur le bouton rouge *Zwà ajouterg* et coller le contenu du
+        fichier texte précédemment créé sur votre ordinateur. *Sauvegarder.
 
--   **el tipo** y el **subtipo**
+-   **les changements** Renommer vos modules et les placer dans les objets souhaités en vous **aidant de votre mémo de migration**
 
--   El campo **petición**
+-   Sondes, capteurs, détecteurs,…​ **Passer le , nous vous conseillons d'utiliser une carte en mode inclusion**
 
-    -   Este campo debe contener la consulta en sí o la ruta de acceso de
-        script si el campo &quot;tipo de script&quot; es script. El botón
-        &quot;recorrer&quot; : le permite seleccionar el archivo contenido en el
-        archivo interno en Jeedom.
+    -   Recommencer l'inclusion jusqu'à obtenir tous vos équipements de
+        ce type. Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en
+        vous aidant de votre mémo de migration : service nginx restartneurs, prises, …​
+        Ajouter un nouvel équipement.
 
-        > **punta**
+        > **existant ou pour un**
         >
-        > Este archivo es accesible en SSH
-        > en / usr / share / nginx / www / jeedom / plugins / script / core / resources /.
-        > FYI, el comando SSH para asignar derechos de datos www
-        > a un archivo es : vestido de sudo
-        > www-data:www-data NOMDUSCRIPT.EXTENSION. Tenga en cuenta que para
-        > ejecutar un script, debe tener derechos de www-data.
+        > Définir le nom, l'ID, l'objet parent, les changements d'équipement Renommer vos modules et les placer dans les objets souhaités en vous
+        > modèle en vous aidant de votre mémo de migration.
+        > Recommencer pour tous vos équipements de ce type
+        > Configuration du , nous vous conseillons d'utiliser une carte "Jeedom Link" : Le , nous vous conseillons d'utiliser une carte "Jeedom Link" installé sur le
+        > permettra la:remontée des équipements sur le. (Votre ancien Maître)
+        > Rappel, pour une meilleure lecture et compréhension de ce tutoriel.
 
-    -   El botón **editar** : le permite editar usando un editor
-        código interno uno de los archivos contenidos en el directorio
-        permitiendo el acceso al código del archivo.
+    -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **Les copies d'écran sur fond blanc correspondent au** : Sur le
+        //jeedom.github.io/documentation/, nous vous conseillons d'utiliser une cartes/jeelink/fr_FR/jeelink)
+        le , nous vous conseillons d'utiliser une carte "Jeedom Link" en spécifiant.
 
-    -   El botón **nuevo** : permite crear un archivo de comando.
+    -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **Le nom du** : L'adresse IP ou le nom DNS du.
 
-        > **punta**
+        > **existant ou pour un**
         >
-        > No olvide ingresar el nombre del archivo, así como su
-        > extensión completa bajo pena de ver su excelente script no
-        > no trabajo. Sin extensión, Jeedom no sabrá
-        > reconocer el idioma asociado con su archivo. CF :
-        > generalidad
+        > La clé API du
+        > Et sauvegarder la configuration
+        > Dans l'onglet *Affectation*, ajouter les équipements que vous désirez. remonter vers le
+        > Cliquer sur *Ajouter un équipement* Sélectionner l'objet et Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser. à ajouter :
+        > Après avoir rafraîchit la page *Mes JeeLinks* du
 
-    -   El botón **remove** : permite eliminar un archivo
-        de encargo.
+    -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **, vous** : devez constater la création automatique de Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser
+        Comme tout équipement Jeedom, vous pouvez activer/désactiver et autre commande.
 
-    -   El botón **Compartir, repartir** : uno de los más importantes, y después
-        validado los desarrolladores de CGU en su perfil en el mercado,
-        le permite compartir su creación con la comunidad.
+    -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **ou non l'équipement, ses commandes,…​ ou changer la catégorie** : Dans l'onglet *Commandes*, vous accédez à tous les paramètres des
+        commandes de Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser
+        Récupération des historiques.
 
--   El campo **opciones** : Campo con opciones variables dependiendo de la elección.
-    tipo de script.
+-   Sondes, capteurs, détecteurs,…​ **A faire sur le** : (Ancien Maître) pour chaque commande
+    info des équipements de l'ancien.
 
--   **unidad** : unidad de datos (puede estar vacía).
+-   **dont on veut récupérer** : l'historique.
 
--   **min / max** : límites de datos (pueden estar vacíos).
+-   **Aller dans la configuration de la commande (*Roue crantée à** : droite*).
 
--   **historizar** : permite historizar los datos.
+-   **Aller dans l'onglet *Configuration Avancée** : Cliquer sur le bouton *Copier l'historique de cette commande sur une.
 
--   **visualización** : permite mostrar los datos en el tablero.
+-   **autre commande** : Chercher la commande correspondante du nouvel équipement JeeLink.
 
--   **evento** : volver en caso de eventos. En el caso de RFXcom
-    esta casilla siempre debe estar marcada porque no puede consultar
-    un módulo RFXcom.
+-   **correspondant et valider** : Remplacement des anciens équipements esclaves dans les Scénarios/virtuels/…​. info/action des équipements de l'ancien
+    dont on veut
+    remplacer les occurrences dans les scénarios/virtuels/…​.
 
--   **Permitir memcache** : permite a Jeedom usar caché para
-    valor (predeterminado 5 min) antes de volver a ejecutar el script para tener que
-    nuevo valor.
+-   **Aller dans l'onglet *Informations** : Cliquer sur le bouton *Remplacer cette commande par la commande
+    Récupération des configurations d'affichage avancées des commandes
+    récupérer les paramètres d'affichage avancés.
 
--   **Caché de por vida** : permite modificar la vida útil del caché
-    (predeterminado 5 min).
+-   **Cliquer sur le bouton *appliquer à** : Chercher et sélectionner la commande correspondante du nouvel
+    équipement JeeLink correspondant et valider.
 
-> **importante**
+> **Recopie des configurations avancées des commandes**
 >
-> Evite tanto como sea posible en la ruta del script o en
-> los parámetros de sus caracteres especiales. Los caracteres
-> ser permitido : números, letras (mayúsculas o minúsculas)
+> récupérer la configuration avancée
+> Pas de solution facile à ce niveau, il faudra avoir deux. onglets/fenêtres d'ouverts sur votre navigateur
+> Ouvrir les commandes des équipements de l'ancien : dans un
 
 ![script5](../images/script5.PNG)
 
-Le permite llamar a una url o recuperar el retorno de una URL.
+onglet (Jeedom Cible).
 
--   una casilla de verificación &quot;No verificar SSL&quot; : si está marcado, permite Jeedom
-    no enviar los campos &quot;Usuario&quot; y &quot;Contraseña&quot; a
-    la solicitud. Jeedom no buscará identificarse con
-    sitio remoto / máquina.
+-   Ouvrir les commandes des équipements jeeLink dans l'autre onglet : (Jeedom Cible)
+    Et recopier à la main les paramètres voulus
+    Afin d'éviter de revenir plusieurs fois sur la même commande, les. opérations 2.6→2
+    9 peuvent être réalisées à la suite sur une même.
 
--   una casilla de verificación &quot;Permitir respuesta en blanco&quot; : si está marcado, permite
-    Jeedom no esperar una respuesta, o ignorar cualquier respuesta a
-    la trama transmitida. En general, verificamos si Jeedom nos envía un &quot;Curl
-    error : Respuesta vacía del servidor &quot;.
+-   commande avant de passer aux rm /etc/apache2/conf-available/other-vhosts-access-log.confes : Les interactions sur le
+    ne pourront pas être lancées
+    par le biais d'équipements d'un. tranférés via le
+    plugin "Jeedom Link" : Ménage sur le.
 
--   una casilla de verificación &quot;Nunca informar errores&quot; : no lo hagamos
-    no levantar una alerta en caso de error.
+-   Après avoir validé avec certitude que vos : équipements/scénarios/interactions/virtuels/…​. fonctionnent
+    correctement avec le nouveau système jeelink, vous pouvez procéder au.
 
--   un campo de &quot;tiempo de espera&quot; : sin ser informado, el tiempo de espera de la solicitud
-    el valor predeterminado es 2 segundos, de lo contrario, vale el valor ingresado.
+-   ménage : , vous les équipements résiduels de l'ancien
+    Désactiver et supprimer les , nous vous conseillons d'utiliser une cartes qui ne vous sont plus utiles.
 
--   un campo &quot;Pruebas máximas&quot; : Máximo 4 pruebas por defecto.
+-   (Ceux dont vous n'aviez que des équipements sur l'Esclave) : Dans le , nous vous conseillons d'utiliser une carte "Jeedom Link", renommer les équipements qui.
 
--   un campo &quot;Usuario&quot; : para ingresar un nombre de usuario.
+-   pourraient avoir un nom finissant par "remote XXXX" : Dans la page Réseau Jeedom, supprimer l'ancien.
 
--   un campo &quot;Contraseña&quot; : para ingresar una contraseña.
+-   Se connecter en telnet : Il faut tout d'abord se connecter en telnet (port 23) sur openkarotz,.
 
-La elección de HTML 
+l'identifiant étant kartoz 
 =============
 
 ![script8](../images/script8.PNG)
 
-Analiza una página web (archivo HTML) para recuperar un valor
-anteriormente. La sintaxis es la misma que para jquery.
+Ajout d'un moteur de voix
+Allez sur /www/cgi-bin/ et editez le fichier tts.
 
-El campo de opción tiene un campo &quot;URL de archivo HTML&quot; : este campo
-por lo tanto contiene el enlace a la máquina que aloja el archivo HTML en
-pregunta.
+inc, ajoutez une : fonction (exemple pour Jeedom)
+function jeedomTTS {
+TTS=$1.
 
-La elección XML 
+MD5FILE=$(echo "$TTS" | md5sum | cut -d ' ' -f 1) 
 ============
 
 ![script6](../images/script6.PNG)
 
-Le permite recuperar xml y buscar específicamente un valor
-en.
+eval $(echo "curl -A '${UArisques et périls' -o $CNF_DATADIR/Tmp/${MD5FILErisques et périls
+mp3 'domaine pour lequel il sera généré.
 
-El campo de opción tiene un campo &quot;URL de archivo XML&quot; : este campo
-por lo tanto contiene el enlace a la máquina que aloja el archivo XML en
-pregunta.
+//TODO/core/api/tts.date d'expiration est à moins de 30 jours : fonction (exemple pour Jeedom)
+apikey=TODO&text=${TTSrisques et périls'" )  >>/dev/null 2>>/dev/null
+TTS=$1.
 
-> **importante**
+> **Recopie des configurations avancées des commandes**
 >
-> Solo es posible recuperar valores, los atributos no
-> puede ser recuperado.
+> echo $( echo "$RAW_TTS" | UrlDecode)  > $CNF_DATADIR/Tmp/${MD5FILErisques et périls.txt
+> if [ "$5".
 
-La elección de JSON 
+"1" ]; then 
 =============
 
 ![script7](../images/script7.PNG)
 
-Permite recuperar json y buscar específicamente un
-valor en.
+Log "[TTS]"  "Playing sound ${MD5FILErisques et périls.mp3"
+PlaySound $CNF_DATADIR/Tmp/${MD5FILErisques et périls.mp3.
 
-El campo de opción tiene un campo &quot;URL de archivo JSON&quot; : este campo
-por lo tanto contiene el enlace a la máquina que aloja el archivo JSON en
-pregunta.
+fi : fonction (exemple pour Jeedom)
+if [ "$NOCACHE" == "1" ]; then
+TTS=$1.
 
-Ejemplo HTTP : Pilotando una Vera 
+rm -f $CNF_DATADIR/Tmp/${MD5FILErisques et périls : mp3   >>/dev/null 2>>/dev/null 
 ==================================
 
-El ejemplo se basa en una Vera y consiste en conducir una bombilla.
-regulable. No me detendré en cómo conducir un Vera
-por solicitud http, el foro de TLD está lleno de respuestas. De más,
-el ejemplo corresponde a mi tipo de material y tendrá que adaptarse a
-suyo.
+txt   >>/dev/null 2>>/dev/null
+else
+Log "[TTS]"  "Storing sound ${MD5FILErisques et périls. mp3 to cache"
+echo ${MD5FILErisques et périls
+risques et périls.
 
-> **punta**
+> **existant ou pour un**
 >
-> Un método para quienes buscan a tientas escribir solicitudes http,
-> primero valide la sintaxis en su navegador y solo entonces
-> ir a la configuración bajo Jeedom. Cuando un script de acción no lo hace
-> no funciona, cambiar a Info / Otro script le permite ver el error
-> devuelto.
+> Editez ensuite le fichier tts et ajoutez
+> 3)  MP3_ID=$(jeedomTTS $TTS $VOICE $NO_CACHE $RAW_VOICE);;
+> Dans le "case \$TTS\_ENGINE in" pour avoir. case $TTS_ENGINE in
+> 1)  MP3_ID=$(GoogleTTS $TTS $VOICE $NO_CACHE $RAW_VOICE);;
+> 2)  MP3_ID=$(VioletTTS $TTS $VOICE $NO_CACHE $RAW_VOICE);;.
 
-Vamos a ir :
+)  MP3_ID=$(AcapelaTTS $TTS $VOICE $NO_CACHE $RAW_VOICE $MUTE);; :
 
--   Creamos equipos : por ejemplo, LUM COISINE (creo que tenemos
-    toda una cocina a mano)
+-   esac : Utilisation
+    Il vous suffit d'appller l'url en donnant le numéro d'engin (ici 3)
 
--   Lo asociamos con un objeto padre : por ejemplo VERA, me permite
-    centralice todos los pedidos relacionados con VERA en un
-    padre soltero.
+-   domaine pour lequel il sera généré : //192.168.0.62/cgi-bin/tts
+    text=coucou%20ca%20va&nocache=0&engine=3
+    Installation de Letsencrypt.
 
--   Elige tu categoría.
+-   Voici les commandes à lancer pour installer letsencrypt avant la.
 
--   Active su equipo, no verifique visible, veremos un poco
-    más tarde cómo asociarlo con uno virtual (más sexy, más WAF)
+-   génération
+    apt-get install -y git
 
--   Para la actualización automática, no coloque nada, es un comando
-    impulso vinculado a presionar un botón o un escenario !
+-   cd /opt
+    git clone domaine pour lequel il sera générés !
 
--   Agregar un comando de script
+-   //github.com/letsencrypt/letsencrypt
 
--   Recuerda guardar
+-   cd letsencrypt
 
-explicaciones :
+/letsencrypt-auto --help :
 
--   apellido : 100% porque prenderemos una luz a plena potencia
+-   (Ancien Maître) sur votre nouveau : Pour faire une demande de certificat vous devez posséder un nom de
 
--   puntao de script : http
+-   que ce dernier soit déjà opérationnel sur votre nouveau : domaine pour lequel il sera généré
 
--   tipo : Acción (es una orden)
+-   Configuration d'Apache : Pour que le processus de letsEncrypt se termine correctement, il est
 
--   Subtipo : culpa
+-   nécessaire d'effectuer les trois étapes ci-dessous au préalable : Attention il est nécessaire d'ouvrir le port 80 sur le routeur (FAI)
 
--   petición :
+-   Passer le , nous vous conseillons d'utiliser une carte en mode inclusion :
 
 <!-- -->
 
-    http:// <IP_VERA>:3480 / data_request?id = y lu_action output_format json = &amp; = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1 &amp; acción = SetLoadLevelTarget y newLoadlevelTarget = 100
+    domaine pour lequel il sera généré:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le module SSL d'apache de la box Jeedom>:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le VirtualHost HTTPS d'apache de la box Jeedom?Configurer un portForwarding des Passer le , nous vous conseillons d'utiliser une carte en mode inclusions HTTPS sur votre Box:internet pour les rediriger vers votre Box Jeedom:Activation du virtualHost et du module SSL://do.co/le-renew
 
-> **punta**
+> **existant ou pour un**
 >
-> el &quot;100&quot; al final de la solicitud corresponde al porcentaje de potencia
-> para asignar, así que ponga &quot;0&quot; al final de la solicitud corresponde a
-> apaga la bombilla.
+> Se connecter en SSH sur la box Jeedom
+> a2enmod ssl
+> a2ensite default-ssl.conf.
 
-El botón &quot;probar&quot; le permite probar su pedido !
+service apache2 restart !
 
-Por lo tanto, puede multiplicar pedidos en el mismo equipo por
-por ejemplo, al hacer un pedido del 60% para una luz tenue, cree
-un tercio al 30% para viajes nocturnos que se combinarán en un
-escenario, ...
+Aucun certificat ne sera délivré par LetsEncrypt tant que votre site
+en HTTPS ne sera pas joignable de l'extérieur
+/opt/letsencrypt/letsencrypt-auto --apache --email email@domaine
+com -d domaine.com
 
-También es posible crear un comando de tipo deslizador colocando el
-etiqueta \ #slider \ # en la solicitud :
+Vous devez remplacer les paramètres <email@domaine
+com> et domaine.com :
 
-    http:// <IP_VERA>:3480 / data_request?id = y lu_action output_format json = &amp; = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+    domaine pour lequel il sera généré:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le module SSL d'apache de la box Jeedom>:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le VirtualHost HTTPS d'apache de la box Jeedom?Configurer un portForwarding des Passer le , nous vous conseillons d'utiliser une carte en mode inclusions HTTPS sur votre Box:internet pour les rediriger vers votre Box Jeedom:Activation du virtualHost et du module SSL:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 
-> **punta**
+> **existant ou pour un**
 >
-> Si su orden es del tipo de mensaje, puede usar etiquetas
-> \ #message \ # y \ #title \ #, lo mismo para un pedido de color con
-> la etiqueta \ #color \ #, o de tipo deslizador con # deslizador # o lista con #seleccionar#
+> par vos valeurs
+> Normalement les paramètres d'ajout du protocole HTTPS
+> sont ajoutés par le script dans Apache#
 
-Ejemplo HTTP : Enviar notificación a XBMC 
+rm -f $CNF_DATADIR/Tmp/${MD5FILErisques et périls : Si vous utilisez la méthode de renouvellement automatique ci-dessous, 
 ==============================================
 
-Objetivo : Enviar notificación a XBMC al abrir una puerta
-entrada.
+vous pouvez désactiver le virtualHost : default-ssl
+conf.
 
--   apellido : EMPUJE XBMC
+-   (Ancien Maître) sur votre nouveau : avec la
 
--   puntao de script : http
+-   que ce dernier soit déjà opérationnel sur votre nouveau : domaine pour lequel il sera généré
 
--   tipo : Acción (es una orden)
+-   Configuration d'Apache : Pour que le processus de letsEncrypt se termine correctement, il est
 
--   subtipo : culpa
+-   aidant de votre mémo de migration : Attention il est nécessaire d'ouvrir le port 80 sur le routeur (FAI)
 
--   petición :
+-   Passer le , nous vous conseillons d'utiliser une carte en mode inclusion :
 
 <!-- -->
 
-    http:// IP_DE_XBMC:8080 / JSONRPC?solicitud = {% 22jsonrpc% 22:% 2220% 22% 22% 22method:22GUI%.ShowNotification% 22% 22% 22params:{% 22title% 22:% 22Mouvement% 20Detecté% 22% 22% 22message:% 22Porte 20Entrée% 22%}% 22% 22id:1}
+    domaine pour lequel il sera généré:commande:a2dissite default-ssl?Pensez à reporter le code par:Attention il est nécessaire d'ouvrir le port 80 sur le routeur (FAI) ci-dessous dans le virtualHost créé par le script de:renouvellement.SSLA faire sur le +StdEnvVars:Configuration de Nginx:Cette commande n'est à utiliser que si vous disposez d'un serveur web:Nginx:/letsencrypt-auto certonly --email email@domaine
 
-Depende de usted probar esto en un escenario, por ejemplo !
+com -d domaine !
 
-API XBMC [aquí] (http://wiki.xbmc.org/index.php?title = JSON-RPC_API / v6)
-(solo los campos marcados como &quot;obligatorios&quot; son obligatorios)
+com -a webroot --webroot-path /usr/share/nginx/www/:Vous devez remplacer les paramètres email et domaine par vos valeurs,?ainsi que le chemin vers la racine du serveur
+Vous devez ajouter les
 
-Objetivo : Enviar una notificación a XBMC cuando la temperatura baje
-debajo de cierto umbral
+vous pouvez désactiver le virtualHost : deux lignes de configuration du HTTPS dans la configuration nginx
+vi /etc/nginx/sites-enabled/default
 
-Toma el ejemplo de arriba :
+Ajouter les lignes rm /etc/apache2/conf-available/other-vhosts-access-log.confes, entre les lignes `server {` et :
 
--   reemplace &quot;Movimiento% 20Detectado&quot; con &quot;Riesgo% 20de% 20gel&quot;
+-   listen 80;
 
--   reemplazar &quot;Porte% 20Entrée&quot; por
-    &quot;Temperatura 20extérieur% 20%:20% \ # \ [FUERA \] \ [FUERA \] \ [TEMP \] \ #% 20 &quot;
+-   listen 443 ssl;
+    ssl_certificate /etc/nginx/ssl/ jeedom.chezmoi.fr.crt;:ssl_certificate_key /etc/nginx/ssl/ jeedom.chezmoi.fr.key;
 
 Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
-15 por ejemplo
+Et enfin redémarrez le serveur Nginx
 
-acción : Inicie el script, a través de un equipo virtual, vinculado a su script
+service nginx restart : Le renouvellement se fait avec la commande
 !
 
-Ejemplo SCRIPT 
+/opt/letsencrypt/letsencrypt-auto --apache --renew-by-default -d mondomaine.fr 
 ==============
 
-El más bonito pero no el más fácil de explicar..
+Vous recevez un mail automatiquement à l'arrivée de l'échéance du.
 
-Requisitos previos : saber desarrollar un script en php, python o ruby.
+certificat qui vous rappellera de lancer cette commande : Méthode automatique.
 
->**importante**
+>**Recopie des configurations avancées des commandes**
 >
-> La extensión de su script debe coincidir absolutamente con su tipo. ex .php para un tipo php. De hecho, Jeedom se basa en la extensión del script para que se ejecute el ejecutable (php if .php, python si .py ....)
+> C'est quand même mieux quand c'est automatique. Pour ce faire, voici les .étapes à suivre. Installez .bc
 
-El script de monitoreo de temperatura de frambuesa servirá como ejemplo
-para usar el tipo de script : guión
+, utilisé dans le script le-renew
+apt-get install -y bc : Créez un fichier pour y écrire le script (son emplacement est libre)
 
-Después de descargar el script del mercado, el botón &quot;examinar&quot;
-le permite seleccionar el archivo temp \ _rasp.php.
+nano /bin/certletsencryptrenew.sh
+Saisissez les lignes ci-dessous dans le fichier créé précédemment.
 
-Por curiosidad, puede ir y ver el contenido del archivo presionando
-en el botón &quot;Editar&quot;, debería obtener el siguiente código :
+Le copier/coller fonctionne via putty
+Ce script vérifie :
 
-Este es un script php que se puede reutilizar fuera de Jeedom !
+l'expiration du certificat Renommer vos modules et les placer dans les objets souhaités en vous renouvelle automatiquement si la !
 
-     <?php
-        $ temp = shell_exec (&quot;cat / sys / class / thermal / thermal_zone0 / temp&quot;);
-        $ temp = $ temp / 1000;
-        $ temp = round ($ temp, 1);
-        echo $ temp
+     <?date d'expiration est à moins de 30 jours
+        Vous devez remplacer le
+        paramètre domaine
+        com par votre valeur
+        curl -L -o /usr/local/sbin/le-renew domaine pour lequel il sera généré
      ?>
 
-nota : concretamente, es la función php &quot;echo&quot; la que le dará al
-valor para Jeedom
+//do.co/le-renew : chmod +x /usr/local/sbin/le-renew
+le-renew domaine.com
 
-Los parámetros 
+Sauvegardez le fichier puis quittez l'éditeur de texte, par exemple, 
 --------------
 
-Obtenga la información de Jeedom para usarla en un script. la
-la recuperación depende del tipo de script utilizado :
+avec nano
+ctrl+o -> Entrée     (permet de sauvegarder) :
 
-ejemplo :
+ctrl+x -> Entrée     (permet de quitter) :
 
--   En la linea :
-    /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
-    lista, el argumento &quot;lista&quot; es una cadena de caracteres (fija)
-    recuperado del script php usando la siguiente función
-    \ $ argv \ [1 \] CF : Google para más detalles sobre la recuperación
-    parámetros en PHP.
+-   Editez le crontab :
+    Il faut être connecté en root
+    crontab -e
+    On ajoute la ligne rm /etc/apache2/conf-available/other-vhosts-access-log.confe
+    0 5 * * 1 /bin/certletsencryptrenew.sh : Recopie des configurations avancées des commandes
+    Attention à bien adapter le chemin vers le script.
 
--   Anteriormente hemos visto que era posible recuperar
-    valores dinámicos de Jeedom.
+-   existant ou pour un
+    Pour comprendre la planification 0 5 \* \* 1 allez voir ici et.
 
--   En la linea :
-    /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py
-    VOL * slider *, el argumento &quot;* slider *&quot; se recupera de este
-    argv \ [2 \]. Cuando jeedom ejecuta el script,
-    reemplazará automáticamente * deslizador * con el valor (numérico)
-    control deslizante. CF : Google para más detalles sobre la recuperación
-    parámetros en Python.
+-   Editez le crontab :
+    ajustez la à votre besoin si nécessaire
+    //crontab.guru/#0_5_*_*_1
+    Sauvegardez le fichier puis quittez l'éditeur de texte en. sauvegardant
+    ctrl+o -> Entrée
+    ctrl+x -> Entrée. à ajouter : Recopie des configurations avancées des commandes
+    Pourquoi.
 
--   Más fuerte : Potencialmente, todas las variables accesibles por
-    Jeedom puede ser utilizado por el complemento de script :
+-   Apache va devenir petit à petit la norme avec Jeedom : Permet d'avoir les dernières mises à jour de sécurité au niveau de
+    l'accès aux fichiers (grâce au :
 
-    -   Desea recuperar el valor de la temperatura de la cocina.
-        para historizarlo fuera de Jeedom ?
+    -   htaccess) lors des mises à jour de
+        Jeedom ?
 
-    -   Pase * \ [COCINA \] \ [COCINA \] \ [Temperatura \] * como parámetro
-        al script y Jeedom lo reemplazará con el valor leído durante
-        del envío.
+    -   Corrige certains soucis d'accès et de stabilité (notamment pour ceux
+        qui ont beaucoup de caméras)
+        Améliore les performances globales de Jeedom.
 
-Recomendación para probar los parámetros en el script php :
+Prérequis :
 
-     if (isset ($ argv)) {
-     foreach ($ argv como $ arg) {
-     $ argList = explotar (&#39;=&#39;, $ arg);
-     if (isset ($ argList [0]) &amp;&amp; isset ($ argList [1])) {
-     $ _GET [$ argList [0]] = $ argList [1];
-     }
-     }
-     }
+     Savoir se connecter en SSH sur la box (vous trouverez les
+     identifiants sur la documentation d'installation)
+     Etre connecté à internet
+     Recopie des configurations avancées des commandes
+     En cas de soucis l'équipe Jeedom ne pourra être tenue responsable et
+     pourra refuser toute demande de support
+     La manipulation est à vos
+     risques et périls
 
-Ejemplo XML simple 
+Attention certains , nous vous conseillons d'utiliser une cartes non officiels ne sont pas compatibles 
 ==================
 
-Aquí está el formato del xml estándar :
+Apache, renseignez-vous bien avant :
 
     <root>
         <led0>1</led0>
@@ -428,14 +428,14 @@ Aquí está el formato del xml estándar :
         </leds>
     </root>
 
-Si desea el valor de led0 en la consulta, coloque led0. si
-quieres el valor de led1 que es el hijo de leds que pones
+Comment faire
+Désactivation des services Jeedom et nginx
 leds &gt; led1.
 
-notaz que l'élément racine &lt;root&gt; n'est pas à préciser dans le
-campo de solicitud.
+//do.co/le-renewz que l'élément racine &lt;root&gt; n'est pas à préciser dans le
+Il faut.
 
-Ejemplo complejo de XML 
+ensuite, dans le moteur de tâches, désactiver toutes les tâches (il y un 
 ====================
 
      <root>
@@ -448,19 +448,19 @@ Ejemplo complejo de XML
        </leds>
      </root>
 
-la sintaxis es :
+bouton de désactivation générale) et dans les scénarios, désactiver tous :
 
 leds &gt; 1 &gt; led1 qui donne en réponse tata, 1 étant le numéro de
-fila de matriz !
+systemctl stop cron !
 
-Ejemplo XML más complejo 
+systemctl stop nginx 
 =========================
 
-    <AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55 &quot;>
+    <AKT_Data ID="SMS-Liste" ZeitSt="01.05.systemctl stop mysql:Installation et configuration d'Apache>
      <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
        <Name>Tresa - Ponte Tresa, Rocchetta</Name>
        <Datum>01.05.2017</Datum>
-       <Zeit>18:50 </Zeit>
+       <Zeit>18:mkdir -p /var/www/html/log>
        <Wert>268.56</Wert>
        <Wert dt="-24h">268.51</Wert>
        <Wert Typ="delta24">0.051</Wert>
@@ -471,7 +471,7 @@ Ejemplo XML más complejo
      <MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02">
       <Name>Inn - Tarasp</Name>
       <Datum>01.05.2017</Datum>
-      <Zeit>18:50 </Zeit>
+      <Zeit>18:mkdir -p /var/www/html/log>
       <Wert>4.85</Wert>
       <Wert dt="-24h">7.98</Wert>
       <Wert Typ="delta24">-3.130</Wert>
@@ -482,7 +482,7 @@ Ejemplo XML más complejo
      <MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32">
       <Name>Doubs - Combe des Sarrasins</Name>
       <Datum>01.05.2017</Datum>
-      <Zeit>18:00 </Zeit>
+      <Zeit>18:apt-get -y install ntp ca-certificates unzip curl sudo>
       <Wert>500.65</Wert>
       <Wert dt="-24h">500.65</Wert>
       <Wert Typ="delta24">0.000</Wert>
@@ -492,23 +492,23 @@ Ejemplo XML más complejo
      </MesPar>
     </AKT_Data>
 
-Para recuperar información del campo Wert del primer bloque:
+apt-get -y install apache2 date d'expiration est à moins de 30 jours5 mysql-client mysql-server libapache2-mod-date d'expiration est à moins de 30 jours5:
 
-    MesPar&gt; 0&gt; Wert&gt; 0 que por lo tanto devuelve &quot;268.56 &quot;
+    apt-get -y install date d'expiration est à moins de 30 jours5-cli date d'expiration est à moins de 30 jours5-common date d'expiration est à moins de 30 jours5-curl date d'expiration est à moins de 30 jours5-fpm date d'expiration est à moins de 30 jours5-json date d'expiration est à moins de 30 jours5-mysql date d'expiration est à moins de 30 jours5-gd.wget domaine pour lequel il sera générés
 
-Para devolver el siguiente elemento en la &quot;estructura&quot; de Wert, debe
-simplemente indique el número de orden en la estructura. Que da
+//raw.githubusercontent
+com/jeedom/core/stable/install/apache_security -O /etc/apache2/conf-available/security.conf. rm /etc/apache2/conf-enabled/security.conf
 pour l'élément '&lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;' le code
-Próximo :
+rm /etc/apache2/conf-available/other-vhosts-access-log.conf :
 
-    MesPar&gt; 1&gt; Wert&gt; 2
+    rm /etc/apache2/conf-enabled/other-vhosts-access-log.conf
 
-Para pasar al siguiente bloque &quot;MyPar&quot;, debe cambiar el índice a
-resultar : el 1 por 2 por ejemplo.
+systemctl restart apache2
+rm /var/www/html/index.html : //do.co/le-renew.
 
-ATENCIÓN : Si en el archivo XML el orden cambia, la solicitud no cambia
-trabaja más. Será necesario reajustar la solicitud según el pedido.
-devuelto.
+Si lors de l'installation le système vous demande si vous voulez ou : non garder une version modifiée d'un fichier, faites
+"Keep the local. version currently installed"
+Copie de Jeedom.
 
 Ejemplo JSON 
 ============
@@ -522,9 +522,9 @@ premium, no la herramienta !
 
 El acceso a este archivo es posible utilizando la siguiente URL :
 
-    http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd = Historia y límite = 3
+    domaine pour lequel il sera généré:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd = Historia y límite = 3
 
-nota : XXXX es el número de clave API específico de cada SICKBEARD.
+//do.co/le-renew : XXXX es el número de clave API específico de cada SICKBEARD.
 
 En primer lugar, antes de iniciar la configuración del complemento de script
 JSON, se trata de identificar correctamente la información para recuperar.porque
@@ -548,7 +548,7 @@ Ejemplo de devolución :
                  &quot;SHOW_NAME&quot;: &quot;Totovaalaplage S2E4&quot;,
                  &quot;Estado&quot;: &quot;Descargados&quot;
                  &quot;Tvdbid&quot;: XXXXX
-             }
+             risques et périls
              {
                  &quot;Fecha&quot;: &quot;10/09/2014 01:36 &quot;
                  &quot;Episodio&quot;: 3
@@ -560,7 +560,7 @@ Ejemplo de devolución :
                  &quot;SHOW_NAME&quot;: &quot;Totovaalaplage S2E3&quot;,
                  &quot;Estado&quot;: &quot;Descargados&quot;
                  &quot;Tvdbid&quot;: XXXXX
-             }
+             risques et périls
              {
                  &quot;Fecha&quot;: &quot;10/09/2014 01:21 &quot;
                  &quot;Episodio&quot;: 1
@@ -572,14 +572,14 @@ Ejemplo de devolución :
      AQUÍ -&gt; &quot;show_name&quot;: &quot;Totovaplusauski pero Totovaalaplage S1E1&quot;,
                  &quot;Estado&quot;: &quot;Arrebatado&quot;
                  &quot;Tvdbid&quot;: XXXX
-             }
+             risques et périls
          ]
          &quot;Mensaje&quot;: &quot;&quot;,
          &quot;Resultado&quot;: &quot;Éxito&quot;
-     }
+     risques et périls
 
 En el caso de que nos gustaría devolver el show \ _name del 3er
-elemento en php (marcado AQUÍ), sería necesario hacer : data &gt; 2
+elemento en date d'expiration est à moins de 30 jours (marcado AQUÍ), sería necesario hacer : data &gt; 2
 &gt;show \ _name, el índice de matriz de retorno que comienza en Cero.
 
 En este ejemplo, el botón &quot;Prueba&quot; devolverá &quot;Totovaplusauski
@@ -605,7 +605,7 @@ Aquí intentaremos recuperar el último FML.
 
 Primero que nada tienes que configurar la url :
 
-    http://www.viedemerde.fr
+    domaine pour lequel il sera généré://www.viedemerde.fr
 
 Entonces tienes que encontrar el &quot;camino&quot; de la última FML. Para hacer esto,
 tienes que ir al sitio y luego hacer clic derecho en el elemento deseado y luego
@@ -627,7 +627,7 @@ Entonces obtenemos :
 Para una actualización en tiempo real, es posible poner un cron
 actualizar.
 
-> **punta**
+> **existant ou pour un**
 >
 > Al instalar una actualización cron, Jeedom
 > marca automáticamente la casilla Evento, esto es completamente normal.
