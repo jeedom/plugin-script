@@ -266,7 +266,7 @@ explanations :
 
 -   Sub type : fault
 
--   Request :
+-   request :
 
 <!-- -->
 
@@ -308,9 +308,9 @@ input.
 
 -   Type : Action (it&#39;s an order)
 
--   Subtype : fault
+-   subtype : fault
 
--   Request :
+-   request :
 
 <!-- -->
 
@@ -344,7 +344,7 @@ The nicest but not the easiest to explain.
 
 Prerequisites : know how to develop a script in php, python or ruby.
 
->**IMPORTANT**
+>**Important**
 >
 > The extension of your script must absolutely match its type. Ex .php for a php type. Indeed Jeedom is based on the extension of the script for the executable to launch (php if .php, python if .py ....)
 
@@ -381,7 +381,7 @@ Example :
     /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
     list, the argument &quot;list&quot; is a character string (fixed)
     retrieved from the php script using the following function
-    \ $ argv \ [1 \] cf. : Google for more details on retrieving
+    \ $ argv \ [1 \] CF : Google for more details on retrieving
     parameters in PHP.
 
 -   We have previously seen that it was possible to recover
@@ -392,7 +392,7 @@ Example :
     VOL * slider *, the argument &quot;* slider *&quot; is retrieved from this
     argv \ [2 \]. When jeedom runs the script, it
     will automatically replace * slider * with the value (numeric)
-    slider. cf. : Google for more details on retrieving
+    slider. CF : Google for more details on retrieving
     parameters in Python.
 
 -   Stronger : Potentially, all the variables accessible by
@@ -524,7 +524,7 @@ Access to this file is possible using the following URL :
 
     http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd = history &amp; limit = 3
 
-NOTE : XXXX is the API key number specific to each SICKBEARD.
+Note : XXXX is the API key number specific to each SICKBEARD.
 
 First of all, before launching into the configuration of the script plugin
 JSON, it is a question of correctly identifying the infos to recover., because

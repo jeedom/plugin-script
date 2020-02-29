@@ -1,6 +1,6 @@
 {
     "plugin_info\/configuration.php": {
-        "Chemin des scripts utilisateur": "User scripts path",
+        "Chemin des scripts utilisateur": "Path of user script",
         "Collapser le code à l'ouverture": "Collapse the code on opening"
     },
     "desktop\/js\/script.js": {

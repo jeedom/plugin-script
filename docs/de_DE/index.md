@@ -344,7 +344,7 @@ Das Schönste, aber nicht das Einfachste zu erklären.
 
 Voraussetzungen : wissen, wie man ein Skript in PHP, Python oder Ruby entwickelt.
 
->**WICHTIG**
+>**wichtig**
 >
 > Die Erweiterung Ihres Skripts muss unbedingt dem Typ entsprechen. ex .PHP für einen PHP-Typ. In der Tat basiert Jeedom auf der Erweiterung des Skripts für den Start der ausführbaren Datei (php if .PHP, Python wenn .py ....)
 
@@ -392,7 +392,7 @@ Beispiel :
     VOL * slider *, daraus wird das Argument &quot;* slider *&quot; abgerufen
     argv \ [2 \]. Wenn jeedom das Skript ausführt, ist es
     ersetzt automatisch * slider * durch den Wert (numerisch)
-    Schieberegler. vgl : Google für weitere Details zum Abrufen
+    Schieberegler. CF : Google für weitere Details zum Abrufen
     Parameter in Python.
 
 -   Stärker : Potenziell alle Variablen, auf die über zugegriffen werden kann
@@ -524,7 +524,7 @@ Der Zugriff auf diese Datei ist über die folgende URL möglich :
 
     http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd = history &amp; limit = 3
 
-HINWEIS : XXXX ist die API-Schlüsselnummer für jeden SICKBEARD.
+Notiz : XXXX ist die API-Schlüsselnummer für jeden SICKBEARD.
 
 Zunächst, bevor Sie mit der Konfiguration des Skript-Plugins beginnen
 JSON, es geht darum, die wiederherzustellenden Informationen korrekt zu identifizieren.weil

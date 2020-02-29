@@ -344,7 +344,7 @@ El más bonito pero no el más fácil de explicar..
 
 Requisitos previos : saber desarrollar un script en php, python o ruby.
 
->**IMPORTANTE**
+>**importante**
 >
 > La extensión de su script debe coincidir absolutamente con su tipo. ex .php para un tipo php. De hecho, Jeedom se basa en la extensión del script para que se ejecute el ejecutable (php if .php, python si .py ....)
 
@@ -381,7 +381,7 @@ ejemplo :
     /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
     lista, el argumento &quot;lista&quot; es una cadena de caracteres (fija)
     recuperado del script php usando la siguiente función
-    \ $ argv \ [1 \] cf. : Google para más detalles sobre la recuperación
+    \ $ argv \ [1 \] CF : Google para más detalles sobre la recuperación
     parámetros en PHP.
 
 -   Anteriormente hemos visto que era posible recuperar
@@ -392,7 +392,7 @@ ejemplo :
     VOL * slider *, el argumento &quot;* slider *&quot; se recupera de este
     argv \ [2 \]. Cuando jeedom ejecuta el script,
     reemplazará automáticamente * deslizador * con el valor (numérico)
-    control deslizante. cf. : Google para más detalles sobre la recuperación
+    control deslizante. CF : Google para más detalles sobre la recuperación
     parámetros en Python.
 
 -   Más fuerte : Potencialmente, todas las variables accesibles por
@@ -524,7 +524,7 @@ El acceso a este archivo es posible utilizando la siguiente URL :
 
     http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd = Historia y límite = 3
 
-NOTA : XXXX es el número de clave API específico de cada SICKBEARD.
+nota : XXXX es el número de clave API específico de cada SICKBEARD.
 
 En primer lugar, antes de iniciar la configuración del complemento de script
 JSON, se trata de identificar correctamente la información para recuperar.porque
