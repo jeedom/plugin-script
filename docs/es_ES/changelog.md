@@ -1,26 +1,26 @@
-# Jeedom Esclave(s)
+# 01/08/2019
 
-- et récupérer celle(s)-ci sur votre PC/NAS…​
+- Soporte PHP 7.3
 
-# SD/Disque](https
+# 05/06/2018
 
-- //jeedom.github.io/documentation/howto/fr_FR/doc-howto-sauvegarde.comment_faire.html#_sauvegarde_restauration_de_la_carte_microsd)
+- Seguridad mejorada del directorio de recursos
 
-# et les récupérer sur votre PC/NAS…​
+# 05/25/2018
 
-- Migration
-- Ne pas supprimer pour l'instant les anciens équipements de
-- sur
+- Interfaz mejorada
+- Agregar un mensaje si el json no es válido o no es decodificable
+- Adición de un campo para configurar comandos de tipo de selección
 
-# Installer et activer le plugin "Jeedom Link" sur le
+# 04/25/2018
 
-- (ancien Maître)
-- Sur votre
+- Actualizando el documento
+- Guardar el script ya no cierra su ventana de edición
 
-# , *Plugins ⇒ Gestion des plugins
+# 03/30/2018
 
-- Installation du
+- Corrección de la pérdida del icono.
 
-# si vous disposez d'un Raspberry Pi supplémentaire et d'une autre carte
+# 03/13/2018
 
-- SD, vous pouvez procéder à une migration un protocole après l'autre en
+- Corrección de errores en la actualización automática de pedidos.
