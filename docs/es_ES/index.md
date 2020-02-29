@@ -89,7 +89,7 @@ A continuación encontrará la lista de pedidos. :
 -   El campo **petición**
 
     -   Este campo debe contener la consulta en sí o la ruta de acceso de
-        script si el campo &quot;tipo de script&quot; es script. El botón
+        script si el campo "tipo de script" es script. El botón
         "recorrer" : le permite seleccionar el archivo contenido en el
         archivo interno en Jeedom.
 
@@ -155,27 +155,27 @@ A continuación encontrará la lista de pedidos. :
 
 Le permite llamar a una url o recuperar el retorno de una URL.
 
--   una casilla de verificación &quot;No marque SSL" : si está marcado, permite Jeedom
-    no enviar los campos &quot;Usuario&quot; y &quot;Contraseña&quot; a
+-   una casilla de verificación "No marque SSL" : si está marcado, permite Jeedom
+    no enviar los campos "Usuario" y "Contraseña" a
     la solicitud. Jeedom no buscará identificarse con
     sitio remoto / máquina.
 
--   una casilla de verificación &quot;Permitir respuesta en blanco" : si está marcado, permite
+-   una casilla de verificación "Permitir respuesta en blanco" : si está marcado, permite
     Jeedom no esperar una respuesta, o ignorar cualquier respuesta a
-    la trama transmitida. En general, verificamos si Jeedom nos envía un &quot;Curl
+    la trama transmitida. En general, verificamos si Jeedom nos envía un "Curl
     error : Respuesta vacía del servidor".
 
--   una casilla de verificación &quot;Nunca informar errores" : no lo hagamos
+-   una casilla de verificación "Nunca informar errores" : no lo hagamos
     no levantar una alerta en caso de error.
 
 -   un campo de tiempo de espera" : sin ser informado, el tiempo de espera de la solicitud
     el valor predeterminado es 2 segundos, de lo contrario, vale el valor ingresado.
 
--   un campo &quot;Pruebas máximas" : Máximo 4 pruebas por defecto.
+-   un campo "Pruebas máximas" : Máximo 4 pruebas por defecto.
 
--   un campo &quot;Usuario&quot;" : para ingresar un nombre de usuario.
+-   un campo "Usuario"" : para ingresar un nombre de usuario.
 
--   un campo &quot;Contraseña&quot;" : para ingresar una contraseña.
+-   un campo "Contraseña"" : para ingresar una contraseña.
 
 La elección de HTML 
 =============
@@ -185,7 +185,7 @@ La elección de HTML
 Analiza una página web (archivo HTML) para recuperar un valor
 anteriormente. La sintaxis es la misma que para jquery.
 
-El campo de opción tiene un campo &quot;URL de archivo HTML&quot;" : este campo
+El campo de opción tiene un campo "URL de archivo HTML"" : este campo
 por lo tanto contiene el enlace a la máquina que aloja el archivo HTML en
 pregunta.
 
@@ -197,7 +197,7 @@ La elección XML
 Le permite recuperar xml y buscar específicamente un valor
 en.
 
-El campo de opción tiene un campo &quot;URL del archivo XML&quot;" : este campo
+El campo de opción tiene un campo "URL del archivo XML"" : este campo
 por lo tanto contiene el enlace a la máquina que aloja el archivo XML en
 pregunta.
 
@@ -214,7 +214,7 @@ La elección de JSON
 Permite recuperar json y buscar específicamente un
 valor en.
 
-El campo de opción tiene un campo &quot;URL de archivo JSON&quot;" : este campo
+El campo de opción tiene un campo "URL de archivo JSON"" : este campo
 por lo tanto contiene el enlace a la máquina que aloja el archivo JSON en
 pregunta.
 
@@ -270,15 +270,15 @@ explicaciones :
 
 <!-- -->
 
-    http:// <IP_VERA>:3480 / datos_request?id = y lu_action output_format json = &amp; = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1 &amp; acción = SetLoadLevelTarget y newLoadlevelTarget = 100
+    http:// <IP_VERA>:3480 / datos_request?id = y lu_action output_format json = & = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1 & acción = SetLoadLevelTarget y newLoadlevelTarget = 100
 
 > **punta**
 >
-> el &quot;100&quot; al final de la solicitud corresponde al porcentaje de potencia
-> para asignar, así que ponga &quot;0&quot; al final de la solicitud corresponde a
+> el "100" al final de la solicitud corresponde al porcentaje de potencia
+> para asignar, así que ponga "0" al final de la solicitud corresponde a
 > apaga la bombilla.
 
-El botón &quot;probar&quot; le permite probar su pedido !
+El botón "probar" le permite probar su pedido !
 
 Por lo tanto, puede multiplicar pedidos en el mismo equipo por
 por ejemplo, al hacer un pedido del 60% para una luz tenue, cree
@@ -288,7 +288,7 @@ escenario, ...
 También es posible crear un comando de tipo deslizador colocando el
 etiqueta \ #slider \ # en la solicitud :
 
-    http:// <IP_VERA>:3480 / datos_request?id = y lu_action output_format json = &amp; = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+    http:// <IP_VERA>:3480 / datos_request?id = y lu_action output_format json = & = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 
 > **punta**
 >
@@ -319,16 +319,16 @@ entrada.
 Depende de usted probar esto en un escenario, por ejemplo !
 
 API XBMC [aquí] (http://wiki.xbmc.org/index.php?title = JSON-RPC_API / v6)
-(solo los campos marcados como &quot;obligatorios&quot; son obligatorios)
+(solo los campos marcados como "obligatorios" son obligatorios)
 
 Objetivo : Enviar una notificación a XBMC cuando la temperatura baje
 debajo de cierto umbral
 
 Toma el ejemplo de arriba :
 
--   reemplace &quot;Movimiento% 20Detectado&quot; con &quot;Riesgo% 20de% 20gel"
+-   reemplace "Movimiento% 20Detectado" con "Riesgo% 20de% 20gel"
 
--   reemplazar &quot;Porte% 20Entrée&quot; por
+-   reemplazar "Porte% 20Entrée" por
     "Temperatura %% 20 20extérieur:% 20 \ # \ [EXTERIOR \] \ [EXTERIOR \] \ [TEMPERATURA \] \% # 20"
 
 Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
@@ -344,29 +344,29 @@ El más bonito pero no el más fácil de explicar..
 
 Requisitos previos : saber desarrollar un script en php, python o ruby.
 
->**importante**
+>**IMPORTANTE**
 >
 > La extensión de su script debe coincidir absolutamente con su tipo. ex .php para un tipo php. De hecho, Jeedom se basa en la extensión del script para que se ejecute el ejecutable (php if .php, python si .py ....)
 
 El script de monitoreo de temperatura de frambuesa servirá como ejemplo
 para usar el tipo de script : guión
 
-Después de descargar el script del mercado, el botón &quot;examinar&quot;"
+Después de descargar el script del mercado, el botón "examinar""
 le permite seleccionar el archivo temp \ _rasp.php.
 
 Por curiosidad, puede ir y ver el contenido del archivo presionando
-en el botón &quot;Editar&quot;, debería obtener el siguiente código :
+en el botón "Editar", debería obtener el siguiente código :
 
 Este es un script php que se puede reutilizar fuera de Jeedom !
 
      <?php
-        $ temp = shell_exec (&quot;cat / sys / class / thermal / thermal_zone0 / temp&quot;);
+        $ temp = shell_exec ("cat / sys / class / thermal / thermal_zone0 / temp");
         $ temp = $ temp / 1000;
         $ temp = round ($ temp, 1);
         echo $ temp
      ?>
 
-nota : concretamente, es la función php &quot;echo&quot; la que le dará al
+nota : concretamente, es la función php "echo" la que le dará al
 valor para Jeedom
 
 Los parámetros 
@@ -379,7 +379,7 @@ ejemplo :
 
 -   En la linea :
     /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
-    lista, el argumento &quot;lista&quot; es una cadena de caracteres (fija)
+    lista, el argumento "lista" es una cadena de caracteres (fija)
     recuperado del script php usando la siguiente función
     \ $ argv \ [1 \] cf. : Google para más detalles sobre la recuperación
     parámetros en PHP.
@@ -389,7 +389,7 @@ ejemplo :
 
 -   En la linea :
     /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py
-    VOL * slider *, el argumento &quot;* slider *&quot; se recupera de este
+    VOL * slider *, el argumento "* slider *" se recupera de este
     argv \ [2 \]. Cuando jeedom ejecuta el script,
     reemplazará automáticamente * deslizador * con el valor (numérico)
     control deslizante. cf. : Google para más detalles sobre la recuperación
@@ -410,7 +410,7 @@ Recomendación para probar los parámetros en el script php :
      if (isset ($ argv)) {
      foreach ($ argv como $ arg) {
      $ argList = explotar (&#39;=&#39;, $ arg);
-     if (isset ($ argList [0]) &amp;&amp; isset ($ argList [1])) {
+     if (isset ($ argList [0]) && isset ($ argList [1])) {
      $ _GET [$ argList [0]] = $ argList [1];
              }
          }
@@ -494,16 +494,16 @@ Ejemplo XML más complejo
 
 Para recuperar información del campo Wert del primer bloque:
 
-    MesPar&gt; 0&gt; Wert&gt; 0 que por lo tanto devuelve &quot;268.56 "
+    MesPar> 0> Wert> 0 que por lo tanto devuelve "268.56 "
 
-Para devolver el siguiente elemento en la &quot;estructura&quot; de Wert, debe
+Para devolver el siguiente elemento en la "estructura" de Wert, debe
 simplemente indique el número de orden en la estructura. Que da
 pour l'élément '&lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;' le code
 Próximo :
 
-    MesPar&gt; 1&gt; Wert&gt; 2
+    MesPar> 1> Wert> 2
 
-Para pasar al siguiente bloque &quot;MyPar&quot;, debe cambiar el índice a
+Para pasar al siguiente bloque "MyPar", debe cambiar el índice a
 resultarar : el 1 por 2 por ejemplo.
 
 ATENCIÓN : Si en el archivo XML el orden cambia, la solicitud no cambia
@@ -524,7 +524,7 @@ El acceso a este archivo es posible utilizando la siguiente URL :
 
     http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd = Historia y límite = 3
 
-nota : XXXX es el número de clave API específico de cada SICKBEARD.
+NOTA : XXXX es el número de clave API específico de cada SICKBEARD.
 
 En primer lugar, antes de iniciar la configuración del complemento de script
 JSON, se trata de identificar correctamente la información para recuperar.porque
@@ -538,39 +538,39 @@ Ejemplo de devolución :
      {
          "datos": [
              {
-                 "fecha": "2014-09-10 01:37 &quot;
+                 "fecha": "2014-09-10 01:37 "
                  "episodio": 4
-                 "proveedor": "NTR &quot;
-                 "calidad": "SD TV &quot;,
+                 "proveedor": "NTR "
+                 "calidad": "SD TV ",
                  "recurso": "XXX",
                  "recurso_path": "XXXX",
                  "temporada": 2
-                 "SHOW_NAME": "Totovaalaplage S2E4 &quot;,
-                 "estatus": "descargado &quot;
+                 "SHOW_NAME": "Totovaalaplage S2E4 ",
+                 "estatus": "descargado "
                  "tvdbid": XXXXX
              },
              {
-                 "fecha": "2014-09-10 01:36 &quot;
+                 "fecha": "2014-09-10 01:36 "
                  "episodio": 3
-                 "proveedor": "NTR &quot;
-                 "calidad": "SD TV &quot;,
+                 "proveedor": "NTR "
+                 "calidad": "SD TV ",
                  "recurso": "XXXX",
                  "recurso_path": "XXX",
                  "temporada": 2
-                 "SHOW_NAME": "Totovaalaplage S2E3 &quot;,
-                 "estatus": "descargado &quot;
+                 "SHOW_NAME": "Totovaalaplage S2E3 ",
+                 "estatus": "descargado "
                  "tvdbid": XXXXX
              },
              {
-                 "fecha": "2014-09-10 01:21 &quot;
+                 "fecha": "2014-09-10 01:21 "
                  "episodio": 1
-                 "proveedor": "Cpasbien &quot;
-                 "calidad": "SD TV &quot;,
+                 "proveedor": "Cpasbien "
+                 "calidad": "SD TV ",
                  "recurso": "XXXX",
                  "recurso_path": "XXXX",
                  "temporada": 1
-     AQUÍ -&gt; &quot;SHOW_NAME": "Totovaplusauski pero Totovaalaplage S1E1 &quot;,
-                 "estatus": "arrebatado &quot;
+     AQUÍ -> "SHOW_NAME": "Totovaplusauski pero Totovaalaplage S1E1 ",
+                 "estatus": "arrebatado "
                  "tvdbid": XXXX
              }
          ],
@@ -582,7 +582,7 @@ En el caso de que nos gustaría devolver el show \ _name del 3er
 elemento en php (marcado AQUÍ), sería necesario hacer : datos &gt; 2
 &gt;show \ _name, el índice de matriz de retorno que comienza en Cero.
 
-En este ejemplo, el botón &quot;Prueba&quot; devolverá &quot;Totovaplusauski
+En este ejemplo, el botón "Prueba" devolverá "Totovaplusauski
 pero Totovaalaplage S1E1".
 
 aclaraciones :
@@ -594,7 +594,7 @@ desventajas :
 
 -   este método solo permite recuperar un elemento a la vez.
 
--   Si queremos devolver todos los valores de &quot;show \ _name&quot;, esto
+-   Si queremos devolver todos los valores de "show \ _name", esto
     desafortunadamente no es posible, tendrás que duplicar el script
     tantas veces como sea necesario.
 
@@ -607,17 +607,17 @@ Primero que nada tienes que configurar la url :
 
     http://www.viedemerde.fr
 
-Entonces tienes que encontrar el &quot;camino&quot; de la última FML. Para hacer esto,
+Entonces tienes que encontrar el "camino" de la última FML. Para hacer esto,
 tienes que ir al sitio y luego hacer clic derecho en el elemento deseado y luego
 inspeccionar el artículo, obtenemos :
 
 ![script9] (../ images / script9.PNG)
 
 Aquí es la parte más compleja y que requiere un pequeño análisis. aquí
-mi texto está en una etiqueta &quot;a&quot; que está en un elemento tipo p
-que es una clase div &quot;publicar artículo". Entonces tengo que seleccionar
-el primer elemento div de la clase &quot;post&quot; y &quot;artículo&quot; y luego el primer
-elemento p y que obtengo todo en las etiquetas &quot;a&quot; que
+mi texto está en una etiqueta "a" que está en un elemento tipo p
+que es una clase div "publicar artículo". Entonces tengo que seleccionar
+el primer elemento div de la clase "post" y "artículo" y luego el primer
+elemento p y que obtengo todo en las etiquetas "a" que
 contiene. Entonces tengo : "div.post.artículo:primero p:primero un".
 
 Entonces obtenemos :
