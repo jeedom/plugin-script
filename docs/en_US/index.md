@@ -7,7 +7,7 @@ toucher à votre
 existant
 En déplaçant évidemment.
 
-![script1](../images/script1.PNG)
+![script1] (../ images / script1.PNG)
 
 au fur et à mesure les éventuels contrôleurs de l'un à l'autre
 Si vous utiliser votre RaspberryPi existant, veuillez être certain.
@@ -18,17 +18,17 @@ d'avoir suivi le chapitre sauvegarde de cette documentation
 si vous utilisez le Raspberry Pi existant qui est actuellement un
 , nous vous conseillons d'utiliser une carte :
 
-![script2](../images/script2.PNG)
+![script2] (../ images / script2.PNG)
 
 SD/microSD neuve
 Cela vous permettra de faire retour arrière :
 
-![script3](../images/script3.PNG)
+![Créez un fichier pour y écrire le script (son emplacement est libre)3] (../ images / script3.PNG)
 
 facilement si besoin. Installer un nouveau Jeedom sur une nouvelle carte SD (Que cela soit
 pour mettre dans votre :
 
-![script4](../images/script4.PNG)
+![script4] (../ images / script4.PNG)
 
 > **existant ou pour un**
 >
@@ -75,7 +75,7 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
         En cas de doublon de nom.
 
     -   avec un équipement déjà présent dans les objets du : ,
-        le , nous vous conseillons d'utiliser une carte ajoutera "remote XXXX" au nom de Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser. Cliquer sur le bouton "Synchroniser" afin de récupérer les modules
+        XML from remote equipment. Cliquer sur le bouton "Synchroniser" afin de récupérer les modules
         associés à votre contrôleur
         (Ils sont gardés dans la mémoire.
 
@@ -90,7 +90,7 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
 
     -   Recommencer l'inclusion jusqu'à obtenir tous vos équipements de
         ce type. Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en
-        vous aidant de votre mémo de migration : service nginx restartneurs, prises, …​
+        "Browse" : service nginx restartneurs, prises, …​
         Ajouter un nouvel équipement.
 
         > **existant ou pour un**
@@ -151,81 +151,81 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
 > Pas de solution facile à ce niveau, il faudra avoir deux. onglets/fenêtres d'ouverts sur votre navigateur
 > Ouvrir les commandes des équipements de l'ancien : dans un
 
-![script5](../images/script5.PNG)
+![script5] (../ images / script5.PNG)
 
 onglet (Jeedom Cible).
 
--   Ouvrir les commandes des équipements jeeLink dans l'autre onglet : (Jeedom Cible)
+-   a checkbox &quot;Do not check SSL" : (Jeedom Cible)
     Et recopier à la main les paramètres voulus
     Afin d'éviter de revenir plusieurs fois sur la même commande, les. opérations 2.6→2
     9 peuvent être réalisées à la suite sur une même.
 
--   commande avant de passer aux rm /etc/apache2/conf-available/other-vhosts-access-log.confes : Les interactions sur le
+-   a checkbox &quot;Allow blank response" : Les interactions sur le
     ne pourront pas être lancées
     par le biais d'équipements d'un. tranférés via le
-    plugin "Jeedom Link" : Ménage sur le.
+    plugin "Jeedom Link" : Empty reply from server".
 
--   Après avoir validé avec certitude que vos : équipements/scénarios/interactions/virtuels/…​. fonctionnent
+-   a check box &quot;Never report plugin "Jeedom Link"s" : équipements/scénarios/interactions/virtuels/…​. fonctionnent
     correctement avec le nouveau système jeelink, vous pouvez procéder au.
 
--   ménage : , vous les équipements résiduels de l'ancien
+-   a timeout field" : , vous les équipements résiduels de l'ancien
     Désactiver et supprimer les , nous vous conseillons d'utiliser une cartes qui ne vous sont plus utiles.
 
--   (Ceux dont vous n'aviez que des équipements sur l'Esclave) : Dans le , nous vous conseillons d'utiliser une carte "Jeedom Link", renommer les équipements qui.
+-   a field &quot;Maximum trials" : Dans le , nous vous conseillons d'utiliser une carte "Jeedom Link", renommer les équipements qui.
 
--   pourraient avoir un nom finissant par "remote XXXX" : Dans la page Réseau Jeedom, supprimer l'ancien.
+-   a &quot;User&quot; field" : Dans la page Réseau Jeedom, supprimer l'ancien.
 
--   Se connecter en telnet : Il faut tout d'abord se connecter en telnet (port 23) sur openkarotz,.
+-   a &quot;Password&quot; field" : Il faut tout d'abord se connecter en telnet (port 23) sur openkarotz,.
 
 l'identifiant étant kartoz 
 =============
 
-![script8](../images/script8.PNG)
+![script8] (../ images / script8.PNG)
 
 Ajout d'un moteur de voix
 Allez sur /www/cgi-bin/ et editez le fichier tts.
 
-inc, ajoutez une : fonction (exemple pour Jeedom)
+The option field has a &quot;HTML file URL&quot; field" : fonction (exemple pour Jeedom)
 function jeedomTTS {
 TTS=$1.
 
 MD5FILE=$(echo "$TTS" | md5sum | cut -d ' ' -f 1) 
 ============
 
-![script6](../images/script6.PNG)
+![script6] (../ images / script6.PNG)
 
-eval $(echo "curl -A '${UArisques et périls' -o $CNF_DATADIR/Tmp/${MD5FILErisques et périls
+eval $(echo "curl -A '${UA}' -o $CNF_DATADIR/Tmp/${MD5FILE}
 mp3 'domaine pour lequel il sera généré.
 
-//TODO/core/api/tts.date d'expiration est à moins de 30 jours : fonction (exemple pour Jeedom)
-apikey=TODO&text=${TTSrisques et périls'" )  >>/dev/null 2>>/dev/null
+The option field has a &quot;URL of the XML file&quot; field" : fonction (exemple pour Jeedom)
+apikey=TODO&text=${TTS}'" )  >>/dev/null 2>>/dev/null
 TTS=$1.
 
 > **Recopie des configurations avancées des commandes**
 >
-> echo $( echo "$RAW_TTS" | UrlDecode)  > $CNF_DATADIR/Tmp/${MD5FILErisques et périls.txt
+> echo $( echo "$RAW_TTS" | UrlDecode)  > $CNF_DATADIR/Tmp/${MD5FILE}.txt
 > if [ "$5".
 
 "1" ]; then 
 =============
 
-![script7](../images/script7.PNG)
+![script7] (../ images / script7.PNG)
 
-Log "[TTS]"  "Playing sound ${MD5FILErisques et périls.mp3"
-PlaySound $CNF_DATADIR/Tmp/${MD5FILErisques et périls.mp3.
+Log "[TTS]"  "Playing sound ${MD5FILE}.mp3"
+PlaySound $CNF_DATADIR/Tmp/${MD5FILE}.mp3.
 
-fi : fonction (exemple pour Jeedom)
+The option field has a &quot;JSON file URL&quot; field" : fonction (exemple pour Jeedom)
 if [ "$NOCACHE" == "1" ]; then
 TTS=$1.
 
-rm -f $CNF_DATADIR/Tmp/${MD5FILErisques et périls : mp3   >>/dev/null 2>>/dev/null 
+rm -f $CNF_DATADIR/Tmp/${MD5FILE} : mp3   >>/dev/null 2>>/dev/null 
 ==================================
 
 txt   >>/dev/null 2>>/dev/null
 else
-Log "[TTS]"  "Storing sound ${MD5FILErisques et périls. mp3 to cache"
-echo ${MD5FILErisques et périls
-risques et périls.
+Log "[TTS]"  "Storing sound ${MD5FILE}. mp3 to cache"
+echo ${MD5FILE}
+}.
 
 > **existant ou pour un**
 >
@@ -296,7 +296,7 @@ com> et domaine.com :
 > Normalement les paramètres d'ajout du protocole HTTPS
 > sont ajoutés par le script dans Apache#
 
-rm -f $CNF_DATADIR/Tmp/${MD5FILErisques et périls : Si vous utilisez la méthode de renouvellement automatique ci-dessous, 
+rm -f $CNF_DATADIR/Tmp/${MD5FILE} : Si vous utilisez la méthode de renouvellement automatique ci-dessous, 
 ==============================================
 
 vous pouvez désactiver le virtualHost : default-ssl
@@ -314,7 +314,7 @@ conf.
 
 <!-- -->
 
-    domaine pour lequel il sera généré:commande:a2dissite default-ssl?Pensez à reporter le code par:Attention il est nécessaire d'ouvrir le port 80 sur le routeur (FAI) ci-dessous dans le virtualHost créé par le script de:renouvellement.SSLA faire sur le +StdEnvVars:Configuration de Nginx:Cette commande n'est à utiliser que si vous disposez d'un serveur web:Nginx:/letsencrypt-auto certonly --email email@domaine
+    domaine pour lequel il sera généré:commande:a2dissite default-ssl?Pensez à reporter le code par:Attention il est nécessaire d'ouvrir le port 80 sur le routeur (FAI) ci-dessous dans le virtualHost créé par le script de:renouvellement.SSLA faire sur le +StdEnvVars:{ 22title% 22%:Cette commande n'est à utiliser que si vous disposez d'un serveur web:Nginx:1}
 
 com -d domaine !
 
@@ -326,10 +326,10 @@ vi /etc/nginx/sites-enabled/default
 
 Ajouter les lignes rm /etc/apache2/conf-available/other-vhosts-access-log.confes, entre les lignes `server {` et :
 
--   listen 80;
+-   replace &quot;Movement% 20Detected&quot; with &quot;Risk% 20of% 20gel"
 
 -   listen 443 ssl;
-    ssl_certificate /etc/nginx/ssl/ jeedom.chezmoi.fr.crt;:ssl_certificate_key /etc/nginx/ssl/ jeedom.chezmoi.fr.key;
+    "Temperature%% 20 20extérieur:% 20 \ # \ [OUTER \] \ [OUTER \] \ [TEMPERATURE \] \% # 20"
 
 Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
 Et enfin redémarrez le serveur Nginx
@@ -351,7 +351,7 @@ certificat qui vous rappellera de lancer cette commande : Méthode automatique.
 , utilisé dans le script le-renew
 apt-get install -y bc : Créez un fichier pour y écrire le script (son emplacement est libre)
 
-nano /bin/certletsencryptrenew.sh
+After downloading the script from the market, the &quot;Browse&quot; button"
 Saisissez les lignes ci-dessous dans le fichier créé précédemment.
 
 Le copier/coller fonctionne via putty
@@ -390,7 +390,7 @@ ctrl+x -> Entrée     (permet de quitter) :
 -   Editez le crontab :
     ajustez la à votre besoin si nécessaire
     //crontab.guru/#0_5_*_*_1
-    Sauvegardez le fichier puis quittez l'éditeur de texte en. sauvegardant
+    argv \ [2 \]. sauvegardant
     ctrl+o -> Entrée
     ctrl+x -> Entrée. à ajouter : Recopie des configurations avancées des commandes
     Pourquoi.
@@ -407,14 +407,14 @@ ctrl+x -> Entrée     (permet de quitter) :
 
 Prérequis :
 
-     Savoir se connecter en SSH sur la box (vous trouverez les
-     identifiants sur la documentation d'installation)
+     if (isset ($ argv)) {
+     foreach ($ argv as $ arg) {
      Etre connecté à internet
-     Recopie des configurations avancées des commandes
+     if (isset ($ argList [0]) &amp;&amp; isset ($ argList [1])) {
      En cas de soucis l'équipe Jeedom ne pourra être tenue responsable et
-     pourra refuser toute demande de support
-     La manipulation est à vos
-     risques et périls
+             }
+         }
+     }
 
 Attention certains , nous vous conseillons d'utiliser une cartes non officiels ne sont pas compatibles 
 ==================
@@ -456,7 +456,7 @@ systemctl stop cron !
 systemctl stop nginx 
 =========================
 
-    <AKT_Data ID="SMS-Liste" ZeitSt="01.05.systemctl stop mysql:Installation et configuration d'Apache>
+    <AKT_Data ID="SMS-Liste" ZeitSt="01.05.systemctl stop mysql:55">
      <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
        <Name>Tresa - Ponte Tresa, Rocchetta</Name>
        <Datum>01.05.2017</Datum>
@@ -494,7 +494,7 @@ systemctl stop nginx
 
 apt-get -y install apache2 date d'expiration est à moins de 30 jours5 mysql-client mysql-server libapache2-mod-date d'expiration est à moins de 30 jours5:
 
-    apt-get -y install date d'expiration est à moins de 30 jours5-cli date d'expiration est à moins de 30 jours5-common date d'expiration est à moins de 30 jours5-curl date d'expiration est à moins de 30 jours5-fpm date d'expiration est à moins de 30 jours5-json date d'expiration est à moins de 30 jours5-mysql date d'expiration est à moins de 30 jours5-gd.wget domaine pour lequel il sera générés
+    apt-get -y install date d'expiration est à moins de 30 jours5-cli date d'expiration est à moins de 30 jours5-common date d'expiration est à moins de 30 jours5-curl date d'expiration est à moins de 30 jours5-fpm date d'expiration est à moins de 30 jours5-json date d'expiration est à moins de 30 jours5-mysql date d'expiration est à moins de 30 jours5-gd.56 "
 
 //raw.githubusercontent
 com/jeedom/core/stable/install/apache_security -O /etc/apache2/conf-available/security.conf. rm /etc/apache2/conf-enabled/security.conf
@@ -530,60 +530,60 @@ First of all, before launching into the configuration of the script , nous vous 
 JSON, it is a TTS=$1 of correctly identifying the infos to recover., because
 here we will integrate a notion of array in the returns.
 
-Validate the display of information from your browser (test
+Validated the display of information from your browser (test
 under Chrome).
 
 Pour ce faire, voici lesample of return :
 
      {
-         &quot;Data&quot;: [
+         "data": [
              {
-                 &quot;dated&quot;: &quot;2014-09-10 01:37 &quot;
-                 &quot;episode&quot;: 4
-                 &quot;Provider&quot;: &quot;NTR&quot;
-                 &quot;Quality&quot;: &quot;SD TV&quot;,
-                 &quot;Resource&quot;: &quot;XXX&quot;
-                 &quot;Resource_path&quot;: &quot;XXXX&quot;
-                 &quot;Season&quot;: 2
-                 &quot;SHOW_NAME&quot;: &quot;Totovaalaplage S2E4&quot;,
-                 &quot;Status&quot;: &quot;Downloaded&quot;
-                 &quot;Tvdbid&quot;: XXXXX
-             risques et périls
+                 "dated": "2014-09-10 01:37 &quot;
+                 "episode": 4
+                 "provider": "NTR &quot;
+                 "quality": "SD TV &quot;,
+                 "resource": "XXX",
+                 "resource_path": "XXXX",
+                 "season": 2
+                 "SHOW_NAME": "Totovaalaplage S2E4 &quot;,
+                 "status": "Downloaded &quot;
+                 "tvdbid": XXXXX
+             },
              {
-                 &quot;dated&quot;: &quot;2014-09-10 01:36 &quot;
-                 &quot;episode&quot;: 3
-                 &quot;Provider&quot;: &quot;NTR&quot;
-                 &quot;Quality&quot;: &quot;SD TV&quot;,
-                 &quot;Resource&quot;: &quot;XXXX&quot;
-                 &quot;Resource_path&quot;: &quot;XXX&quot;
-                 &quot;Season&quot;: 2
-                 &quot;SHOW_NAME&quot;: &quot;Totovaalaplage S2E3&quot;,
-                 &quot;Status&quot;: &quot;Downloaded&quot;
-                 &quot;Tvdbid&quot;: XXXXX
-             risques et périls
+                 "dated": "2014-09-10 01:36 &quot;
+                 "episode": 3
+                 "provider": "NTR &quot;
+                 "quality": "SD TV &quot;,
+                 "resource": "XXXX",
+                 "resource_path": "XXX",
+                 "season": 2
+                 "SHOW_NAME": "Totovaalaplage S2E3 &quot;,
+                 "status": "Downloaded &quot;
+                 "tvdbid": XXXXX
+             },
              {
-                 &quot;dated&quot;: &quot;2014-09-10 01:21 &quot;
-                 &quot;episode&quot;: 1
-                 &quot;Provider&quot;: &quot;Cpasbien&quot;
-                 &quot;Quality&quot;: &quot;SD TV&quot;,
-                 &quot;Resource&quot;: &quot;XXXX&quot;
-                 &quot;Resource_path&quot;: &quot;XXXX&quot;
-                 &quot;Season&quot;: 1
-     HERE -&gt; &quot;show_name&quot;: &quot;Totovaplusauski but Totovaalaplage S1E1&quot;,
-                 &quot;Status&quot;: &quot;Snatched&quot;
-                 &quot;Tvdbid&quot;: XXXX
-             risques et périls
-         ]
-         &quot;message&quot;: &quot;&quot;,
-         &quot;Result&quot;: &quot;Success&quot;
-     risques et périls
+                 "dated": "2014-09-10 01:21 &quot;
+                 "episode": 1
+                 "provider": "Cpasbien &quot;
+                 "quality": "SD TV &quot;,
+                 "resource": "XXXX",
+                 "resource_path": "XXXX",
+                 "season": 1
+     HERE -&gt; &quot;SHOW_NAME": "Totovaplusauski but Totovaalaplage S1E1 &quot;,
+                 "status": "Snatched &quot;
+                 "tvdbid": XXXX
+             }
+         ],
+         "message": "",
+         "result": "success"
+     }
 
 In the event that we would like to return the show \ _name of the 3rd
 element in date d'expiration est à moins de 30 jours (marked HERE), it would be necessary to do : data &gt; 2
 &gt;show \ _name, the return array index starting at Zero.
 
 In this example, the &quot;Test&quot; button will return &quot;Totovaplusauski
-but Totovaalaplage S1E1 &quot;.
+but Totovaalaplage S1E1".
 
 clarifications :
 
@@ -611,25 +611,25 @@ Then you have to find the &quot;path&quot; of the last FML. To do this,
 you have to go to the site then right click on the desired item then
 inspect the item, we get :
 
-![script9](../images/script9.PNG)
+![script9] (../ images / script9.PNG)
 
 Here it is the most complex part and which requires a little analysis. Here
 my text is in an &quot;a&quot; tag which is in a p-type element
-which is a &quot;post article&quot; class div. So I have to select
+which is a class div &quot;post article". So I have to select
 the first div element of class &quot;post&quot; and &quot;article&quot; then the first
 element p and that I get everything in the &quot;a&quot; tags that it
-contains. So I have : &quot;div.post.article:first p:first a &quot;.
+contains. So I have : "div.post.article:first p:first a".
 
 So we get :
 
-![script10](../images/script10.PNG)
+![script10] (../ images / script10.PNG)
 
-For a real-time update, it is possible to put a cron
-update.
+For a real-time updated, it is possible to put a cron
+updated.
 
 > **existant ou pour un**
 >
-> When installing an update cron, Jeedom will
+> When installing an updated cron, Jeedom will
 > automatically check the Event box, this is completely normal.
 
 Here then you can imagine a scenario which sends you by SMS

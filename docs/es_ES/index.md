@@ -7,7 +7,7 @@ Configuración del complemento
 La configuración es muy simple, después de descargar el complemento,
 simplemente lo activas y eso es todo.
 
-![script1](../images/script1.PNG)
+![script1] (../ images / script1.PNG)
 
 La única opción es donde jeedom pone los scripts predeterminados,
 se aconseja no tocarlo.
@@ -18,17 +18,17 @@ Configuración del equipo
 Se puede acceder a la configuración del equipo guión desde el menú
 plugin :
 
-![script2](../images/script2.PNG)
+![SCRIPT2] (../ images / script2.PNG)
 
 Así es como se ve la página del complemento de guión (aquí ya con 1
 equipos) :
 
-![script3](../images/script3.PNG)
+![guión 3] (../ images / script3.PNG)
 
 Aquí está la lista de sus guiones. Una vez que hagas clic
 en el equipo que obtienes :
 
-![script4](../images/script4.PNG)
+![script4] (../ images / script4.PNG)
 
 > **punta**
 >
@@ -75,7 +75,7 @@ A continuación encontrará la lista de pedidos. :
         frambuesa disponible en el mercado.
 
     -   puntao XML : permite recuperar información codificada en
-        XML desde un dispositivo remoto. El ejemplo que servirá como
+        XML desde equipos remotos. El ejemplo que servirá como
         El soporte de tipo XML será la configuración del script para
         interrogar un dispositivo ecológico.
 
@@ -90,17 +90,17 @@ A continuación encontrará la lista de pedidos. :
 
     -   Este campo debe contener la consulta en sí o la ruta de acceso de
         script si el campo &quot;tipo de script&quot; es script. El botón
-        &quot;recorrer&quot; : le permite seleccionar el archivo contenido en el
+        "recorrer" : le permite seleccionar el archivo contenido en el
         archivo interno en Jeedom.
 
         > **punta**
         >
         > Este archivo es accesible en SSH
-        > en / usr / share / nginx / www / jeedom / plugins / script / core / resources /.
+        > en / usr / share / nginx / www / jeedom / plugins / script / core / recursos /.
         > FYI, el comando SSH para asignar derechos de datos www
         > a un archivo es : vestido de sudo
-        > www-data:www-data NOMDUSCRIPT.EXTENSION. Tenga en cuenta que para
-        > ejecutar un script, debe tener derechos de www-data.
+        > www-datos:www-datos NOMDUSCRIPT.EXTENSION. Tenga en cuenta que para
+        > ejecutar un script, debe tener derechos de www-datos.
 
     -   El botón **editar** : le permite editar usando un editor
         código interno uno de los archivos contenidos en el directorio
@@ -151,53 +151,53 @@ A continuación encontrará la lista de pedidos. :
 > los parámetros de sus caracteres especiales. Los caracteres
 > ser permitido : números, letras (mayúsculas o minúsculas)
 
-![script5](../images/script5.PNG)
+![script5] (../ images / script5.PNG)
 
 Le permite llamar a una url o recuperar el retorno de una URL.
 
--   una casilla de verificación &quot;No verificar SSL&quot; : si está marcado, permite Jeedom
+-   una casilla de verificación &quot;No marque SSL" : si está marcado, permite Jeedom
     no enviar los campos &quot;Usuario&quot; y &quot;Contraseña&quot; a
     la solicitud. Jeedom no buscará identificarse con
     sitio remoto / máquina.
 
--   una casilla de verificación &quot;Permitir respuesta en blanco&quot; : si está marcado, permite
+-   una casilla de verificación &quot;Permitir respuesta en blanco" : si está marcado, permite
     Jeedom no esperar una respuesta, o ignorar cualquier respuesta a
     la trama transmitida. En general, verificamos si Jeedom nos envía un &quot;Curl
-    error : Respuesta vacía del servidor &quot;.
+    error : Respuesta vacía del servidor".
 
--   una casilla de verificación &quot;Nunca informar errores&quot; : no lo hagamos
+-   una casilla de verificación &quot;Nunca informar errores" : no lo hagamos
     no levantar una alerta en caso de error.
 
--   un campo de &quot;tiempo de espera&quot; : sin ser informado, el tiempo de espera de la solicitud
+-   un campo de tiempo de espera" : sin ser informado, el tiempo de espera de la solicitud
     el valor predeterminado es 2 segundos, de lo contrario, vale el valor ingresado.
 
--   un campo &quot;Pruebas máximas&quot; : Máximo 4 pruebas por defecto.
+-   un campo &quot;Pruebas máximas" : Máximo 4 pruebas por defecto.
 
--   un campo &quot;Usuario&quot; : para ingresar un nombre de usuario.
+-   un campo &quot;Usuario&quot;" : para ingresar un nombre de usuario.
 
--   un campo &quot;Contraseña&quot; : para ingresar una contraseña.
+-   un campo &quot;Contraseña&quot;" : para ingresar una contraseña.
 
 La elección de HTML 
 =============
 
-![script8](../images/script8.PNG)
+![script8] (../ images / script8.PNG)
 
 Analiza una página web (archivo HTML) para recuperar un valor
 anteriormente. La sintaxis es la misma que para jquery.
 
-El campo de opción tiene un campo &quot;URL de archivo HTML&quot; : este campo
+El campo de opción tiene un campo &quot;URL de archivo HTML&quot;" : este campo
 por lo tanto contiene el enlace a la máquina que aloja el archivo HTML en
 pregunta.
 
 La elección XML 
 ============
 
-![script6](../images/script6.PNG)
+![script6] (../ images / script6.PNG)
 
 Le permite recuperar xml y buscar específicamente un valor
 en.
 
-El campo de opción tiene un campo &quot;URL de archivo XML&quot; : este campo
+El campo de opción tiene un campo &quot;URL del archivo XML&quot;" : este campo
 por lo tanto contiene el enlace a la máquina que aloja el archivo XML en
 pregunta.
 
@@ -209,12 +209,12 @@ pregunta.
 La elección de JSON 
 =============
 
-![script7](../images/script7.PNG)
+![script7] (../ images / script7.PNG)
 
 Permite recuperar json y buscar específicamente un
 valor en.
 
-El campo de opción tiene un campo &quot;URL de archivo JSON&quot; : este campo
+El campo de opción tiene un campo &quot;URL de archivo JSON&quot;" : este campo
 por lo tanto contiene el enlace a la máquina que aloja el archivo JSON en
 pregunta.
 
@@ -270,7 +270,7 @@ explicaciones :
 
 <!-- -->
 
-    http:// <IP_VERA>:3480 / data_request?id = y lu_action output_format json = &amp; = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1 &amp; acción = SetLoadLevelTarget y newLoadlevelTarget = 100
+    http:// <IP_VERA>:3480 / datos_request?id = y lu_action output_format json = &amp; = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1 &amp; acción = SetLoadLevelTarget y newLoadlevelTarget = 100
 
 > **punta**
 >
@@ -288,12 +288,12 @@ escenario, ...
 También es posible crear un comando de tipo deslizador colocando el
 etiqueta \ #slider \ # en la solicitud :
 
-    http:// <IP_VERA>:3480 / data_request?id = y lu_action output_format json = &amp; = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+    http:// <IP_VERA>:3480 / datos_request?id = y lu_action output_format json = &amp; = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 
 > **punta**
 >
 > Si su orden es del tipo de mensaje, puede usar etiquetas
-> \ #message \ # y \ #title \ #, lo mismo para un pedido de color con
+> \ #mensaje \ # y \ #title \ #, lo mismo para un pedido de color con
 > la etiqueta \ #color \ #, o de tipo deslizador con # deslizador # o lista con #seleccionar#
 
 Ejemplo HTTP : Enviar notificación a XBMC 
@@ -314,7 +314,7 @@ entrada.
 
 <!-- -->
 
-    http:// IP_DE_XBMC:8080 / JSONRPC?solicitud = {% 22jsonrpc% 22:% 2220% 22% 22% 22method:22GUI%.ShowNotification% 22% 22% 22params:{% 22title% 22:% 22Mouvement% 20Detecté% 22% 22% 22message:% 22Porte 20Entrée% 22%}% 22% 22id:1}
+    http:// IP_DE_XBMC:8080 / JSONRPC?solicitud = {% 22jsonrpc% 22:% 2220% 22% 22% 22method:22GUI%.ShowNotification% 22% 22% 22params:{ % 22title 22%:% 22Mouvement% 20Detecté% 22% 22% 22mensaje:% 22Porte 20Entrée% 22%},% 22% 22id:1}
 
 Depende de usted probar esto en un escenario, por ejemplo !
 
@@ -326,10 +326,10 @@ debajo de cierto umbral
 
 Toma el ejemplo de arriba :
 
--   reemplace &quot;Movimiento% 20Detectado&quot; con &quot;Riesgo% 20de% 20gel&quot;
+-   reemplace &quot;Movimiento% 20Detectado&quot; con &quot;Riesgo% 20de% 20gel"
 
 -   reemplazar &quot;Porte% 20Entrée&quot; por
-    &quot;Temperatura 20extérieur% 20%:20% \ # \ [FUERA \] \ [FUERA \] \ [TEMP \] \ #% 20 &quot;
+    "Temperatura %% 20 20extérieur:% 20 \ # \ [EXTERIOR \] \ [EXTERIOR \] \ [TEMPERATURA \] \% # 20"
 
 Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
 15 por ejemplo
@@ -351,7 +351,7 @@ Requisitos previos : saber desarrollar un script en php, python o ruby.
 El script de monitoreo de temperatura de frambuesa servirá como ejemplo
 para usar el tipo de script : guión
 
-Después de descargar el script del mercado, el botón &quot;examinar&quot;
+Después de descargar el script del mercado, el botón &quot;examinar&quot;"
 le permite seleccionar el archivo temp \ _rasp.php.
 
 Por curiosidad, puede ir y ver el contenido del archivo presionando
@@ -412,8 +412,8 @@ Recomendación para probar los parámetros en el script php :
      $ argList = explotar (&#39;=&#39;, $ arg);
      if (isset ($ argList [0]) &amp;&amp; isset ($ argList [1])) {
      $ _GET [$ argList [0]] = $ argList [1];
-     }
-     }
+             }
+         }
      }
 
 Ejemplo XML simple 
@@ -456,7 +456,7 @@ fila de matriz !
 Ejemplo XML más complejo 
 =========================
 
-    <AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55 &quot;>
+    <AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55">
      <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
        <Name>Tresa - Ponte Tresa, Rocchetta</Name>
        <Datum>01.05.2017</Datum>
@@ -494,7 +494,7 @@ Ejemplo XML más complejo
 
 Para recuperar información del campo Wert del primer bloque:
 
-    MesPar&gt; 0&gt; Wert&gt; 0 que por lo tanto devuelve &quot;268.56 &quot;
+    MesPar&gt; 0&gt; Wert&gt; 0 que por lo tanto devuelve &quot;268.56 "
 
 Para devolver el siguiente elemento en la &quot;estructura&quot; de Wert, debe
 simplemente indique el número de orden en la estructura. Que da
@@ -504,7 +504,7 @@ Próximo :
     MesPar&gt; 1&gt; Wert&gt; 2
 
 Para pasar al siguiente bloque &quot;MyPar&quot;, debe cambiar el índice a
-resultar : el 1 por 2 por ejemplo.
+resultarar : el 1 por 2 por ejemplo.
 
 ATENCIÓN : Si en el archivo XML el orden cambia, la solicitud no cambia
 trabaja más. Será necesario reajustar la solicitud según el pedido.
@@ -536,54 +536,54 @@ bajo Chrome).
 Ejemplo de devolución :
 
      {
-         &quot;Datos&quot;: [
+         "datos": [
              {
-                 &quot;Fecha&quot;: &quot;10/09/2014 01:37 &quot;
-                 &quot;Episodio&quot;: 4
-                 &quot;Proveedor&quot;: &quot;NTR&quot;
-                 &quot;Calidad&quot;: &quot;SD TV&quot;,
-                 &quot;Recursos&quot;: &quot;XXX&quot;
-                 &quot;Resource_path&quot;: &quot;XXXX&quot;
-                 &quot;Estación&quot;: 2
-                 &quot;SHOW_NAME&quot;: &quot;Totovaalaplage S2E4&quot;,
-                 &quot;Estado&quot;: &quot;Descargados&quot;
-                 &quot;Tvdbid&quot;: XXXXX
-             }
+                 "fecha": "2014-09-10 01:37 &quot;
+                 "episodio": 4
+                 "proveedor": "NTR &quot;
+                 "calidad": "SD TV &quot;,
+                 "recurso": "XXX",
+                 "recurso_path": "XXXX",
+                 "temporada": 2
+                 "SHOW_NAME": "Totovaalaplage S2E4 &quot;,
+                 "estatus": "descargado &quot;
+                 "tvdbid": XXXXX
+             },
              {
-                 &quot;Fecha&quot;: &quot;10/09/2014 01:36 &quot;
-                 &quot;Episodio&quot;: 3
-                 &quot;Proveedor&quot;: &quot;NTR&quot;
-                 &quot;Calidad&quot;: &quot;SD TV&quot;,
-                 &quot;Recursos&quot;: &quot;XXXX&quot;
-                 &quot;Resource_path&quot;: &quot;XXX&quot;
-                 &quot;Estación&quot;: 2
-                 &quot;SHOW_NAME&quot;: &quot;Totovaalaplage S2E3&quot;,
-                 &quot;Estado&quot;: &quot;Descargados&quot;
-                 &quot;Tvdbid&quot;: XXXXX
-             }
+                 "fecha": "2014-09-10 01:36 &quot;
+                 "episodio": 3
+                 "proveedor": "NTR &quot;
+                 "calidad": "SD TV &quot;,
+                 "recurso": "XXXX",
+                 "recurso_path": "XXX",
+                 "temporada": 2
+                 "SHOW_NAME": "Totovaalaplage S2E3 &quot;,
+                 "estatus": "descargado &quot;
+                 "tvdbid": XXXXX
+             },
              {
-                 &quot;Fecha&quot;: &quot;10/09/2014 01:21 &quot;
-                 &quot;Episodio&quot;: 1
-                 &quot;Proveedor&quot;: &quot;Cpasbien&quot;
-                 &quot;Calidad&quot;: &quot;SD TV&quot;,
-                 &quot;Recursos&quot;: &quot;XXXX&quot;
-                 &quot;Resource_path&quot;: &quot;XXXX&quot;
-                 &quot;Estación&quot;: 1
-     AQUÍ -&gt; &quot;show_name&quot;: &quot;Totovaplusauski pero Totovaalaplage S1E1&quot;,
-                 &quot;Estado&quot;: &quot;Arrebatado&quot;
-                 &quot;Tvdbid&quot;: XXXX
+                 "fecha": "2014-09-10 01:21 &quot;
+                 "episodio": 1
+                 "proveedor": "Cpasbien &quot;
+                 "calidad": "SD TV &quot;,
+                 "recurso": "XXXX",
+                 "recurso_path": "XXXX",
+                 "temporada": 1
+     AQUÍ -&gt; &quot;SHOW_NAME": "Totovaplusauski pero Totovaalaplage S1E1 &quot;,
+                 "estatus": "arrebatado &quot;
+                 "tvdbid": XXXX
              }
-         ]
-         &quot;Mensaje&quot;: &quot;&quot;,
-         &quot;Resultado&quot;: &quot;Éxito&quot;
+         ],
+         "mensaje": "",
+         "resultar": "éxito"
      }
 
 En el caso de que nos gustaría devolver el show \ _name del 3er
-elemento en php (marcado AQUÍ), sería necesario hacer : data &gt; 2
+elemento en php (marcado AQUÍ), sería necesario hacer : datos &gt; 2
 &gt;show \ _name, el índice de matriz de retorno que comienza en Cero.
 
 En este ejemplo, el botón &quot;Prueba&quot; devolverá &quot;Totovaplusauski
-pero Totovaalaplage S1E1 &quot;.
+pero Totovaalaplage S1E1".
 
 aclaraciones :
 
@@ -611,18 +611,18 @@ Entonces tienes que encontrar el &quot;camino&quot; de la última FML. Para hace
 tienes que ir al sitio y luego hacer clic derecho en el elemento deseado y luego
 inspeccionar el artículo, obtenemos :
 
-![script9](../images/script9.PNG)
+![script9] (../ images / script9.PNG)
 
 Aquí es la parte más compleja y que requiere un pequeño análisis. aquí
 mi texto está en una etiqueta &quot;a&quot; que está en un elemento tipo p
-que es un &quot;post artículo&quot; clase div. Entonces tengo que seleccionar
+que es una clase div &quot;publicar artículo". Entonces tengo que seleccionar
 el primer elemento div de la clase &quot;post&quot; y &quot;artículo&quot; y luego el primer
 elemento p y que obtengo todo en las etiquetas &quot;a&quot; que
-contiene. Entonces tengo : &quot;div.post.artículo:primero p:primero un &quot;.
+contiene. Entonces tengo : "div.post.artículo:primero p:primero un".
 
 Entonces obtenemos :
 
-![script10](../images/script10.PNG)
+![script10] (../ images / script10.PNG)
 
 Para una actualización en tiempo real, es posible poner un cron
 actualizar.
