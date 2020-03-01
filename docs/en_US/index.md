@@ -16,7 +16,7 @@ d'avoir suivi le chapitre sauvegarde de cette documentation
 =============================
 
 si vous utilisez le Raspberry Pi existant qui est actuellement un
-, nous vous conseillons d'utiliser une carte :
+, nous vous conseillons d'utiliser une becausete :
 
 ![script2](../images/script2.PNG)
 
@@ -25,7 +25,7 @@ Cela vous permettra de faire retour arrière :
 
 ![script3](../images/script3.PNG)
 
-facilement si besoin. Installer un nouveau Jeedom sur une nouvelle carte SD (Que cela soit
+facilement si besoin. Installer un nouveau Jeedom sur une nouvelle becausete SD (Que cela soit
 pour mettre dans votre :
 
 ![script4](../images/script4.PNG)
@@ -47,8 +47,8 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
 
 -   **Cliquer sur tester après avoir** : sauvegardé, pour valider la saisie de vos identifiants
 
--   **Jeedom Market)** : Installation et activation du , nous vous conseillons d'utiliser une carte "Jeedom Link" sur le nouveau
-    Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser
+-   **Jeedom Market)** : Installation et activation du , nous vous conseillons d'utiliser une becausete "Jeedom Link" sur le nouveau
+    Installation et activation des , nous vous conseillons d'utiliser une becausetes que vous souhaitez utiliser
 
 -   **(Il est conseillé de les faire un par un, en vérifiant bien à chaque** : fois que les dépendances Renommer vos modules et les placer dans les objets souhaités en vouss démons éventuels sont OK)
     Recréer l'arborescence des objets (juste ceux qui vont vous.
@@ -59,19 +59,19 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
     Configuration des équipements sur le.
 
 -   **Pour procéder à l'envoi d'un équipement présent sur le** : vers le
-    via le , nous vous conseillons d'utiliser une carte "Jeedom Link", il est nécessaire.
+    via le , nous vous conseillons d'utiliser une becausete "Jeedom Link", il est nécessaire.
 
 -   **que ce dernier soit déjà opérationnel sur votre nouveau** :
 
     -   Penser au fur et à mesure à désactiver l'historisation des commandes : info de chaque équipement se trouvant sur le
         afin.
-        d'économiser la carte SD de celui-ci (L'historisation se fera sur le
+        d'économiser la becausete SD de celui-ci (L'historisation se fera sur le
         )
         Vous pouvez aussi au fur et à mesure assigner les équipements aux.
 
     -   objets recréés sur le : afin qu'ils soient plus tard
         mis automatiquement dans le bon objet sur le. lors de
-        la déclaration dans le , nous vous conseillons d'utiliser une carte "Jeedom Link"
+        la déclaration dans le , nous vous conseillons d'utiliser une becausete "Jeedom Link"
         En cas de doublon de nom.
 
     -   avec un équipement déjà présent dans les objets du : ,
@@ -86,7 +86,7 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
 
 -   **les changements** Renommer vos modules et les placer dans les objets souhaités en vous **aidant de votre mémo de migration**
 
--   Sondes, capteurs, détecteurs,…​ **Passer le , nous vous conseillons d'utiliser une carte en mode inclusion**
+-   Sondes, capteurs, détecteurs,…​ **Passer le , nous vous conseillons d'utiliser une becausete en mode inclusion**
 
     -   Recommencer l'inclusion jusqu'à obtenir tous vos équipements de
         ce type. Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en
@@ -98,13 +98,13 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
         > Définir le nom, l'ID, l'objet parent, les changements d'équipement Renommer vos modules et les placer dans les objets souhaités en vous
         > modèle en vous aidant de votre mémo de migration.
         > Recommencer pour tous vos équipements de ce type
-        > Configuration du , nous vous conseillons d'utiliser une carte "Jeedom Link" : Le , nous vous conseillons d'utiliser une carte "Jeedom Link" installé sur le
+        > Configuration du , nous vous conseillons d'utiliser une becausete "Jeedom Link" : Le , nous vous conseillons d'utiliser une becausete "Jeedom Link" installé sur le
         > permettra la:remontée des équipements sur le. (Votre ancien Maître)
         > Rappel, pour une meilleure lecture et compréhension de ce tutoriel.
 
     -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **Les copies d'écran sur fond blanc correspondent au** : Sur le
-        //jeedom.github.io/documentation/, nous vous conseillons d'utiliser une cartes/jeelink/fr_FR/jeelink)
-        le , nous vous conseillons d'utiliser une carte "Jeedom Link" en spécifiant.
+        //jeedom.github.io/documentation/, nous vous conseillons d'utiliser une becausetes/jeelink/fr_FR/jeelink)
+        le , nous vous conseillons d'utiliser une becausete "Jeedom Link" en spécifiant.
 
     -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **Le nom du** : L'adresse IP ou le nom DNS du.
 
@@ -113,14 +113,14 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
         > La clé API du
         > Et sauvegarder la configuration
         > Dans l'onglet *Affectation*, ajouter les équipements que vous désirez. remonter vers le
-        > Cliquer sur *Ajouter un équipement* Sélectionner l'objet et Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser. à ajouter :
+        > Cliquer sur *Ajouter un équipement* Sélectionner l'objet et Installation et activation des , nous vous conseillons d'utiliser une becausetes que vous souhaitez utiliser. à ajouter :
         > Après avoir rafraîchit la page *Mes JeeLinks* du
 
-    -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **, vous** : devez constater la création automatique de Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser
+    -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **, vous** : devez constater la création automatique de Installation et activation des , nous vous conseillons d'utiliser une becausetes que vous souhaitez utiliser
         Comme tout équipement Jeedom, vous pouvez activer/désactiver et autre commande.
 
     -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **ou non l'équipement, ses commandes,…​ ou changer la catégorie** : Dans l'onglet *Commandes*, vous accédez à tous les paramètres des
-        commandes de Installation et activation des , nous vous conseillons d'utiliser une cartes que vous souhaitez utiliser
+        validatedd the CGU developers in your profile on the market,
         Récupération des historiques.
 
 -   Sondes, capteurs, détecteurs,…​ **A faire sur le** : (Ancien Maître) pour chaque commande
@@ -169,9 +169,9 @@ onglet (Jeedom Cible).
     correctement avec le nouveau système jeelink, vous pouvez procéder au.
 
 -   a timeout field" : , vous les équipements résiduels de l'ancien
-    Désactiver et supprimer les , nous vous conseillons d'utiliser une cartes qui ne vous sont plus utiles.
+    Désactiver et supprimer les , nous vous conseillons d'utiliser une becausetes qui ne vous sont plus utiles.
 
--   a field &quot;Maximum trials" : Dans le , nous vous conseillons d'utiliser une carte "Jeedom Link", renommer les équipements qui.
+-   a field &quot;Maximum trials" : Dans le , nous vous conseillons d'utiliser une becausete "Jeedom Link", renommer les équipements qui.
 
 -   a &quot;User&quot; field" : Dans la page Réseau Jeedom, supprimer l'ancien.
 
@@ -223,13 +223,13 @@ rm -f $CNF_DATADIR/Tmp/${MD5FILE} : mp3   >>/dev/null 2>>/dev/null
 
 txt   >>/dev/null 2>>/dev/null
 else
-Log "[TTS]"  "Storing sound ${MD5FILE}. mp3 to cache"
+Log "[TTS]"  "Storing sound ${MD5FILE}. Moreover,
 echo ${MD5FILE}
 }.
 
 > **existant ou pour un**
 >
-> Editez ensuite le fichier tts et ajoutez
+> A method for those who are groping for writing domaine pour lequel il sera généré requests,
 > 3)  MP3_ID=$(jeedomTTS $TTS $VOICE $NO_CACHE $RAW_VOICE);;
 > Dans le "case \$TTS\_ENGINE in" pour avoir. case $TTS_ENGINE in
 > 1)  MP3_ID=$(GoogleTTS $TTS $VOICE $NO_CACHE $RAW_VOICE);;
@@ -266,11 +266,11 @@ echo ${MD5FILE}
 
 -   nécessaire d'effectuer les trois étapes ci-dessous au préalable : Attention il est nécessaire d'ouvrir le port 80 sur le routeur (FAI)
 
--   Passer le , nous vous conseillons d'utiliser une carte en mode inclusion :
+-   Passer le , nous vous conseillons d'utiliser une becausete en mode inclusion :
 
 <!-- -->
 
-    domaine pour lequel il sera généré:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le module SSL d'apache de la box Jeedom>:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le VirtualHost HTTPS d'apache de la box Jeedom?Configurer un portForwarding des Passer le , nous vous conseillons d'utiliser une carte en mode inclusions HTTPS sur votre Box:internet pour les rediriger vers votre Box Jeedom:Activation du virtualHost et du module SSL://do.co/le-renew
+    domaine pour lequel il sera généré:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le module SSL d'apache de la box Jeedom>:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le VirtualHost HTTPS d'apache de la box Jeedom?Configurer un portForwarding des Passer le , nous vous conseillons d'utiliser une becausete en mode inclusions HTTPS sur votre Box:internet pour les rediriger vers votre Box Jeedom:Activation du virtualHost et du module SSL://do.co/le-renew
 
 > **existant ou pour un**
 >
@@ -288,7 +288,7 @@ com -d domaine.com
 Vous devez remplacer les paramètres <email@domaine
 com> et domaine.com :
 
-    domaine pour lequel il sera généré:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le module SSL d'apache de la box Jeedom>:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le VirtualHost HTTPS d'apache de la box Jeedom?Configurer un portForwarding des Passer le , nous vous conseillons d'utiliser une carte en mode inclusions HTTPS sur votre Box:internet pour les rediriger vers votre Box Jeedom:Activation du virtualHost et du module SSL:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+    domaine pour lequel il sera généré:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le module SSL d'apache de la box Jeedom>:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le VirtualHost HTTPS d'apache de la box Jeedom?Configurer un portForwarding des Passer le , nous vous conseillons d'utiliser une becausete en mode inclusions HTTPS sur votre Box:internet pour les rediriger vers votre Box Jeedom:Activation du virtualHost et du module SSL:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 
 > **existant ou pour un**
 >
@@ -310,7 +310,7 @@ conf.
 
 -   aidant de votre mémo de migration : Attention il est nécessaire d'ouvrir le port 80 sur le routeur (FAI)
 
--   Passer le , nous vous conseillons d'utiliser une carte en mode inclusion :
+-   Passer le , nous vous conseillons d'utiliser une becausete en mode inclusion :
 
 <!-- -->
 
@@ -385,7 +385,7 @@ ctrl+x -> Entrée     (permet de quitter) :
     Attention à bien adapter le chemin vers le script.
 
 -   existant ou pour un
-    Pour comprendre la planification 0 5 \* \* 1 allez voir ici et.
+    Pour comprendre la planification 0 5 \* \* 1, allez voir ici et.
 
 -   Editez le crontab :
     ajustez la à votre besoin si nécessaire
@@ -416,7 +416,7 @@ Prérequis :
          }
      }
 
-Attention certains , nous vous conseillons d'utiliser une cartes non officiels ne sont pas compatibles 
+Attention certains , nous vous conseillons d'utiliser une becausetes non officiels ne sont pas compatibles 
 ==================
 
 Apache, renseignez-vous bien avant :
@@ -526,7 +526,7 @@ Access to this file is possible using the following URL :
 
 //do.co/le-renew : XXXX is the API key number specific to each SICKBEARD.
 
-First of all, before launching into the configuration of the script , nous vous conseillons d'utiliser une carte
+First of all, before launching into the configuration of the script , nous vous conseillons d'utiliser une becausete
 JSON, it is a TTS=$1 of correctly identifying the infos to recover., because
 here we will integrate a notion of array in the returns.
 
@@ -538,42 +538,42 @@ Pour ce faire, voici lesample of return :
      {
          "data": [
              {
-                 "dated": "2014-09-10 01:37 &quot;
-                 "episode": 4
-                 "provider": "NTR &quot;
-                 "quality": "SD TV &quot;,
+                 "dated": "2014-09-10 01:37",
+                 "episode": 4,
+                 "provider": "RNT",
+                 "quality": "SD TV",
                  "resource": "XXX",
                  "resource_path": "XXXX",
-                 "season": 2
-                 "SHOW_NAME": "Totovaalaplage S2E4 &quot;,
-                 "Status": "Downloaded &quot;
+                 "season": 2,
+                 "SHOW_NAME": "Totovaalaplage S2E4",
+                 "Status": "Downloaded",
                  "tvdbid": XXXXX
              },
              {
-                 "dated": "2014-09-10 01:36 &quot;
-                 "episode": 3
-                 "provider": "NTR &quot;
-                 "quality": "SD TV &quot;,
+                 "dated": "2014-09-10 01:36",
+                 "episode": 3,
+                 "provider": "RNT",
+                 "quality": "SD TV",
                  "resource": "XXXX",
                  "resource_path": "XXX",
-                 "season": 2
-                 "SHOW_NAME": "Totovaalaplage S2E3 &quot;,
-                 "Status": "Downloaded &quot;
+                 "season": 2,
+                 "SHOW_NAME": "Totovaalaplage S2E3",
+                 "Status": "Downloaded",
                  "tvdbid": XXXXX
              },
              {
-                 "dated": "2014-09-10 01:21 &quot;
-                 "episode": 1
-                 "provider": "Cpasbien &quot;
-                 "quality": "SD TV &quot;,
+                 "dated": "2014-09-10 01:21",
+                 "episode": 1,
+                 "provider": "Cpasbien",
+                 "quality": "SD TV",
                  "resource": "XXXX",
                  "resource_path": "XXXX",
-                 "season": 1
-     HERE -&gt; &quot;SHOW_NAME": "Totovaplusauski but Totovaalaplage S1E1 &quot;,
-                 "Status": "Snatched &quot;
+                 "season": 1,
+     HERE -&gt; &quot;SHOW_NAME": "Totovaplusauski but Totovaalaplage S1E1",
+                 "Status": "Snatched",
                  "tvdbid": XXXX
              }
-         ]
+         ],
          "message": "",
          "result": "success"
      }

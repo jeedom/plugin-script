@@ -4,13 +4,13 @@ solicitudes http, para recuperar información en XML o JSON.
 Configuración del complemento 
 =======================
 
-La configuración es muy simple, después de descargar el complemento,
+La configuración es muy simple, después de descochegar el complemento,
 simplemente lo activas y eso es todo.
 
 ![script1](../images/script1.PNG)
 
 La única opción es donde jeedom pone los scripts predeterminados,
-se aconseja no tocarlo.
+se aconseja no tocochelo.
 
 Configuración del equipo 
 =============================
@@ -50,7 +50,7 @@ Aquí encontrarás toda la configuración de tu equipo :
 -   **Objeto padre** : indica el objeto padre al que pertenece
     equipo
 
--   **Autorrealización** : permite especificar un cron de actualización
+-   **Autorrealización** : permite especificoche un cron de actualización
     automático para todos los comandos de tipo de información.
 
 A continuación encontrará la lista de pedidos. :
@@ -117,10 +117,10 @@ A continuación encontrará la lista de pedidos. :
         > generalidad
 
     -   El botón **remove** : permite eliminar un archivo
-        de encargo.
+        de encochego.
 
     -   El botón **Compartir, repartir** : uno de los más importantes, y después
-        validado los desarrolladores de CGU en su perfil en el mercado,
+        Validado los desarrolladores de CGU en su perfil en el mercado,
         le permite compartir su creación con la comunidad.
 
 -   El campo **opciones** : Campo con opciones variables dependiendo de la elección.
@@ -142,13 +142,13 @@ A continuación encontrará la lista de pedidos. :
     valor (predeterminado 5 min) antes de volver a ejecutar el script para tener que
     nuevo valor.
 
--   **Caché de por vida** : permite modificar la vida útil del caché
+-   **Caché de por vida** : permite modificoche la vida útil del caché
     (predeterminado 5 min).
 
 > **importante**
 >
 > Evite tanto como sea posible en la ruta del script o en
-> los parámetros de sus caracteres especiales. Los caracteres
+> los parámetros de sus cocheacteres especiales. Los cocheacteres
 > ser permitido : números, letras (mayúsculas o minúsculas)
 
 ![script5](../images/script5.PNG)
@@ -157,7 +157,7 @@ Le permite llamar a una url o recuperar el retorno de una URL.
 
 -   una casilla de verificación "No marque SSL" : si está marcado, permite Jeedom
     no enviar los campos "Usuario" y "Contraseña" a
-    la solicitud. Jeedom no buscará identificarse con
+    la solicitud. Jeedom no buscocheá identificochese con
     sitio remoto / máquina.
 
 -   una casilla de verificación "Permitir respuesta en blanco" : si está marcado, permite
@@ -194,7 +194,7 @@ La elección XML
 
 ![script6](../images/script6.PNG)
 
-Le permite recuperar xml y buscar específicamente un valor
+Le permite recuperar xml y buscoche específicamente un valor
 en.
 
 El campo de opción tiene un campo "URL del archivo XML"" : este campo
@@ -211,7 +211,7 @@ La elección de JSON
 
 ![script7](../images/script7.PNG)
 
-Permite recuperar json y buscar específicamente un
+Permite recuperar json y buscoche específicamente un
 valor en.
 
 El campo de opción tiene un campo "URL de archivo JSON"" : este campo
@@ -280,7 +280,7 @@ explicaciones :
 
 El botón "probar" le permite probar su pedido !
 
-Por lo tanto, puede multiplicar pedidos en el mismo equipo por
+Por lo tanto, puede multiplicoche pedidos en el mismo equipo por
 por ejemplo, al hacer un pedido del 60% para una luz tenue, cree
 un tercio al 30% para viajes nocturnos que se combinarán en un
 escenario, ...
@@ -314,7 +314,7 @@ entrada.
 
 <!-- -->
 
-    http:// IP_DE_XBMC:8080 / JSONRPC?solicitud = {% 22jsonrpc% 22:% 2220% 22% 22% 22method:22GUI%.ShowNotification% 22% 22% 22params:{ % 22title 22%:% 22Mouvement% 20Detecté% 22% 22% 22mensaje:% 22Porte 20Entrée% 22%},% 22% 22id:1}
+    http:// IP_DE_XBMC:8080 / JSONRPC?solicitud = {% 22jsonrpc% 22:% 222,0% 22% 22% 22method:22GUI%.ShowNotification% 22% 22% 22params:{ % 22title 22%:% 22Mouvement% 20Detecté% 22% 22% 22mensaje:% 22Porte 20Entrée% 22%},% 22% 22id:1}
 
 Depende de usted probar esto en un escenario, por ejemplo !
 
@@ -340,7 +340,7 @@ acción : Inicie el script, a través de un equipo virtual, vinculado a su scrip
 Ejemplo SCRIPT 
 ==============
 
-El más bonito pero no el más fácil de explicar..
+El más bonito pero no el más fácil de explicoche..
 
 Requisitos previos : saber desarrollar un script en php, python o ruby.
 
@@ -351,7 +351,7 @@ Requisitos previos : saber desarrollar un script en php, python o ruby.
 El script de monitoreo de temperatura de frambuesa servirá como ejemplo
 para usar el tipo de script : guión
 
-Después de descargar el script del mercado, el botón "examinar""
+Después de descochegar el script del mercado, el botón "examinar""
 le permite seleccionar el archivo temp \ _rasp.php.
 
 Por curiosidad, puede ir y ver el contenido del archivo presionando
@@ -379,7 +379,7 @@ ejemplo :
 
 -   En la linea :
     /usr/share/nginx/www/jeedom/Plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
-    lista, el argumento "lista" es una cadena de caracteres (fija)
+    lista, el argumento "lista" es una cadena de cocheacteres (fija)
     recuperado del script php usando la siguiente función
     \ $ argv \ [1 \] cf. : Google para más detalles sobre la recuperación
     parámetros en PHP.
@@ -504,7 +504,7 @@ Próximo :
     MesPar> 1> Wert> 2
 
 Para pasar al siguiente bloque "MyPar", debe cambiar el índice a
-resultarar : el 1 por 2 por ejemplo.
+resultarar : el 1 por 2, por ejemplo.
 
 ATENCIÓN : Si en el archivo XML el orden cambia, la solicitud no cambia
 trabaja más. Será necesario reajustar la solicitud según el pedido.
@@ -516,7 +516,7 @@ Ejemplo JSON
 Al igual que el tipo XML, es posible leer información de
 un regreso JSON.
 
-Para explicar, me basaré en información JSON con
+Para explicoche, me basaré en información JSON con
 la aplicación Sickbeard (boo ... cpasbien) pero aquí solo la técnica
 premium, no la herramienta !
 
@@ -527,7 +527,7 @@ El acceso a este archivo es posible utilizando la siguiente URL :
 nota : XXXX es el número de clave API específico de cada SICKBEARD.
 
 En primer lugar, antes de iniciar la configuración del complemento de script
-JSON, se trata de identificar correctamente la información para recuperar.porque
+JSON, se trata de identificoche correctamente la información para recuperar., coche
 aquí integraremos una noción de matriz en los retornos.
 
 Valide la visualización de información desde su navegador (prueba
@@ -538,42 +538,42 @@ Ejemplo de devolución :
      {
          "datos": [
              {
-                 "fecha": "2014-09-10 01:37 "
-                 "episodio": 4
-                 "proveedor": "NTR "
-                 "calidad": "SD TV ",
+                 "fecha": "2014-09-10 01:37",
+                 "episodio": 4,
+                 "proveedor": "RNT",
+                 "calidad": "TV SD",
                  "recurso": "XXX",
                  "recurso_path": "XXXX",
-                 "temporada": 2
-                 "SHOW_NAME": "Totovaalaplage S2E4 ",
-                 "estatus": "descargado "
+                 "temporada": 2,
+                 "SHOW_NAME": "Totovaalaplage S2E4",
+                 "estatus": "descochegados",
                  "tvdbid": XXXXX
              },
              {
-                 "fecha": "2014-09-10 01:36 "
-                 "episodio": 3
-                 "proveedor": "NTR "
-                 "calidad": "SD TV ",
+                 "fecha": "2014-09-10 01:36",
+                 "episodio": 3,
+                 "proveedor": "RNT",
+                 "calidad": "TV SD",
                  "recurso": "XXXX",
                  "recurso_path": "XXX",
-                 "temporada": 2
-                 "SHOW_NAME": "Totovaalaplage S2E3 ",
-                 "estatus": "descargado "
+                 "temporada": 2,
+                 "SHOW_NAME": "Totovaalaplage S2E3",
+                 "estatus": "descochegados",
                  "tvdbid": XXXXX
              },
              {
-                 "fecha": "2014-09-10 01:21 "
-                 "episodio": 1
-                 "proveedor": "Cpasbien "
-                 "calidad": "SD TV ",
+                 "fecha": "2014-09-10 01:21",
+                 "episodio": 1,
+                 "proveedor": "Cpasbien",
+                 "calidad": "TV SD",
                  "recurso": "XXXX",
                  "recurso_path": "XXXX",
-                 "temporada": 1
-     AQUÍ -> "SHOW_NAME": "Totovaplusauski pero Totovaalaplage S1E1 ",
-                 "estatus": "arrebatado "
+                 "temporada": 1,
+     AQUÍ -> "SHOW_NAME": "Totovaplusauski pero Totovaalaplage S1E1",
+                 "estatus": "arrebatado",
                  "tvdbid": XXXX
              }
-         ]
+         ],
          "mensaje": "",
          "resultar": "éxito"
      }
@@ -595,7 +595,7 @@ desventajas :
 -   este método solo permite recuperar un elemento a la vez.
 
 -   Si queremos devolver todos los valores de "show \ _name", esto
-    desafortunadamente no es posible, tendrás que duplicar el script
+    desafortunadamente no es posible, tendrás que duplicoche el script
     tantas veces como sea necesario.
 
 Ejemplo HTML 
@@ -615,7 +615,7 @@ inspeccionar el artículo, obtenemos :
 
 Aquí es la parte más compleja y que requiere un pequeño análisis. aquí
 mi texto está en una etiqueta "a" que está en un elemento tipo p
-que es una clase div "publicar artículo". Entonces tengo que seleccionar
+que es una clase div "publicoche artículo". Entonces tengo que seleccionar
 el primer elemento div de la clase "post" y "artículo" y luego el primer
 elemento p y que obtengo todo en las etiquetas "a" que
 contiene. Entonces tengo : "div.post.artículo:primero p:primero un".
