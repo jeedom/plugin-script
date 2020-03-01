@@ -84,7 +84,24 @@
         "Aucune méthode correspondante à : ": "Keine Methode entsprechend:"
     },
     "core\/class\/script.class.php": {
-        "Plugin pour gérer des scripts (PHP, Shell, ...)": "Plugin um Skripte zu  verarbeiten (PHP, Shell, ...)",
-        "Aucune": "Ohne"
+        "Erreur pour ": "Fehler für",
+        "Expression cron non valide pour ": "Ungültiger Cron-Ausdruck für",
+        "Impossible de trouver le script  :": "Das Skript konnte nicht gefunden werden:",
+        "Impossible de supprimer : ": "Löschen nicht möglich:",
+        ". Vérifiez les droits": ". Überprüfen Sie die Rechte",
+        "Echec de création du zip. Répertoire source : ": "Fehler beim Erstellen der Zip. Quellverzeichnis:",
+        " \/ Répertoire cible : ": "\/ Zielverzeichnis:",
+        "Impossible d\\'installer le script. Le dossier n\\'existe pas : ": "Das Skript kann nicht installiert werden. Der Ordner existiert nicht:",
+        "Impossible de décompresser l\\'archive zip : ": "Das Zip-Archiv kann nicht dekomprimiert werden:",
+        "Echec de l\\'installation. Impossible de trouver le script ": "Installation fehlgeschlagen. Das Skript konnte nicht gefunden werden",
+        "Echec de la désinstallation. Impossible de supprimer le script ": "Deinstallation fehlgeschlagen. Skript kann nicht gelöscht werden",
+        "Rafraichir": "auffrischen",
+        "Le champ requête ne peut pas être vide": "Das Anforderungsfeld darf nicht leer sein",
+        "Le champ requête type ne peut pas être vide": "Das Standardanforderungsfeld darf nicht leer sein",
+        "Vous ne pouvez pas avoir un script de type XML et action": "Sie können kein XML- und Aktionstypskript haben",
+        "La requête ne peut pas être vide : ": "Die Anfrage darf nicht leer sein:",
+        "Le message et le sujet ne peuvent pas être vide": "Nachricht und Betreff dürfen nicht leer sein",
+        "La réponse ne contient pas ": "Die Antwort enthält nicht",
+        "Json invalide ou non décodable : ": "Json ungültig oder nicht dekodierbar:"
     }
 }

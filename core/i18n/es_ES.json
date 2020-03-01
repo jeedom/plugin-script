@@ -84,7 +84,24 @@
         "Aucune méthode correspondante à : ": "Ningún método correspondiente a:"
     },
     "core\/class\/script.class.php": {
-        "Plugin pour gérer des scripts (PHP, Shell, ...)": "Plugins para gestión de scripts (PHP, Shell,...)",
-        "Aucune": "Ninguna"
+        "Erreur pour ": "Error para",
+        "Expression cron non valide pour ": "Expresión cron inválida para",
+        "Impossible de trouver le script  :": "No se puede encontrar el script:",
+        "Impossible de supprimer : ": "No se puede eliminar:",
+        ". Vérifiez les droits": ". Comprueba los derechos",
+        "Echec de création du zip. Répertoire source : ": "Error al crear el zip. Directorio de origen:",
+        " \/ Répertoire cible : ": "\/ Directorio de destino:",
+        "Impossible d\\'installer le script. Le dossier n\\'existe pas : ": "No se puede instalar el script. La carpeta no existe:",
+        "Impossible de décompresser l\\'archive zip : ": "No se puede descomprimir el archivo zip:",
+        "Echec de l\\'installation. Impossible de trouver le script ": "La instalación falló. No se puede encontrar el guión",
+        "Echec de la désinstallation. Impossible de supprimer le script ": "La desinstalación falló. No se puede eliminar el script",
+        "Rafraichir": "refrescar",
+        "Le champ requête ne peut pas être vide": "El campo de solicitud no puede estar vacío",
+        "Le champ requête type ne peut pas être vide": "El campo de solicitud estándar no puede estar vacío.",
+        "Vous ne pouvez pas avoir un script de type XML et action": "No puede tener un script de tipo XML y acción",
+        "La requête ne peut pas être vide : ": "La solicitud no puede estar vacía:",
+        "Le message et le sujet ne peuvent pas être vide": "El mensaje y el asunto no pueden estar vacíos",
+        "La réponse ne contient pas ": "La respuesta no contiene",
+        "Json invalide ou non décodable : ": "Json inválido o no decodificable:"
     }
 }

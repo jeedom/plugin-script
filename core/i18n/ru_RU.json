@@ -84,7 +84,24 @@
         "Aucune méthode correspondante à : ": "Aucune méthode correspondante à : "
     },
     "core\/class\/script.class.php": {
-        "Plugin pour gérer des scripts (PHP, Shell, ...)": "Плагин для обработки сценариев (PHP, Shell, ...)",
-        "Aucune": "Нет"
+        "Erreur pour ": "Erreur pour ",
+        "Expression cron non valide pour ": "Expression cron non valide pour ",
+        "Impossible de trouver le script  :": "Impossible de trouver le script  :",
+        "Impossible de supprimer : ": "Impossible de supprimer : ",
+        ". Vérifiez les droits": ". Vérifiez les droits",
+        "Echec de création du zip. Répertoire source : ": "Echec de création du zip. Répertoire source : ",
+        " \/ Répertoire cible : ": " \/ Répertoire cible : ",
+        "Impossible d\\'installer le script. Le dossier n\\'existe pas : ": "Impossible d\\'installer le script. Le dossier n\\'existe pas : ",
+        "Impossible de décompresser l\\'archive zip : ": "Impossible de décompresser l\\'archive zip : ",
+        "Echec de l\\'installation. Impossible de trouver le script ": "Echec de l\\'installation. Impossible de trouver le script ",
+        "Echec de la désinstallation. Impossible de supprimer le script ": "Echec de la désinstallation. Impossible de supprimer le script ",
+        "Rafraichir": "Rafraichir",
+        "Le champ requête ne peut pas être vide": "Le champ requête ne peut pas être vide",
+        "Le champ requête type ne peut pas être vide": "Le champ requête type ne peut pas être vide",
+        "Vous ne pouvez pas avoir un script de type XML et action": "Vous ne pouvez pas avoir un script de type XML et action",
+        "La requête ne peut pas être vide : ": "La requête ne peut pas être vide : ",
+        "Le message et le sujet ne peuvent pas être vide": "Le message et le sujet ne peuvent pas être vide",
+        "La réponse ne contient pas ": "La réponse ne contient pas ",
+        "Json invalide ou non décodable : ": "Json invalide ou non décodable : "
     }
 }
