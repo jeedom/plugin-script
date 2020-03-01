@@ -360,9 +360,9 @@ en el botón "Editar", debería obtener el siguiente código :
 Este es un script php que se puede reutilizar fuera de Jeedom !
 
      <?php
-        $ temp = shell_exec ("cat / sys / class / thermal / thermal_zone0 / temp");
-        $ temp = $ temp / 1000;
-        $ temp = round ($ temp, 1);
+        $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
+        $temp = $temp / 1000;
+        $temp = round($temp,1);
         echo $ temp
      ?>
 

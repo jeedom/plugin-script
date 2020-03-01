@@ -360,9 +360,9 @@ Auf der Schaltfläche &quot;Bearbeiten&quot; sollten Sie den folgenden Code erha
 Dies ist ein PHP-Skript, das außerhalb von Jeedom wiederverwendet werden kann !
 
      <?php
-        $ temp = shell_exec (&quot;cat / sys / class / thermische / thermische_zone0 / temp&quot;);
-        $ temp = $ temp / 1000;
-        $ temp = rund ($ temp, 1);
+        $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
+        $temp = $temp / 1000;
+        $temp = round($temp,1);
         echo $ temp
      ?>
 

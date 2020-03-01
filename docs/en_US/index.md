@@ -360,9 +360,9 @@ Ce script vérifie :
 l'expiration du certificat Renommer vos modules et les placer dans les objets souhaités en vous renouvelle automatiquement si la !
 
      <?date d'expiration est à moins de 30 jours
-        Vous devez remplacer le
-        paramètre domaine
-        com par votre valeur
+        $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
+        $temp = $temp / 1000;
+        $temp = round($temp,1);
         curl -L -o /usr/local/sbin/le-renew domaine pour lequel il sera généré
      ?>
 
