@@ -546,7 +546,7 @@ Pour ce faire, voici lesample of return :
                  "resource_path": "XXXX",
                  "season": 2
                  "SHOW_NAME": "Totovaalaplage S2E4 &quot;,
-                 "status": "Downloaded &quot;
+                 "Status": "Downloaded &quot;
                  "tvdbid": XXXXX
              },
              {
@@ -558,7 +558,7 @@ Pour ce faire, voici lesample of return :
                  "resource_path": "XXX",
                  "season": 2
                  "SHOW_NAME": "Totovaalaplage S2E3 &quot;,
-                 "status": "Downloaded &quot;
+                 "Status": "Downloaded &quot;
                  "tvdbid": XXXXX
              },
              {
@@ -570,7 +570,7 @@ Pour ce faire, voici lesample of return :
                  "resource_path": "XXXX",
                  "season": 1
      HERE -&gt; &quot;SHOW_NAME": "Totovaplusauski but Totovaalaplage S1E1 &quot;,
-                 "status": "Snatched &quot;
+                 "Status": "Snatched &quot;
                  "tvdbid": XXXX
              }
          ],

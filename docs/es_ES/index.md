@@ -16,7 +16,7 @@ Configuración del equipo
 =============================
 
 Se puede acceder a la configuración del equipo guión desde el menú
-plugin :
+Plugin :
 
 ![SCRIPT2] (../ images / script2.PNG)
 
@@ -96,7 +96,7 @@ A continuación encontrará la lista de pedidos. :
         > **punta**
         >
         > Este archivo es accesible en SSH
-        > en / usr / share / nginx / www / jeedom / plugins / script / core / recursos /.
+        > en / usr / share / nginx / www / jeedom / Plugins / script / core / recursos /.
         > FYI, el comando SSH para asignar derechos de datos www
         > a un archivo es : vestido de sudo
         > www-datos:www-datos NOMDUSCRIPT.EXTENSION. Tenga en cuenta que para
@@ -378,7 +378,7 @@ la recuperación depende del tipo de script utilizado :
 ejemplo :
 
 -   En la linea :
-    /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
+    /usr/share/nginx/www/jeedom/Plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
     lista, el argumento "lista" es una cadena de caracteres (fija)
     recuperado del script php usando la siguiente función
     \ $ argv \ [1 \] cf. : Google para más detalles sobre la recuperación
@@ -388,7 +388,7 @@ ejemplo :
     valores dinámicos de Jeedom.
 
 -   En la linea :
-    /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py
+    /usr/share/nginx/www/jeedom/Plugins/script/core/ressources/radio.py
     VOL * slider *, el argumento "* slider *" se recupera de este
     argv \ [2 \]. Cuando jeedom ejecuta el script,
     reemplazará automáticamente * deslizador * con el valor (numérico)
