@@ -89,7 +89,7 @@ Nachfolgend finden Sie die Liste der Bestellungen :
 -   Das Feld **Petition**
 
     -   Dieses Feld muss die Abfrage selbst oder den Pfad der enthalten
-        Skript, wenn das Feld &quot;Skripttyp&quot; Skript ist. Die Schaltfläche
+        Skript, wenn das Feld "Skripttyp" Skript ist. Die Schaltfläche
         "Reise" : Mit dieser Option können Sie die in der Datei enthaltene Datei auswählen
         interne Datei bei Jeedom.
 
@@ -155,27 +155,27 @@ Nachfolgend finden Sie die Liste der Bestellungen :
 
 Ermöglicht das Aufrufen einer URL oder das Abrufen der Rückgabe einer URL.
 
--   ein Kontrollkästchen &quot;SSL nicht aktivieren" : Wenn aktiviert, wird Jeedom zugelassen
-    die Felder &quot;Benutzer&quot; und &quot;Passwort&quot; nicht an zu senden
+-   ein Kontrollkästchen "SSL nicht aktivieren" : Wenn aktiviert, wird Jeedom zugelassen
+    die Felder "Benutzer" und "Passwort" nicht an zu senden
     die Anfrage. Jeedom wird nicht versuchen, sich mit zu identifizieren
     Remote-Standort / Maschine.
 
--   ein Kontrollkästchen &quot;Leere Antwort zulassen" : wenn aktiviert, erlaubt
+-   ein Kontrollkästchen "Leere Antwort zulassen" : wenn aktiviert, erlaubt
     Jeedom, nicht auf eine Antwort zu warten oder eine Antwort auf zu ignorieren
-    der übertragene Rahmen. Im Allgemeinen prüfen wir, ob Jeedom uns eine &quot;Locke&quot; sendet
+    der übertragene Rahmen. Im Allgemeinen prüfen wir, ob Jeedom uns eine "Locke" sendet
     Fehler : Leere Antwort vom Server".
 
--   ein Kontrollkästchen &quot;Niemals Fehler melden" : lass uns nicht
+-   ein Kontrollkästchen "Niemals Fehler melden" : lass uns nicht
     im Fehlerfall keine Warnung auslösen.
 
 -   ein Timeout-Feld" : ohne informiert zu werden, das Timeout der Anfrage
     Der Standardwert ist 2 Sekunden, andernfalls ist der eingegebene Wert wert.
 
--   ein Feld &quot;Maximale Versuche" : Standardmäßig maximal 4 Tests.
+-   ein Feld "Maximale Versuche" : Standardmäßig maximal 4 Tests.
 
--   ein &quot;Benutzer&quot; -Feld" : um einen Benutzernamen einzugeben.
+-   ein "Benutzer" -Feld" : um einen Benutzernamen einzugeben.
 
--   ein &quot;Passwort&quot; Feld" : um ein Passwort einzugeben.
+-   ein "Passwort" Feld" : um ein Passwort einzugeben.
 
 Die HTML-Auswahl 
 =============
@@ -185,7 +185,7 @@ Die HTML-Auswahl
 Analysieren Sie eine Webseite (HTML-Datei), um einen Wert abzurufen
 oben. Die Syntax ist dieselbe wie für jquery.
 
-Das Optionenfeld enthält ein Feld &quot;HTML-Datei-URL&quot;" : dieses Feld
+Das Optionenfeld enthält ein Feld "HTML-Datei-URL"" : dieses Feld
 enthält daher den Link zu dem Computer, auf dem sich die HTML-Datei befindet
 Frage.
 
@@ -197,7 +197,7 @@ Die XML-Auswahl
 Ermöglicht das Abrufen von XML und das gezielte Suchen nach einem Wert
 in.
 
-Das Optionenfeld enthält das Feld &quot;URL der XML-Datei&quot;" : dieses Feld
+Das Optionenfeld enthält das Feld "URL der XML-Datei"" : dieses Feld
 enthält daher den Link zu dem Computer, auf dem sich die XML-Datei befindet
 Frage.
 
@@ -214,7 +214,7 @@ Die JSON-Wahl
 Ermöglicht die Wiederherstellung von json und die gezielte Suche nach a
 Wert in.
 
-Das Optionenfeld enthält ein Feld &quot;JSON-Datei-URL&quot;" : dieses Feld
+Das Optionenfeld enthält ein Feld "JSON-Datei-URL"" : dieses Feld
 enthält daher den Link zu dem Computer, auf dem sich die JSON-Datei befindet
 Frage.
 
@@ -274,11 +274,11 @@ http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&
 
 > **Spitze**
 >
-> Die &quot;100&quot; am Ende der Anforderung entspricht dem Leistungsprozentsatz
-> Um dies zuzuweisen, setzen Sie &quot;0&quot; am Ende der Anfrage entsprechend
+> Die "100" am Ende der Anforderung entspricht dem Leistungsprozentsatz
+> Um dies zuzuweisen, setzen Sie "0" am Ende der Anfrage entsprechend
 > Schalten Sie die Glühbirne aus.
 
-Mit der Schaltfläche &quot;Test&quot; können Sie Ihre Bestellung testen !
+Mit der Schaltfläche "Test" können Sie Ihre Bestellung testen !
 
 Sie können daher Bestellungen in derselben Ausrüstung mit multiplizieren
 Wenn Sie beispielsweise eine 60% ige Bestellung für ein schwaches Licht aufgeben, erstellen Sie
@@ -321,16 +321,16 @@ http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%2
 Es liegt an Ihnen, dies beispielsweise in einem Szenario zu testen !
 
 XBMC-API [hier] (http://wiki.xbmc.org/index.php?title = JSON-RPC_API / v6)
-(nur die mit &quot;erforderlich&quot; gekennzeichneten Felder sind obligatorisch)
+(nur die mit "erforderlich" gekennzeichneten Felder sind obligatorisch)
 
 Ziel : Senden Sie eine Benachrichtigung an XBMC, wenn die Temperatur sinkt
 unterhalb einer bestimmten Schwelle
 
 Nehmen Sie das obige Beispiel :
 
--   Ersetzen Sie &quot;Bewegung% 20 erkannt&quot; durch &quot;Risiko% 20 von% 20gel&quot;"
+-   Ersetzen Sie "Bewegung% 20 erkannt" durch "Risiko% 20 von% 20gel""
 
--   Ersetzen Sie &quot;Porte% 20Entrée&quot; durch
+-   Ersetzen Sie "Porte% 20Entrée" durch
     "Temperatur %% 20 20extérieur:20% \ # \ [OUTER \] \ [OUTER \] \ [TEMPERATURE \] \% # 20"
 
 Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
@@ -346,18 +346,18 @@ Das Schönste, aber nicht das Einfachste zu erklären.
 
 Voraussetzungen : wissen, wie man ein Skript in PHP, Python oder Ruby entwickelt.
 
->**wichtig**
+>**WICHTIG**
 >
 > Die Erweiterung Ihres Skripts muss unbedingt dem Typ entsprechen. ex .PHP für einen PHP-Typ. In der Tat basiert Jeedom auf der Erweiterung des Skripts für den Start der ausführbaren Datei (php if .PHP, Python wenn .py ....)
 
 Das Skript zur Überwachung der Himbeertemperatur dient als Beispiel
 für die Verwendung des Skripttyps : Skript
 
-Nachdem Sie das Skript vom Markt heruntergeladen haben, klicken Sie auf die Schaltfläche &quot;Durchsuchen&quot;"
+Nachdem Sie das Skript vom Markt heruntergeladen haben, klicken Sie auf die Schaltfläche "Durchsuchen""
 Mit dieser Option können Sie die Datei temp \ _rasp.php auswählen.
 
 Aus Neugier können Sie den Inhalt der Datei durch Drücken von anzeigen
-Auf der Schaltfläche &quot;Bearbeiten&quot; sollten Sie den folgenden Code erhalten :
+Auf der Schaltfläche "Bearbeiten" sollten Sie den folgenden Code erhalten :
 
 Dies ist ein PHP-Skript, das außerhalb von Jeedom wiederverwendet werden kann !
 
@@ -370,7 +370,7 @@ Dies ist ein PHP-Skript, das außerhalb von Jeedom wiederverwendet werden kann !
  ?>
  ````
 
-Notiz : konkret ist es die PHP &quot;Echo&quot; -Funktion, die das gibt
+Notiz : konkret ist es die PHP "Echo" -Funktion, die das gibt
 Wert für Jeedom
 
 Die Parameter 
@@ -383,7 +383,7 @@ Beispiel :
 
 -   In der Leitung :
     /usr/share/nginx/www/jeedom/Plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
-    Liste, das Argument &quot;Liste&quot; ist eine Zeichenfolge (fest)
+    Liste, das Argument "Liste" ist eine Zeichenfolge (fest)
     mit der folgenden Funktion aus dem PHP-Skript abgerufen
     \ $ argv \ [1 \] vgl : Google für weitere Details zum Abrufen
     Parameter in PHP.
@@ -393,10 +393,10 @@ Beispiel :
 
 -   In der Leitung :
     /usr/share/nginx/www/jeedom/Plugins/script/core/ressources/radio.py
-    VOL * slider *, daraus wird das Argument &quot;* slider *&quot; abgerufen
+    VOL * slider *, daraus wird das Argument "* slider *" abgerufen
     argv \ [2 \]. Wenn jeedom das Skript ausführt, ist es
     ersetzt automatisch * slider * durch den Wert (numerisch)
-    Schieberegler. CF : Google für weitere Details zum Abrufen
+    Schieberegler. vgl : Google für weitere Details zum Abrufen
     Parameter in Python.
 
 -   Stärker : Potenziell alle Variablen, auf die über zugegriffen werden kann
@@ -508,14 +508,14 @@ Informationen aus dem Feld Wert des 1. Blocks abrufen:
 
 ``MesPar>0>Wert>0 qui retourne donc "268.56 "``
 
-Um das folgende Element in der Wert &quot;Struktur&quot; zurückzugeben, müssen Sie
+Um das folgende Element in der Wert "Struktur" zurückzugeben, müssen Sie
 Geben Sie einfach die Bestellnummer in der Struktur an. Welches gibt
 pour l'élément '&lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;' le code
 folgende :
 
 ``MesPar>1>Wert>2``
 
-Um zum nächsten &quot;MyPar&quot; -Block zu wechseln, müssen Sie daher den Index in ändern
+Um zum nächsten "MyPar" -Block zu wechseln, müssen Sie daher den Index in ändern
 Ergebnis : die 1 mal 2 zum Beispiel.
 
 ACHTUNG : Wenn sich in der XML-Datei die Reihenfolge ändert, wird die Anforderung nicht geändert
@@ -534,9 +534,9 @@ Premium, nicht das Werkzeug !
 
 Der Zugriff auf diese Datei ist über die folgende URL möglich :
 
-``http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd=history&limit=3``
+``http://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3``
 
-Notiz : XXXX ist die für jeden SICKBEARD spezifische API-Schlüsselnummer.
+HINWEIS : XXXX ist die für jeden SICKBEARD spezifische API-Schlüsselnummer.
 
 Zunächst, bevor Sie mit der Konfiguration des Skript-Plugins beginnen
 JSON, es geht darum, die wiederherzustellenden Informationen korrekt zu identifizieren., Auto
@@ -596,7 +596,7 @@ Für den Fall, dass wir den show \ _name des 3. zurückgeben möchten
 Element in PHP (HIER markiert), wäre es notwendig zu tun : data &gt; 2
 &gt;show \ _name, der Rückgabearray-Index, der bei Null beginnt.
 
-In diesem Beispiel gibt die Schaltfläche &quot;Test&quot; &quot;Totovaplusauski&quot; zurück
+In diesem Beispiel gibt die Schaltfläche "Test" "Totovaplusauski" zurück
 aber Totovaalaplage S1E1".
 
 Präzisierungen :
@@ -608,7 +608,7 @@ Nachteile :
 
 -   Mit dieser Methode kann jeweils nur ein Element wiederhergestellt werden.
 
--   Wenn wir alle Werte von &quot;show \ _name&quot; zurückgeben möchten, ist dies
+-   Wenn wir alle Werte von "show \ _name" zurückgeben möchten, ist dies
     ist leider nicht möglich, müssen Sie das Skript duplizieren
     so oft wie nötig.
 
@@ -621,17 +621,17 @@ Zunächst müssen Sie die URL konfigurieren :
 
 ``http://www.viedemerde.fr``
 
-Dann müssen Sie den &quot;Pfad&quot; der letzten FML finden. Um dies zu tun,
+Dann müssen Sie den "Pfad" der letzten FML finden. Um dies zu tun,
 Sie müssen zur Site gehen und dann mit der rechten Maustaste auf das gewünschte Element klicken
 Inspizieren Sie den Artikel, wir bekommen :
 
 ![script9](../images/script9.PNG)
 
 Hier ist es der komplexeste Teil, der eine kleine Analyse erfordert. hier
-Mein Text befindet sich in einem &quot;a&quot; -Tag, das sich in einem p-Typ-Element befindet
-Das ist eine Klasse div &quot;Post Artikel". Also muss ich auswählen
-das erste div-Element der Klasse &quot;post&quot; und &quot;Artikel&quot;, dann das erste
-Element p und dass ich alles in den &quot;a&quot; -Tags bekomme, dass es
+Mein Text befindet sich in einem "a" -Tag, das sich in einem p-Typ-Element befindet
+Das ist eine Klasse div "Post Artikel". Also muss ich auswählen
+das erste div-Element der Klasse "post" und "Artikel", dann das erste
+Element p und dass ich alles in den "a" -Tags bekomme, dass es
 enthält. Also habe ich : "div.post.Artikel:erste p:zuerst a".
 
 Also bekommen wir :

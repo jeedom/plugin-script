@@ -16,7 +16,7 @@ Configuración del equipo
 =============================
 
 Se puede acceder a la configuración del equipo guión desde el menú
-Plugin :
+plugin :
 
 ![script2](../images/script2.PNG)
 
@@ -96,7 +96,7 @@ A continuación encontrará la lista de pedidos. :
         > **punta**
         >
         > Este archivo es accesible en SSH
-        > en / usr / share / nginx / www / jeedom / Plugins / script / core / resources /.
+        > en / usr / share / nginx / www / jeedom / plugins / script / core / resources /.
         > FYI, el comando SSH para asignar derechos de datos www
         > a un archivo es : vestido de sudo
         > www-data:www-data NOMDUSCRIPT.EXTENSION. Tenga en cuenta que para
@@ -346,7 +346,7 @@ El más bonito pero no el más fácil de explicoche..
 
 Requisitos previos : saber desarrollar un script en php, python o ruby.
 
->**importante**
+>**IMPORTANTE**
 >
 > La extensión de su script debe coincidir absolutamente con su tipo. ex .php para un tipo php. De hecho, Jeedom se basa en la extensión del script para que se ejecute el ejecutable (php if .php, python si .py ....)
 
@@ -382,7 +382,7 @@ la recuperación depende del tipo de script utilizado :
 ejemplo :
 
 -   En la linea :
-    /usr/share/nginx/www/jeedom/Plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
+    /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
     lista, el argumento "lista" es una cadena de cocheacteres (fija)
     recuperado del script php usando la siguiente función
     \ $ argv \ [1 \] cf. : Google para más detalles sobre la recuperación
@@ -392,7 +392,7 @@ ejemplo :
     valores dinámicos de Jeedom.
 
 -   En la linea :
-    /usr/share/nginx/www/jeedom/Plugins/script/core/ressources/radio.py
+    /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py
     VOL * slider *, el argumento "* slider *" se recupera de este
     argv \ [2 \]. Cuando jeedom ejecuta el script,
     reemplazará automáticamente * deslizador * con el valor (numérico)
@@ -534,9 +534,9 @@ premium, no la herramienta !
 
 El acceso a este archivo es posible utilizando la siguiente URL :
 
-``http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd=history&limit=3``
+``http://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3``
 
-nota : XXXX es el número de clave API específico de cada SICKBEARD.
+NOTA : XXXX es el número de clave API específico de cada SICKBEARD.
 
 En primer lugar, antes de iniciar la configuración del complemento de script
 JSON, se trata de identificoche correctamente la información para recuperar., coche
