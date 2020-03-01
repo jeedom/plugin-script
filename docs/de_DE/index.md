@@ -96,17 +96,17 @@ Nachfolgend finden Sie die Liste der Bestellungen :
         > **Spitze**
         >
         > Auf diese Datei kann in SSH zugegriffen werden
-        > in / usr / share / nginx / www / jeedom / Plugins / script / core / Ressources /.
+        > in / usr / share / nginx / www / jeedom / Plugins / script / core / resources /.
         > Zu Ihrer Information, der SSH-Befehl zum Zuweisen von WWW-Datenrechten
         > zu einer Datei ist : Sudo Chown
-        > www-Daten:www-Daten NOMDUSCRIPT.EXTENSION. Beachten Sie, dass für
+        > www-data:www-data NOMDUSCRIPT.EXTENSION. Beachten Sie, dass für
         > Führen Sie ein Skript aus, es muss über WWW-Datenrechte verfügen.
 
     -   Die Schaltfläche **bearbeiten** : Ermöglicht das Bearbeiten mit einem Editor
         interner Code eine der im Verzeichnis enthaltenen Dateien
         Zugriff auf den Dateicode ermöglichen.
 
-    -   Die Schaltfläche **neu** : ermöglicht das Erstellen einer BefehlsDatumi.
+    -   Die Schaltfläche **neu** : ermöglicht das Erstellen einer Befehlsdatei.
 
         > **Spitze**
         >
@@ -268,9 +268,9 @@ Erklärungen :
 
 -   Petition :
 
-<!-- -->
-
-    http:// <IP_VERA>:3480 / Daten_request?id = &amp; lu_action output_format json = &amp; = 12 &amp; DeviceNum serviceid = urn:upnp-org:serviceid:Dimming1 &amp; action = SetLoadLevelTarget &amp; newLoadlevelTarget = 100
+````
+http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
+````
 
 > **Spitze**
 >
@@ -288,12 +288,14 @@ Szenario,…
 Es ist auch möglich, einen Befehl vom Typ Schieberegler zu erstellen, indem Sie den Befehl eingeben
 tag \ #slider \ # in der Anfrage :
 
-    http:// <IP_VERA>:3480 / Daten_request?id = &amp; lu_action output_format json = &amp; = 12 &amp; DeviceNum serviceid = urn:upnp-org:serviceid:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+````
+http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+````
 
 > **Spitze**
 >
 > Wenn Ihre Bestellung vom Nachrichtentyp ist, können Sie Tags verwenden
-> \ #Nachricht \ # und \ #title \ #, gleich für eine Farbbestellung mit
+> \ #message \ # und \ #title \ #, gleich für eine Farbbestellung mit
 > das Tag \ #color \ # oder vom Typ Slider mit # Slider # oder Liste mit #select#
 
 HTTP-Beispiel : Benachrichtigung an XBMC senden 
@@ -312,9 +314,9 @@ Eingang.
 
 -   Petition :
 
-<!-- -->
-
-    http:// IP_DE_XBMC:8080 / JSON-RPC?request = {% 22jsonrpc% 22:% 222,0% 22% 22% 22method:22GUI%.ShowNotification% 22% 22% 22params:{ 22title% 22%:% 22Mouvement% 20Detecté% 22% 22% 22Nachricht:% 22Porte 20Entrée% 22%},% 22% 22id:1}
+````
+http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+````
 
 Es liegt an Ihnen, dies beispielsweise in einem Szenario zu testen !
 
@@ -359,12 +361,14 @@ Auf der Schaltfläche &quot;Bearbeiten&quot; sollten Sie den folgenden Code erha
 
 Dies ist ein PHP-Skript, das außerhalb von Jeedom wiederverwendet werden kann !
 
-     <?php
-        $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
-        $temp = $temp / 1000;
-        $temp = round($temp,1);
-        echo $ temp
-     ?>
+````
+ <?php
+    $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
+    $temp = $temp / 1000;
+    $temp = round($temp,1);
+    echo $temp
+ ?>
+ ````
 
 Notiz : konkret ist es die PHP &quot;Echo&quot; -Funktion, die das gibt
 Wert für Jeedom
@@ -407,26 +411,30 @@ Beispiel :
 
 Empfehlung zum Testen der Parameter im PHP-Skript :
 
-     if (isset ($ argv)) {
-     foreach ($ argv als $ arg) {
-     $ argList = explode (&#39;=&#39;, $ arg);
-     if (isset ($ argList [0]) &amp;&amp; isset ($ argList [1])) {
-     $ _GET [$ argList [0]] = $ argList [1];
-             }
-         }
+````
+if (isset($argv)) {
+ foreach ($argv as $arg) {
+     $argList = explode('=', $arg);
+     if (isset($argList[0]) && isset($argList[1])) {
+         $_GET[$argList[0]] = $argList[1];
      }
+ }
+}
+````
 
 Einfaches XML-Beispiel 
 ==================
 
 Hier ist das Format der Standard-XML :
 
-    <root>
-        <led0>1</led0>
-        <leds>
-          <led1>toto</led1>
-        </leds>
-    </root>
+````
+<root>
+    <led0>1</led0>
+    <leds>
+      <led1>toto</led1>
+    </leds>
+</root>
+````
 
 Wenn Sie den Wert von led0 in der Abfrage haben möchten, geben Sie led0 ein. wenn
 Sie möchten den Wert von led1, dem Sohn der von Ihnen gesetzten LEDs
@@ -438,15 +446,17 @@ Anforderungsfeld.
 Komplexes XML-Beispiel 
 ====================
 
-     <root>
-       <led0>1</led0>
-       <leds>
-         <led1>toto</led1>
-       </leds>
-       <leds>
-         <led1>tata</led1>
-       </leds>
-     </root>
+````
+ <root>
+   <led0>1</led0>
+   <leds>
+     <led1>toto</led1>
+   </leds>
+   <leds>
+     <led1>tata</led1>
+   </leds>
+ </root>
+ ````
 
 Die Syntax lautet :
 
@@ -456,52 +466,54 @@ Array-Zeile !
 Komplexeres XML-Beispiel 
 =========================
 
-    <AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55">
-     <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
-       <Name>Tresa - Ponte Tresa, Rocchetta</Name>
-       <Datum>01.05.2017</Datum>
-       <Zeit>18:50 </Zeit>
-       <Wert>268.56</Wert>
-       <Wert dt="-24h">268.51</Wert>
-       <Wert Typ="delta24">0.051</Wert>
-       <Wert Typ="m24">268.52</Wert>
-       <Wert Typ="max24">268.56</Wert>
-       <Wert Typ="min24">268.50</Wert>
-     </MesPar>
-     <MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02">
-      <Name>Inn - Tarasp</Name>
-      <Datum>01.05.2017</Datum>
-      <Zeit>18:50 </Zeit>
-      <Wert>4.85</Wert>
-      <Wert dt="-24h">7.98</Wert>
-      <Wert Typ="delta24">-3.130</Wert>
-      <Wert Typ="m24">6.15</Wert>
-      <Wert Typ="max24">7.98</Wert>
-      <Wert Typ="min24">4.85</Wert>
-     </MesPar>
-     <MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32">
-      <Name>Doubs - Combe des Sarrasins</Name>
-      <Datum>01.05.2017</Datum>
-      <Zeit>18:00 </Zeit>
-      <Wert>500.65</Wert>
-      <Wert dt="-24h">500.65</Wert>
-      <Wert Typ="delta24">0.000</Wert>
-      <Wert Typ="m24">500.65</Wert>
-      <Wert Typ="max24">500.65</Wert>
-      <Wert Typ="min24">500.64</Wert>
-     </MesPar>
-    </AKT_Data>
+````
+<AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55">
+ <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
+   <Name>Tresa - Ponte Tresa, Rocchetta</Name>
+   <Datum>01.05.2017</Datum>
+   <Zeit>18:50</Zeit>
+   <Wert>268.56</Wert>
+   <Wert dt="-24h">268.51</Wert>
+   <Wert Typ="delta24">0.051</Wert>
+   <Wert Typ="m24">268.52</Wert>
+   <Wert Typ="max24">268.56</Wert>
+   <Wert Typ="min24">268.50</Wert>
+ </MesPar>
+ <MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02">
+  <Name>Inn - Tarasp</Name>
+  <Datum>01.05.2017</Datum>
+  <Zeit>18:50</Zeit>
+  <Wert>4.85</Wert>
+  <Wert dt="-24h">7.98</Wert>
+  <Wert Typ="delta24">-3.130</Wert>
+  <Wert Typ="m24">6.15</Wert>
+  <Wert Typ="max24">7.98</Wert>
+  <Wert Typ="min24">4.85</Wert>
+ </MesPar>
+ <MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32">
+  <Name>Doubs - Combe des Sarrasins</Name>
+  <Datum>01.05.2017</Datum>
+  <Zeit>18:00</Zeit>
+  <Wert>500.65</Wert>
+  <Wert dt="-24h">500.65</Wert>
+  <Wert Typ="delta24">0.000</Wert>
+  <Wert Typ="m24">500.65</Wert>
+  <Wert Typ="max24">500.65</Wert>
+  <Wert Typ="min24">500.64</Wert>
+ </MesPar>
+</AKT_Data>
+````
 
 Informationen aus dem Feld Wert des 1. Blocks abrufen:
 
-    MesPar&gt; 0&gt; Wert&gt; 0, was &quot;268&quot; zurückgibt.56 "
+``MesPar>0>Wert>0 qui retourne donc "268.56 "``
 
 Um das folgende Element in der Wert &quot;Struktur&quot; zurückzugeben, müssen Sie
 Geben Sie einfach die Bestellnummer in der Struktur an. Welches gibt
 pour l'élément '&lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;' le code
 folgende :
 
-    MesPar&gt; 1&gt; Wert&gt; 2
+``MesPar>1>Wert>2``
 
 Um zum nächsten &quot;MyPar&quot; -Block zu wechseln, müssen Sie daher den Index in ändern
 Ergebnis : die 1 mal 2 zum Beispiel.
@@ -522,7 +534,7 @@ Premium, nicht das Werkzeug !
 
 Der Zugriff auf diese Datei ist über die folgende URL möglich :
 
-    http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd = history &amp; limit = 3
+``http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd=history&limit=3``
 
 Notiz : XXXX ist die für jeden SICKBEARD spezifische API-Schlüsselnummer.
 
@@ -535,51 +547,53 @@ unter Chrome).
 
 Beispiel für die Rückgabe :
 
-     {
-         "Daten": [
-             {
-                 "Datum": "2014-09-10 01:37",
-                 "Folge": 4,
-                 "Versorger": "RNT",
-                 "Qualität": "SD-TV",
-                 "Ressource": "XXX",
-                 "Ressource_path": "XXXX",
-                 "Saison": 2,
-                 "SHOW_NAME": "Totovaalaplage S2E4",
-                 "Status": "Heruntergeladene",
-                 "tvdbid": XXXXX
-             },
-             {
-                 "Datum": "2014-09-10 01:36",
-                 "Folge": 3,
-                 "Versorger": "RNT",
-                 "Qualität": "SD-TV",
-                 "Ressource": "XXXX",
-                 "Ressource_path": "XXX",
-                 "Saison": 2,
-                 "SHOW_NAME": "Totovaalaplage S2E3",
-                 "Status": "Heruntergeladene",
-                 "tvdbid": XXXXX
-             },
-             {
-                 "Datum": "2014-09-10 01:21",
-                 "Folge": 1,
-                 "Versorger": "Cpasbien",
-                 "Qualität": "SD-TV",
-                 "Ressource": "XXXX",
-                 "Ressource_path": "XXXX",
-                 "Saison": 1,
-     HIER -&gt; &quot;SHOW_NAME": "Totovaplusauski aber Totovaalaplage S1E1",
-                 "Status": "Snatched",
-                 "tvdbid": XXXX
-             }
-         ],
-         "Nachricht": "",
-         "Ergebnis": "Erfolg"
-     }
+````
+ {
+     "data": [
+         {
+             "date": "2014-09-10 01:37",
+             "episode": 4,
+             "provider": "RNT",
+             "quality": "SD TV",
+             "resource": "XXX",
+             "resource_path": "XXXX",
+             "season": 2,
+             "show_name": "Totovaalaplage S2E4",
+             "status": "Downloaded",
+             "tvdbid": XXXXX
+         },
+         {
+             "date": "2014-09-10 01:36",
+             "episode": 3,
+             "provider": "RNT",
+             "quality": "SD TV",
+             "resource": "XXXX",
+             "resource_path": "XXX",
+             "season": 2,
+             "show_name": "Totovaalaplage S2E3",
+             "status": "Downloaded",
+             "tvdbid": XXXXX
+         },
+         {
+             "date": "2014-09-10 01:21",
+             "episode": 1,
+             "provider": "Cpasbien",
+             "quality": "SD TV",
+             "resource": "XXXX",
+             "resource_path": "XXXX",
+             "season": 1,
+ ICI -->     "show_name": "Totovaplusauski aber Totovaalaplage S1E1",
+             "status": "Snatched",
+             "tvdbid": XXXX
+         }
+     ],
+     "message": "",
+     "result": "success"
+ }
+ ````
 
 Für den Fall, dass wir den show \ _name des 3. zurückgeben möchten
-Element in PHP (HIER markiert), wäre es notwendig zu tun : Daten &gt; 2
+Element in PHP (HIER markiert), wäre es notwendig zu tun : data &gt; 2
 &gt;show \ _name, der Rückgabearray-Index, der bei Null beginnt.
 
 In diesem Beispiel gibt die Schaltfläche &quot;Test&quot; &quot;Totovaplusauski&quot; zurück
@@ -605,7 +619,7 @@ Hier werden wir versuchen, die letzte FML abzurufen.
 
 Zunächst müssen Sie die URL konfigurieren :
 
-    http://www.viedemerde.fr
+``http://www.viedemerde.fr``
 
 Dann müssen Sie den &quot;Pfad&quot; der letzten FML finden. Um dies zu tun,
 Sie müssen zur Site gehen und dann mit der rechten Maustaste auf das gewünschte Element klicken
@@ -624,12 +638,12 @@ Also bekommen wir :
 
 ![script10](../images/script10.PNG)
 
-Für ein Echtzeit-UpDatum ist es möglich, einen Cron zu platzieren
-UpDatum.
+Für ein Echtzeit-Update ist es möglich, einen Cron zu platzieren
+Update.
 
 > **Spitze**
 >
-> Bei der Installation eines UpDatum-Cron wird Jeedom
+> Bei der Installation eines Update-Cron wird Jeedom
 > Aktivieren Sie automatisch das Kontrollkästchen Ereignis. Dies ist völlig normal.
 
 Hier können Sie sich dann ein Szenario vorstellen, das Sie per SMS sendet

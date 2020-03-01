@@ -96,11 +96,11 @@ A continuación encontrará la lista de pedidos. :
         > **punta**
         >
         > Este archivo es accesible en SSH
-        > en / usr / share / nginx / www / jeedom / Plugins / script / core / recursos /.
+        > en / usr / share / nginx / www / jeedom / Plugins / script / core / resources /.
         > FYI, el comando SSH para asignar derechos de datos www
         > a un archivo es : vestido de sudo
-        > www-datos:www-datos NOMDUSCRIPT.EXTENSION. Tenga en cuenta que para
-        > ejecutar un script, debe tener derechos de www-datos.
+        > www-data:www-data NOMDUSCRIPT.EXTENSION. Tenga en cuenta que para
+        > ejecutar un script, debe tener derechos de www-data.
 
     -   El botón **editar** : le permite editar usando un editor
         código interno uno de los archivos contenidos en el directorio
@@ -268,9 +268,9 @@ explicaciones :
 
 -   petición :
 
-<!-- -->
-
-    http:// <IP_VERA>:3480 / datos_request?id = y lu_action output_format json = & = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1 & acción = SetLoadLevelTarget y newLoadlevelTarget = 100
+````
+http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
+````
 
 > **punta**
 >
@@ -288,12 +288,14 @@ escenario, ...
 También es posible crear un comando de tipo deslizador colocando el
 etiqueta \ #slider \ # en la solicitud :
 
-    http:// <IP_VERA>:3480 / datos_request?id = y lu_action output_format json = & = 12 y DeviceNum serviceId = urna:UPnP-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+````
+http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+````
 
 > **punta**
 >
 > Si su orden es del tipo de mensaje, puede usar etiquetas
-> \ #mensaje \ # y \ #title \ #, lo mismo para un pedido de color con
+> \ #message \ # y \ #title \ #, lo mismo para un pedido de color con
 > la etiqueta \ #color \ #, o de tipo deslizador con # deslizador # o lista con #seleccionar#
 
 Ejemplo HTTP : Enviar notificación a XBMC 
@@ -312,9 +314,9 @@ entrada.
 
 -   petición :
 
-<!-- -->
-
-    http:// IP_DE_XBMC:8080 / JSONRPC?solicitud = {% 22jsonrpc% 22:% 222,0% 22% 22% 22method:22GUI%.ShowNotification% 22% 22% 22params:{ % 22title 22%:% 22Mouvement% 20Detecté% 22% 22% 22mensaje:% 22Porte 20Entrée% 22%},% 22% 22id:1}
+````
+http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+````
 
 Depende de usted probar esto en un escenario, por ejemplo !
 
@@ -359,12 +361,14 @@ en el botón "Editar", debería obtener el siguiente código :
 
 Este es un script php que se puede reutilizar fuera de Jeedom !
 
-     <?php
-        $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
-        $temp = $temp / 1000;
-        $temp = round($temp,1);
-        echo $ temp
-     ?>
+````
+ <?php
+    $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
+    $temp = $temp / 1000;
+    $temp = round($temp,1);
+    echo $temp
+ ?>
+ ````
 
 nota : concretamente, es la función php "echo" la que le dará al
 valor para Jeedom
@@ -407,26 +411,30 @@ ejemplo :
 
 Recomendación para probar los parámetros en el script php :
 
-     if (isset ($ argv)) {
-     foreach ($ argv como $ arg) {
-     $ argList = explotar (&#39;=&#39;, $ arg);
-     if (isset ($ argList [0]) && isset ($ argList [1])) {
-     $ _GET [$ argList [0]] = $ argList [1];
-             }
-         }
+````
+if (isset($argv)) {
+ foreach ($argv as $arg) {
+     $argList = explode('=', $arg);
+     if (isset($argList[0]) && isset($argList[1])) {
+         $_GET[$argList[0]] = $argList[1];
      }
+ }
+}
+````
 
 Ejemplo XML simple 
 ==================
 
 Aquí está el formato del xml estándar :
 
-    <root>
-        <led0>1</led0>
-        <leds>
-          <led1>toto</led1>
-        </leds>
-    </root>
+````
+<root>
+    <led0>1</led0>
+    <leds>
+      <led1>toto</led1>
+    </leds>
+</root>
+````
 
 Si desea el valor de led0 en la consulta, coloque led0. si
 quieres el valor de led1 que es el hijo de leds que pones
@@ -438,15 +446,17 @@ campo de solicitud.
 Ejemplo complejo de XML 
 ====================
 
-     <root>
-       <led0>1</led0>
-       <leds>
-         <led1>toto</led1>
-       </leds>
-       <leds>
-         <led1>tata</led1>
-       </leds>
-     </root>
+````
+ <root>
+   <led0>1</led0>
+   <leds>
+     <led1>toto</led1>
+   </leds>
+   <leds>
+     <led1>tata</led1>
+   </leds>
+ </root>
+ ````
 
 la sintaxis es :
 
@@ -456,55 +466,57 @@ fila de matriz !
 Ejemplo XML más complejo 
 =========================
 
-    <AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55">
-     <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
-       <Name>Tresa - Ponte Tresa, Rocchetta</Name>
-       <Datum>01.05.2017</Datum>
-       <Zeit>18:50 </Zeit>
-       <Wert>268.56</Wert>
-       <Wert dt="-24h">268.51</Wert>
-       <Wert Typ="delta24">0.051</Wert>
-       <Wert Typ="m24">268.52</Wert>
-       <Wert Typ="max24">268.56</Wert>
-       <Wert Typ="min24">268.50</Wert>
-     </MesPar>
-     <MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02">
-      <Name>Inn - Tarasp</Name>
-      <Datum>01.05.2017</Datum>
-      <Zeit>18:50 </Zeit>
-      <Wert>4.85</Wert>
-      <Wert dt="-24h">7.98</Wert>
-      <Wert Typ="delta24">-3.130</Wert>
-      <Wert Typ="m24">6.15</Wert>
-      <Wert Typ="max24">7.98</Wert>
-      <Wert Typ="min24">4.85</Wert>
-     </MesPar>
-     <MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32">
-      <Name>Doubs - Combe des Sarrasins</Name>
-      <Datum>01.05.2017</Datum>
-      <Zeit>18:00 </Zeit>
-      <Wert>500.65</Wert>
-      <Wert dt="-24h">500.65</Wert>
-      <Wert Typ="delta24">0.000</Wert>
-      <Wert Typ="m24">500.65</Wert>
-      <Wert Typ="max24">500.65</Wert>
-      <Wert Typ="min24">500.64</Wert>
-     </MesPar>
-    </AKT_Data>
+````
+<AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55">
+ <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
+   <Name>Tresa - Ponte Tresa, Rocchetta</Name>
+   <Datum>01.05.2017</Datum>
+   <Zeit>18:50</Zeit>
+   <Wert>268.56</Wert>
+   <Wert dt="-24h">268.51</Wert>
+   <Wert Typ="delta24">0.051</Wert>
+   <Wert Typ="m24">268.52</Wert>
+   <Wert Typ="max24">268.56</Wert>
+   <Wert Typ="min24">268.50</Wert>
+ </MesPar>
+ <MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02">
+  <Name>Inn - Tarasp</Name>
+  <Datum>01.05.2017</Datum>
+  <Zeit>18:50</Zeit>
+  <Wert>4.85</Wert>
+  <Wert dt="-24h">7.98</Wert>
+  <Wert Typ="delta24">-3.130</Wert>
+  <Wert Typ="m24">6.15</Wert>
+  <Wert Typ="max24">7.98</Wert>
+  <Wert Typ="min24">4.85</Wert>
+ </MesPar>
+ <MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32">
+  <Name>Doubs - Combe des Sarrasins</Name>
+  <Datum>01.05.2017</Datum>
+  <Zeit>18:00</Zeit>
+  <Wert>500.65</Wert>
+  <Wert dt="-24h">500.65</Wert>
+  <Wert Typ="delta24">0.000</Wert>
+  <Wert Typ="m24">500.65</Wert>
+  <Wert Typ="max24">500.65</Wert>
+  <Wert Typ="min24">500.64</Wert>
+ </MesPar>
+</AKT_Data>
+````
 
 Para recuperar información del campo Wert del primer bloque:
 
-    MesPar> 0> Wert> 0 que por lo tanto devuelve "268.56 "
+``MesPar>0>Wert>0 qui retourne donc "268.56 "``
 
 Para devolver el siguiente elemento en la "estructura" de Wert, debe
 simplemente indique el número de orden en la estructura. Que da
 pour l'élément '&lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;' le code
 Próximo :
 
-    MesPar> 1> Wert> 2
+``MesPar>1>Wert>2``
 
 Para pasar al siguiente bloque "MyPar", debe cambiar el índice a
-resultarar : el 1 por 2, por ejemplo.
+resultar : el 1 por 2, por ejemplo.
 
 ATENCIÓN : Si en el archivo XML el orden cambia, la solicitud no cambia
 trabaja más. Será necesario reajustar la solicitud según el pedido.
@@ -522,7 +534,7 @@ premium, no la herramienta !
 
 El acceso a este archivo es posible utilizando la siguiente URL :
 
-    http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd = Historia y límite = 3
+``http:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd=history&limit=3``
 
 nota : XXXX es el número de clave API específico de cada SICKBEARD.
 
@@ -535,51 +547,53 @@ bajo Chrome).
 
 Ejemplo de devolución :
 
-     {
-         "datos": [
-             {
-                 "fecha": "2014-09-10 01:37",
-                 "episodio": 4,
-                 "proveedor": "RNT",
-                 "calidad": "TV SD",
-                 "recurso": "XXX",
-                 "recurso_path": "XXXX",
-                 "temporada": 2,
-                 "SHOW_NAME": "Totovaalaplage S2E4",
-                 "estatus": "descochegados",
-                 "tvdbid": XXXXX
-             },
-             {
-                 "fecha": "2014-09-10 01:36",
-                 "episodio": 3,
-                 "proveedor": "RNT",
-                 "calidad": "TV SD",
-                 "recurso": "XXXX",
-                 "recurso_path": "XXX",
-                 "temporada": 2,
-                 "SHOW_NAME": "Totovaalaplage S2E3",
-                 "estatus": "descochegados",
-                 "tvdbid": XXXXX
-             },
-             {
-                 "fecha": "2014-09-10 01:21",
-                 "episodio": 1,
-                 "proveedor": "Cpasbien",
-                 "calidad": "TV SD",
-                 "recurso": "XXXX",
-                 "recurso_path": "XXXX",
-                 "temporada": 1,
-     AQUÍ -> "SHOW_NAME": "Totovaplusauski pero Totovaalaplage S1E1",
-                 "estatus": "arrebatado",
-                 "tvdbid": XXXX
-             }
-         ],
-         "mensaje": "",
-         "resultar": "éxito"
-     }
+````
+ {
+     "data": [
+         {
+             "date": "2014-09-10 01:37",
+             "episode": 4,
+             "provider": "RNT",
+             "quality": "SD TV",
+             "resource": "XXX",
+             "resource_path": "XXXX",
+             "season": 2,
+             "show_name": "Totovaalaplage S2E4",
+             "status": "Downloaded",
+             "tvdbid": XXXXX
+         },
+         {
+             "date": "2014-09-10 01:36",
+             "episode": 3,
+             "provider": "RNT",
+             "quality": "SD TV",
+             "resource": "XXXX",
+             "resource_path": "XXX",
+             "season": 2,
+             "show_name": "Totovaalaplage S2E3",
+             "status": "Downloaded",
+             "tvdbid": XXXXX
+         },
+         {
+             "date": "2014-09-10 01:21",
+             "episode": 1,
+             "provider": "Cpasbien",
+             "quality": "SD TV",
+             "resource": "XXXX",
+             "resource_path": "XXXX",
+             "season": 1,
+ ICI -->     "show_name": "Totovaplusauski pero Totovaalaplage S1E1",
+             "status": "Snatched",
+             "tvdbid": XXXX
+         }
+     ],
+     "message": "",
+     "result": "success"
+ }
+ ````
 
 En el caso de que nos gustaría devolver el show \ _name del 3er
-elemento en php (marcado AQUÍ), sería necesario hacer : datos &gt; 2
+elemento en php (marcado AQUÍ), sería necesario hacer : data &gt; 2
 &gt;show \ _name, el índice de matriz de retorno que comienza en Cero.
 
 En este ejemplo, el botón "Prueba" devolverá "Totovaplusauski
@@ -605,7 +619,7 @@ Aquí intentaremos recuperar el último FML.
 
 Primero que nada tienes que configurar la url :
 
-    http://www.viedemerde.fr
+``http://www.viedemerde.fr``
 
 Entonces tienes que encontrar el "camino" de la última FML. Para hacer esto,
 tienes que ir al sitio y luego hacer clic derecho en el elemento deseado y luego

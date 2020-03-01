@@ -120,7 +120,7 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
         Comme tout équipement Jeedom, vous pouvez activer/désactiver et autre commande.
 
     -   Renommer vos équipements Renommer vos modules et les placer dans les objets souhaités en vouss placer dans les objets souhaités en **ou non l'équipement, ses commandes,…​ ou changer la catégorie** : Dans l'onglet *Commandes*, vous accédez à tous les paramètres des
-        validatedd the CGU developers in your profile on the market,
+        validated the CGU developers in your profile on the market,
         Récupération des historiques.
 
 -   Sondes, capteurs, détecteurs,…​ **A faire sur le** : (Ancien Maître) pour chaque commande
@@ -268,9 +268,9 @@ echo ${MD5FILE}
 
 -   Passer le , nous vous conseillons d'utiliser une becausete en mode inclusion :
 
-<!-- -->
-
-    domaine pour lequel il sera généré:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le module SSL d'apache de la box Jeedom>:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le VirtualHost HTTPS d'apache de la box Jeedom?Configurer un portForwarding des Passer le , nous vous conseillons d'utiliser une becausete en mode inclusions HTTPS sur votre Box:internet pour les rediriger vers votre Box Jeedom:Activation du virtualHost et du module SSL://do.co/le-renew
+````
+domaine pour lequel il sera généré://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
+````
 
 > **existant ou pour un**
 >
@@ -288,7 +288,9 @@ com -d domaine.com
 Vous devez remplacer les paramètres <email@domaine
 com> et domaine.com :
 
-    domaine pour lequel il sera généré:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le module SSL d'apache de la box Jeedom>:Configurer votre compte Jeedom Market (*Configuration ⇒ Mises à jour le VirtualHost HTTPS d'apache de la box Jeedom?Configurer un portForwarding des Passer le , nous vous conseillons d'utiliser une becausete en mode inclusions HTTPS sur votre Box:internet pour les rediriger vers votre Box Jeedom:Activation du virtualHost et du module SSL:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+````
+domaine pour lequel il sera généré://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+````
 
 > **existant ou pour un**
 >
@@ -312,9 +314,9 @@ conf.
 
 -   Passer le , nous vous conseillons d'utiliser une becausete en mode inclusion :
 
-<!-- -->
-
-    domaine pour lequel il sera généré:commande:a2dissite default-ssl?Pensez à reporter le code par:Attention il est nécessaire d'ouvrir le port 80 sur le routeur (FAI) ci-dessous dans le virtualHost créé par le script de:renouvellement.SSLA faire sur le +StdEnvVars:{ 22title% 22%:Cette commande n'est à utiliser que si vous disposez d'un serveur web:Nginx:1}
+````
+domaine pour lequel il sera généré://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+````
 
 com -d domaine !
 
@@ -359,12 +361,14 @@ Ce script vérifie :
 
 l'expiration du certificat Renommer vos modules et les placer dans les objets souhaités en vous renouvelle automatiquement si la !
 
-     <?date d'expiration est à moins de 30 jours
-        $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
-        $temp = $temp / 1000;
-        $temp = round($temp,1);
-        curl -L -o /usr/local/sbin/le-renew domaine pour lequel il sera généré
-     ?>
+````
+ <?php
+    $temp = shell_exec("cat /sys/class/thermal/thermal_zone0/temp");
+    $temp = $temp / 1000;
+    $temp = round($temp,1);
+    echo $temp
+ ?>
+ ````
 
 //do.co/le-renew : chmod +x /usr/local/sbin/le-renew
 le-renew domaine.com
@@ -407,26 +411,30 @@ ctrl+x -> Entrée     (permet de quitter) :
 
 Prérequis :
 
-     if (isset ($ argv)) {
-     foreach ($ argv as $ arg) {
-     Etre connecté à internet
-     if (isset ($ argList [0]) &amp;&amp; isset ($ argList [1])) {
-     En cas de soucis l'équipe Jeedom ne pourra être tenue responsable et
-             }
-         }
+````
+if (isset($argv)) {
+ foreach ($argv as $arg) {
+     $argList = explode('=', $arg);
+     if (isset($argList[0]) && isset($argList[1])) {
+         $_GET[$argList[0]] = $argList[1];
      }
+ }
+}
+````
 
 Attention certains , nous vous conseillons d'utiliser une becausetes non officiels ne sont pas compatibles 
 ==================
 
 Apache, renseignez-vous bien avant :
 
-    <root>
-        <led0>1</led0>
-        <leds>
-          <led1>toto</led1>
-        </leds>
-    </root>
+````
+<root>
+    <led0>1</led0>
+    <leds>
+      <led1>toto</led1>
+    </leds>
+</root>
+````
 
 Comment faire
 Désactivation des services Jeedom et nginx
@@ -438,15 +446,17 @@ Il faut.
 ensuite, dans le moteur de tâches, désactiver toutes les tâches (il y un 
 ====================
 
-     <root>
-       <led0>1</led0>
-       <leds>
-         <led1>toto</led1>
-       </leds>
-       <leds>
-         <led1>tata</led1>
-       </leds>
-     </root>
+````
+ <root>
+   <led0>1</led0>
+   <leds>
+     <led1>toto</led1>
+   </leds>
+   <leds>
+     <led1>tata</led1>
+   </leds>
+ </root>
+ ````
 
 bouton de désactivation générale) et dans les scénarios, désactiver tous :
 
@@ -456,52 +466,54 @@ systemctl stop cron !
 systemctl stop nginx 
 =========================
 
-    <AKT_Data ID="SMS-Liste" ZeitSt="01.05.systemctl stop mysql:55">
-     <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
-       <Name>Tresa - Ponte Tresa, Rocchetta</Name>
-       <Datum>01.05.2017</Datum>
-       <Zeit>18:mkdir -p /var/www/html/log>
-       <Wert>268.56</Wert>
-       <Wert dt="-24h">268.51</Wert>
-       <Wert Typ="delta24">0.051</Wert>
-       <Wert Typ="m24">268.52</Wert>
-       <Wert Typ="max24">268.56</Wert>
-       <Wert Typ="min24">268.50</Wert>
-     </MesPar>
-     <MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02">
-      <Name>Inn - Tarasp</Name>
-      <Datum>01.05.2017</Datum>
-      <Zeit>18:mkdir -p /var/www/html/log>
-      <Wert>4.85</Wert>
-      <Wert dt="-24h">7.98</Wert>
-      <Wert Typ="delta24">-3.130</Wert>
-      <Wert Typ="m24">6.15</Wert>
-      <Wert Typ="max24">7.98</Wert>
-      <Wert Typ="min24">4.85</Wert>
-     </MesPar>
-     <MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32">
-      <Name>Doubs - Combe des Sarrasins</Name>
-      <Datum>01.05.2017</Datum>
-      <Zeit>18:apt-get -y install ntp ca-certificates unzip curl sudo>
-      <Wert>500.65</Wert>
-      <Wert dt="-24h">500.65</Wert>
-      <Wert Typ="delta24">0.000</Wert>
-      <Wert Typ="m24">500.65</Wert>
-      <Wert Typ="max24">500.65</Wert>
-      <Wert Typ="min24">500.64</Wert>
-     </MesPar>
-    </AKT_Data>
+````
+<AKT_Data ID="SMS-Liste" ZeitSt="01.05.2017 18:55">
+ <MesPar DH="HBCHa" StrNr="2167" Typ="02" Var="02">
+   <Name>Tresa - Ponte Tresa, Rocchetta</Name>
+   <Datum>01.05.2017</Datum>
+   <Zeit>18:50</Zeit>
+   <Wert>268.56</Wert>
+   <Wert dt="-24h">268.51</Wert>
+   <Wert Typ="delta24">0.051</Wert>
+   <Wert Typ="m24">268.52</Wert>
+   <Wert Typ="max24">268.56</Wert>
+   <Wert Typ="min24">268.50</Wert>
+ </MesPar>
+ <MesPar DH="HBCHa" StrNr="2265" Typ="03" Var="02">
+  <Name>Inn - Tarasp</Name>
+  <Datum>01.05.2017</Datum>
+  <Zeit>18:50</Zeit>
+  <Wert>4.85</Wert>
+  <Wert dt="-24h">7.98</Wert>
+  <Wert Typ="delta24">-3.130</Wert>
+  <Wert Typ="m24">6.15</Wert>
+  <Wert Typ="max24">7.98</Wert>
+  <Wert Typ="min24">4.85</Wert>
+ </MesPar>
+ <MesPar DH="HBCHa" StrNr="2270" Typ="02" Var="32">
+  <Name>Doubs - Combe des Sarrasins</Name>
+  <Datum>01.05.2017</Datum>
+  <Zeit>18:00</Zeit>
+  <Wert>500.65</Wert>
+  <Wert dt="-24h">500.65</Wert>
+  <Wert Typ="delta24">0.000</Wert>
+  <Wert Typ="m24">500.65</Wert>
+  <Wert Typ="max24">500.65</Wert>
+  <Wert Typ="min24">500.64</Wert>
+ </MesPar>
+</AKT_Data>
+````
 
-apt-get -y install apache2 date d'expiration est à moins de 30 jours5 mysql-client mysql-server libapache2-mod-date d'expiration est à moins de 30 jours5:
+apt-get -y install apache2 php5 mysql-client mysql-server libapache2-mod-php5:
 
-    apt-get -y install date d'expiration est à moins de 30 jours5-cli date d'expiration est à moins de 30 jours5-common date d'expiration est à moins de 30 jours5-curl date d'expiration est à moins de 30 jours5-fpm date d'expiration est à moins de 30 jours5-json date d'expiration est à moins de 30 jours5-mysql date d'expiration est à moins de 30 jours5-gd.56 "
+``MesPar>0>Wert>0 qui retourne donc "268.56 "``
 
 //raw.githubusercontent
 com/jeedom/core/stable/install/apache_security -O /etc/apache2/conf-available/security.conf. rm /etc/apache2/conf-enabled/security.conf
 pour l'élément '&lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;' le code
 rm /etc/apache2/conf-available/other-vhosts-access-log.conf :
 
-    rm /etc/apache2/conf-enabled/other-vhosts-access-log.conf
+``MesPar>1>Wert>2``
 
 systemctl restart apache2
 rm /var/www/html/index.html : //do.co/le-renew.
@@ -522,7 +534,7 @@ premium, not the tool !
 
 Access to this file is possible using the following URL :
 
-    domaine pour lequel il sera généré:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd = history &amp; limit = 3
+``domaine pour lequel il sera généré:// <IP_DELAMACHINEQUIEBERGESICKBEARD>:8083 / api / XXXX /?cmd=history&limit=3``
 
 //do.co/le-renew : XXXX is the API key number specific to each SICKBEARD.
 
@@ -530,56 +542,58 @@ First of all, before launching into the configuration of the script , nous vous 
 JSON, it is a TTS=$1 of correctly identifying the infos to recover., because
 here we will integrate a notion of array in the returns.
 
-Validated the display of information from your browser (test
+Validate the display of information from your browser (test
 under Chrome).
 
 Pour ce faire, voici lesample of return :
 
-     {
-         "data": [
-             {
-                 "dated": "2014-09-10 01:37",
-                 "episode": 4,
-                 "provider": "RNT",
-                 "quality": "SD TV",
-                 "resource": "XXX",
-                 "resource_path": "XXXX",
-                 "season": 2,
-                 "SHOW_NAME": "Totovaalaplage S2E4",
-                 "Status": "Downloaded",
-                 "tvdbid": XXXXX
-             },
-             {
-                 "dated": "2014-09-10 01:36",
-                 "episode": 3,
-                 "provider": "RNT",
-                 "quality": "SD TV",
-                 "resource": "XXXX",
-                 "resource_path": "XXX",
-                 "season": 2,
-                 "SHOW_NAME": "Totovaalaplage S2E3",
-                 "Status": "Downloaded",
-                 "tvdbid": XXXXX
-             },
-             {
-                 "dated": "2014-09-10 01:21",
-                 "episode": 1,
-                 "provider": "Cpasbien",
-                 "quality": "SD TV",
-                 "resource": "XXXX",
-                 "resource_path": "XXXX",
-                 "season": 1,
-     HERE -&gt; &quot;SHOW_NAME": "Totovaplusauski but Totovaalaplage S1E1",
-                 "Status": "Snatched",
-                 "tvdbid": XXXX
-             }
-         ],
-         "message": "",
-         "result": "success"
-     }
+````
+ {
+     "data": [
+         {
+             "date": "2014-09-10 01:37",
+             "episode": 4,
+             "provider": "RNT",
+             "quality": "SD TV",
+             "resource": "XXX",
+             "resource_path": "XXXX",
+             "season": 2,
+             "show_name": "Totovaalaplage S2E4",
+             "status": "Downloaded",
+             "tvdbid": XXXXX
+         },
+         {
+             "date": "2014-09-10 01:36",
+             "episode": 3,
+             "provider": "RNT",
+             "quality": "SD TV",
+             "resource": "XXXX",
+             "resource_path": "XXX",
+             "season": 2,
+             "show_name": "Totovaalaplage S2E3",
+             "status": "Downloaded",
+             "tvdbid": XXXXX
+         },
+         {
+             "date": "2014-09-10 01:21",
+             "episode": 1,
+             "provider": "Cpasbien",
+             "quality": "SD TV",
+             "resource": "XXXX",
+             "resource_path": "XXXX",
+             "season": 1,
+ ICI -->     "show_name": "Totovaplusauski but Totovaalaplage S1E1",
+             "status": "Snatched",
+             "tvdbid": XXXX
+         }
+     ],
+     "message": "",
+     "result": "success"
+ }
+ ````
 
 In the event that we would like to return the show \ _name of the 3rd
-element in date d'expiration est à moins de 30 jours (marked HERE), it would be necessary to do : data &gt; 2
+element in php (marked HERE), it would be necessary to do : data &gt; 2
 &gt;show \ _name, the return array index starting at Zero.
 
 In this example, the &quot;Test&quot; button will return &quot;Totovaplusauski
@@ -605,7 +619,7 @@ Here we will try to retrieve the last FML.
 
 First of all you have to configure the url :
 
-    domaine pour lequel il sera généré://www.viedemerde.fr
+``domaine pour lequel il sera généré://www.viedemerde.fr``
 
 Then you have to find the &quot;path&quot; of the last FML. To do this,
 you have to go to the site then right click on the desired item then
@@ -624,12 +638,12 @@ So we get :
 
 ![script10](../images/script10.PNG)
 
-For a real-time updated, it is possible to put a cron
-updated.
+For a real-time update, it is possible to put a cron
+update.
 
 > **existant ou pour un**
 >
-> When installing an updated cron, Jeedom will
+> When installing an update cron, Jeedom will
 > automatically check the Event box, this is completely normal.
 
 Here then you can imagine a scenario which sends you by SMS
