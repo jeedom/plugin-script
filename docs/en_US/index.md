@@ -7,7 +7,7 @@ toucher à votre
 existant
 En déplaçant évidemment.
 
-![script1] (../ images / script1.PNG)
+![script1](../images/script1.PNG)
 
 au fur et à mesure les éventuels contrôleurs de l'un à l'autre
 Si vous utiliser votre RaspberryPi existant, veuillez être certain.
@@ -18,17 +18,17 @@ d'avoir suivi le chapitre sauvegarde de cette documentation
 si vous utilisez le Raspberry Pi existant qui est actuellement un
 , nous vous conseillons d'utiliser une carte :
 
-![script2] (../ images / script2.PNG)
+![script2](../images/script2.PNG)
 
 SD/microSD neuve
 Cela vous permettra de faire retour arrière :
 
-![Créez un fichier pour y écrire le script (son emplacement est libre)3] (../ images / script3.PNG)
+![script3](../images/script3.PNG)
 
 facilement si besoin. Installer un nouveau Jeedom sur une nouvelle carte SD (Que cela soit
 pour mettre dans votre :
 
-![script4] (../ images / script4.PNG)
+![script4](../images/script4.PNG)
 
 > **existant ou pour un**
 >
@@ -151,7 +151,7 @@ Vérifier dans la page Santé que la configuration réseau interne (et :
 > Pas de solution facile à ce niveau, il faudra avoir deux. onglets/fenêtres d'ouverts sur votre navigateur
 > Ouvrir les commandes des équipements de l'ancien : dans un
 
-![script5] (../ images / script5.PNG)
+![script5](../images/script5.PNG)
 
 onglet (Jeedom Cible).
 
@@ -180,7 +180,7 @@ onglet (Jeedom Cible).
 l'identifiant étant kartoz 
 =============
 
-![script8] (../ images / script8.PNG)
+![script8](../images/script8.PNG)
 
 Ajout d'un moteur de voix
 Allez sur /www/cgi-bin/ et editez le fichier tts.
@@ -192,7 +192,7 @@ TTS=$1.
 MD5FILE=$(echo "$TTS" | md5sum | cut -d ' ' -f 1) 
 ============
 
-![script6] (../ images / script6.PNG)
+![script6](../images/script6.PNG)
 
 eval $(echo "curl -A '${UA}' -o $CNF_DATADIR/Tmp/${MD5FILE}
 mp3 'domaine pour lequel il sera généré.
@@ -209,7 +209,7 @@ TTS=$1.
 "1" ]; then 
 =============
 
-![script7] (../ images / script7.PNG)
+![script7](../images/script7.PNG)
 
 Log "[TTS]"  "Playing sound ${MD5FILE}.mp3"
 PlaySound $CNF_DATADIR/Tmp/${MD5FILE}.mp3.
@@ -573,7 +573,7 @@ Pour ce faire, voici lesample of return :
                  "Status": "Snatched &quot;
                  "tvdbid": XXXX
              }
-         ],
+         ]
          "message": "",
          "result": "success"
      }
@@ -611,7 +611,7 @@ Then you have to find the &quot;path&quot; of the last FML. To do this,
 you have to go to the site then right click on the desired item then
 inspect the item, we get :
 
-![script9] (../ images / script9.PNG)
+![script9](../images/script9.PNG)
 
 Here it is the most complex part and which requires a little analysis. Here
 my text is in an &quot;a&quot; tag which is in a p-type element
@@ -622,7 +622,7 @@ contains. So I have : "div.post.article:first p:first a".
 
 So we get :
 
-![script10] (../ images / script10.PNG)
+![script10](../images/script10.PNG)
 
 For a real-time updated, it is possible to put a cron
 updated.
