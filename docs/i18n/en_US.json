@@ -287,7 +287,6 @@
         "remplacez \"Porte%20Entrée\" par": "listen 443 ssl;",
         "Température%20extérieur%20": "Temperature%% 20 20extérieur",
         "%20\\#\\[EXTERIEUR\\]\\[EXTERIEUR\\]\\[TEMPERATURE\\]\\#%20": "% 20 \\ # \\ [OUTER \\] \\ [OUTER \\] \\ [TEMPERATURE \\] \\% # 20",
-        "Testez sur un scénario *\\[EXTERIEUR\\]\\[EXTERIEUR\\]\\[TEMPERATURE\\]* <": "ssl_session_timeout 5m;",
         "15 par exemple": "Et enfin redémarrez le serveur Nginx",
         "Action": "service nginx restart",
         "Lancez le script, via un équipement virtuel, lié à votre script": "Le renouvellement se fait avec la commande",
