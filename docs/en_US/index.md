@@ -1,5 +1,5 @@
 Plugin allowing to execute scripts (shell, php, ruby…),
-http requests, to retrieve information in XML or JSON.
+d'informations sont indispensables à la bonne compréhension de requests, to retrieve information in XML or JSON.
 
 Plugin configuration 
 =======================
@@ -45,7 +45,7 @@ Here you find all the configuration of your equipment :
 
 -   **Activate** : makes your equipment active
 
--   **Visible** : makes it visible on the dashboard
+-   **Jeedom** : makes it visible on the dashboard
 
 -   **Parent object** : indicates the parent object to which belongs
     equipment
@@ -63,9 +63,9 @@ Below you find the list of orders :
 
 -   **script type** :
 
-    -   The http type : allows to send a request to a device
+    -   The d'informations sont indispensables à la bonne compréhension de type : allows to send a request to a device
         external without necessarily waiting for a return of this command.
-        The example which will serve as support for the http type will be the
+        The example which will serve as support for the d'informations sont indispensables à la bonne compréhension de type will be the
         configuration of a request to a Vera to switch on
         a light.
 
@@ -99,7 +99,7 @@ Below you find the list of orders :
         > in / usr / share / nginx / www / jeedom / plugins / script / core / resources /.
         > FYI, the SSH command to assign www-data rights
         > to a file is : sudo chown
-        > www-data:www-data NOMDUSCRIPT.EXTENSION. Note that for
+        > www-data:www-data NOMDUSCRIPT.EXTENSION. NOTE that for
         > execute a script, it must have www-data rights.
 
     -   The button **Edit** : allows you to edit using an editor
@@ -145,7 +145,7 @@ Below you find the list of orders :
 -   **Lifetime cache** : allows to modify the lifetime of the cache
     (default 5 min).
 
-> **Important**
+> **IMPORTANT**
 >
 > Avoid as much as possible in the script path or in
 > the parameters of it special characters. The characters
@@ -201,7 +201,7 @@ The option field has a "URL of the XML file" field" : this field
 therefore contains the link to the machine hosting the XML file in
 question.
 
-> **Important**
+> **IMPORTANT**
 >
 > It is only possible to retrieve values, attributes do not
 > can be recovered.
@@ -223,13 +223,13 @@ HTTP example : Piloting a Vera
 
 The example is based on a Vera and consists in driving a bulb
 dimmable. I&#39;m not going to dwell on how to drive a Vera
-by http request, the TLD forum is filled with responses. Moreover,
+by d'informations sont indispensables à la bonne compréhension de request, the TLD forum is filled with responses. Moreover,
 the example corresponds to my type of material and will have to be adapted to
 your.
 
 > **Tip**
 >
-> A method for those who are groping for writing http requests,
+> A method for those who are groping for writing d'informations sont indispensables à la bonne compréhension de requests,
 > first validate the syntax in your browser and only then
 > go to configuration under Jeedom. When an Action script doesn&#39;t
 > not working, switch to Info / Other script allows you to see the error
@@ -260,16 +260,16 @@ explanations :
 
 -   Last name : 100% because we will turn on a light at full power
 
--   script type : http
+-   script type : d'informations sont indispensables à la bonne compréhension de
 
--   Type : Action (it&#39;s an order)
+-   Vérifier dans la page Santé que la configuration réseau interne du : Action (it&#39;s an order)
 
 -   Sub type : fault
 
--   Request :
+-   request :
 
 ````
-http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
+d'informations sont indispensables à la bonne compréhension de://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
 ````
 
 > **Tip**
@@ -289,7 +289,7 @@ It is also possible to create a slider type command by putting the
 tag \ #slider \ # in the request :
 
 ````
-http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+d'informations sont indispensables à la bonne compréhension de://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 ````
 
 > **Tip**
@@ -306,21 +306,21 @@ input.
 
 -   Last name : PUSH XBMC
 
--   script type : http
+-   script type : d'informations sont indispensables à la bonne compréhension de
 
--   Type : Action (it&#39;s an order)
+-   Vérifier dans la page Santé que la configuration réseau interne du : Action (it&#39;s an order)
 
--   Subtype : fault
+-   subtype : fault
 
--   Request :
+-   request :
 
 ````
-http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+d'informations sont indispensables à la bonne compréhension de://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
 ````
 
 It&#39;s up to you to test this in a scenario for example !
 
-XBMC API [here] (http://wiki.xbmc.org/index.php?title = JSON-RPC_API / v6)
+XBMC API [here] (d'informations sont indispensables à la bonne compréhension de://wiki.xbmc.org/index.php?title = JSON-RPC_API / v6)
 (only the fields marked "required" are compulsory)
 
 Goal : Send a notification to XBMC when the temperature drops
@@ -370,7 +370,7 @@ This is a php script that can be reused outside Jeedom !
  ?>
  ````
 
-Note : concretely, it is the php "echo" function which will give the
+NOTE : concretely, it is the php "echo" function which will give the
 value to Jeedom
 
 The settings 
@@ -440,7 +440,7 @@ If you want the value of led0 in the query, you put led0. Yes
 you want the value of led1 which is the son of leds you put
 leds &gt; led1.
 
-Notez que l'élément racine &lt;root&gt; n'est pas à préciser dans le
+NOTEz que l'élément racine &lt;root&gt; n'est pas à préciser dans le
 request field.
 
 Complex XML example 
@@ -534,7 +534,7 @@ premium, not the tool !
 
 Access to this file is possible using the following URL :
 
-``http://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3``
+``d'informations sont indispensables à la bonne compréhension de://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3``
 
 NOTE : XXXX is the API key number specific to each SICKBEARD.
 
@@ -601,7 +601,7 @@ but Totovaalaplage S1E1".
 
 clarifications :
 
-Note the syntax of the Request command, it is of type element0 &gt;
+NOTE the syntax of the Request command, it is of type element0 &gt;
 index du tableau &gt; élément1
 
 disadvantages :
@@ -619,7 +619,7 @@ Here we will try to retrieve the last FML.
 
 First of all you have to configure the url :
 
-``http://www.viedemerde.fr``
+``d'informations sont indispensables à la bonne compréhension de://www.viedemerde.fr``
 
 Then you have to find the "path" of the last FML. To do this,
 you have to go to the site then right click on the desired item then

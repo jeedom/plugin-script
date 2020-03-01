@@ -346,7 +346,7 @@ Das Schönste, aber nicht das Einfachste zu erklären.
 
 Voraussetzungen : wissen, wie man ein Skript in PHP, Python oder Ruby entwickelt.
 
->**WICHTIG**
+>**wichtig**
 >
 > Die Erweiterung Ihres Skripts muss unbedingt dem Typ entsprechen. ex .PHP für einen PHP-Typ. In der Tat basiert Jeedom auf der Erweiterung des Skripts für den Start der ausführbaren Datei (php if .PHP, Python wenn .py ....)
 
@@ -536,7 +536,7 @@ Der Zugriff auf diese Datei ist über die folgende URL möglich :
 
 ``http://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3``
 
-HINWEIS : XXXX ist die für jeden SICKBEARD spezifische API-Schlüsselnummer.
+Notiz : XXXX ist die für jeden SICKBEARD spezifische API-Schlüsselnummer.
 
 Zunächst, bevor Sie mit der Konfiguration des Skript-Plugins beginnen
 JSON, es geht darum, die wiederherzustellenden Informationen korrekt zu identifizieren., Auto

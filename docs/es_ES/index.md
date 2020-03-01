@@ -346,7 +346,7 @@ El más bonito pero no el más fácil de explicoche..
 
 Requisitos previos : saber desarrollar un script en php, python o ruby.
 
->**IMPORTANTE**
+>**importante**
 >
 > La extensión de su script debe coincidir absolutamente con su tipo. ex .php para un tipo php. De hecho, Jeedom se basa en la extensión del script para que se ejecute el ejecutable (php if .php, python si .py ....)
 
@@ -536,7 +536,7 @@ El acceso a este archivo es posible utilizando la siguiente URL :
 
 ``http://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3``
 
-NOTA : XXXX es el número de clave API específico de cada SICKBEARD.
+nota : XXXX es el número de clave API específico de cada SICKBEARD.
 
 En primer lugar, antes de iniciar la configuración del complemento de script
 JSON, se trata de identificoche correctamente la información para recuperar., coche
