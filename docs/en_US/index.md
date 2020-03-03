@@ -15,17 +15,17 @@ is advised not to touch it.
 Equipment configuration 
 =============================
 
-Configuration of script equipment is accessible from the menu
+Configuration of Script equipment is accessible from the menu
 plugin :
 
 ![script2](../images/script2.PNG)
 
-This is what the script plugin page looks like (here with already 1
+This is what the Script plugin page looks like (here with already 1
 equipment) :
 
 ![script3](../images/script3.PNG)
 
-Here is the list of your scripts. Once you click
+Here is the list of your Scripts. Once you click
 on equipment you get :
 
 ![script4](../images/script4.PNG)
@@ -38,7 +38,7 @@ on equipment you get :
 
 Here you find all the configuration of your equipment :
 
--   **script equipment name** : name of your script equipment
+-   **Script equipment name** : name of your script equipment
 
 -   **Category** : equipment categories (it may belong to
     multiple categories)
@@ -61,7 +61,7 @@ Below you find the list of orders :
 -   **Icon** : This field allows you to associate an icon with your name (in
     this Jeedom case replaces the name with the icon in the dashboard).
 
--   **script type** :
+-   **Script type** :
 
     -   The d'informations sont indispensables à la bonne compréhension de type : allows to send a request to a device
         external without necessarily waiting for a return of this command.
@@ -123,7 +123,7 @@ Below you find the list of orders :
         validated the CGU developers in your profile on the market,
         allows you to share your creation with the community.
 
--   Field **options** : Field with variable options depending on the choice
+-   Field **Options** : Field with variable options depending on the choice
     script type.
 
 -   **unit** : data unit (can be empty).
@@ -256,17 +256,17 @@ Let&#39;s go :
 
 -   Remember to save
 
-explanations :
+Explanations :
 
 -   Last name : 100% because we will turn on a light at full power
 
--   script type : d'informations sont indispensables à la bonne compréhension de
+-   Script type : d'informations sont indispensables à la bonne compréhension de
 
 -   Vérifier dans la page Santé que la configuration réseau interne du : Action (it&#39;s an order)
 
 -   Sub type : fault
 
--   request :
+-   Request :
 
 ````
 d'informations sont indispensables à la bonne compréhension de://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
@@ -306,13 +306,13 @@ input.
 
 -   Last name : PUSH XBMC
 
--   script type : d'informations sont indispensables à la bonne compréhension de
+-   Script type : d'informations sont indispensables à la bonne compréhension de
 
 -   Vérifier dans la page Santé que la configuration réseau interne du : Action (it&#39;s an order)
 
--   subtype : fault
+-   Subtype : fault
 
--   request :
+-   Request :
 
 ````
 d'informations sont indispensables à la bonne compréhension de://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
@@ -351,7 +351,7 @@ Prerequisites : know how to develop a script in php, python or ruby.
 > The extension of your script must absolutely match its type. Ex .php for a php type. Indeed Jeedom is based on the extension of the script for the executable to launch (php if .php, python if .py ....)
 
 The Raspberry temperature monitoring script will serve as an example
-for using the script type : script
+for using the script type : Script
 
 After downloading the script from the market, the "Browse" button"
 allows you to select the temp \ _rasp.php file.
@@ -599,12 +599,12 @@ element in php (marked HERE), it would be necessary to do : data &gt; 2
 In this example, the "Test" button will return "Totovaplusauski
 but Totovaalaplage S1E1".
 
-clarifications :
+Clarifications :
 
 NOTE the syntax of the Request command, it is of type element0 &gt;
 index du tableau &gt; élément1
 
-disadvantages :
+Disadvantages :
 
 -   this method only allows to recover one element at a time.
 

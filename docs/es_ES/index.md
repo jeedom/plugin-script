@@ -15,12 +15,12 @@ se aconseja no tocochelo.
 Configuración del equipo 
 =============================
 
-Se puede acceder a la configuración del equipo guión desde el menú
+Se puede acceder a la configuración del equipo Guión desde el menú
 plugin :
 
 ![script2](../images/script2.PNG)
 
-Así es como se ve la página del complemento de guión (aquí ya con 1
+Así es como se ve la página del complemento de Guión (aquí ya con 1
 equipos) :
 
 ![script3](../images/script3.PNG)
@@ -30,7 +30,7 @@ en el equipo que obtienes :
 
 ![script4](../images/script4.PNG)
 
-> **punta**
+> **Punta**
 >
 > Como en muchos lugares de Jeedom, coloca el mouse en el extremo izquierdo
 > abre un menú de acceso rápido (puedes
@@ -38,14 +38,14 @@ en el equipo que obtienes :
 
 Aquí encontrarás toda la configuración de tu equipo :
 
--   **apellidobre del equipo de script** : nombre de su equipo de script
+-   **Apellidobre del equipo de script** : nombre de su equipo de script
 
--   **categoría** : categorías de equipos (puede pertenecer a
+-   **Categoría** : categorías de equipos (puede pertenecer a
     categorías múltiples)
 
 -   **Activar** : activa su equipo
 
--   **visible** : lo hace visible en el tablero
+-   **Visible** : lo hace visible en el tablero
 
 -   **Objeto padre** : indica el objeto padre al que pertenece
     equipo
@@ -55,13 +55,13 @@ Aquí encontrarás toda la configuración de tu equipo :
 
 A continuación encontrará la lista de pedidos. :
 
--   **apellido** : Este campo contiene el nombre que desea dar a
+-   **Apellido** : Este campo contiene el nombre que desea dar a
     su pedido / información.
 
--   **icono** : Este campo le permite asociar un icono con su nombre (en
+-   **Icono** : Este campo le permite asociar un icono con su nombre (en
     este caso Jeedom reemplaza el nombre con el ícono en el tablero).
 
--   **puntao de script** :
+-   **Puntao de script** :
 
     -   El tipo http : permite enviar una solicitud a un dispositivo
         externo sin necesariamente esperar el regreso de este comando.
@@ -74,7 +74,7 @@ A continuación encontrará la lista de pedidos. :
         el script será la configuración del script de monitoreo de temperatura
         frambuesa disponible en el mercado.
 
-    -   puntao XML : permite recuperar información codificada en
+    -   Puntao XML : permite recuperar información codificada en
         XML desde equipos remotos. El ejemplo que servirá como
         El soporte de tipo XML será la configuración del script para
         interrogar un dispositivo ecológico.
@@ -93,7 +93,7 @@ A continuación encontrará la lista de pedidos. :
         "recorrer" : le permite seleccionar el archivo contenido en el
         archivo interno en Jeedom.
 
-        > **punta**
+        > **Punta**
         >
         > Este archivo es accesible en SSH
         > en / usr / share / nginx / www / jeedom / plugins / script / core / resources /.
@@ -102,28 +102,28 @@ A continuación encontrará la lista de pedidos. :
         > www-data:www-data NOMDUSCRIPT.EXTENSION. Tenga en cuenta que para
         > ejecutar un script, debe tener derechos de www-data.
 
-    -   El botón **editar** : le permite editar usando un editor
+    -   El botón **Editar** : le permite editar usando un editor
         código interno uno de los archivos contenidos en el directorio
         permitiendo el acceso al código del archivo.
 
-    -   El botón **nuevo** : permite crear un archivo de comando.
+    -   El botón **Nuevo** : permite crear un archivo de comando.
 
-        > **punta**
+        > **Punta**
         >
         > No olvide ingresar el nombre del archivo, así como su
         > extensión completa bajo pena de ver su excelente script no
         > no trabajo. Sin extensión, Jeedom no sabrá
         > reconocer el idioma asociado con su archivo. CF :
-        > generalidad
+        > Generalidad
 
-    -   El botón **remove** : permite eliminar un archivo
+    -   El botón **Remove** : permite eliminar un archivo
         de encochego.
 
     -   El botón **Compartir, repartir** : uno de los más importantes, y después
         Validado los desarrolladores de CGU en su perfil en el mercado,
         le permite compartir su creación con la comunidad.
 
--   El campo **opciones** : Campo con opciones variables dependiendo de la elección.
+-   El campo **Opciones** : Campo con opciones variables dependiendo de la elección.
     tipo de script.
 
 -   **unidad** : unidad de datos (puede estar vacía).
@@ -145,7 +145,7 @@ A continuación encontrará la lista de pedidos. :
 -   **Caché de por vida** : permite modificoche la vida útil del caché
     (predeterminado 5 min).
 
-> **importante**
+> **Importante**
 >
 > Evite tanto como sea posible en la ruta del script o en
 > los parámetros de sus cocheacteres especiales. Los cocheacteres
@@ -201,7 +201,7 @@ El campo de opción tiene un campo "URL del archivo XML"" : este campo
 por lo tanto contiene el enlace a la máquina que aloja el archivo XML en
 pregunta.
 
-> **importante**
+> **Importante**
 >
 > Solo es posible recuperar valores, los atributos no
 > puede ser recuperado.
@@ -227,7 +227,7 @@ por solicitud http, el foro de TLD está lleno de respuestas. De más,
 el ejemplo corresponde a mi tipo de material y tendrá que adaptarse a
 suyo.
 
-> **punta**
+> **Punta**
 >
 > Un método para quienes buscan a tientas escribir solicitudes http,
 > primero valide la sintaxis en su navegador y solo entonces
@@ -256,23 +256,23 @@ Vamos a ir :
 
 -   Recuerda guardar
 
-explicaciones :
+Explicaciones :
 
--   apellido : 100% porque prenderemos una luz a plena potencia
+-   Apellido : 100% porque prenderemos una luz a plena potencia
 
--   puntao de script : http
+-   Puntao de script : http
 
--   tipo : Acción (es una orden)
+-   Puntao : Acción (es una orden)
 
 -   Subtipo : culpa
 
--   petición :
+-   Petición :
 
 ````
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
 ````
 
-> **punta**
+> **Punta**
 >
 > el "100" al final de la solicitud corresponde al porcentaje de potencia
 > para asignar, así que ponga "0" al final de la solicitud corresponde a
@@ -292,7 +292,7 @@ etiqueta \ #slider \ # en la solicitud :
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 ````
 
-> **punta**
+> **Punta**
 >
 > Si su orden es del tipo de mensaje, puede usar etiquetas
 > \ #message \ # y \ #title \ #, lo mismo para un pedido de color con
@@ -304,15 +304,15 @@ Ejemplo HTTP : Enviar notificación a XBMC
 Objetivo : Enviar notificación a XBMC al abrir una puerta
 entrada.
 
--   apellido : EMPUJE XBMC
+-   Apellido : EMPUJE XBMC
 
--   puntao de script : http
+-   Puntao de script : http
 
--   tipo : Acción (es una orden)
+-   Puntao : Acción (es una orden)
 
--   subtipo : culpa
+-   Subtipo : culpa
 
--   petición :
+-   Petición :
 
 ````
 http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
@@ -336,7 +336,7 @@ Toma el ejemplo de arriba :
 Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
 15 por ejemplo
 
-acción : Inicie el script, a través de un equipo virtual, vinculado a su script
+Acción : Inicie el script, a través de un equipo virtual, vinculado a su script
 !
 
 Ejemplo SCRIPT 
@@ -346,14 +346,14 @@ El más bonito pero no el más fácil de explicoche..
 
 Requisitos previos : saber desarrollar un script en php, python o ruby.
 
->**importante**
+>**Importantee**
 >
-> La extensión de su script debe coincidir absolutamente con su tipo. ex .php para un tipo php. De hecho, Jeedom se basa en la extensión del script para que se ejecute el ejecutable (php if .php, python si .py ....)
+> La extensión de su script debe coincidir absolutamente con su tipo. Ex .php para un tipo php. De hecho, Jeedom se basa en la extensión del script para que se ejecute el ejecutable (php if .php, python si .py ....)
 
 El script de monitoreo de temperatura de frambuesa servirá como ejemplo
-para usar el tipo de script : guión
+para usar el tipo de script : Guión
 
-Después de descochegar el script del mercado, el botón "examinar""
+Después de descochegar el script del mercado, el botón "Examinar""
 le permite seleccionar el archivo temp \ _rasp.php.
 
 Por curiosidad, puede ir y ver el contenido del archivo presionando
@@ -370,7 +370,7 @@ Este es un script php que se puede reutilizar fuera de Jeedom !
  ?>
  ````
 
-nota : concretamente, es la función php "echo" la que le dará al
+Nota : concretamente, es la función php "echo" la que le dará al
 valor para Jeedom
 
 Los parámetros 
@@ -379,7 +379,7 @@ Los parámetros
 Obtenga la información de Jeedom para usarla en un script. la
 la recuperación depende del tipo de script utilizado :
 
-ejemplo :
+Ejemplo :
 
 -   En la linea :
     /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
@@ -440,7 +440,7 @@ Si desea el valor de led0 en la consulta, coloque led0. si
 quieres el valor de led1 que es el hijo de leds que pones
 leds &gt; led1.
 
-notaz que l'élément racine &lt;root&gt; n'est pas à préciser dans le
+Notaz que l'élément racine &lt;root&gt; n'est pas à préciser dans le
 campo de solicitud.
 
 Ejemplo complejo de XML 
@@ -536,7 +536,7 @@ El acceso a este archivo es posible utilizando la siguiente URL :
 
 ``http://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3``
 
-nota : XXXX es el número de clave API específico de cada SICKBEARD.
+Nota : XXXX es el número de clave API específico de cada SICKBEARD.
 
 En primer lugar, antes de iniciar la configuración del complemento de script
 JSON, se trata de identificoche correctamente la información para recuperar., coche
@@ -599,12 +599,12 @@ elemento en php (marcado AQUÍ), sería necesario hacer : data &gt; 2
 En este ejemplo, el botón "Prueba" devolverá "Totovaplusauski
 pero Totovaalaplage S1E1".
 
-aclaraciones :
+Aclaraciones :
 
 Tenga en cuenta la sintaxis del comando Solicitud, es de tipo element0 &gt;
 index du tableau &gt; élément1
 
-desventajas :
+Desventajas :
 
 -   este método solo permite recuperar un elemento a la vez.
 
@@ -641,7 +641,7 @@ Entonces obtenemos :
 Para una actualización en tiempo real, es posible poner un cron
 actualizar.
 
-> **punta**
+> **Punta**
 >
 > Al instalar una actualización cron, Jeedom
 > marca automáticamente la casilla Evento, esto es completamente normal.

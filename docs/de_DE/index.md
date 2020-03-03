@@ -43,9 +43,9 @@ Hier finden Sie die gesamte Konfiguration Ihrer Geräte :
 -   **Kategorie** : Gerätekategorien (es kann gehören
     mehrere Kategorien)
 
--   **activate** : macht Ihre Ausrüstung aktiv
+-   **Activate** : macht Ihre Ausrüstung aktiv
 
--   **sichtbar** : macht es auf dem Dashboard sichtbar
+-   **Sichtbar** : macht es auf dem Dashboard sichtbar
 
 -   **Übergeordnetes Objekt** : gibt das übergeordnete Objekt an, zu dem es gehört
     Ausrüstung
@@ -102,11 +102,11 @@ Nachfolgend finden Sie die Liste der Bestellungen :
         > www-data:www-data NOMDUSCRIPT.EXTENSION. Beachten Sie, dass für
         > Führen Sie ein Skript aus, es muss über WWW-Datenrechte verfügen.
 
-    -   Die Schaltfläche **bearbeiten** : Ermöglicht das Bearbeiten mit einem Editor
+    -   Die Schaltfläche **Bearbeiten** : Ermöglicht das Bearbeiten mit einem Editor
         interner Code eine der im Verzeichnis enthaltenen Dateien
         Zugriff auf den Dateicode ermöglichen.
 
-    -   Die Schaltfläche **neu** : ermöglicht das Erstellen einer Befehlsdatei.
+    -   Die Schaltfläche **Neu** : ermöglicht das Erstellen einer Befehlsdatei.
 
         > **Spitze**
         >
@@ -145,7 +145,7 @@ Nachfolgend finden Sie die Liste der Bestellungen :
 -   **Lebenslanger Cache** : Ermöglicht das Ändern der Lebensdauer des Caches
     (Standard 5 min).
 
-> **wichtig**
+> **Wichtig**
 >
 > Vermeiden Sie so viel wie möglich im Skriptpfad oder in
 > die Parameter davon Sonderzeichen. Die Charaktere
@@ -201,7 +201,7 @@ Das Optionenfeld enthält das Feld "URL der XML-Datei"" : dieses Feld
 enthält daher den Link zu dem Computer, auf dem sich die XML-Datei befindet
 Frage.
 
-> **wichtig**
+> **Wichtig**
 >
 > Es können nur Werte abgerufen werden, Attribute nicht
 > kann wiederhergestellt werden.
@@ -346,9 +346,9 @@ Das Schönste, aber nicht das Einfachste zu erklären.
 
 Voraussetzungen : wissen, wie man ein Skript in PHP, Python oder Ruby entwickelt.
 
->**wichtig**
+>**Wichtig**
 >
-> Die Erweiterung Ihres Skripts muss unbedingt dem Typ entsprechen. ex .PHP für einen PHP-Typ. In der Tat basiert Jeedom auf der Erweiterung des Skripts für den Start der ausführbaren Datei (php if .PHP, Python wenn .py ....)
+> Die Erweiterung Ihres Skripts muss unbedingt dem Typ entsprechen. Ex .PHP für einen PHP-Typ. In der Tat basiert Jeedom auf der Erweiterung des Skripts für den Start der ausführbaren Datei (php if .PHP, Python wenn .py ....)
 
 Das Skript zur Überwachung der Himbeertemperatur dient als Beispiel
 für die Verwendung des Skripttyps : Skript

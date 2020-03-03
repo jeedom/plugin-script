@@ -1,9 +1,9 @@
 {
-    "plugin_info\/configuration.php": {
+    "plugins\/script\/plugin_info\/configuration.php": {
         "Chemin des scripts utilisateur": "Chemin des scripts utilisateur",
         "Collapser le code à l'ouverture": "Collapser le code à l'ouverture"
     },
-    "desktop\/js\/script.js": {
+    "plugins\/script\/desktop\/js\/script.js": {
         "Etes-vous sûr de vouloir supprimer le script :": "Etes-vous sûr de vouloir supprimer le script :",
         "Vous devez d\\'abord sélectioner un script": "Vous devez d\\'abord sélectioner un script",
         "Partager sur le market": "Partager sur le market",
@@ -37,7 +37,7 @@
         "Configuration de la commande": "Configuration de la commande",
         "Tester": "Tester"
     },
-    "desktop\/php\/script.php": {
+    "plugins\/script\/desktop\/php\/script.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Gestion": "Gestion",
         "Ajouter": "Ajouter",
@@ -72,7 +72,7 @@
         "Divers": "Divers",
         "Paramètres": "Paramètres"
     },
-    "core\/ajax\/script.ajax.php": {
+    "plugins\/script\/core\/ajax\/script.ajax.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Aucun fichier trouvé : ": "Aucun fichier trouvé : ",
         "Impossible de lire : ": "Impossible de lire : ",
@@ -83,7 +83,7 @@
         "Impossible de supprimer le fichier : ": "Impossible de supprimer le fichier : ",
         "Aucune méthode correspondante à : ": "Aucune méthode correspondante à : "
     },
-    "core\/class\/script.class.php": {
+    "plugins\/script\/core\/class\/script.class.php": {
         "Erreur pour ": "Erreur pour ",
         "Expression cron non valide pour ": "Expression cron non valide pour ",
         "Impossible de trouver le script  :": "Impossible de trouver le script  :",
