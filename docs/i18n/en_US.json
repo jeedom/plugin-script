@@ -309,7 +309,7 @@
         "Au moment de l'exécution du script par jeedom, il": "When jeedom runs the script, it",
         "remplacera automatiquement *slider* par la valeur (numérique)": "will automatically replace * slider * with the value (numeric)",
         "du slider": "slider",
-        "cf": "cf.",
+        "cf": "CF",
         "paramètres en Python": "parameters in Python",
         "Plus fort": "Stronger",
         "Potentiellement, toutes les variables accessibles par": "Potentially, all the variables accessible by",
