@@ -300,6 +300,7 @@ class scriptCmd extends cmd {
 			if (trim($this->getConfiguration('reponseMustContain')) != '' && strpos($result, trim($this->getConfiguration('reponseMustContain'))) === false) {
 				throw new Exception(__('La réponse ne contient pas "', __FILE__) . $this->getConfiguration('reponseMustContain') . '" : "' . $result . '"');
 			}
+		        return $result;
 			break;
 			case 'script':
 			if($this->getType() == 'info' && isset($eqLogic->_requet_cache[$request])){
@@ -325,6 +326,7 @@ class scriptCmd extends cmd {
 					$eqLogic->_requet_cache[$request] = $result;
 				}
 			}
+			return $result
 			break;
 			case 'xml':
 			$request = str_replace('"', '', $request);
@@ -345,7 +347,6 @@ class scriptCmd extends cmd {
 				}
 			}
 			$xml = new SimpleXMLElement($xml);
-			
 			$json = json_decode(json_encode($xml), TRUE);
 			$tags = explode('>', $request);
 			foreach ($tags as $tag) {
@@ -361,7 +362,7 @@ class scriptCmd extends cmd {
 					break;
 				}
 			}
-			$result = (is_array($json)) ? '' : $json;
+			return (is_array($json)) ? json_encode($json) : $json;
 			case 'json':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset($eqLogic->_requet_cache[$this->getConfiguration('urlJson')])){
@@ -398,12 +399,7 @@ class scriptCmd extends cmd {
 					break;
 				}
 			}
-			if (is_array($json)) {
-				$result = json_encode($json);
-			} else {
-				$result = $json;
-			}
-			return $result;
+			return (is_array($json)) ? json_encode($json) : $json;
 			case 'html':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset($eqLogic->_requet_cache[$this->getConfiguration('urlHtml')])){
