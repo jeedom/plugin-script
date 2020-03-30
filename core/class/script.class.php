@@ -326,7 +326,7 @@ class scriptCmd extends cmd {
 					$eqLogic->_requet_cache[$request] = $result;
 				}
 			}
-			return $result
+			return $result;
 			break;
 			case 'xml':
 			$request = str_replace('"', '', $request);
