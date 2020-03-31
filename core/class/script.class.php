@@ -24,7 +24,7 @@ class script extends eqLogic {
 	
 	/*     * *************************Attributs****************************** */
 	
-	public $_requet_cache = array();
+	public static $_requet_cache = array();
 	
 	/*     * ***********************Méthodes statiques*************************** */
 	
@@ -270,8 +270,8 @@ class scriptCmd extends cmd {
 			case 'http':
 			$request = str_replace('"', '%22', $request);
 			$request = str_replace(' ', '%20', $request);
-			if($this->getType() == 'info' && isset($eqLogic->_requet_cache[$request])){
-				$result = $eqLogic->_requet_cache[$request];
+			if($this->getType() == 'info' && isset(script::$_requet_cache[$request])){
+				$result = script::$_requet_cache[$request];
 			}else{
 				if ($this->getConfiguration('http_username') != '' && $this->getConfiguration('http_password') != '') {
 					$request_http = new com_http($request, $this->getConfiguration('http_username'), $this->getConfiguration('http_password'));
@@ -294,7 +294,7 @@ class scriptCmd extends cmd {
 				}
 				$result = trim($request_http->exec($this->getConfiguration('timeout', 2), $this->getConfiguration('maxHttpRetry', 3)));
 				if($this->getType() == 'info'){
-					$eqLogic->_requet_cache[$request] = $result;
+					script::$_requet_cache[$request] = $result;
 				}
 			}
 			if (trim($this->getConfiguration('reponseMustContain')) != '' && strpos($result, trim($this->getConfiguration('reponseMustContain'))) === false) {
@@ -302,8 +302,8 @@ class scriptCmd extends cmd {
 			}
 			break;
 			case 'script':
-			if($this->getType() == 'info' && isset($eqLogic->_requet_cache[$request])){
-				$result = $eqLogic->_requet_cache[$request];
+			if($this->getType() == 'info' && isset(script::$_requet_cache[$request])){
+				$result = script::$_requet_cache[$request];
 			}else{
 				if (strpos($request, '.php') !== false) {
 					$request_shell = new com_shell('php ' . $request . ' 2>&1');
@@ -322,14 +322,14 @@ class scriptCmd extends cmd {
 				}
 				$result = trim($request_shell->exec());
 				if($this->getType() == 'info'){
-					$eqLogic->_requet_cache[$request] = $result;
+					script::$_requet_cache[$request] = $result;
 				}
 			}
 			break;
 			case 'xml':
 			$request = str_replace('"', '', $request);
-			if($this->getType() == 'info' && isset($eqLogic->_requet_cache[$this->getConfiguration('urlXml')])){
-				$xml = $eqLogic->_requet_cache[$this->getConfiguration('urlXml')];
+			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlXml')])){
+				$xml = script::$_requet_cache[$this->getConfiguration('urlXml')];
 			}else{
 				if ($this->getConfiguration('xml_username') != '' && $this->getConfiguration('xml_password') != '') {
 					$request_http = new com_http($this->getConfiguration('urlXml'), $this->getConfiguration('xml_username'), $this->getConfiguration('xml_password'));
@@ -341,7 +341,7 @@ class scriptCmd extends cmd {
 				}
 				$xml = trim($request_http->exec($this->getConfiguration('xmlTimeout', 2), $this->getConfiguration('maxXmlRetry', 3)));
 				if($this->getType() == 'info'){
-					$eqLogic->_requet_cache[$this->getConfiguration('urlXml')] = $xml;
+					script::$_requet_cache[$this->getConfiguration('urlXml')] = $xml;
 				}
 			}
 			$xml = new SimpleXMLElement($xml);
@@ -364,8 +364,8 @@ class scriptCmd extends cmd {
 			$result = (is_array($json)) ? '' : $json;
 			case 'json':
 			$request = str_replace('"', '', $request);
-			if($this->getType() == 'info' && isset($eqLogic->_requet_cache[$this->getConfiguration('urlJson')])){
-				$json_str = $eqLogic->_requet_cache[$this->getConfiguration('urlJson')];
+			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlJson')])){
+				$json_str = script::$_requet_cache[$this->getConfiguration('urlJson')];
 			}else{
 				if ($this->getConfiguration('json_username') != '' && $this->getConfiguration('json_password') != '') {
 					$request_http = new com_http($this->getConfiguration('urlJson'), $this->getConfiguration('json_username'), $this->getConfiguration('json_password'));
@@ -377,7 +377,7 @@ class scriptCmd extends cmd {
 				}
 				$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
 				if($this->getType() == 'info'){
-					$eqLogic->_requet_cache[$this->getConfiguration('urlJson')] = $json_str;
+					script::$_requet_cache[$this->getConfiguration('urlJson')] = $json_str;
 				}
 			}
 			$json = json_decode($json_str, true);
@@ -406,8 +406,8 @@ class scriptCmd extends cmd {
 			return $result;
 			case 'html':
 			$request = str_replace('"', '', $request);
-			if($this->getType() == 'info' && isset($eqLogic->_requet_cache[$this->getConfiguration('urlHtml')])){
-				$html = $eqLogic->_requet_cache[$this->getConfiguration('urlHtml')];
+			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlHtml')])){
+				$html = script::$_requet_cache[$this->getConfiguration('urlHtml')];
 			}else{
 				if ($this->getConfiguration('html_username') != '' && $this->getConfiguration('html_password') != '') {
 					$request_http = new com_http($this->getConfiguration('urlHtml'), $this->getConfiguration('html_username'), $this->getConfiguration('html_password'));
@@ -419,7 +419,7 @@ class scriptCmd extends cmd {
 				}
 				$html = $request_http->exec($this->getConfiguration('htmlTimeout', 2), $this->getConfiguration('maxHtmlRetry', 3));
 				if($this->getType() == 'info'){
-					$eqLogic->_requet_cache[$this->getConfiguration('urlHtml')] = $html;
+					script::$_requet_cache[$this->getConfiguration('urlHtml')] = $html;
 				}
 			}
 			phpQuery::newDocumentHTML($html);
@@ -435,7 +435,7 @@ class scriptCmd extends cmd {
 		}
 		log::add('script', 'debug', 'Result : ' . $result);
 		if($this->getType() == 'action'){
-			$eqLogic->_requet_cache = array();
+			script::$_requet_cache = array();
 		}
 		return $result;
 	}
