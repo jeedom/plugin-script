@@ -422,7 +422,7 @@ class scriptCmd extends cmd {
 			return pq(trim($request))->html();
 		}
 		if ($this->getType() == 'action') {
-			$eqLogic->_requet_cache = array();
+			script::$_requet_cache = array();
 			foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
 				$value = $cmd->execute();
 				if ($cmd->execCmd(null, 2) != $cmd->formatValue($value)) {
