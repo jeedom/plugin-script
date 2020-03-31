@@ -309,7 +309,7 @@
         "Au moment de l'exécution du script par jeedom, il": "Cuando jeedom ejecuta el script,",
         "remplacera automatiquement *slider* par la valeur (numérique)": "reemplazará automáticamente * deslizador * con el valor (numérico)",
         "du slider": "control deslizante",
-        "cf": "cf.",
+        "cf": "CF",
         "paramètres en Python": "parámetros en Python",
         "Plus fort": "Más fuerte",
         "Potentiellement, toutes les variables accessibles par": "Potencialmente, todas las variables accesibles por",
