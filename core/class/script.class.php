@@ -327,7 +327,6 @@ class scriptCmd extends cmd {
 				}
 			}
 			return $result;
-			break;
 			case 'xml':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlXml')])){
