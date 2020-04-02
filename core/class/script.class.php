@@ -424,10 +424,7 @@ class scriptCmd extends cmd {
 		if ($this->getType() == 'action') {
 			script::$_requet_cache = array();
 			foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
-				$value = $cmd->execute();
-				if ($cmd->execCmd(null, 2) != $cmd->formatValue($value)) {
-					$cmd->event($value);
-				}
+				$this->getEqLogic()->checkAndUpdateCmd($cmd,$cmd->execute());
 			}
 		}
 	}
