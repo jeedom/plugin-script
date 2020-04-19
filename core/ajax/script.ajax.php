@@ -78,7 +78,8 @@ try {
 
 
     if (init('action') == 'addUserScript') {
-        $path = calculPath(config::byKey('userScriptDir', 'script') . '/' . init('name'));
+        $path = realpath(calculPath(config::byKey('userScriptDir', 'script')));
+        $path .= '/' . init('name');
         if (!touch($path)) {
             throw new Exception(__('Impossible d\'écrire dans : ', __FILE__) . $path);
         }
