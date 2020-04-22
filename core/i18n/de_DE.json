@@ -24,6 +24,7 @@
         "Activer": "Aktivieren",
         "Visible": "Sichtbar",
         "Auto-actualisation (cron)": "Selbstaktualisierung (cron)",
+        "Délai avant d'actualiser les infos suite à une action": "",
         "Ajouter une commande script": "Fügen Sie einen Skriptbefehl hinzu",
         " Sous type :": "Untertyp:",
         "Curseur : mettre #slider# pour récupérer la valeur": "Cursor: Setzen Sie den Schieberegler #, um den Wert abzurufen",
