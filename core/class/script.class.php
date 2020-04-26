@@ -425,9 +425,7 @@ class scriptCmd extends cmd {
 			if($this->getEqLogic()->getConfiguration('delayBeforeRefrehInfo') != ''){
 				usleep($this->getEqLogic()->getConfiguration('delayBeforeRefrehInfo') * 1000000);
 			}
-			foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
-				$this->getEqLogic()->checkAndUpdateCmd($cmd,$cmd->execute());
-			}
+			$this->getEqLogic()->refresh();
 		}
 	}
 	
