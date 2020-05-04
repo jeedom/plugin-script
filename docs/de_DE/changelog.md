@@ -1,6 +1,6 @@
-- 
+- Möglichkeit, eine Verzögerung hinzuzufügen, um Informationsbefehle nach einer Aktion zu aktualisieren
 
-# 
+# 31.03.2020
 
 - Fehlerbehebungen
 

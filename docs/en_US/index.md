@@ -4,7 +4,7 @@ HTTP requests, to retrieve information in XML or JSON.
 Plugin configuration 
 =======================
 
-The configuration is very simple, after downloading the Plugin, it
+The configuration is very simple, after downloading the plugin, it
 you just activate it and that&#39;s it.
 
 ![script1](../images/script1.PNG)
@@ -43,19 +43,19 @@ Here you find all the configuration of your equipment :
 -   **Category** : equipment categories (it may belong to
     multiple categories)
 
--   **Activate** : makes your equipment active
+-   **Activer** : makes your equipment active
 
 -   **Visible** : makes it visible on the dashboard
 
 -   **Parent object** : indicates the parent object to which belongs
     equipment
 
--   **Self-actualization** : allows to specify a refresh cron
+-   **Auto-actualisation** : allows to specify a refresh cron
     automatic for all info type commands.
 
 Below you find the list of orders :
 
--   **Name** : This field contains the name you want to give to
+-   **Nom** : This field contains the name you want to give to
     your order / information.
 
 -   **Icon** : This field allows you to associate an icon with your name (in
@@ -84,29 +84,29 @@ Below you find the list of orders :
         support for type JSON will be the script configuration for
         interrogate Sickbeard (or XBMC).
 
--   **the type** and the **Sub-type**
+-   **the type** and the **sous-type**
 
 -   Field **Request**
 
     -   This field must contain the query itself, or the path of the
         script if the field "type of script" is script. The button
-        "Browse" : allows you to select the file contained in the
+        "parcourir" : allows you to select the file contained in the
         internal file at Jeedom.
 
         > **Tip**
         >
         > This file is accessible in SSH
-        > in / usr / share / nginx / www / jeedom / Plugins / script / core / resources /.
+        > in / usr / share / nginx / www / jeedom / plugins / script / core / resources /.
         > FYI, the SSH command to assign www-data rights
         > to a file is : sudo chown
         > www-data:www-data NOMDUSCRIPT.EXTENSION. NOTE that for
         > execute a script, it must have www-data rights.
 
-    -   The button **Edit** : allows you to edit using an editor
+    -   The button **Editer** : allows you to edit using an editor
         internal code one of the files contained in the directory
         allowing access to the file code.
 
-    -   The button **New** : allows to create a command file.
+    -   The button **Nouveau** : allows to create a command file.
 
         > **Tip**
         >
@@ -116,23 +116,23 @@ Below you find the list of orders :
         > recognize the language associated with your file. CF :
         > Generality
 
-    -   The button **Delete** : allows to delete a file
+    -   The button **Supprimer** : allows to delete a file
         control.
 
-    -   The button **Share** : one of the most important, and after
+    -   The button **Partager** : one of the most important, and after
         validated the CGU developers in your profile on the market,
         allows you to share your creation with the community.
 
 -   Field **Options** : Field with variable options depending on the choice
     script type.
 
--   **Unit** : data unit (can be empty).
+-   **unité** : data unit (can be empty).
 
 -   **min / max** : data bounds (may be empty).
 
--   **Historize** : allows to historize the data.
+-   **historiser** : allows to historize the data.
 
--   **Pin up** : allows to display the data on the dashboard.
+-   **afficher** : allows to display the data on the dashboard.
 
 -   **Event** : return in case of events. In the case of RFXcom
     this box must always be checked because you cannot query
@@ -187,7 +187,7 @@ above. The syntax is the same as for jquery.
 
 The option field has a "HTML file URL" field" : this field
 therefore contains the link to the machine hosting the HTML file in
-Question.
+question.
 
 The XML choice 
 ============
@@ -195,11 +195,11 @@ The XML choice
 ![script6](../images/script6.PNG)
 
 Allows you to retrieve xml and specifically look for a value
-in.
+dedans.
 
 The option field has a "URL of the XML file" field" : this field
 therefore contains the link to the machine hosting the XML file in
-Question.
+question.
 
 > **Important**
 >
@@ -216,7 +216,7 @@ value in.
 
 The option field has a "JSON file URL" field" : this field
 therefore contains the link to the machine hosting the JSON file in
-Question.
+question.
 
 HTTP example : Piloting a Vera 
 ==================================
@@ -260,7 +260,7 @@ Explanations :
 
 -   Name : 100% because we will turn on a light at full power
 
--   Script type : HTTP
+-   Script type : http
 
 -   Type : Action (it&#39;s an order)
 
@@ -269,7 +269,7 @@ Explanations :
 -   Request :
 
 ````
-HTTP://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
+http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
 ````
 
 > **Tip**
@@ -286,17 +286,17 @@ a third at 30% for night trips to be combined in a
 scenario,…
 
 It is also possible to create a slider type command by putting the
-tag \ #slider \ # in the request :
+tag \#slider \# in the request :
 
 ````
-HTTP://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
+http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 ````
 
 > **Tip**
 >
 > If your order is of message type you can use tags
-> \ #message \ # and \ #title \ #, same for a color order with
-> the tag \ #color \ #, or of type slider with # slider # or list with #select#
+> \#message \# and \#title \#, same for a color order with
+> the tag \#color \#, or of type slider with # slider # or list with #select#
 
 HTTP example : Send notification to XBMC 
 ==============================================
@@ -306,7 +306,7 @@ input.
 
 -   Name : PUSH XBMC
 
--   Script type : HTTP
+-   Script type : http
 
 -   Type : Action (it&#39;s an order)
 
@@ -315,12 +315,12 @@ input.
 -   Request :
 
 ````
-HTTP://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
 ````
 
 It&#39;s up to you to test this in a scenario for example !
 
-XBMC API [here] (HTTP://wiki.xbmc.org/index.php?title = JSON-RPC_API / v6)
+XBMC API [here](http://wiki.xbmc.org/index.php?title=JSON-RPC_API/v6)
 (only the fields marked "required" are compulsory)
 
 Goal : Send a notification to XBMC when the temperature drops
@@ -331,7 +331,7 @@ Take the example above :
 -   replace "Movement% 20Detected" with "Risk% 20of% 20gel"
 
 -   replace "Porte% 20Entrée" by
-    "Temperature%% 20 20extérieur:% 20 \ # \ [OUTER \] \ [OUTER \] \ [TEMPERATURE \] \% # 20"
+    "Temperature%% 20 20extérieur:% 20 \# \ [OUTER \] \ [OUTER \] \ [TEMPERATURE \] \% # 20"
 
 Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
 15 for example
@@ -346,7 +346,7 @@ The nicest but not the easiest to explain.
 
 Prerequisites : know how to develop a script in php, python or ruby.
 
->**Important**
+>**IMPORTANT**
 >
 > The extension of your script must absolutely match its type. Ex .php for a php type. Indeed Jeedom is based on the extension of the script for the executable to launch (php if .php, python if .py ....)
 
@@ -354,7 +354,7 @@ The Raspberry temperature monitoring script will serve as an example
 for using the script type : Script
 
 After downloading the script from the market, the "Browse" button"
-allows you to select the temp \ _rasp.php file.
+allows you to select the temp\_rasp.php file.
 
 Out of curiosity, you can go and see the contents of the file by pressing
 on the "Edit" button, you should get the following code :
@@ -382,7 +382,7 @@ recovery depends on the type of script used :
 Example :
 
 -   In the line :
-    /usr/share/nginx/www/jeedom/Plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
+    /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
     list, the argument "list" is a character string (fixed)
     retrieved from the php script using the following function
     \ $ argv \ [1 \] CF : Google for more details on retrieving
@@ -392,7 +392,7 @@ Example :
     dynamic values from Jeedom.
 
 -   In the line :
-    /usr/share/nginx/www/jeedom/Plugins/script/core/ressources/radio.py
+    /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py
     VOL * slider *, the argument "* slider *" is retrieved from this
     argv \ [2 \]. When jeedom runs the script, it
     will automatically replace * slider * with the value (numeric)
@@ -440,7 +440,7 @@ If you want the value of led0 in the query, you put led0. Yes
 you want the value of led1 which is the son of leds you put
 leds &gt; led1.
 
-NOTEz que l'élément racine &lt;root&gt; n'est pas à préciser dans le
+Notez que l'élément racine &lt;root&gt; n'est pas à préciser dans le
 request field.
 
 Complex XML example 
@@ -520,7 +520,7 @@ result : the 1 by 2, for example.
 
 ATTENTION : If in the XML file the order changes, the request does not
 does not work anymore. It will be necessary to readjust the request according to the order
-return.
+retourné.
 
 JSON example 
 ============
@@ -534,12 +534,12 @@ premium, not the tool !
 
 Access to this file is possible using the following URL :
 
-``HTTP://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3``
+``http://<IP_DELAMACHINEQUIEBERGESICKBEARD>:8083/api/XXXX/?cmd=history&limit=3``
 
 NOTE : XXXX is the API key number specific to each SICKBEARD.
 
-First of all, before launching into the configuration of the script Plugin
-JSON, it is a Question of correctly identifying the infos to recover., because
+First of all, before launching into the configuration of the script plugin
+JSON, it is a Question of correctly identifying the infos to recover., car
 here we will integrate a notion of array in the returns.
 
 Validate the display of information from your browser (test
@@ -592,9 +592,9 @@ Example of return :
  }
  ````
 
-In the event that we would like to return the show \ _name of the 3rd
+In the event that we would like to return the show\_name of the 3rd
 element in php (marked HERE), it would be necessary to do : data &gt; 2
-&gt;show \ _name, the return array index starting at Zero.
+&gt;show\_name, the return array index starting at Zero.
 
 In this example, the "Test" button will return "Totovaplusauski
 but Totovaalaplage S1E1".
@@ -608,7 +608,7 @@ Disadvantages :
 
 -   this method only allows to recover one element at a time.
 
--   If we want to return all the values of "show \ _name", this
+-   If we want to return all the values of "show\_name", this
     is unfortunately not possible, you will have to duplicate the script
     as many times as necessary.
 
@@ -619,7 +619,7 @@ Here we will try to retrieve the last FML.
 
 First of all you have to configure the url :
 
-``HTTP://www.viedemerde.fr``
+``http://www.viedemerde.fr``
 
 Then you have to find the "path" of the last FML. To do this,
 you have to go to the site then right click on the desired item then
