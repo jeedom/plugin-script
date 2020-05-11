@@ -1,5 +1,5 @@
 Plugin allowing to execute scripts (shell, php, ruby…),
-HTTP requests, to retrieve information in XML or JSON.
+http requests, to retrieve information in XML or JSON.
 
 Plugin configuration 
 =======================
@@ -20,7 +20,7 @@ Plugin :
 
 ![script2](../images/script2.PNG)
 
-This is what the Script Plugin page looks like (here with already 1
+This is what the Script plugin page looks like (here with already 1
 equipment) :
 
 ![script3](../images/script3.PNG)
@@ -38,34 +38,34 @@ on equipment you get :
 
 Here you find all the configuration of your equipment :
 
--   **Script equipment name** : name of your script equipment
+-   **Name de equipment script** : name of your script equipment
 
 -   **Category** : equipment categories (it may belong to
     multiple categories)
 
--   **Activer** : makes your equipment active
+-   **Activate** : makes your equipment active
 
 -   **Visible** : makes it visible on the dashboard
 
 -   **Parent object** : indicates the parent object to which belongs
     equipment
 
--   **Auto-actualisation** : allows to specify a refresh cron
+-   **Self-actualization** : allows to specify a refresh cron
     automatic for all info type commands.
 
 Below you find the list of orders :
 
--   **Nom** : This field contains the name you want to give to
+-   **Name** : This field contains the name you want to give to
     your order / information.
 
 -   **Icon** : This field allows you to associate an icon with your name (in
     this Jeedom case replaces the name with the icon in the dashboard).
 
--   **Script type** :
+-   **Type de script** :
 
-    -   The HTTP type : allows to send a request to a device
+    -   The http type : allows to send a request to a device
         external without necessarily waiting for a return of this command.
-        The example which will serve as support for the HTTP type will be the
+        The example which will serve as support for the http type will be the
         configuration of a request to a Vera to switch on
         a light.
 
@@ -84,7 +84,7 @@ Below you find the list of orders :
         support for type JSON will be the script configuration for
         interrogate Sickbeard (or XBMC).
 
--   **the type** and the **sous-type**
+-   **the type** and the **Sub-type**
 
 -   Field **Request**
 
@@ -99,14 +99,14 @@ Below you find the list of orders :
         > in / usr / share / nginx / www / jeedom / plugins / script / core / resources /.
         > FYI, the SSH command to assign www-data rights
         > to a file is : sudo chown
-        > www-data:www-data NOMDUSCRIPT.EXTENSION. NOTE that for
+        > www-data:www-data NOMDUSCRIPT.EXTENSION. Note that for
         > execute a script, it must have www-data rights.
 
-    -   The button **Editer** : allows you to edit using an editor
+    -   The button **Edit** : allows you to edit using an editor
         internal code one of the files contained in the directory
         allowing access to the file code.
 
-    -   The button **Nouveau** : allows to create a command file.
+    -   The button **New** : allows to create a command file.
 
         > **Tip**
         >
@@ -116,23 +116,23 @@ Below you find the list of orders :
         > recognize the language associated with your file. CF :
         > Generality
 
-    -   The button **Supprimer** : allows to delete a file
+    -   The button **Delete** : allows to delete a file
         control.
 
-    -   The button **Partager** : one of the most important, and after
+    -   The button **Share** : one of the most important, and after
         validated the CGU developers in your profile on the market,
         allows you to share your creation with the community.
 
 -   Field **Options** : Field with variable options depending on the choice
     script type.
 
--   **unité** : data unit (can be empty).
+-   **Unit** : data unit (can be empty).
 
 -   **min / max** : data bounds (may be empty).
 
--   **historiser** : allows to historize the data.
+-   **Historize** : allows to historize the data.
 
--   **afficher** : allows to display the data on the dashboard.
+-   **Pin up** : allows to display the data on the dashboard.
 
 -   **Event** : return in case of events. In the case of RFXcom
     this box must always be checked because you cannot query
@@ -223,13 +223,13 @@ HTTP example : Piloting a Vera
 
 The example is based on a Vera and consists in driving a bulb
 dimmable. I&#39;m not going to dwell on how to drive a Vera
-by HTTP request, the TLD forum is filled with responses. Moreover,
+by http request, the TLD forum is filled with responses. Moreover,
 the example corresponds to my type of material and will have to be adapted to
 your.
 
 > **Tip**
 >
-> A method for those who are groping for writing HTTP requests,
+> A method for those who are groping for writing http requests,
 > first validate the syntax in your browser and only then
 > go to configuration under Jeedom. When an Action script doesn&#39;t
 > not working, switch to Info / Other script allows you to see the error
@@ -286,7 +286,7 @@ a third at 30% for night trips to be combined in a
 scenario,…
 
 It is also possible to create a slider type command by putting the
-tag \#slider \# in the request :
+tag \#slider\# in the request :
 
 ````
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
@@ -295,8 +295,8 @@ http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&
 > **Tip**
 >
 > If your order is of message type you can use tags
-> \#message \# and \#title \#, same for a color order with
-> the tag \#color \#, or of type slider with # slider # or list with #select#
+> \#message\# and \#title\#, ditto for a color order with
+> the tag \#color\#, or slider type with #slider# or list with #select#
 
 HTTP example : Send notification to XBMC 
 ==============================================
@@ -315,7 +315,7 @@ input.
 -   Request :
 
 ````
-http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement% 20Detecté%22,%22message%22:%22Porte% 20Entrée%22},%22id%22:1}
 ````
 
 It&#39;s up to you to test this in a scenario for example !
@@ -331,9 +331,9 @@ Take the example above :
 -   replace "Movement% 20Detected" with "Risk% 20of% 20gel"
 
 -   replace "Porte% 20Entrée" by
-    "Temperature%% 20 20extérieur:% 20 \# \ [OUTER \] \ [OUTER \] \ [TEMPERATURE \] \% # 20"
+    "Temperature%% 20 20extérieur:% 20 \#\ [OUTSIDE \] \ [OUTSIDE \] \ [TEMPERATURE \]\#% 20"
 
-Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
+Test on a scenario *\ [OUTSIDE \] \ [OUTSIDE \] \ [TEMPERATURE \]* &lt;
 15 for example
 
 Action : Launch the script, via virtual equipment, linked to your script
@@ -346,7 +346,7 @@ The nicest but not the easiest to explain.
 
 Prerequisites : know how to develop a script in php, python or ruby.
 
->**IMPORTANT**
+>**Important**
 >
 > The extension of your script must absolutely match its type. Ex .php for a php type. Indeed Jeedom is based on the extension of the script for the executable to launch (php if .php, python if .py ....)
 
@@ -385,7 +385,7 @@ Example :
     /usr/share/nginx/www/jeedom/plugins/script/core/ressources/MON\_SCRIPT\_PHP.php
     list, the argument "list" is a character string (fixed)
     retrieved from the php script using the following function
-    \ $ argv \ [1 \] CF : Google for more details on retrieving
+    \ $ argv \ [1 \] cf : Google for more details on retrieving
     parameters in PHP.
 
 -   We have previously seen that it was possible to recover
@@ -393,19 +393,19 @@ Example :
 
 -   In the line :
     /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py
-    VOL * slider *, the argument "* slider *" is retrieved from this
+    FLIGHT *slider* , the argument "*slider*" is recovered from this
     argv \ [2 \]. When jeedom runs the script, it
-    will automatically replace * slider * with the value (numeric)
+    will automatically replace *slider* by value (numeric)
     slider. CF : Google for more details on retrieving
     parameters in Python.
 
 -   Stronger : Potentially, all the variables accessible by
-    Jeedom can be used by the script Plugin :
+    Jeedom can be used by the script plugin :
 
     -   You want to recover the value of the kitchen temperature
         to historicize it outside of Jeedom ?
 
-    -   Pass * \ [KITCHEN \] \ [KITCHEN \] \ [Temperature \] * as parameter
+    -   Pass *\ [KITCHEN \] \ [KITCHEN \] \ [Temperature \]* as a parameter
         to the script and Jeedom will replace it with the value read during
         of the shipment.
 
@@ -539,7 +539,7 @@ Access to this file is possible using the following URL :
 NOTE : XXXX is the API key number specific to each SICKBEARD.
 
 First of all, before launching into the configuration of the script plugin
-JSON, it is a Question of correctly identifying the infos to recover., car
+JSON, it is a question of correctly identifying the infos to recover., car
 here we will integrate a notion of array in the returns.
 
 Validate the display of information from your browser (test
@@ -601,7 +601,7 @@ but Totovaalaplage S1E1".
 
 Clarifications :
 
-NOTE the syntax of the Request command, it is of type element0 &gt;
+Note the syntax of the Request command, it is of type element0 &gt;
 index du tableau &gt; élément1
 
 Disadvantages :

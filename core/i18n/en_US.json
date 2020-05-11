@@ -89,7 +89,7 @@
         "Expression cron non valide pour ": "Invalid cron expression for",
         "Impossible de trouver le script  :": "Unable to find the script:",
         "Impossible de supprimer : ": "Unable to delete:",
-        ". Vérifiez les droits": ". Check the rights",
+        ". Vérifiez les droits": "Check the rights",
         "Echec de création du zip. Répertoire source : ": "Failed to create the zip. Source directory:",
         " \/ Répertoire cible : ": "\/ Target directory:",
         "Impossible d\\'installer le script. Le dossier n\\'existe pas : ": "Unable to install the script. The folder does not exist:",

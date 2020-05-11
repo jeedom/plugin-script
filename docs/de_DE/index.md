@@ -30,7 +30,7 @@ auf Ausrüstung bekommen Sie :
 
 ![script4](../images/script4.PNG)
 
-> **Tip**
+> **Spitze**
 >
 > Setzen Sie die Maus wie an vielen Stellen auf Jeedom ganz links
 > ruft ein Schnellzugriffsmenü auf (Sie können
@@ -38,30 +38,30 @@ auf Ausrüstung bekommen Sie :
 
 Hier finden Sie die gesamte Konfiguration Ihrer Geräte :
 
--   **Name der Skriptausrüstung** : Name Ihrer Skriptausrüstung
+-   **Name de Ausrüstung script** : Name Ihrer Skriptausrüstung
 
 -   **Kategorie** : Gerätekategorien (es kann gehören
     mehrere Kategorien)
 
--   **Activer** : macht Ihre Ausrüstung aktiv
+-   **Aktivieren** : macht Ihre Ausrüstung aktiv
 
--   **Visible** : macht es auf dem Dashboard sichtbar
+-   **Sichtbar** : macht es auf dem Dashboard sichtbar
 
 -   **Übergeordnetes Objekt** : gibt das übergeordnete Objekt an, zu dem es gehört
     Ausrüstung
 
--   **Auto-actualisation** : Ermöglicht die Angabe eines Aktualisierungs-Cron
+-   **Selbstverwirklichung** : Ermöglicht die Angabe eines Aktualisierungs-Cron
     automatisch für alle Befehle vom Typ Info.
 
 Nachfolgend finden Sie die Liste der Bestellungen :
 
--   **Nom** : Dieses Feld enthält den Namen, dem Sie geben möchten
+-   **Name** : Dieses Feld enthält den Namen, dem Sie geben möchten
     Ihre Bestellung / Informationen.
 
 -   **Symbol** : In diesem Feld können Sie Ihrem Namen ein Symbol zuordnen (in
-    Dieser Jeedom-Fall ersetzt den Namen durch das Symbol im Dashboard..
+    Dieser Jeedom-Fall ersetzt den Namen durch das Symbol im Dashboard.
 
--   **Skripttyp** :
+-   **Typ de script** :
 
     -   Der http-Typ : ermöglicht das Senden einer Anfrage an ein Gerät
         extern, ohne unbedingt auf die Rückgabe dieses Befehls zu warten.
@@ -84,7 +84,7 @@ Nachfolgend finden Sie die Liste der Bestellungen :
         Unterstützung für Typ JSON ist die Skriptkonfiguration für
         befragen Sickbeard (oder XBMC).
 
--   **der Typ** und die **sous-type**
+-   **der Typ** und die **Untertyp**
 
 -   Das Feld **Petition**
 
@@ -93,22 +93,22 @@ Nachfolgend finden Sie die Liste der Bestellungen :
         "parcourir" : Mit dieser Option können Sie die in der Datei enthaltene Datei auswählen
         interne Datei bei Jeedom.
 
-        > **Tip**
+        > **Spitze**
         >
         > Auf diese Datei kann in SSH zugegriffen werden
         > in / usr / share / nginx / www / jeedom / plugins / script / core / resources /.
         > Zu Ihrer Information, der SSH-Befehl zum Zuweisen von WWW-Datenrechten
         > zu einer Datei ist : Sudo Chown
-        > www-data:www-Daten NOMDUSCRIPT.EXTENSION. Beachten Sie, dass für
+        > www-data:www-data NOMDUSCRIPT.EXTENSION. Beachten Sie, dass für
         > Führen Sie ein Skript aus, es muss über WWW-Datenrechte verfügen.
 
-    -   Die Schaltfläche **Editer** : Ermöglicht das Bearbeiten mit einem Editor
+    -   Die Schaltfläche **Bearbeiten** : Ermöglicht das Bearbeiten mit einem Editor
         interner Code eine der im Verzeichnis enthaltenen Dateien
         Zugriff auf den Dateicode ermöglichen.
 
-    -   Die Schaltfläche **Nouveau** : ermöglicht das Erstellen einer Befehlsdatei.
+    -   Die Schaltfläche **Neu** : ermöglicht das Erstellen einer Befehlsdatei.
 
-        > **Tip**
+        > **Spitze**
         >
         > Vergessen Sie nicht, den Namen der Datei sowie deren Namen einzugeben
         > volle Ausdehnung auf Schmerzen, Ihr großartiges Skript nicht zu sehen
@@ -116,23 +116,23 @@ Nachfolgend finden Sie die Liste der Bestellungen :
         > Erkennen Sie die mit Ihrer Datei verknüpfte Sprache. CF. :
         > Allgemeinheit
 
-    -   Die Schaltfläche **Supprimer** : ermöglicht das Löschen einer Datei
+    -   Die Schaltfläche **Löschen** : ermöglicht das Löschen einer Datei
         der Ordnung.
 
-    -   Die Schaltfläche **Partager** : eines der wichtigsten und danach
+    -   Die Schaltfläche **Aktie** : eines der wichtigsten und danach
         validierte die CGU-Entwickler in Ihrem Profil auf dem Markt,
         Ermöglicht es Ihnen, Ihre Kreation mit der Community zu teilen.
 
--   Das Feld **Options** : Feld mit variablen Optionen je nach Auswahl
+-   Das Feld **Optionen** : Feld mit variablen Optionen je nach Auswahl
     Skripttyp.
 
--   **unité** : Dateneinheit (kann leer sein).
+-   **Unit** : Dateneinheit (kann leer sein).
 
 -   **min / max** : Datengrenzen (können leer sein).
 
--   **historiser** : ermöglicht das Historisieren der Daten.
+-   **Chronik** : ermöglicht das Historisieren der Daten.
 
--   **afficher** : ermöglicht die Anzeige der Daten im Dashboard.
+-   **Anzeige** : ermöglicht die Anzeige der Daten im Dashboard.
 
 -   **Ereignis** : Rückgabe im Falle von Ereignissen. Im Fall von RFXcom
     Dieses Kontrollkästchen muss immer aktiviert sein, da Sie keine Abfrage durchführen können
@@ -145,7 +145,7 @@ Nachfolgend finden Sie die Liste der Bestellungen :
 -   **Lebenslanger Cache** : Ermöglicht das Ändern der Lebensdauer des Caches
     (Standard 5 min).
 
-> **Important**
+> **Wichtig**
 >
 > Vermeiden Sie so viel wie möglich im Skriptpfad oder in
 > die Parameter davon Sonderzeichen. Die Charaktere
@@ -201,7 +201,7 @@ Das Optionsfeld enthält das Feld "URL der XML-Datei"" : dieses Feld
 enthält daher den Link zu dem Computer, auf dem sich die XML-Datei befindet
 question.
 
-> **Important**
+> **Wichtig**
 >
 > Es können nur Werte abgerufen werden, Attribute nicht
 > kann wiederhergestellt werden.
@@ -227,7 +227,7 @@ Auf http-Anfrage wird das TLD-Forum mit Antworten gefüllt. Darüber hinaus,
 Das Beispiel entspricht meiner Materialart und muss angepasst werden
 Ihre.
 
-> **Tip**
+> **Spitze**
 >
 > Eine Methode für diejenigen, die nach dem Schreiben von http-Anfragen suchen,
 > Überprüfen Sie zuerst die Syntax in Ihrem Browser und erst dann
@@ -272,7 +272,7 @@ Erklärungen :
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
 ````
 
-> **Tip**
+> **Spitze**
 >
 > Die "100" am Ende der Anforderung entspricht dem Leistungsprozentsatz
 > Um dies zuzuweisen, setzen Sie "0" am Ende der Anfrage entsprechend
@@ -286,17 +286,17 @@ ein Drittel bei 30% für Nachtfahrten, die in a kombiniert werden sollen
 Szenario,…
 
 Es ist auch möglich, einen Befehl vom Typ Schieberegler zu erstellen, indem Sie den Befehl eingeben
-tag \#slider \# in der Anfrage :
+tag \#slider\.# in der Anfrage :
 
 ````
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 ````
 
-> **Tip**
+> **Spitze**
 >
 > Wenn Ihre Bestellung vom Nachrichtentyp ist, können Sie Tags verwenden
-> \#message \# und \#title \#, gleich für eine Farbbestellung mit
-> das Tag \#color \# oder vom Typ Slider mit # Slider # oder Liste mit #select#
+> \.#message\.# und \#title\.#, Das Gleiche gilt für eine Farbbestellung mit
+> das Tag \#color\.#, oder Schieberegler mit #slider# oder Liste mit #select#
 
 HTTP-Beispiel : Benachrichtigung an XBMC senden 
 ==============================================
@@ -315,7 +315,7 @@ Eingang.
 -   Petition :
 
 ````
-http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement% 20Detecté%22,%22message%22:%22Porte% 20Entrée%22},%22id%22:1}
 ````
 
 Es liegt an Ihnen, dies beispielsweise in einem Szenario zu testen !
@@ -331,9 +331,9 @@ Nehmen Sie das obige Beispiel :
 -   Ersetzen Sie "Bewegung% 20 erkannt" durch "Risiko% 20 von% 20gel""
 
 -   Ersetzen Sie "Porte% 20Entrée" durch
-    "Temperatur %% 20 20extérieur:20% \# \ [OUTER \] \ [OUTER \] \ [TEMPERATURE \] \% # 20"
+    "Temperatur %% 20 20extérieur:% 20 \#\ [AUSSEN \] \ [AUSSEN \] \ [TEMPERATUR \]\.#% 20"
 
-Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
+Testen Sie ein Szenario *\ [AUSSEN \] \ [AUSSEN \] \ [TEMPERATUR \]* &lt;
 15 zum Beispiel
 
 Aktion : Starten Sie das Skript über eine virtuelle Ausrüstung, die mit Ihrem Skript verknüpft ist
@@ -346,7 +346,7 @@ Das Schönste, aber nicht das Einfachste zu erklären.
 
 Voraussetzungen : wissen, wie man ein Skript in PHP, Python oder Ruby entwickelt.
 
->**IMPORTANT**
+>**Wichtig**
 >
 > Die Erweiterung Ihres Skripts muss unbedingt dem Typ entsprechen. Ex .PHP für einen PHP-Typ. In der Tat basiert Jeedom auf der Erweiterung des Skripts für den Start der ausführbaren Datei (php if .PHP, Python wenn .py ....)
 
@@ -393,9 +393,9 @@ Beispiel :
 
 -   In der Leitung :
     /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py
-    VOL * slider *, daraus wird das Argument "* slider *" abgerufen
+    FLUG *Schieber* , das Argument "*Schieber*" wird daraus gewonnen
     argv \ [2 \]. Wenn jeedom das Skript ausführt, ist es
-    ersetzt automatisch * slider * durch den Wert (numerisch)
+    wird automatisch ersetzt *Schieber* nach Wert (numerisch)
     Schieberegler. CF. : Google für weitere Details zum Abrufen
     Parameter in Python.
 
@@ -405,7 +405,7 @@ Beispiel :
     -   Sie möchten den Wert der Küchentemperatur wiederherstellen
         es außerhalb von Jeedom zu historisieren ?
 
-    -   Übergeben Sie * \ [KÜCHE \] \ [KÜCHE \] \ [Temperatur \] * als Parameter
+    -   Überspringen *\ [KÜCHE \] \ [KÜCHE \] \ [Temperatur \]* als Parameter
         zum Skript und Jeedom wird es durch den Wert ersetzen, der während gelesen wird
         der Sendung.
 
@@ -641,7 +641,7 @@ Also bekommen wir :
 Für ein Echtzeit-Update ist es möglich, einen Cron zu platzieren
 Update.
 
-> **Tip**
+> **Spitze**
 >
 > Bei der Installation eines Update-Cron wird Jeedom
 > Aktivieren Sie automatisch das Kontrollkästchen Ereignis. Dies ist völlig normal.

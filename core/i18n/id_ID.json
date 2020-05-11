@@ -82,7 +82,7 @@
         "Impossible d\\'écrire un dossier : ": "",
         "Impossible de supprimer un dossier : ": "",
         "Impossible de supprimer le fichier : ": "",
-        "Aucune méthode correspondante à : ": "Aucune methode correspondante à : "
+        "Aucune méthode correspondante à : ": "Aucune methode correspondante à :"
     },
     "plugins\/script\/core\/class\/script.class.php": {
         "Erreur pour ": "",

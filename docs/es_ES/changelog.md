@@ -25,8 +25,8 @@
 
 # 03/30/2018
 
-- Corrección de la pérdida del icono.
+- Corrección de la pérdida del icono
 
 # 03/13/2018
 
-- Corrección de errores en la actualización automática de pedidos.
+- Corrección de errores en la actualización automática de pedidos

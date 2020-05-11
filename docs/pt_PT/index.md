@@ -15,12 +15,12 @@ A única opção é onde o jeedom coloca os scripts padrão,
 Configuração do equipamento 
 =============================
 
-A configuração do equipamento Escrita está acessível no menu
+A configuração do equipamento Script está acessível no menu
 plugin :
 
 ![script2](../images/script2.PNG)
 
-É assim que a página do plugin Escrita se parece (aqui com 1
+É assim que a página do plugin Script se parece (aqui com 1
 equipamento) :
 
 ![script3](../images/script3.PNG)
@@ -30,7 +30,7 @@ no equipamento que você recebe :
 
 ![script4](../images/script4.PNG)
 
-> **Tip**
+> **Dica**
 >
 > Como em muitos lugares em Jeedom, coloque o mouse na extremidade esquerda
 > abre um menu de acesso rápido (você pode
@@ -38,24 +38,24 @@ no equipamento que você recebe :
 
 Aqui você encontra toda a configuração do seu equipamento :
 
--   **Nome do equipamento de script** : nome do seu equipamento de script
+-   **Nome de o equipamento script** : nome do seu equipamento de script
 
 -   **Categoria** : categorias de equipamentos (pode pertencer a
     várias categorias)
 
--   **Activer** : torna seu equipamento ativo
+-   **Ativar** : torna seu equipamento ativo
 
--   **Visible** : torna visível no painel
+-   **Visivél** : torna visível no painel
 
 -   **Objeto pai** : indica o objeto pai ao qual pertence
     o equipamento
 
--   **Auto-actualisation** : permite especifiporque um cron de atualização
+-   **Atualização automática** : permite especificar um cron de atualização
     automático para todos os comandos do tipo de informação.
 
 Abaixo você encontra a lista de pedidos :
 
--   **Nom** : Este campo contém o nome ao qual você deseja atribuir
+-   **Nome** : Este campo contém o nome ao qual você deseja atribuir
     seu pedido / informações.
 
 -   **ícone** : Este campo permite associar um ícone ao seu nome (em
@@ -63,9 +63,9 @@ Abaixo você encontra a lista de pedidos :
 
 -   **Tipo de script** :
 
-    -   O tipo HTTP : permite enviar uma solicitação para um dispositivo
+    -   O tipo http : permite enviar uma solicitação para um dispositivo
         externo sem necessariamente esperar pelo retorno deste comando.
-        O exemplo que servirá de suporte para o tipo HTTP será o
+        O exemplo que servirá de suporte para o tipo http será o
         configuração de uma solicitação a uma Vera para ativar
         uma luz.
 
@@ -84,7 +84,7 @@ Abaixo você encontra a lista de pedidos :
         O suporte ao tipo JSON será a configuração de script para
         interrogar Sickbeard (ou XBMC).
 
--   **o tipo** e o **sous-type**
+-   **o tipo** e o **Subtipo**
 
 -   O campo **Pedido**
 
@@ -93,7 +93,7 @@ Abaixo você encontra a lista de pedidos :
         "parcourir" : permite selecionar o arquivo contido no
         arquivo interno na Jeedom.
 
-        > **Tip**
+        > **Dica**
         >
         > Este arquivo está acessível no SSH
         > em / usr / share / nginx / www / jeedom / plugins / script / core / resources /.
@@ -102,13 +102,13 @@ Abaixo você encontra a lista de pedidos :
         > www-data:www-data NOMDUSCRIPT.EXTENSION. Observe que para
         > executar um script, ele deve ter direitos de dados www.
 
-    -   O botão **Editer** : permite editar usando um editor
+    -   O botão **Editar** : permite editar usando um editor
         código interno um dos arquivos contidos no diretório
         permitindo acesso ao código do arquivo.
 
-    -   O botão **Nouveau** : permite criar um arquivo de comando.
+    -   O botão **Novo** : permite criar um arquivo de comando.
 
-        > **Tip**
+        > **Dica**
         >
         > Não se esqueça de inserir o nome do arquivo, bem como
         > extensão total sob pena de ver seu excelente roteiro não
@@ -116,23 +116,23 @@ Abaixo você encontra a lista de pedidos :
         > reconhecer o idioma associado ao seu arquivo. CF :
         > Geral
 
-    -   O botão **Supprimer** : permite excluir um arquivo
+    -   O botão **Remover** : permite excluir um arquivo
         de ordem.
 
-    -   O botão **Partager** : um dos mais importantes, e depois
+    -   O botão **Compartilhe** : um dos mais importantes, e depois
         validou os desenvolvedores de CGU em seu perfil no mercado,
         permite que você compartilhe sua criação com a comunidade.
 
--   O campo **Options** : Campo com opções variáveis, dependendo da escolha
+-   O campo **Opções** : Campo com opções variáveis, dependendo da escolha
     tipo de script.
 
--   **unité** : unidade de dados (pode estar vazia).
+-   **Unidade** : unidade de dados (pode estar vazia).
 
 -   **min / max** : limites de dados (podem estar vazios).
 
--   **historiser** : permite historiar os dados.
+-   **Historicizar** : permite historiar os dados.
 
--   **afficher** : permite exibir os dados no painel.
+-   **Display** : permite exibir os dados no painel.
 
 -   **Evento** : retorno em caso de eventos. No caso da RFXcom
     esta caixa deve estar sempre marcada porque você não pode consultar
@@ -142,10 +142,10 @@ Abaixo você encontra a lista de pedidos :
     valor (padrão 5 min) antes de executar novamente o script para que
     novo valor.
 
--   **Cache vitalício** : permite modifiporque a vida útil do cache
+-   **Cache vitalício** : permite modificar a vida útil do cache
     (padrão 5 min).
 
-> **Important**
+> **IMPORTANTE**
 >
 > Evite o máximo possível no caminho do script ou no
 > os parâmetros de caracteres especiais. Os personagens
@@ -157,7 +157,7 @@ Permite chamar um URL ou obter o retorno de um URL.
 
 -   uma caixa de seleção "Não marque SSL" : se marcado, permite que o Jeedom
     para não enviar os campos "Usuário" e "Senha" para
-    o pedido. Jeedom não procurará se identifiporque com
+    o pedido. Jeedom não procurará se identificar com
     local / máquina remota.
 
 -   uma caixa de seleção "Permitir resposta em branco" : se marcado, permite
@@ -201,7 +201,7 @@ O campo de opção possui um campo "URL do arquivo XML"" : este campo
 portanto, contém o link para a máquina que hospeda o arquivo XML em
 question.
 
-> **Important**
+> **IMPORTANTE**
 >
 > Só é possível recuperar valores, os atributos não
 > pode ser recuperado.
@@ -211,7 +211,7 @@ A escolha JSON
 
 ![script7](../images/script7.PNG)
 
-Permite recuperar json e busporque especificamente um
+Permite recuperar json e buscar especificamente um
 valor em.
 
 O campo de opção possui um campo "URL do arquivo JSON"" : este campo
@@ -227,7 +227,7 @@ por solicitação http, o fórum do TLD é preenchido com respostas. Além disso
 o exemplo corresponde ao meu tipo de material e terá que ser adaptado para
 seu.
 
-> **Tip**
+> **Dica**
 >
 > Um método para quem procura escrever solicitações http,
 > primeiro valide a sintaxe no seu navegador e só então
@@ -272,31 +272,31 @@ Explicações :
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=100
 ````
 
-> **Tip**
+> **Dica**
 >
 > o "100" no final da solicitação corresponde à porcentagem de potência
-> atribuir para coloporque "0" no final da solicitação corresponde a
+> atribuir para colocar "0" no final da solicitação corresponde a
 > desligue a lâmpada.
 
 O botão "testar" permite que você teste seu pedido !
 
-Portanto, você pode multipliporque pedidos no mesmo equipamento
+Portanto, você pode multiplicar pedidos no mesmo equipamento
 por exemplo, fazer um pedido de 60% para uma luz fraca, crie
 um terço a 30% para viagens noturnas a serem combinadas
 cenário,…
 
 Também é possível criar um comando do tipo slider colocando o comando
-tag \#slider \# na solicitação :
+tag \#slider\# no pedido :
 
 ````
 http://<IP_VERA>:3480/data_request?id=lu_action&output_format=json&DeviceNum=12&serviceId=urn:upnp-org:serviceId:Dimming1&action=SetLoadLevelTarget&newLoadlevelTarget=#slider#
 ````
 
-> **Tip**
+> **Dica**
 >
 > Se seu pedido for do tipo de mensagem, você poderá usar tags
-> \#message \# e \#title \#, o mesmo para uma ordem de cores com
-> a tag \#color \# ou do tipo slider com # slider # ou a lista com #select#
+> \#message\# e \#title\#, idem para uma ordem de cores com
+> a tag \#color\#, ou tipo deslizante com #slider# ou liste com #select#
 
 Exemplo HTTP : Enviar notificação para XBMC 
 ==============================================
@@ -315,7 +315,7 @@ entrada.
 -   Pedido :
 
 ````
-http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement%20Detecté%22,%22message%22:%22Porte%20Entrée%22},%22id%22:1}
+http://IP_DE_XBMC:8080/jsonrpc?request={ %22jsonrpc%22:%222.0%22,%22method%22:%22GUI.ShowNotification%22,%22params%22:{ %22title%22:%22Mouvement% 20Detecté%22,%22message%22:%22Porte% 20Entrée%22},%22id%22:1}
 ````
 
 Cabe a você testar isso em um cenário, por exemplo !
@@ -331,9 +331,9 @@ Veja o exemplo acima :
 -   substitua "Movement% 20Detected" por "Risk% 20of% 20gel"
 
 -   substitua "Porte% 20Entrée" por
-    "Temperatura% 20 fora% 20:% 20 \# \ [EXTERIOR \] \ [EXTERIOR \] \ [TEMPERATURE \] \#% 20"
+    "Temperatura% 20 fora% 20:% 20 \#\ [EXTERIOR \] \ [EXTERIOR \] \ [TEMPERATURE \]\#% 20"
 
-Testez sur un scénario *\[EXTERIEUR\]\[EXTERIEUR\]\[TEMPERATURE\]* &lt;
+Teste em um cenário *\ [EXTERIOR \] \ [EXTERIOR \] \ [TEMPERATURE \]* &lt;
 15 por exemplo
 
 Ação : Inicie o script, via equipamento virtual, vinculado ao seu script
@@ -346,7 +346,7 @@ O mais legal, mas não o mais fácil de explicar.
 
 Pré-requisitos : saber como desenvolver um script em php, python ou ruby.
 
->**IMPORTANT**
+>**IMPORTANTE**
 >
 > A extensão do seu script deve corresponder absolutamente ao seu tipo. Ex .php para um tipo de php. Na verdade, o Jeedom é baseado na extensão do script para o executável iniciar (php if .php, python se .py ....)
 
@@ -393,10 +393,10 @@ Exemplo :
 
 -   Na linha :
     /usr/share/nginx/www/jeedom/plugins/script/core/ressources/radio.py
-    VOL * slider *, o argumento "* slider *" é recuperado deste
+    VÔO *controle deslizante* , o argumento "*controle deslizante*" é recuperado deste
     argv \ [2 \]. Quando o jeedom executa o script, ele
-    substituirá automaticamente * controle deslizante * pelo valor (numérico)
-    controle deslizante. cf : Google para mais detalhes sobre como recuperar
+    substituirá automaticamente *controle deslizante* por valor (numérico)
+    controle deslizante. CF : Google para mais detalhes sobre como recuperar
     parâmetros em Python.
 
 -   Mais forte : Potencialmente, todas as variáveis acessíveis por
@@ -405,7 +405,7 @@ Exemplo :
     -   Você quer recuperar o valor da temperatura da cozinha
         para historizá-lo fora de Jeedom ?
 
-    -   Passe * \ [KITCHEN \] \ [KITCHEN \] \ [Temperature \] * como parâmetro
+    -   Pular *\ [COZINHA \] \ [COZINHA \] \ [Temperatura \]* como parâmetro
         para o script e Jeedom irá substituí-lo pelo valor lido durante
         da remessa.
 
@@ -509,7 +509,7 @@ Para recuperar informações do campo Wert do 1º bloco:
 ``MesPar>0>Wert>0 qui retourne donc "268.56 "``
 
 Para retornar o seguinte elemento na "estrutura" Wert, você deve
-basta indiporque o número do pedido na estrutura. O que dá
+basta indicar o número do pedido na estrutura. O que dá
 pour l'élément '&lt;Wert Typ="delta24"&gt;0.051&lt;/Wert&gt;' le code
 Seguinte :
 
@@ -539,7 +539,7 @@ O acesso a este arquivo é possível usando o seguinte URL :
 NOTA : XXXX é o número da chave da API específico para cada SICKBEARD.
 
 Antes de tudo, antes de iniciar a configuração do plug-in de script
-JSON, é uma questão de identifiporque corretamente as informações a serem recuperadas., car
+JSON, é uma questão de identificar corretamente as informações a serem recuperadas., car
 aqui vamos integrar uma noção de matriz nos retornos.
 
 Valide a exibição de informações do seu navegador (teste
@@ -609,7 +609,7 @@ Desvantagens :
 -   esse método permite recuperar apenas um elemento de cada vez.
 
 -   Se quisermos retornar todos os valores de "show\_name", isso
-    infelizmente não é possível, você terá que dupliporque o script
+    infelizmente não é possível, você terá que duplicar o script
     quantas vezes for necessário.
 
 Exemplo HTML 
@@ -622,7 +622,7 @@ Primeiro de tudo você precisa configurar o URL :
 ``http://www.viedemerde.fr``
 
 Então você tem que encontrar o "caminho" do último FML. Para fazer isso,
-você precisa ir ao site e cliporque com o botão direito do mouse no item desejado.
+você precisa ir ao site e clicar com o botão direito do mouse no item desejado
 inspecionar o item, temos :
 
 ![script9](../images/script9.PNG)
@@ -638,10 +638,10 @@ Então nós temos :
 
 ![script10](../images/script10.PNG)
 
-Para uma atualização em tempo real, é possível coloporque um cron
+Para uma atualização em tempo real, é possível colocar um cron
 atualizar.
 
-> **Tip**
+> **Dica**
 >
 > Ao instalar um cron de atualização, o Jeedom irá
 > marque automaticamente a caixa Evento, isso é completamente normal.
