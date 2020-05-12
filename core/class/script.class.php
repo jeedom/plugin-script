@@ -327,7 +327,6 @@ class scriptCmd extends cmd {
 				}
 			}
 			return $result;
-			break;
 			case 'xml':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlXml')])){
@@ -423,12 +422,10 @@ class scriptCmd extends cmd {
 		}
 		if ($this->getType() == 'action') {
 			script::$_requet_cache = array();
-			foreach ($this->getEqLogic()->getCmd('info') as $cmd) {
-				$value = $cmd->execute();
-				if ($cmd->execCmd(null, 2) != $cmd->formatValue($value)) {
-					$cmd->event($value);
-				}
+			if($this->getEqLogic()->getConfiguration('delayBeforeRefrehInfo') != ''){
+				usleep($this->getEqLogic()->getConfiguration('delayBeforeRefrehInfo') * 1000000);
 			}
+			$this->getEqLogic()->refresh();
 		}
 	}
 	
