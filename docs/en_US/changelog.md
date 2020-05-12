@@ -1,3 +1,5 @@
+# Changelog script
+
 - Possibility of adding a delay to update information commands following an action
 
 # 31/03/2020

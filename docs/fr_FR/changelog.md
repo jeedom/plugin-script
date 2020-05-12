@@ -1,3 +1,5 @@
+# Changelog Script
+
 - Possibilité d'ajouter un délai de mise à jour des commandes d'information suite à une action
 
 # 31/03/2020

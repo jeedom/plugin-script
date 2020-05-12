@@ -1,5 +1,6 @@
 {
     "changelog.md": {
+        "Changelog Script": "Changelog script",
         "Possibilité d'ajouter un délai de mise à jour des commandes d'information suite à une action": "Possibility of adding a delay to update information commands following an action",
         "31\/03\/2020": "31\/03\/2020",
         "Correction de bugs": "Bugfix",

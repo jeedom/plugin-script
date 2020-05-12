@@ -1,3 +1,5 @@
+# Script do Changelog
+
 - Possibilidade de adicionar um atraso para atualizar comandos de informações após uma ação
 
 # 31/03/2020

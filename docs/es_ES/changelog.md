@@ -1,3 +1,5 @@
+# Script de registro de cambios
+
 - Posibilidad de agregar un retraso para actualizar los comandos de información después de una acción
 
 # 31/03/2020
