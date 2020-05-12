@@ -1,5 +1,11 @@
 # Changelog-Skript
 
+>**Wichtig**
+>
+>Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt
+
+# 05/12/2020
+
 - Möglichkeit, eine Verzögerung hinzuzufügen, um Informationsbefehle nach einer Aktion zu aktualisieren
 
 # 31.03.2020

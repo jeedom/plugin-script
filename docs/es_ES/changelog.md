@@ -1,5 +1,11 @@
 # Script de registro de cambios
 
+>**Importante**
+>
+>Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
+
+# 12/05/2020
+
 - Posibilidad de agregar un retraso para actualizar los comandos de información después de una acción
 
 # 31/03/2020

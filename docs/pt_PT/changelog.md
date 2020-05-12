@@ -1,5 +1,11 @@
 # Script do Changelog
 
+>**IMPORTANTE**
+>
+>Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto
+
+# 05/12/2020
+
 - Possibilidade de adicionar um atraso para atualizar comandos de informações após uma ação
 
 # 31/03/2020

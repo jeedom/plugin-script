@@ -1,5 +1,11 @@
 # Changelog script
 
+>**Important**
+>
+>As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
+
+# 05/12/2020
+
 - Possibility of adding a delay to update information commands following an action
 
 # 31/03/2020
