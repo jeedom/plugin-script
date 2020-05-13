@@ -4,6 +4,8 @@
 >
 >Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto
 
+- Mover scripts de núcleo / recurso nos dados (atualização importante a ser executada e, se não for feita, poderá causar a perda de todos os scripts em futuras atualizações principais)
+
 # 05/12/2020
 
 - Possibilidade de adicionar um atraso para atualizar comandos de informações após uma ação
