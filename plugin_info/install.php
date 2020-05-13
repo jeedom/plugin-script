@@ -25,9 +25,7 @@ function script_update() {
 		$cron->remove();
 	}
 	foreach (script::byType('script') as $script) {
-		if(strpos('core/ressources',$script->getConfiguration('request')) !== false){
-			$script->setConfiguration('request',str_replace('core/ressources','data',$script->getConfiguration('request')));
-		}
+		$script->setConfiguration('request',str_replace('core/ressources','data',$script->getConfiguration('request')));
 		$script->save();
 	}
 }
