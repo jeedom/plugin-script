@@ -4,6 +4,8 @@
 >
 >Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
 
+- Mover scripts centrales / de recursos en los datos (una actualización importante que hacer y si no se hace podría causar la pérdida de todos los scripts en futuras actualizaciones centrales)
+
 # 12/05/2020
 
 - Posibilidad de agregar un retraso para actualizar los comandos de información después de una acción
