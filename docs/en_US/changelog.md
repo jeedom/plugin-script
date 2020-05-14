@@ -4,6 +4,9 @@
 >
 >As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
 
+# 05/14/2020
+
+- Correction of a bug on the update of the info commands following an action
 - Moving core / resource scripts in data (important update to do and if not done could cause the loss of all scripts in future core updates)
 
 # 05/12/2020

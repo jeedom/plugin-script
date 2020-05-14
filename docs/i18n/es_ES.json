@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Script": "Script de registro de cambios",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        "14\/05\/2020": "14\/05\/2020",
+        "Correction d'un bug sur la mise à jour des commandes info suite à une action": "Corrección de un error en la actualización de los comandos de información después de una acción",
         "Déplacement des scripts de core\/ressources dans data (mise à jour importante à faire et si elle n'est pas faite pourra causer la perte de tous les scripts lors des futurs mises à jour du core)": "Mover scripts centrales \/ de recursos en los datos (una actualización importante que hacer y si no se hace podría causar la pérdida de todos los scripts en futuras actualizaciones centrales)",
         "12\/05\/2020": "12\/05\/2020",
         "Possibilité d'ajouter un délai de mise à jour des commandes d'information suite à une action": "Posibilidad de agregar un retraso para actualizar los comandos de información después de una acción",
