@@ -4,6 +4,9 @@
 >
 >Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt
 
+# 14.05.2020
+
+- Behebung eines Fehlers bei der Aktualisierung der Info-Befehle nach einer Aktion
 - Verschieben von Kern- / Ressourcenskripten in Daten (wichtige Aktualisierungen, die durchgeführt werden müssen, können bei zukünftigen Kernaktualisierungen zum Verlust aller Skripten führen)
 
 # 05/12/2020
