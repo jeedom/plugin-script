@@ -290,17 +290,19 @@ class scriptCmd extends cmd {
 				if (isset($_options['speedAndNoErrorReport']) && $_options['speedAndNoErrorReport'] == true) {
 					$request_http->setNoReportError(true);
 					$request_http->exec(0.1, 1);
-					return;
-				}
-				$result = trim($request_http->exec($this->getConfiguration('timeout', 2), $this->getConfiguration('maxHttpRetry', 3)));
-				if($this->getType() == 'info'){
-					script::$_requet_cache[$request] = $result;
+				}else{
+					$result = trim($request_http->exec($this->getConfiguration('timeout', 2), $this->getConfiguration('maxHttpRetry', 3)));
+					if($this->getType() == 'info'){
+						script::$_requet_cache[$request] = $result;
+					}
 				}
 			}
 			if (trim($this->getConfiguration('reponseMustContain')) != '' && strpos($result, trim($this->getConfiguration('reponseMustContain'))) === false) {
 				throw new Exception(__('La réponse ne contient pas "', __FILE__) . $this->getConfiguration('reponseMustContain') . '" : "' . $result . '"');
 			}
-			return $result;
+			if($this->getType() == 'info'){
+				return $result;
+			}
 			break;
 			case 'script':
 			if($this->getType() == 'info' && isset(script::$_requet_cache[$request])){
@@ -326,7 +328,9 @@ class scriptCmd extends cmd {
 					script::$_requet_cache[$request] = $result;
 				}
 			}
-			return $result;
+			if($this->getType() == 'info'){
+				return $result;
+			}
 			case 'xml':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlXml')])){
@@ -361,7 +365,9 @@ class scriptCmd extends cmd {
 					break;
 				}
 			}
-			return (is_array($json)) ? json_encode($json) : $json;
+			if($this->getType() == 'info'){
+				return (is_array($json)) ? json_encode($json) : $json;
+			}
 			case 'json':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlJson')])){
@@ -398,7 +404,9 @@ class scriptCmd extends cmd {
 					break;
 				}
 			}
-			return (is_array($json)) ? json_encode($json) : $json;
+			if($this->getType() == 'info'){
+				return (is_array($json)) ? json_encode($json) : $json;
+			}
 			case 'html':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlHtml')])){
@@ -418,7 +426,9 @@ class scriptCmd extends cmd {
 				}
 			}
 			phpQuery::newDocumentHTML($html);
-			return pq(trim($request))->html();
+			if($this->getType() == 'info'){
+				return pq(trim($request))->html();
+			}
 		}
 		if ($this->getType() == 'action') {
 			script::$_requet_cache = array();
