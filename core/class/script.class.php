@@ -331,6 +331,7 @@ class scriptCmd extends cmd {
 			if($this->getType() == 'info'){
 				return $result;
 			}
+			break;
 			case 'xml':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlXml')])){
@@ -368,6 +369,7 @@ class scriptCmd extends cmd {
 			if($this->getType() == 'info'){
 				return (is_array($json)) ? json_encode($json) : $json;
 			}
+			break;
 			case 'json':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlJson')])){
@@ -407,6 +409,7 @@ class scriptCmd extends cmd {
 			if($this->getType() == 'info'){
 				return (is_array($json)) ? json_encode($json) : $json;
 			}
+			break;
 			case 'html':
 			$request = str_replace('"', '', $request);
 			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlHtml')])){
@@ -429,6 +432,7 @@ class scriptCmd extends cmd {
 			if($this->getType() == 'info'){
 				return pq(trim($request))->html();
 			}
+			break;
 		}
 		if ($this->getType() == 'action') {
 			script::$_requet_cache = array();
