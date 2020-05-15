@@ -25,7 +25,10 @@ function script_update() {
 		$cron->remove();
 	}
 	foreach (script::byType('script') as $script) {
-		$script->setConfiguration('request',str_replace('core/ressources','data',$script->getConfiguration('request')));
+		foreach ($script->getCmd() as $cmd) {
+			$cmd->setConfiguration('request',str_replace('core/ressources','data',$cmd->getConfiguration('request')));
+			$cmd->save(true);
+		}
 		$script->save();
 	}
 }
