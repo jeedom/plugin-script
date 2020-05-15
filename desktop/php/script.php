@@ -97,10 +97,10 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
             <form class="form-horizontal">
                 <fieldset>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Nom de l'équipement virtuel}}</label>
+                        <label class="col-sm-2 control-label">{{Nom de l'équipement script}}</label>
                         <div class="col-sm-3">
                             <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
-                            <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement virtuel}}"/>
+                            <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement script}}"/>
                         </div>
                     </div>
                     <div class="form-group">
