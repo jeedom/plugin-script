@@ -100,7 +100,7 @@ The option field has a "URL of the XML file" field" : this field therefore conta
 
 # The JSON choice
 
-![script JSON](../images/script_json.PNG)
+![script JSON](../images/script_json.png)
 
 Allows to recover json and to specifically look for a value in it.
 
@@ -416,7 +416,7 @@ This is the most complex part and requires a little analysis. Here my text is in
 
 So we get :
 
-![Exemple HTML 2](../images/exemple_HTML_2.png)
+![Exemple HTML 2](../images/exemple_HTML_2.PNG)
 
 For an update in real time, it is possible to put an update cron.
 

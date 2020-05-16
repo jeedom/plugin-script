@@ -100,7 +100,7 @@ El campo de opción tiene un campo "URL del archivo XML"" : este campo contiene 
 
 # La elección de JSON
 
-![Guión JSON](../images/script_json.PNG)
+![Guión JSON](../images/script_json.png)
 
 Permite recuperar json y buscar específicamente un valor en él.
 
@@ -416,7 +416,7 @@ Esta es la parte más compleja y requiere un pequeño análisis. Aquí mi texto 
 
 Entonces obtenemos :
 
-![Exemple HTML 2](../images/exemple_HTML_2.png)
+![Exemple HTML 2](../images/exemple_HTML_2.PNG)
 
 Para una actualización en tiempo real, es posible poner una actualización cron.
 
