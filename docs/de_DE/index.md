@@ -100,7 +100,7 @@ Das Optionsfeld enthält das Feld "URL der XML-Datei"" : Dieses Feld enthält da
 
 # Die JSON-Wahl
 
-![Skript Json](../images/script_json.PNG)
+![Skript Json](../images/script_json.png)
 
 Ermöglicht die Wiederherstellung von json und die gezielte Suche nach einem Wert darin.
 
@@ -416,7 +416,7 @@ Dies ist der komplexeste Teil und erfordert eine kleine Analyse. Hier befindet s
 
 Also bekommen wir :
 
-![Exemple HTML 2](../images/exemple_HTML_2.png)
+![Exemple HTML 2](../images/exemple_HTML_2.PNG)
 
 Für ein Update in Echtzeit ist es möglich, ein Update zu erstellen.
 
