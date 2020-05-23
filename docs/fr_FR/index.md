@@ -61,7 +61,6 @@ Vous retrouvez ici la liste des commandes :
 -   **évènement** : retour en cas d’évènements. Dans le cas du RFXcom cette case doit toujours être cochée car on ne peut pas interroger un module RFXcom.
 -   **Autoriser memcache** : autorise Jeedom à utiliser du cache pour la valeur (par défaut 5 min) avant de ré exécuter le script pour avoir à nouveau la valeur.
 
-
 > **Important**
 >
 > Il faut éviter, autant que possible, dans le chemin du script ou dans les paramètres de celui-ci les caractères spéciaux. Les caractères autorisés étant : les chiffres, les lettres (majuscule ou minuscule)
