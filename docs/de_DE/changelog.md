@@ -7,7 +7,7 @@
 # 14.05.2020
 
 - Behebung eines Fehlers bei der Aktualisierung der Info-Befehle nach einer Aktion
-- Verschieben von Kern- / Ressourcenskripten in Daten (wichtige Aktualisierungen, die durchgeführt werden müssen, können bei zukünftigen Kernaktualisierungen zum Verlust aller Skripten führen)
+- Das Verschieben von Kern- / Ressourcenskripten in Daten (wichtige Aktualisierungen müssen durchgeführt werden, und wenn sie nicht durchgeführt werden, können bei zukünftigen Kernaktualisierungen alle Skripte verloren gehen)
 
 # 05/12/2020
 

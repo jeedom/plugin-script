@@ -7,7 +7,7 @@
 # 14/05/2020
 
 - Corrección de un error en la actualización de los comandos de información después de una acción
-- Mover scripts centrales / de recursos en los datos (una actualización importante que hacer y si no se hace podría causar la pérdida de todos los scripts en futuras actualizaciones centrales)
+- Mover scripts de núcleo / recursos en los datos (una actualización importante que hacer y si no se hace podría causar la pérdida de todos los scripts en futuras actualizaciones de núcleo)
 
 # 12/05/2020
 
