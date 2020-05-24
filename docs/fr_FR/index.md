@@ -53,13 +53,11 @@ Vous retrouvez ici la liste des commandes :
 
         > Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sous peine de voir votre superbe script ne pas fonctionner. Sans extension Jeedom ne saura pas reconnaître le langage associé à votre fichier. CF : Généralité
     -   Le bouton **Supprimer** : permet de supprimer un fichier de commande.
--   Le champ **Options** : Champ aux options variables suivant le choix du type de script.
+-   Le champ **Options** : Champ avec des options variables suivant le choix du type de script.
 -   **unité** : unité de la donnée (peut être vide).
 -   **min/max** : bornes de la donnée (peuvent être vides).
 -   **historiser** : permet d’historiser la donnée.
 -   **afficher** : permet d’afficher la donnée sur le Dashboard.
--   **évènement** : retour en cas d’évènements. Dans le cas du RFXcom cette case doit toujours être cochée car on ne peut pas interroger un module RFXcom.
--   **Autoriser memcache** : autorise Jeedom à utiliser du cache pour la valeur (par défaut 5 min) avant de ré exécuter le script pour avoir à nouveau la valeur.
 
 > **Important**
 >
