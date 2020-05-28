@@ -30,7 +30,7 @@ Vous retrouvez ici toute la configuration de votre équipement :
 - **Visible** : le rend visible sur le Dashboard
 - **Objet parent** : indique l’objet parent auquel appartient l’équipement
 - **Auto-actualisation** : permet de spécifier un Cron d’actualisation automatique pour toutes les commandes de type info.
-- **Délai avant d'actualiser les infos suite à une action**
+- **Délai avant d'actualiser les infos suite à une action** : Saisir un nombre de seconde
 
 ![commandes](../images/commandes.png)
 Vous retrouvez ici la liste des commandes :
