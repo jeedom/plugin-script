@@ -145,7 +145,7 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
                         </div>
                     </div>
 		    <div class="form-group">
-                        <label class="col-sm-2 control-label">{{Délai avant d'actualiser les infos suite à une action}}</label>
+                        <label class="col-sm-2 control-label">{{Délai avant d'actualiser les infos suite à une action (en secondes)}}</label>
                         <div class="col-sm-2">
                             <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="delayBeforeRefrehInfo" />
                         </div>
