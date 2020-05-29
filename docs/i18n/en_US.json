@@ -54,6 +54,7 @@
         "indique l'objet parent auquel appartient l'équipement": "indicates the parent object to which the equipment belongs",
         "permet de spécifier un Cron d'actualisation automatique pour toutes les commandes de type info": "allows to specify an automatic update cron for all info type commands",
         "Délai avant d'actualiser les infos suite à une action": "Delay before updating the information following an action",
+        "Saisir un nombre de seconde": "Enter number of seconds",
         "Vous retrouvez ici la liste des commandes": "Here you find the list of orders",
         "Ce champ contient le nom que vous souhaitez donner à votre commande\/information": "This field contains the name you want to give to your order \/ information",
         "Icône": "Icon",

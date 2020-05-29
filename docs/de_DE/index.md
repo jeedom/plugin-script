@@ -30,7 +30,7 @@ Hier finden Sie die gesamte Konfiguration Ihrer Geräte :
 - **Sichtbar** : macht es auf dem Dashboard sichtbar
 - **Übergeordnetes Objekt** : Gibt das übergeordnete Objekt an, zu dem das Gerät gehört
 - **Selbstverwirklichung** : Ermöglicht die Angabe eines Cron für die automatische Aktualisierung aller Befehle vom Typ "Info".
-- **Verzögerung vor dem Aktualisieren der Informationen nach einer Aktion**
+- **Verzögerung vor dem Aktualisieren der Informationen nach einer Aktion** : Geben Sie die Anzahl der Sekunden ein
 
 ![commandes](../images/commandes.png)
 Hier finden Sie die Liste der Bestellungen :

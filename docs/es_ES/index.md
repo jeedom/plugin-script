@@ -30,7 +30,7 @@ Aquí encontrarás toda la configuración de tu equipo :
 - **Visible** : lo hace visible en el tablero
 - **Objeto padre** : indica el objeto padre al que pertenece el equipo
 - **Autorrealización** : permite especificar un cron de actualización automática para todos los comandos de tipo de información.
-- **Demora antes de actualizar la información después de una acción**
+- **Demora antes de actualizar la información después de una acción** : Ingrese el número de segundos
 
 ![commandes](../images/commandes.png)
 Aquí encontrarás la lista de pedidos :

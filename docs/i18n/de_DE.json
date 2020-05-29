@@ -54,6 +54,7 @@
         "indique l'objet parent auquel appartient l'équipement": "Gibt das übergeordnete Objekt an, zu dem das Gerät gehört",
         "permet de spécifier un Cron d'actualisation automatique pour toutes les commandes de type info": "Ermöglicht die Angabe eines Cron für die automatische Aktualisierung aller Befehle vom Typ \"Info\"",
         "Délai avant d'actualiser les infos suite à une action": "Verzögerung vor dem Aktualisieren der Informationen nach einer Aktion",
+        "Saisir un nombre de seconde": "Geben Sie die Anzahl der Sekunden ein",
         "Vous retrouvez ici la liste des commandes": "Hier finden Sie die Liste der Bestellungen",
         "Ce champ contient le nom que vous souhaitez donner à votre commande\/information": "Dieses Feld enthält den Namen, den Sie Ihrer Bestellung \/ Information geben möchten",
         "Icône": "Symbol",

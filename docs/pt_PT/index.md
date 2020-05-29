@@ -30,7 +30,7 @@ Aqui você encontra toda a configuração do seu equipamento :
 - **Visivél** : torna visível no painel
 - **Objeto pai** : indica o objeto pai ao qual o equipamento pertence
 - **Atualização automática** : permite especificar um cron de atualização automática para todos os comandos do tipo de informação.
-- **Atraso antes de atualizar as informações após uma ação**
+- **Atraso antes de atualizar as informações após uma ação** : Digite o número de segundos
 
 ![commandes](../images/commandes.png)
 Aqui você encontra a lista de pedidos :

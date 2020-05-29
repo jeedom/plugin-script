@@ -30,7 +30,7 @@ Here you find all the configuration of your equipment :
 - **Visible** : makes it visible on the dashboard
 - **Parent object** : indicates the parent object to which the equipment belongs
 - **Self-actualization** : allows to specify an automatic update cron for all info type commands.
-- **Delay before updating the information following an action**
+- **Delay before updating the information following an action** : Enter number of seconds
 
 ![commandes](../images/commandes.png)
 Here you find the list of orders :

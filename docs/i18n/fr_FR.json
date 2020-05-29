@@ -51,6 +51,7 @@
         "Auto-actualisation": "Auto-actualisation",
         "permet de spécifier un Cron d'actualisation automatique pour toutes les commandes de type info": "permet de spécifier un Cron d'actualisation automatique pour toutes les commandes de type info",
         "Délai avant d'actualiser les infos suite à une action": "Délai avant d'actualiser les infos suite à une action",
+        "Saisir un nombre de seconde": "Saisir un nombre de seconde",
         "Vous retrouvez ici la liste des commandes": "Vous retrouvez ici la liste des commandes",
         "Nom": "Nom",
         "Ce champ contient le nom que vous souhaitez donner à votre commande\/information": "Ce champ contient le nom que vous souhaitez donner à votre commande\/information",

@@ -24,7 +24,7 @@
         "Activer": "Activate",
         "Visible": "Visible",
         "Auto-actualisation (cron)": "Self-updating (cron)",
-        "Délai avant d'actualiser les infos suite à une action": "Delay before updating the information following an action",
+        "Délai avant d'actualiser les infos suite à une action (en secondes)": "Time before updating the info following an action (in seconds)",
         "Ajouter une commande script": "Add a script command",
         " Sous type :": "Sub type:",
         "Curseur : mettre #slider# pour récupérer la valeur": "Cursor: put # slider # to retrieve the value",
