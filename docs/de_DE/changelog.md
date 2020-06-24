@@ -4,6 +4,10 @@
 >
 >Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt
 
+# 24.06.2020
+
+- Korrektur der Schnittstelle
+
 # 14.05.2020
 
 - Behebung eines Fehlers bei der Aktualisierung der Info-Befehle nach einer Aktion

@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Script": "Changelog script",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
+        "24\/06\/2020": "6\/24\/2020",
+        "Correction de l'interface": "Correction of the interface",
         "14\/05\/2020": "05\/14\/2020",
         "Correction d'un bug sur la mise à jour des commandes info suite à une action": "Correction of a bug on the update of the info commands following an action",
         "Déplacement des scripts de core\/ressources dans data (mise à jour importante à faire et si elle n'est pas faite pourra causer la perte de tous les scripts lors des futurs mises à jour du core": "Moving core \/ resource scripts in data (important update to do and if not done could cause the loss of all scripts in future core updates",

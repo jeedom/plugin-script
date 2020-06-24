@@ -4,6 +4,10 @@
 >
 >Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
 
+# 24/06/2020
+
+- Corrección de la interfaz
+
 # 14/05/2020
 
 - Corrección de un error en la actualización de los comandos de información después de una acción
