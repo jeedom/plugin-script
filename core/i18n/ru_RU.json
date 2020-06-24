@@ -24,7 +24,7 @@
         "Activer": "активировать",
         "Visible": "Видимый",
         "Auto-actualisation (cron)": "",
-        "Délai avant d'actualiser les infos suite à une action": "",
+        "Délai avant d'actualiser les infos suite à une action (en secondes)": "",
         "Ajouter une commande script": "",
         " Sous type :": "",
         "Curseur : mettre #slider# pour récupérer la valeur": "",

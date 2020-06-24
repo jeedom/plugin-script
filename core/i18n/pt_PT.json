@@ -24,7 +24,7 @@
         "Activer": "Ativar",
         "Visible": "Visivél",
         "Auto-actualisation (cron)": "Atualização automática (cron)",
-        "Délai avant d'actualiser les infos suite à une action": "Atraso antes de atualizar as informações após uma ação",
+        "Délai avant d'actualiser les infos suite à une action (en secondes)": "Tempo antes de atualizar as informações após uma ação (em segundos)",
         "Ajouter une commande script": "Adicionar um comando de script",
         " Sous type :": "Subtipo:",
         "Curseur : mettre #slider# pour récupérer la valeur": "Cursor: coloque # slider # para recuperar o valor",

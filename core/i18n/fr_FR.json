@@ -24,7 +24,7 @@
         "Activer": "Activer",
         "Visible": "Visible",
         "Auto-actualisation (cron)": "Auto-actualisation (cron)",
-        "Délai avant d'actualiser les infos suite à une action": "Délai avant d'actualiser les infos suite à une action",
+        "Délai avant d'actualiser les infos suite à une action (en secondes)": "Délai avant d'actualiser les infos suite à une action (en secondes)",
         "Ajouter une commande script": "Ajouter une commande script",
         " Sous type :": " Sous type :",
         "Curseur : mettre #slider# pour récupérer la valeur": "Curseur : mettre #slider# pour récupérer la valeur",
