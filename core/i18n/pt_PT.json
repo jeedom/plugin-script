@@ -104,5 +104,8 @@
         "Le message et le sujet ne peuvent pas être vide": "A mensagem e o assunto não podem estar em branco",
         "La réponse ne contient pas ": "A resposta não contém",
         "Json invalide ou non décodable : ": "Json inválido ou não decodificável:"
+    },
+    "info.json": {
+        "Plugin ajoutant le support des scripts dans Jeedom. Les scripts sont des programmes en Python\/PHP\/Shell\/Ruby etc... qui permettent d'ajouter des fonctions à Jeedom": "Plugin adicionando suporte a scripts no Jeedom. Scripts são programas em Python \/ PHP \/ Shell \/ Ruby, etc ... que permitem adicionar funções ao Jeedom"
     }
 }
