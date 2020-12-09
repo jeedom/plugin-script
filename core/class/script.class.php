@@ -396,7 +396,11 @@ class scriptCmd extends cmd {
 			foreach ($tags as $tag) {
 				$tag = trim($tag);
 				if (isset($json[$tag])) {
-					$json = $json[$tag];
+					if (is_bool($json[$tag])) {
+						$json = $json[$tag] ? 1 : 0;
+					} else {
+						$json = $json[$tag];
+					}
 				} elseif (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
 					$json = $json[intval($tag)];
 				} elseif (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
