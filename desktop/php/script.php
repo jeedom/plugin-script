@@ -57,11 +57,6 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 				<br/>
 				<span>{{Configuration}}</span>
 			</div>
-			<div class="cursor logoSecondary" id="bt_getFromMarketicon">
-				<i class="fas fa-shopping-cart"></i>
-				<br />
-				<span>{{Market}}</span>
-			</div>
 		</div>
 		<legend><i class="fas fa-file"></i> {{Mes Scripts}}</legend>
 		<input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
