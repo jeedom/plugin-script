@@ -34,7 +34,6 @@ $("#table_cmd tbody").delegate(".cmdAttr[data-l1key=configuration][data-l2key=re
     $(this).closest('tr').find('.editScriptFile').show();
     $(this).closest('tr').find('.removeScriptFile').show();
     $(this).closest('tr').find('.newScriptFile').show();
-    $(this).closest('tr').find('.bt_shareOnMarket').show();
     
     $(this).closest('tr').find('.tdRequest').attr('colspan', '2');
     $(this).closest('tr').find('.tdOptions').hide();
@@ -43,7 +42,6 @@ $("#table_cmd tbody").delegate(".cmdAttr[data-l1key=configuration][data-l2key=re
     $(this).closest('tr').find('.editScriptFile').hide();
     $(this).closest('tr').find('.removeScriptFile').hide();
     $(this).closest('tr').find('.newScriptFile').hide();
-    $(this).closest('tr').find('.bt_shareOnMarket').hide();
     
     $(this).closest('tr').find('.tdRequest').attr('colspan', '1');
     $(this).closest('tr').find('.tdOptions').show();
@@ -177,30 +175,7 @@ $("#table_cmd tbody").delegate(".removeScriptFile", 'click', function (event) {
   });
 });
 
-$("#table_cmd tbody").delegate('.bt_shareOnMarket', 'click', function () {
-  var tr = $(this).closest('tr');
-  var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
-  var logicalId = getLogicalIdFromPath(path);
-  if (logicalId == '') {
-    $('#div_alert').showAlert({message: '{{Vous devez d\'abord sélectioner un script}}', level: 'danger'});
-    return;
-  }
-  $('#md_modal').dialog({title: "{{Partager sur le market}}"});
-  $('#md_modal').load('index.php?v=d&modal=update.send&type=script&logicalId=' + encodeURI(logicalId) + '&name=' + encodeURI(logicalId) + "&hidden=" + encodeURI(path)).dialog('open');
-});
-
-$('#bt_getFromMarket').on('click', function () {
-  $('#md_modal').dialog({title: "{{Partager sur le market}}"});
-  $('#md_modal').load('index.php?v=d&modal=update.list&type=script').dialog('open');
-});
-
-$('#bt_getFromMarketicon').on('click', function () {
-  $('#md_modal').dialog({title: "{{Partager sur le market}}"});
-  $('#md_modal').load('index.php?v=d&modal=update.list&type=script').dialog('open');
-});
-
 $("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
-
 
 function addCmdToTable(_cmd) {
   if (!isset(_cmd)) {
@@ -251,7 +226,6 @@ function addCmdToTable(_cmd) {
   tr += '<a style="width:30px" class="btn btn-default editScriptFile btn-xs" title="{{Editer}}"><i class="far fa-edit"></i></a>';
   tr += '<a style="width:30px" class="btn btn-success newScriptFile btn-xs" title="{{Nouveau}}"><i class="far fa-file"></i></a>';
   tr += '<a style="width:30px" class="btn btn-danger removeScriptFile btn-xs" title="{{Supprimer}}"><i class="far fa-trash-alt"></i></a>';
-  tr += '<a style="width:30px" class="btn btn-warning bt_shareOnMarket btn-xs roundedRight" title="{{Partager}}"><i class="fas fa-cloud-upload-alt"></i></a>';
   tr += '</span>';
   tr += '</div>';
   tr += '<textarea style="height : 95px;margin-top:5px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request"></textarea>';
