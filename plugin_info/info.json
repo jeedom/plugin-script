@@ -5,7 +5,12 @@
         "en_US": "Plugin adding scripting support in Jeedom. Scripts are programs in Python \/ PHP \/ Shell \/ Ruby etc ... which allow you to add functions to Jeedom",
         "es_ES": "Complemento que agrega compatibilidad con scripts en Jeedom. Los scripts son programas en Python \/ PHP \/ Shell \/ Ruby, etc., que le permiten agregar funciones a Jeedom",
         "de_DE": "Plugin zur Unterstützung von Skripten in Jeedom. Skripte sind Programme in Python \/ PHP \/ Shell \/ Ruby usw., mit denen Sie Jeedom Funktionen hinzufügen können",
-        "pt_PT": "Plugin adicionando suporte a scripts no Jeedom. Scripts são programas em Python \/ PHP \/ Shell \/ Ruby, etc ... que permitem adicionar funções ao Jeedom"
+        "pt_PT": "Plugin adicionando suporte a scripts no Jeedom. Scripts são programas em Python \/ PHP \/ Shell \/ Ruby, etc ... que permitem adicionar funções ao Jeedom",
+        "ru_RU": "Plugin ajoutant le support des scripts dans Jeedom. Les scripts sont des programmes en Python\/PHP\/Shell\/Ruby etc... qui permettent d'ajouter des fonctions à Jeedom",
+        "id_ID": "Plugin ajoutant le support des scripts dans Jeedom. Les scripts sont des programmes en Python\/PHP\/Shell\/Ruby etc... qui permettent d'ajouter des fonctions à Jeedom",
+        "it_IT": "Plugin ajoutant le support des scripts dans Jeedom. Les scripts sont des programmes en Python\/PHP\/Shell\/Ruby etc... qui permettent d'ajouter des fonctions à Jeedom",
+        "ja_JP": "Plugin ajoutant le support des scripts dans Jeedom. Les scripts sont des programmes en Python\/PHP\/Shell\/Ruby etc... qui permettent d'ajouter des fonctions à Jeedom",
+        "tr": "Plugin ajoutant le support des scripts dans Jeedom. Les scripts sont des programmes en Python\/PHP\/Shell\/Ruby etc... qui permettent d'ajouter des fonctions à Jeedom"
     },
     "name": "Script",
     "licence": "AGPL",
@@ -19,7 +24,12 @@
         "en_US",
         "es_ES",
         "de_DE",
-        "pt_PT"
+        "ru_RU",
+        "id_ID",
+        "it_IT",
+        "ja_JP",
+        "pt_PT",
+        "tr"
     ],
     "compatibility": [
         "miniplus",
