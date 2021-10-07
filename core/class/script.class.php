@@ -305,19 +305,49 @@ class scriptCmd extends cmd {
 			if ($json === null) {
 				throw new Exception(__('Json invalide ou non décodable : ', __FILE__) . $json_str);
 			}
+			log::add('script', 'debug', 'tags : ' . $request);
+			log::add('script', 'debug', 'json : ' . json_encode($json));
 			$tags = explode('>', $request);
 			foreach ($tags as $tag) {
 				$tag = trim($tag);
+				log::add('script', 'debug', 'tag : ' . $tag);
 				if (isset($json[$tag])) {
 					$json = $json[$tag];
+				} elseif (strpos($tag,'@')!==false && strpos($tag,'=')!==false) {
+					$tag = ltrim($tag,"@");
+					$conditions = explode('&', $tag);
+					foreach ($json as $json_element) {
+						$found = true;
+						foreach ($conditions as $condition) {
+							$condition_kv = explode('=',$condition,2);
+							$condition_k = trim($condition_kv[0]);
+							$condition_v = trim($condition_kv[1]);
+							if ($json_element[$condition_k]==$condition_v) {
+								$found = $found && true;
+							} else {
+								$found = false;
+							}
+						}
+						if ($found) {
+							$json = $json_element;
+							break;
+						}
+					}
+					if(!$found) {
+						$json = '';
+						log::add('script', 'debug', 'tag not found');
+						break;
+					}
 				} elseif (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
 					$json = $json[intval($tag)];
 				} elseif (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
 					$json = $json[count($json) + intval($tag)];
 				} else {
 					$json = '';
+					log::add('script', 'debug', 'tag not found');
 					break;
 				}
+				log::add('script', 'debug', 'json : ' . json_encode($json));
 			}
 			if($this->getType() == 'info'){
 				return (is_array($json)) ? json_encode($json) : $json;
