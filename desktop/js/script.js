@@ -18,6 +18,10 @@
 
 editor = null;
 
+$(function() {
+  $('#md_browseScriptFile, #md_editScriptFile').removeClass('hidden')
+})
+
 $("#md_browseScriptFile").dialog({
   autoOpen: false,
   modal: true,
