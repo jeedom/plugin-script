@@ -57,7 +57,7 @@ $("#table_cmd tbody").delegate(".browseScriptFile", 'click', function (event) {
   $("#md_browseScriptFile").dialog('open');
   $('#div_browseScriptFileTree').fileTree({
     root: '/',
-    script: 'plugins/script/modal/jqueryFileTree.php?root=' + encodeURIComponent(userScriptDir),
+    script: 'plugins/script/core/php/jqueryFileTree.php?root=' + encodeURIComponent(userScriptDir),
     folderEvent: 'click'
   }, function (file) {
     $("#md_browseScriptFile").dialog('close');
