@@ -296,13 +296,16 @@ class scriptCmd extends cmd {
 				if ($this->getConfiguration('jsonNoSslCheck') == 1) {
 					$request_http->setNoSslCheck(true);
 				}
+				if ($this->getConfiguration('doNotReportJsonError') == 1) {
+					$request_http->setNoReportError(true);
+				}
 				$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
 				if($this->getType() == 'info'){
 					script::$_requet_cache[$this->getConfiguration('urlJson')] = $json_str;
 				}
 			}
 			$json = json_decode($json_str, true);
-			if ($json === null) {
+			if ( ($json === null) && ($this->getConfiguration('doNotReportJsonError') != 1) ) {
 				throw new Exception(__('Json invalide ou non décodable : ', __FILE__) . $json_str);
 			}
 			log::add('script', 'debug', 'tags : ' . $request);

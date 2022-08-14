@@ -291,6 +291,7 @@ function addCmdToTable(_cmd) {
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlJson" placeholder="URL du fichier JSON"/>';
   tr += '<center class="btn-sm">';
   tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="jsonNoSslCheck"/>{{Vérifier SSL}}</label></span> ';
+  tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotReportJsonError" style="margin-left : 20px;"/>{{Pas d\'erreurs}} ';
   tr += '</center>';
   tr += '<div class="row">';
   tr += '<div class="col-sm-6">';
