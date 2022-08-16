@@ -10,32 +10,36 @@ sendVarToJS('foldOnStart', $foldOnStart);
 sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir', 'script'));
 ?>
 <style>
-.CodeMirror-scroll {height: 100%; overflow-y: auto; overflow-x: auto;}
+	.CodeMirror-scroll {
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: auto;
+	}
 </style>
 
 <div class="row row-overflow">
 	<div class="col-xs-12 eqLogicThumbnailDisplay">
 		<legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
 		<div class="eqLogicThumbnailContainer">
-			<div class="cursor eqLogicAction logoPrimary" data-action="add" >
+			<div class="cursor eqLogicAction logoPrimary" data-action="add">
 				<i class="fas fa-plus-circle"></i>
-				<br/>
+				<br />
 				<span>{{Ajouter}}</span>
 			</div>
 			<div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
 				<i class="fas fa-wrench"></i>
-				<br/>
+				<br />
 				<span>{{Configuration}}</span>
 			</div>
 		</div>
 		<legend><i class="fas fa-file"></i> {{Mes Scripts}}</legend>
 
 		<div class="input-group" style="margin:5px;">
-		<input class="form-control roundedLeft" placeholder="{{Rechercher}}" id="in_searchEqlogic"/>
-		<div class="input-group-btn">
-		<a id="bt_resetSearch" class="btn" style="width:30px"><i class="fas fa-times"></i></a>
-		<a class="btn roundedRight hidden" id="bt_pluginDisplayAsTable" data-coreSupport="1" data-state="0"><i class="fas fa-grip-lines"></i></a>
-		</div>
+			<input class="form-control roundedLeft" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
+			<div class="input-group-btn">
+				<a id="bt_resetSearch" class="btn" style="width:30px"><i class="fas fa-times"></i></a>
+				<a class="btn roundedRight hidden" id="bt_pluginDisplayAsTable" data-coreSupport="1" data-state="0"><i class="fas fa-grip-lines"></i></a>
+			</div>
 		</div>
 
 		<div class="eqLogicThumbnailContainer">
@@ -44,7 +48,7 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 			foreach ($eqLogics as $eqLogic) {
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
 				$eqString = '';
-				$eqString .= '<div class="eqLogicDisplayCard cursor '.$opacity.'" data-eqLogic_id="' . $eqLogic->getId() . '">';
+				$eqString .= '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '">';
 				$eqString .= '<img src="' . $plugin->getPathImgIcon() . '" />';
 				$eqString .= '<br>';
 				$eqString .= '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
@@ -81,18 +85,18 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 	</ul>
 	<div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
 		<div role="tabpanel" class="tab-pane active" id="eqlogictab">
-			<br/>
+			<br />
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">{{Nom de l'équipement script}}</label>
 						<div class="col-sm-3">
 							<input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
-							<input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement script}}"/>
+							<input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement script}}" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label" >{{Objet parent}}</label>
+						<label class="col-sm-2 control-label">{{Objet parent}}</label>
 						<div class="col-sm-3">
 							<select class="form-control eqLogicAttr" data-l1key="object_id">
 								<option value="">{{Aucun}}</option>
@@ -121,14 +125,14 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 					<div class="form-group">
 						<label class="col-sm-2 control-label"></label>
 						<div class="col-sm-9">
-							<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked/>{{Activer}}</label>
-							<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/>{{Visible}}</label>
+							<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked />{{Activer}}</label>
+							<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked />{{Visible}}</label>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">{{Auto-actualisation (cron)}}</label>
 						<div class="col-sm-2">
-							<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Auto-actualisation (cron)}}"/>
+							<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Auto-actualisation (cron)}}" />
 						</div>
 						<div class="col-sm-1">
 							<i class="fas fa-question-circle cursor floatright" id="bt_cronGenerator"></i>
@@ -148,13 +152,13 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 			<br />
 			<br />
 			<div class="alert alert-info">
-				{{ Sous type :}} <br/>
-				-  {{Curseur : mettre #slider# pour récupérer la valeur}}<br/>
-				-  {{Couleur : mettre #color# pour récupérer la valeur}}<br/>
-				-  {{Message : mettre #title# et #message#}}<br/>
-				-  {{Liste : value|display;}}
+				{{ Sous type :}} <br />
+				- {{Curseur : mettre #slider# pour récupérer la valeur}}<br />
+				- {{Couleur : mettre #color# pour récupérer la valeur}}<br />
+				- {{Message : mettre #title# et #message#}}<br />
+				- {{Liste : value|display;}}
 			</div>
-			<br/>
+			<br />
 			<table id="table_cmd" class="table table-bordered table-condensed">
 				<thead>
 					<tr>
@@ -165,11 +169,12 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 						<th style="width: *;">{{Options}}</th>
 						<th style="width: 110px;">{{Divers}}</th>
 						<th style="width: 150px;">{{Paramètres}}</th>
-						<th style="width: 150px;"></th>
+						<th>{{Etat}}</th>
+						<th style="width: 150px;">{{Action}}</th>
 					</tr>
 				</thead>
 				<tbody>
-					
+
 				</tbody>
 			</table>
 		</div>
@@ -187,37 +192,37 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 </div>
 
 <?php
-	include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'css', 'script');
-	include_file('3rdparty', 'codemirror/lib/codemirror', 'js');
-	include_file('3rdparty', 'codemirror/lib/codemirror', 'css');
+include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'css', 'script');
+include_file('3rdparty', 'codemirror/lib/codemirror', 'js');
+include_file('3rdparty', 'codemirror/lib/codemirror', 'css');
 
-	include_file('3rdparty', 'codemirror/mode/htmlmixed/htmlmixed', 'js');
-	include_file('3rdparty', 'codemirror/mode/clike/clike', 'js');
-	include_file('3rdparty', 'codemirror/mode/php/php', 'js');
-	include_file('3rdparty', 'codemirror/mode/shell/shell', 'js');
-	include_file('3rdparty', 'codemirror/mode/python/python', 'js');
-	include_file('3rdparty', 'codemirror/mode/ruby/ruby', 'js');
-	include_file('3rdparty', 'codemirror/mode/perl/perl', 'js');
+include_file('3rdparty', 'codemirror/mode/htmlmixed/htmlmixed', 'js');
+include_file('3rdparty', 'codemirror/mode/clike/clike', 'js');
+include_file('3rdparty', 'codemirror/mode/php/php', 'js');
+include_file('3rdparty', 'codemirror/mode/shell/shell', 'js');
+include_file('3rdparty', 'codemirror/mode/python/python', 'js');
+include_file('3rdparty', 'codemirror/mode/ruby/ruby', 'js');
+include_file('3rdparty', 'codemirror/mode/perl/perl', 'js');
 
-	//Core CodeMirror addons:
-	include_file('3rdparty', 'codemirror/addon/edit/matchbrackets', 'js');
-	include_file('3rdparty', 'codemirror/addon/selection/active-line', 'js');
-	include_file('3rdparty', 'codemirror/addon/search/search', 'js');
-	include_file('3rdparty', 'codemirror/addon/search/searchcursor', 'js');
-	include_file('3rdparty', 'codemirror/addon/dialog/dialog', 'js');
-	include_file('3rdparty', 'codemirror/addon/dialog/dialog', 'css');
+//Core CodeMirror addons:
+include_file('3rdparty', 'codemirror/addon/edit/matchbrackets', 'js');
+include_file('3rdparty', 'codemirror/addon/selection/active-line', 'js');
+include_file('3rdparty', 'codemirror/addon/search/search', 'js');
+include_file('3rdparty', 'codemirror/addon/search/searchcursor', 'js');
+include_file('3rdparty', 'codemirror/addon/dialog/dialog', 'js');
+include_file('3rdparty', 'codemirror/addon/dialog/dialog', 'css');
 
-	include_file('3rdparty', 'codemirror/addon/fold/brace-fold', 'js');
-	include_file('3rdparty', 'codemirror/addon/fold/comment-fold', 'js');
-	include_file('3rdparty', 'codemirror/addon/fold/foldcode', 'js');
-	include_file('3rdparty', 'codemirror/addon/fold/indent-fold', 'js');
-	include_file('3rdparty', 'codemirror/addon/fold/markdown-fold', 'js');
-	include_file('3rdparty', 'codemirror/addon/fold/xml-fold', 'js');
-	include_file('3rdparty', 'codemirror/addon/fold/foldgutter', 'js');
-	include_file('3rdparty', 'codemirror/addon/fold/foldgutter', 'css');
+include_file('3rdparty', 'codemirror/addon/fold/brace-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/comment-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/foldcode', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/indent-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/markdown-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/xml-fold', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/foldgutter', 'js');
+include_file('3rdparty', 'codemirror/addon/fold/foldgutter', 'css');
 
-	include_file('3rdparty', 'jquery.fileTree/jquery.easing.1.3', 'js', 'script');
-	include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'js', 'script');
-	include_file('desktop', 'script', 'js', 'script');
-	include_file('core', 'plugin.template', 'js');
+include_file('3rdparty', 'jquery.fileTree/jquery.easing.1.3', 'js', 'script');
+include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'js', 'script');
+include_file('desktop', 'script', 'js', 'script');
+include_file('core', 'plugin.template', 'js');
 ?>
