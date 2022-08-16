@@ -36,7 +36,9 @@
         "Requête": "Petition",
         "Options": "Optionen",
         "Divers": "Verschiedene",
-        "Paramètres": "Einstellungen"
+        "Paramètres": "Einstellungen",
+        "Etat": "Bundesland",
+        "Action": "Aktie"
     },
     "plugins\/script\/desktop\/js\/script.js": {
         "Etes-vous sûr de vouloir supprimer le script :": "Möchten Sie das Skript wirklich löschen:",

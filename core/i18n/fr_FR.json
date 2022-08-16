@@ -36,7 +36,9 @@
         "Requête": "Requête",
         "Options": "Options",
         "Divers": "Divers",
-        "Paramètres": "Paramètres"
+        "Paramètres": "Paramètres",
+        "Etat": "Etat",
+        "Action": "Action"
     },
     "plugins\/script\/desktop\/js\/script.js": {
         "Etes-vous sûr de vouloir supprimer le script :": "Etes-vous sûr de vouloir supprimer le script :",

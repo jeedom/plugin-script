@@ -36,7 +36,9 @@
         "Requête": "Requête",
         "Options": "オプション",
         "Divers": "諸",
-        "Paramètres": "設定"
+        "Paramètres": "設定",
+        "Etat": "Etat",
+        "Action": "Action"
     },
     "plugins\/script\/desktop\/js\/script.js": {
         "Etes-vous sûr de vouloir supprimer le script :": "Etes-vous sûr de vouloir supprimer le script :",

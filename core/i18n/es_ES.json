@@ -36,7 +36,9 @@
         "Requête": "Petición",
         "Options": "Opciones",
         "Divers": "Diverso",
-        "Paramètres": "Configuraciones"
+        "Paramètres": "Configuraciones",
+        "Etat": "Estado",
+        "Action": "Valores"
     },
     "plugins\/script\/desktop\/js\/script.js": {
         "Etes-vous sûr de vouloir supprimer le script :": "¿Está seguro de que desea eliminar el script?",

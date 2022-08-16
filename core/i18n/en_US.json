@@ -36,7 +36,9 @@
         "Requête": "Request",
         "Options": "Options",
         "Divers": "Various",
-        "Paramètres": "Settings"
+        "Paramètres": "Settings",
+        "Etat": "State",
+        "Action": "Stock"
     },
     "plugins\/script\/desktop\/js\/script.js": {
         "Etes-vous sûr de vouloir supprimer le script :": "Are you sure you want to delete the script:",
