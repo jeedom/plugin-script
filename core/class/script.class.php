@@ -303,7 +303,10 @@ class scriptCmd extends cmd {
 			}
 			$json = json_decode($json_str, true);
 			if ($json === null) {
+			      $json = json_decode($json_str, true, 512, JSON_INVALID_UTF8_IGNORE);
+			      if ($json === null) {
 				throw new Exception(__('Json invalide ou non décodable : ', __FILE__) . $json_str);
+			      }
 			}
 			log::add('script', 'debug', 'tags : ' . $request);
 			log::add('script', 'debug', 'json : ' . json_encode($json));
