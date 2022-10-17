@@ -18,7 +18,7 @@
 
 editor = null;
 
-$(function() {
+$(function () {
   $('#md_browseScriptFile, #md_editScriptFile').removeClass('hidden')
 })
 
@@ -33,20 +33,20 @@ $("#md_browseScriptFile").dialog({
 $("#table_cmd tbody").delegate(".cmdAttr[data-l1key=configuration][data-l2key=requestType]", 'change', function (event) {
   $(this).closest('tr').find('.requestTypeConfig').hide();
   $(this).closest('tr').find('.requestTypeConfig[data-type=' + $(this).value() + ']').show();
-  if($(this).value() == 'script'){
+  if ($(this).value() == 'script') {
     $(this).closest('tr').find('.browseScriptFile').show();
     $(this).closest('tr').find('.editScriptFile').show();
     $(this).closest('tr').find('.removeScriptFile').show();
     $(this).closest('tr').find('.newScriptFile').show();
-    
+
     $(this).closest('tr').find('.tdRequest').attr('colspan', '2');
     $(this).closest('tr').find('.tdOptions').hide();
-  }else{
+  } else {
     $(this).closest('tr').find('.browseScriptFile').hide();
     $(this).closest('tr').find('.editScriptFile').hide();
     $(this).closest('tr').find('.removeScriptFile').hide();
     $(this).closest('tr').find('.newScriptFile').hide();
-    
+
     $(this).closest('tr').find('.tdRequest').attr('colspan', '1');
     $(this).closest('tr').find('.tdOptions').show();
   }
@@ -61,14 +61,14 @@ $("#table_cmd tbody").delegate(".browseScriptFile", 'click', function (event) {
     folderEvent: 'click'
   }, function (file) {
     $("#md_browseScriptFile").dialog('close');
-    if(userScriptDir.slice(-1) == '/' && file.slice(0,1) == '/'){
+    if (userScriptDir.slice(-1) == '/' && file.slice(0, 1) == '/') {
       file = file.slice(1);
     }
-    tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').value(userScriptDir+file);
+    tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').value(userScriptDir + file);
   });
 });
 
-$("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
+$("#table_cmd").sortable({ axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true });
 
 $("#md_editScriptFile").dialog({
   autoOpen: false,
@@ -78,8 +78,8 @@ $("#md_editScriptFile").dialog({
   closeText: ''
 });
 
-$('#bt_cronGenerator').on('click',function(){
-  jeedom.getCronSelectModal({},function (result) {
+$('#bt_cronGenerator').on('click', function () {
+  jeedom.getCronSelectModal({}, function (result) {
     $('.eqLogicAttr[data-l1key=configuration][data-l2key=autorefresh]').value(result.value);
   });
 });
@@ -94,7 +94,7 @@ $("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
   if (data === false) {
     return;
   }
-  
+
   if (editor != null) {
     editor.getDoc().setValue(data.content);
     editor.setOption("mode", data.mode);
@@ -119,22 +119,22 @@ $("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
         "Ctrl-Y": cm => CodeMirror.commands.foldAll(cm),
         "Ctrl-I": cm => CodeMirror.commands.unfoldAll(cm)
       })
-      
+
       $('.ui-dialog[aria-describedby="md_editScriptFile"] .CodeMirror-wrap').css("height", $(window).height() - 80)
-      
+
       editor.refresh();
-      
-      $('.ui-dialog[aria-describedby="md_editScriptFile"]').resize(function() {
+
+      $('.ui-dialog[aria-describedby="md_editScriptFile"]').resize(function () {
         editor.getWrapperElement().style.height = ($('#md_editScriptFile').height()) + 'px';
         editor.refresh()
       })
-      
+
       if (foldOnStart == "1") {
         CodeMirror.commands.foldAll(editor)
       }
     }, 1);
   }
-  
+
   $("#md_editScriptFile").dialog('option', 'buttons', {
     "Annuler": function () {
       $(this).dialog("close");
@@ -179,7 +179,7 @@ $("#table_cmd tbody").delegate(".removeScriptFile", 'click', function (event) {
   });
 });
 
-$("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
+$("#table_cmd").sortable({ axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true });
 
 function addCmdToTable(_cmd) {
   if (!isset(_cmd)) {
@@ -191,7 +191,7 @@ function addCmdToTable(_cmd) {
   if (init(_cmd.logicalId) == 'refresh') {
     return;
   }
-  
+
   var selRequestType = '<select style="width : 90px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="requestType">';
   selRequestType += '<option value="script">{{Script}}</option>';
   selRequestType += '<option value="http">{{HTTP}}</option>';
@@ -199,9 +199,9 @@ function addCmdToTable(_cmd) {
   selRequestType += '<option value="xml">{{XML}}</option>';
   selRequestType += '<option value="json">{{JSON}}</option>';
   selRequestType += '</select>';
-  
+
   var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
-  
+
   tr += '<td>';
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="id"  style="display : none;">';
   tr += '<div class="row">';
@@ -223,6 +223,7 @@ function addCmdToTable(_cmd) {
   tr += '<span class="type" type="' + init(_cmd.type) + '">' + jeedom.cmd.availableType() + '</span>';
   tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>';
   tr += '</td>';
+
   tr += '<td class="tdRequest">';
   tr += '<div class="btn-group" role="group">';
   tr += '<span class="input-group" style="margin-top : 5px;">';
@@ -234,8 +235,8 @@ function addCmdToTable(_cmd) {
   tr += '</div>';
   tr += '<textarea style="height : 95px;margin-top:5px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request"></textarea>';
   tr += '</td>';
+
   tr += '<td class="tdOptions">';
-  
   tr += '<div class="requestTypeConfig" data-type="http">';
   tr += '<center>';
   tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" />{{Vérifier SSL}} ';
@@ -254,7 +255,7 @@ function addCmdToTable(_cmd) {
   tr += '</div>';
   tr += '</div>';
   tr += '</div>';
-  
+
   tr += '<div class="requestTypeConfig" data-type="xml" style="display : none;">';
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlXml" placeholder="URL du fichier XML"/>';
   tr += '<center class="btn-sm">';
@@ -271,7 +272,7 @@ function addCmdToTable(_cmd) {
   tr += '</div>';
   tr += '</div>';
   tr += '</div>';
-  
+
   tr += '<div class="requestTypeConfig" data-type="html" style="display : none;">';
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlHtml" placeholder="URL du HTML"/>';
   tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="htmlNoSslCheck"/>{{Vérifier SSL}}</label></span> ';
@@ -286,7 +287,7 @@ function addCmdToTable(_cmd) {
   tr += '</div>';
   tr += '</div>';
   tr += '</div>';
-  
+
   tr += '<div class="requestTypeConfig" data-type="json" style="display : none;">';
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="urlJson" placeholder="URL du fichier JSON"/>';
   tr += '<center class="btn-sm">';
@@ -304,54 +305,53 @@ function addCmdToTable(_cmd) {
   tr += '</div>';
   tr += '</div>';
   tr += '</td>';
-  tr += '<td>';
-  tr += '<input class="cmdAttr form-control input-sm" data-l1key="unite"  style="width : 100px;" placeholder="{{Unité}}" title="{{Unité}}" >';
-  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}} style="margin-top : 3px;"> ';
-  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}} style="margin-top : 3px;">';
+
+  tr += '<td>'
+  tr += '<label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="isVisible" checked/>{{Afficher}}</label> '
+  tr += '<label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="isHistorized" checked/>{{Historiser}}</label> '
+  tr += '<label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary"/>{{Inverser}}</label> '
+  tr += '<div style="margin-top:7px;">'
+  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="minValue" placeholder="{{Min}}" title="{{Min}}" style="width:30%;max-width:80px;display:inline-block;margin-right:2px;">'
+  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="maxValue" placeholder="{{Max}}" title="{{Max}}" style="width:30%;max-width:80px;display:inline-block;margin-right:2px;">'
+  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="unite" placeholder="Unité" title="{{Unité}}" style="width:30%;max-width:80px;display:inline-block;margin-right:2px;">'
+  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="listValue" placeholder="{{Liste de valeur|texte séparé par ;}}" title="{{Liste}}" style="margin-top : 5px;">';
+  tr += '</div>'
+
   tr += '<select class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdId" style="display : none;margin-top : 5px;" title="{{Commande d\'information à mettre à jour}}">';
   tr += '<option value="">{{Aucune}}</option>';
   tr += '</select>';
   tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="updateCmdToValue" placeholder="{{Valeur de l\'information}}" style="display : none;margin-top : 3px;">';
   tr += '</td>';
+
   tr += '<td>';
-  tr += '<center>';
-  tr += '<input class="tooltips cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="listValue" placeholder="{{Liste de valeur|texte séparé par ;}}" title="{{Liste}}" style="margin-top : 5px;">';
-  tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label><span> ';
-  tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> ';
-  tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="display" data-l2key="invertBinary"/>{{Inverser}}</label></span> ';
-  tr += '</center>';
-  tr += '</td>';
-  tr += '<td>';
-  tr += '<span class="cmdAttr" data-l1key="htmlstate"></span>'; 
+  tr += '<span class="cmdAttr" data-l1key="htmlstate"></span>';
   tr += '</td>';
   tr += '<td>';
   if (is_numeric(_cmd.id)) {
-    tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure" title="{{Configuration de la commande}}""><i class="fas fa-cogs"></i></a> ';
-    if(init(_cmd.type) == 'action'){
-      tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fas fa-rss"></i> {{Tester}}</a>';
-    }
+    tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fas fa-cogs"></i></a> '
+    tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fas fa-rss"></i> Tester</a>'
   }
   tr += ' <a class="btn btn-default btn-xs cmdAction" data-action="copy" title="Dupliquer"><i class="far fa-clone"></i></a> ';
   tr += '<i class="fas fa-minus-circle pull-right cmdAction cursor" data-action="remove"></i></td>';
   tr += '</tr>';
-  
+
   $('#table_cmd tbody').append(tr);
   $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
-  
+
   if (isset(_cmd.configuration.requestType)) {
     $('#table_cmd tbody tr:last .cmdAttr[data-l1key=configuration][data-l2key=requestType]').value(init(_cmd.configuration.requestType));
     $('#table_cmd tbody tr:last .cmdAttr[data-l1key=configuration][data-l2key=requestType]').trigger('change');
   }
-  
+
   if (isset(_cmd.type)) {
     $('#table_cmd tbody tr:last .cmdAttr[data-l1key=type]').value(init(_cmd.type));
   }
   var tr = $('#table_cmd tbody tr:last');
   jeedom.eqLogic.builSelectCmd({
-    id:  $('.eqLogicAttr[data-l1key=id]').value(),
-    filter: {type: 'info'},
+    id: $('.eqLogicAttr[data-l1key=id]').value(),
+    filter: { type: 'info' },
     error: function (error) {
-      $('#div_alert').showAlert({message: error.message, level: 'danger'});
+      $('#div_alert').showAlert({ message: error.message, level: 'danger' });
     },
     success: function (result) {
       tr.find('.cmdAttr[data-l1key=value]').append(result);
@@ -393,29 +393,29 @@ function loadScriptFile(_path) {
     },
     success: function (data) {
       if (data.state != 'ok') {
-        $('#div_alert').showAlert({message: data.result, level: 'danger'});
+        $('#div_alert').showAlert({ message: data.result, level: 'danger' });
         return false;
       }
       result = data.result;
       switch (result.extension) {
-        case 'php' :
-        result.mode = 'text/x-php';
-        break;
-        case 'sh' :
-        result.mode = 'shell';
-        break;
-        case 'pl' :
-        result.mode = 'text/x-php';
-        break;
-        case 'py' :
-        result.mode = 'text/x-python';
-        break;
-        case 'rb' :
-        result.mode = 'text/x-ruby';
-        break;
-        default :
-        result.mode = 'text/x-php';
-        break;
+        case 'php':
+          result.mode = 'text/x-php';
+          break;
+        case 'sh':
+          result.mode = 'shell';
+          break;
+        case 'pl':
+          result.mode = 'text/x-php';
+          break;
+        case 'py':
+          result.mode = 'text/x-python';
+          break;
+        case 'rb':
+          result.mode = 'text/x-ruby';
+          break;
+        default:
+          result.mode = 'text/x-php';
+          break;
       }
     }
   });
@@ -440,11 +440,11 @@ function saveScriptFile(_path, _content) {
     },
     success: function (data) {
       if (data.state != 'ok') {
-        $('#div_editScriptFileAlert').showAlert({message: data.result, level: 'danger'});
+        $('#div_editScriptFileAlert').showAlert({ message: data.result, level: 'danger' });
         return;
       }
       success = true;
-      $('#div_editScriptFileAlert').showAlert({message: 'Script sauvegardé', level: 'success'});
+      $('#div_editScriptFileAlert').showAlert({ message: 'Script sauvegardé', level: 'success' });
     }
   });
   return success;
@@ -467,7 +467,7 @@ function addUserScript(_name) {
     },
     success: function (data) {
       if (data.state != 'ok') {
-        $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
+        $('#div_newUserScriptAlert').showAlert({ message: data.result, level: 'danger' });
         return;
       }
       success = data.result;
@@ -493,10 +493,10 @@ function removeScript(_path) {
     },
     success: function (data) { // si l'appel a bien fonctionné
       if (data.state != 'ok') {
-        $('#div_newUserScriptAlert').showAlert({message: data.result, level: 'danger'});
+        $('#div_newUserScriptAlert').showAlert({ message: data.result, level: 'danger' });
         return;
       }
-      $('#div_alert').showAlert({message: 'Script supprimé', level: 'success'});
+      $('#div_alert').showAlert({ message: 'Script supprimé', level: 'success' });
       success = true;
     }
   });
