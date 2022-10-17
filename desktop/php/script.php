@@ -57,7 +57,7 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 				if ($eqLogic->getConfiguration('autorefresh') != '') $eqString .= '<span>' . $eqLogic->getConfiguration('autorefresh') . '</span>';
 				$cats = $eqLogic->getCategory();
 				unset($cats['default']);
-				$eqString .= '<span>' . implode(array_keys($cats, 1), ', ') . '</span>';
+				$eqString .= '<span>' . implode(', ', array_keys($cats, 1)) . '</span>';
 				if ($eqLogic->getIsVisible() == 1) {
 					$eqString .= ' <i class="fas fa-eye"></i>';
 				} else {
