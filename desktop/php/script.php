@@ -33,42 +33,37 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 			</div>
 		</div>
 		<legend><i class="fas fa-file"></i> {{Mes Scripts}}</legend>
-
-		<div class="input-group" style="margin:5px;">
-			<input class="form-control roundedLeft" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
-			<div class="input-group-btn">
-				<a id="bt_resetSearch" class="btn" style="width:30px"><i class="fas fa-times"></i></a>
-				<a class="btn roundedRight hidden" id="bt_pluginDisplayAsTable" data-coreSupport="1" data-state="0"><i class="fas fa-grip-lines"></i></a>
-			</div>
-		</div>
-
-		<div class="eqLogicThumbnailContainer">
-			<?php
-			$content = '';
+		<?php
+		if (count($eqLogics) == 0) {
+			echo '<br><div class="text-center" style="font-size:1.2em;font-weight:bold;">{{Aucun équipement trouvé, cliquer sur "Ajouter" pour commencer}}</div>';
+		} else {
+			// Champ de recherche
+			echo '<div class="input-group" style="margin:5px;">';
+			echo '<input class="form-control roundedLeft" placeholder="{{Rechercher}}" id="in_searchEqlogic">';
+			echo '<div class="input-group-btn">';
+			echo '<a id="bt_resetSearch" class="btn" style="width:30px"><i class="fas fa-times"></i></a>';
+			echo '<a class="btn roundedRight hidden" id="bt_pluginDisplayAsTable" data-coreSupport="1" data-state="0"><i class="fas fa-grip-lines"></i></a>';
+			echo '</div>';
+			echo '</div>';
+			// Liste des équipements du plugin
+			echo '<div class="eqLogicThumbnailContainer">';
 			foreach ($eqLogics as $eqLogic) {
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
-				$eqString = '';
-				$eqString .= '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '">';
-				$eqString .= '<img src="' . $plugin->getPathImgIcon() . '" />';
-				$eqString .= '<br>';
-				$eqString .= '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
-
-				$eqString .= '<span class="hidden hiddenAsCard displayTableRight">';
-				if ($eqLogic->getConfiguration('autorefresh') != '') $eqString .= '<span>' . $eqLogic->getConfiguration('autorefresh') . '</span>';
-				$cats = $eqLogic->getCategory();
-				unset($cats['default']);
-				$eqString .= '<span>' . implode(', ', array_keys($cats, 1)) . '</span>';
-				if ($eqLogic->getIsVisible() == 1) {
-					$eqString .= ' <i class="fas fa-eye"></i>';
-				} else {
-					$eqString .= ' <i class="fas fa-eye-slash"></i>';
+				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '">';
+				echo '<img src="' . $plugin->getPathImgIcon() . '">';
+				echo '<br>';
+				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
+				echo '<span class="hiddenAsCard displayTableRight hidden">';
+				if ($eqLogic->getConfiguration('autorefresh', '') != '') {
+					echo '<span class="label label-info">' . $eqLogic->getConfiguration('autorefresh') . '</span>';
 				}
-				$eqString .= '</span>';
-				$content .= $eqString . '</div>';
+				echo ($eqLogic->getIsVisible() == 1) ? '<i class="fas fa-eye" title="{{Equipement visible}}"></i>' : '<i class="fas fa-eye-slash" title="{{Equipement non visible}}"></i>';
+				echo '</span>';
+				echo '</div>';
 			}
-			echo $content;
-			?>
-		</div>
+			echo '</div>';
+		}
+		?>
 	</div>
 
 	<div class="col-xs-12 eqLogic" style="display: none;">
@@ -84,63 +79,73 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 		</ul>
 		<div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
 			<div role="tabpanel" class="tab-pane active" id="eqlogictab">
-				<br />
 				<form class="form-horizontal">
 					<fieldset>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">{{Nom de l'équipement script}}</label>
-							<div class="col-sm-3">
-								<input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
-								<input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement script}}" />
+						<div class="col-lg-7">
+							<legend><i class="fas fa-wrench"></i> {{Paramètres généraux}}</legend>
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Nom de l'équipement}}</label>
+								<div class="col-sm-6">
+									<input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display:none;">
+									<input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement}}">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">{{Objet parent}}</label>
-							<div class="col-sm-3">
-								<select class="form-control eqLogicAttr" data-l1key="object_id">
-									<option value="">{{Aucun}}</option>
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Objet parent}}</label>
+								<div class="col-sm-6">
+									<select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
+										<option value="">{{Aucun}}</option>
+										<?php
+										$options = '';
+										foreach ((jeeObject::buildTree(null, false)) as $object) {
+											$options .= '<option value="' . $object->getId() . '">' . str_repeat('&nbsp;&nbsp;', $object->getConfiguration('parentNumber')) . $object->getName() . '</option>';
+										}
+										echo $options;
+										?>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Catégorie}}</label>
+								<div class="col-sm-6">
 									<?php
-									$options = '';
-									foreach ((jeeObject::buildTree(null, false)) as $object) {
-										$options .= '<option value="' . $object->getId() . '">' . str_repeat('&nbsp;&nbsp;', $object->getConfiguration('parentNumber')) . $object->getName() . '</option>';
+									foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
+										echo '<label class="checkbox-inline">';
+										echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" >' . $value['name'];
+										echo '</label>';
 									}
-									echo $options;
 									?>
-								</select>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">{{Catégorie}}</label>
-							<div class="col-sm-8">
-								<?php
-								foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
-									echo '<label class="checkbox-inline">';
-									echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />' . $value['name'];
-									echo '</label>';
-								}
-								?>
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Options}}</label>
+								<div class="col-sm-6">
+									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked>{{Activer}}</label>
+									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked>{{Visible}}</label>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label"></label>
-							<div class="col-sm-9">
-								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked />{{Activer}}</label>
-								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked />{{Visible}}</label>
+
+							<legend><i class="fas fa-cogs"></i> {{Paramètres spécifiques}}</legend>
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Auto-actualisation}}
+									<sup><i class="fas fa-question-circle tooltips" title="{{Fréquence de rafraîchissement des commandes infos de l'équipement}}"></i></sup>
+								</label>
+								<div class="col-sm-6">
+									<div class="input-group">
+										<input type="text" class="eqLogicAttr form-control roundedLeft" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Cliquer sur ? pour afficher l'assistant cron}}">
+										<span class="input-group-btn">
+											<a class="btn btn-default cursor jeeHelper roundedRight" data-helper="cron" title="Assistant cron">
+												<i class="fas fa-question-circle"></i>
+											</a>
+										</span>
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">{{Auto-actualisation (cron)}}</label>
-							<div class="col-sm-2">
-								<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Auto-actualisation (cron)}}" />
-							</div>
-							<div class="col-sm-1">
-								<i class="fas fa-question-circle cursor floatright" id="bt_cronGenerator"></i>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">{{Délai avant d'actualiser les infos suite à une action (en secondes)}}</label>
-							<div class="col-sm-2">
-								<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="delayBeforeRefrehInfo" />
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Délai avant d'actualiser les infos suite à une action (en secondes)}}</label>
+								<div class="col-sm-6">
+									<input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="delayBeforeRefrehInfo" />
+								</div>
 							</div>
 						</div>
 					</fieldset>

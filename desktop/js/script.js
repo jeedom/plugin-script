@@ -78,12 +78,6 @@ $("#md_editScriptFile").dialog({
   closeText: ''
 });
 
-$('#bt_cronGenerator').on('click', function () {
-  jeedom.getCronSelectModal({}, function (result) {
-    $('.eqLogicAttr[data-l1key=configuration][data-l2key=autorefresh]').value(result.value);
-  });
-});
-
 $("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
   var tr = $(this).closest('tr');
   var path = tr.find('.cmdAttr[data-l1key=configuration][data-l2key=request]').val();
@@ -204,17 +198,13 @@ function addCmdToTable(_cmd) {
 
   tr += '<td>';
   tr += '<input class="cmdAttr form-control input-sm" data-l1key="id"  style="display : none;">';
-  tr += '<div class="row">';
-  tr += '<div class="col-sm-6">';
-  tr += '<a class="cmdAction btn btn-default btn-sm" data-l1key="chooseIcon"><i class="fas fa-flag"></i> Icone</a>';
-  tr += '<span class="cmdAttr" data-l1key="display" data-l2key="icon" style="margin-left : 10px;"></span>';
+  tr += '<div class="input-group">';
+  tr += '<input class="cmdAttr form-control input-sm roundedLeft" data-l1key="name" placeholder="{{Nom de la commande}}">';
+  tr += '<span class="input-group-btn"><a class="cmdAction btn btn-sm btn-default" data-l1key="chooseIcon" title="{{Choisir une icône}}"><i class="fas fa-icons"></i></a></span>';
+  tr += '<span class="cmdAttr input-group-addon roundedRight" data-l1key="display" data-l2key="icon" style="font-size:19px;padding:0 5px 0 0!important;"></span>';
   tr += '</div>';
-  tr += '<div class="col-sm-6">';
-  tr += '<input class="cmdAttr form-control input-sm" data-l1key="name">';
-  tr += '</div>';
-  tr += '</div>';
-  tr += '<select class="cmdAttr form-control input-sm" data-l1key="value" style="display : none;margin-top : 5px;" title="{{La valeur de la commande vaut par défaut la commande}}">';
-  tr += '<option value="">Aucune</option>';
+  tr += '<select class="cmdAttr form-control input-sm" data-l1key="value" style="display:none;margin-top:5px;" title="{{Commande info liée}}">';
+  tr += '<option value="">{{Aucune}}</option>';
   tr += '</select>';
   tr += '</td>';
   tr += '<td class="requestType" type="' + init(_cmd.configuration.requestType) + '" >' + selRequestType;
