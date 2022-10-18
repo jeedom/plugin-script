@@ -50,93 +50,6 @@ class script extends eqLogic {
 		
 	}
 	
-	public static function shareOnMarket(&$market) {
-		$cibDir = calculPath(config::byKey('userScriptDir', 'script') . '/' . $market->getLogicalId());
-		if (!file_exists($cibDir)) {
-			throw new Exception(__('Impossible de trouver le script  :', __FILE__) . $cibDir);
-		}
-		$tmp = dirname(__FILE__) . '/../../../../tmp/' . $market->getLogicalId() . '.zip';
-		if (file_exists($tmp)) {
-			if (!unlink($tmp)) {
-				throw new Exception(__('Impossible de supprimer : ', __FILE__) . $tmp . __('. Vérifiez les droits', __FILE__));
-			}
-		}
-		if (!create_zip($cibDir, $tmp)) {
-			throw new Exception(__('Echec de création du zip. Répertoire source : ', __FILE__) . $cibDir . __(' / Répertoire cible : ', __FILE__) . $tmp);
-		}
-		return $tmp;
-	}
-	
-	public static function getFromMarket(&$market, $_path) {
-		$cibDir = calculPath(config::byKey('userScriptDir', 'script'));
-		if (!file_exists($cibDir)) {
-			throw new Exception(__('Impossible d\'installer le script. Le dossier n\'existe pas : ', __FILE__) . $cibDir);
-		}
-		$zip = new ZipArchive;
-		$res = $zip->open($_path);
-		if ($res === true) {
-			$zip->extractTo($cibDir . '/');
-			$zip->close();
-		} else {
-			switch ($res) {
-				case ZipArchive::ER_EXISTS:
-				$ErrMsg = "Le fichier existe déjà.";
-				break;
-				case ZipArchive::ER_INCONS:
-				$ErrMsg = "L'archive est inconsistante.";
-				break;
-				case ZipArchive::ER_MEMORY:
-				$ErrMsg = "Echec d'allocation mémoire (malloc).";
-				break;
-				case ZipArchive::ER_NOENT:
-				$ErrMsg = "Le fichier n'existe pas.";
-				break;
-				case ZipArchive::ER_NOZIP:
-				$ErrMsg = "Ce n'est pas une archive zip.";
-				break;
-				case ZipArchive::ER_OPEN:
-				$ErrMsg = "Le fichier ne peut pas être ouvert.";
-				break;
-				case ZipArchive::ER_READ:
-				$ErrMsg = "Erreur de lecture.";
-				break;
-				case ZipArchive::ER_SEEK:
-				$ErrMsg = "Erreur de recherche.";
-				break;
-				default:
-				$ErrMsg = "Unknow (Code $res)";
-				break;
-			}
-			throw new Exception(__('Impossible de décompresser l\'archive zip : ', __FILE__) . $_path . 'Erreur : ' . $ErrMsg);
-		}
-		$scriptPath = realpath(dirname(__FILE__) . '/../../../../' . config::byKey('userScriptDir', 'script') . '/' . $market->getLogicalId());
-		if (!file_exists($scriptPath)) {
-			throw new Exception(__('Echec de l\'installation. Impossible de trouver le script ', __FILE__) . $scriptPath);
-		}
-		chmod($scriptPath, 0770);
-	}
-	
-	public static function removeFromMarket(&$market) {
-		$scriptPath = calculPath(config::byKey('userScriptDir', 'script') . '/' . $market->getLogicalId());
-		if (!file_exists($scriptPath)) {
-			return true;
-		}
-		unlink($scriptPath);
-		if (!file_exists($scriptPath)) {
-			throw new Exception(__('Echec de la désinstallation. Impossible de supprimer le script ', __FILE__) . $scriptPath);
-		}
-	}
-	
-	public static function listMarketObject() {
-		$return = array();
-		foreach (ls(calculPath(config::byKey('userScriptDir', 'script')), '*') as $logical_id) {
-			if (is_file(calculPath(config::byKey('userScriptDir', 'script')) . '/' . $logical_id)) {
-				$return[] = $logical_id;
-			}
-		}
-		return $return;
-	}
-	
 	/*     * *********************Méthodes d'instance************************* */
 	
 	public function postSave() {
@@ -390,21 +303,54 @@ class scriptCmd extends cmd {
 			}
 			$json = json_decode($json_str, true);
 			if ($json === null) {
+			      $json = json_decode($json_str, true, 512, JSON_INVALID_UTF8_IGNORE);
+			      if ($json === null) {
 				throw new Exception(__('Json invalide ou non décodable : ', __FILE__) . $json_str);
+			      }
 			}
+			log::add('script', 'debug', 'tags : ' . $request);
+			log::add('script', 'debug', 'json : ' . json_encode($json));
 			$tags = explode('>', $request);
 			foreach ($tags as $tag) {
 				$tag = trim($tag);
+				log::add('script', 'debug', 'tag : ' . $tag);
 				if (isset($json[$tag])) {
 					$json = $json[$tag];
+				} elseif (strpos($tag,'@')!==false && strpos($tag,'=')!==false) {
+					$tag = ltrim($tag,"@");
+					$conditions = explode('&', $tag);
+					foreach ($json as $json_element) {
+						$found = true;
+						foreach ($conditions as $condition) {
+							$condition_kv = explode('=',$condition,2);
+							$condition_k = trim($condition_kv[0]);
+							$condition_v = trim($condition_kv[1]);
+							if ($json_element[$condition_k]==$condition_v) {
+								$found = $found && true;
+							} else {
+								$found = false;
+							}
+						}
+						if ($found) {
+							$json = $json_element;
+							break;
+						}
+					}
+					if(!$found) {
+						$json = '';
+						log::add('script', 'debug', 'tag not found');
+						break;
+					}
 				} elseif (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
 					$json = $json[intval($tag)];
 				} elseif (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
 					$json = $json[count($json) + intval($tag)];
 				} else {
 					$json = '';
+					log::add('script', 'debug', 'tag not found');
 					break;
 				}
+				log::add('script', 'debug', 'json : ' . json_encode($json));
 			}
 			if($this->getType() == 'info'){
 				return (is_array($json)) ? json_encode($json) : $json;

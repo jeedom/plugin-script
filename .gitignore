@@ -4,3 +4,4 @@ core/config/common.config.php
 plugins
 sftp-config.json
 .project
+.vscode/settings.json

@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Script": "Script de registro de cambios",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        "17\/10\/2022": "17\/10\/2022",
+        "Mise à jour liste des commandes pour Jeedom v4.3": "Lista de comandos de actualización para Jeedom v4.3",
         "24\/06\/2020": "24\/06\/2020",
         "Correction de l'interface": "Corrección de la interfaz",
         "14\/05\/2020": "14\/05\/2020",
