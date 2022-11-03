@@ -79,7 +79,8 @@
         "Liste de valeur|texte séparé par ;": "Lista de valores | texto separado por;",
         "Liste": "Lista",
         "Commande d\\'information à mettre à jour": "Información del pedido para actualizar",
-        "Valeur de l\\'information": "Valor de la información"
+        "Valeur de l\\'information": "Valor de la información",
+        "Tester": "Prueba"
     },
     "plugins\/script\/core\/ajax\/script.ajax.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",

@@ -79,7 +79,8 @@
         "Liste de valeur|texte séparé par ;": "Werteliste | Text getrennt durch;",
         "Liste": "Auflistung",
         "Commande d\\'information à mettre à jour": "Bestellinformationen zu aktualisieren",
-        "Valeur de l\\'information": "Informationswert"
+        "Valeur de l\\'information": "Informationswert",
+        "Tester": "Prüfen"
     },
     "plugins\/script\/core\/ajax\/script.ajax.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",

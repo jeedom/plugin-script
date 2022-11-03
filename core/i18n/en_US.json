@@ -44,7 +44,7 @@
         "Requête": "Request",
         "Paramètres": "Settings",
         "Etat": "State",
-        "Actions": "Shares"
+        "Actions": "Actions"
     },
     "plugins\/script\/desktop\/js\/script.js": {
         "Etes-vous sûr de vouloir supprimer le script :": "Are you sure you want to delete the script:",
@@ -78,8 +78,9 @@
         "Unité": "Unit",
         "Liste de valeur|texte séparé par ;": "List of values | text separated by;",
         "Liste": "List",
-        "Commande d\\'information à mettre à jour": "Order information to update",
-        "Valeur de l\\'information": "Information value"
+        "Commande d\\'information à mettre à jour": "Command information to update",
+        "Valeur de l\\'information": "Information value",
+        "Tester": "Test"
     },
     "plugins\/script\/core\/ajax\/script.ajax.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",

@@ -79,7 +79,8 @@
         "Liste de valeur|texte séparé par ;": "Liste de valeur|texte séparé par ;",
         "Liste": "Liste",
         "Commande d\\'information à mettre à jour": "Commande d\\'information à mettre à jour",
-        "Valeur de l\\'information": "Valeur de l\\'information"
+        "Valeur de l\\'information": "Valeur de l\\'information",
+        "Tester": "Tester"
     },
     "plugins\/script\/core\/ajax\/script.ajax.php": {
         "401 - Accès non autorisé": "401-不正アクセス",
