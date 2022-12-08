@@ -24,70 +24,7 @@ try {
         throw new Exception(__('401 - Accès non autorisé', __FILE__));
     }
 
-    if (init('action') == 'getScriptContent') {
-        $path = init('path');
-        if (!file_exists($path)) {
-            throw new Exception(__('Aucun fichier trouvé : ', __FILE__) . $path);
-        }
-        if (!is_readable($path)) {
-            throw new Exception(__('Impossible de lire : ', __FILE__) . $path);
-        }
-        if (is_dir($path)) {
-            throw new Exception(__('Impossible de lire un dossier : ', __FILE__) . $path);
-        }
-        $pathinfo = pathinfo($path);
-        $return = array(
-            'content' => file_get_contents($path),
-            'extension' => $pathinfo['extension']
-        );
-        ajax::success($return);
-    }
-
-    if (init('action') == 'saveScriptContent') {
-        $path = init('path');
-        if (!file_exists($path)) {
-            throw new Exception(__('Aucun fichier trouvé : ', __FILE__) . $path);
-        }
-        if (!is_writable($path)) {
-            throw new Exception(__('Impossible d\'écrire dans : ', __FILE__) . $path);
-        }
-        if (is_dir($path)) {
-            throw new Exception(__('Impossible d\'écrire un dossier : ', __FILE__) . $path);
-        }
-        file_put_contents($path, init('content'));
-        chmod($path, 0770);
-        ajax::success();
-    }
-
-    if (init('action') == 'removeScript') {
-        $path = init('path');
-        if (!file_exists($path)) {
-            throw new Exception(__('Aucun fichier trouvé : ', __FILE__) . $path);
-        }
-        if (!is_writable($path)) {
-            throw new Exception(__('Impossible d\'écrire dans : ', __FILE__) . $path);
-        }
-        if (is_dir($path)) {
-            throw new Exception(__('Impossible de supprimer un dossier : ', __FILE__) . $path);
-        }
-        if(!unlink($path)){
-            throw new Exception(__('Impossible de supprimer le fichier : ', __FILE__) . $path);
-        }
-        ajax::success();
-    }
-
-
-    if (init('action') == 'addUserScript') {
-        $path = realpath(calculPath(config::byKey('userScriptDir', 'script')));
-        $path .= '/' . init('name');
-        if (!touch($path)) {
-            throw new Exception(__('Impossible d\'écrire dans : ', __FILE__) . $path);
-        }
-        ajax::success($path);
-    }
-
     throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
 } catch (Exception $e) {
-    ajax::error(displayExeption($e), $e->getCode());
+    ajax::error(displayException($e), $e->getCode());
 }
-?>

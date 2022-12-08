@@ -155,14 +155,6 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 				<a class="btn btn-default btn-sm cmdAction pull-right" style="margin-top:5px;" data-action="add"><i class="fas fa-plus-circle"></i> {{Ajouter une commande script}}</a>
 				<br />
 				<br />
-				<div class="alert alert-info">
-					{{ Sous type :}} <br />
-					- {{Curseur : mettre #slider# pour récupérer la valeur}}<br />
-					- {{Couleur : mettre #color# pour récupérer la valeur}}<br />
-					- {{Message : mettre #title# et #message#}}<br />
-					- {{Liste : value|display;}}
-				</div>
-				<br />
 				<table id="table_cmd" class="table table-bordered table-condensed">
 					<thead>
 						<tr>
@@ -171,9 +163,9 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 							<th style="width: 70px;">{{Type}}</th>
 							<th style="width: 300px;">{{Requête}}</th>
 							<th style="width: 360px;">{{Paramètres}}</th>
-							<th style="min-width:260px;width:300px">{{Options}}</th>
-							<th>{{Etat}}</th>
-							<th style="min-width:80px;width:150px;">{{Actions}}</th>
+							<th style="min-width:260px;width:400px">{{Options}}</th>
+							<th style="width: 100px;">{{Etat}}</th>
+							<th style="min-width:80px;width:100px;">{{Actions}}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -190,41 +182,8 @@ sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir'
 	<div id="div_browseScriptFileTree"></div>
 </div>
 
-<div id="md_editScriptFile" class="hidden" title="Editer...">
-	<div style="display: none;" id="div_editScriptFileAlert"></div>
-	<textarea id="ta_editScriptFile" class="form-control" style="height: 100%;"></textarea>
-</div>
-
 <?php
 include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'css', 'script');
-include_file('3rdparty', 'codemirror/lib/codemirror', 'js');
-include_file('3rdparty', 'codemirror/lib/codemirror', 'css');
-
-include_file('3rdparty', 'codemirror/mode/htmlmixed/htmlmixed', 'js');
-include_file('3rdparty', 'codemirror/mode/clike/clike', 'js');
-include_file('3rdparty', 'codemirror/mode/php/php', 'js');
-include_file('3rdparty', 'codemirror/mode/shell/shell', 'js');
-include_file('3rdparty', 'codemirror/mode/python/python', 'js');
-include_file('3rdparty', 'codemirror/mode/ruby/ruby', 'js');
-include_file('3rdparty', 'codemirror/mode/perl/perl', 'js');
-
-//Core CodeMirror addons:
-include_file('3rdparty', 'codemirror/addon/edit/matchbrackets', 'js');
-include_file('3rdparty', 'codemirror/addon/selection/active-line', 'js');
-include_file('3rdparty', 'codemirror/addon/search/search', 'js');
-include_file('3rdparty', 'codemirror/addon/search/searchcursor', 'js');
-include_file('3rdparty', 'codemirror/addon/dialog/dialog', 'js');
-include_file('3rdparty', 'codemirror/addon/dialog/dialog', 'css');
-
-include_file('3rdparty', 'codemirror/addon/fold/brace-fold', 'js');
-include_file('3rdparty', 'codemirror/addon/fold/comment-fold', 'js');
-include_file('3rdparty', 'codemirror/addon/fold/foldcode', 'js');
-include_file('3rdparty', 'codemirror/addon/fold/indent-fold', 'js');
-include_file('3rdparty', 'codemirror/addon/fold/markdown-fold', 'js');
-include_file('3rdparty', 'codemirror/addon/fold/xml-fold', 'js');
-include_file('3rdparty', 'codemirror/addon/fold/foldgutter', 'js');
-include_file('3rdparty', 'codemirror/addon/fold/foldgutter', 'css');
-
 include_file('3rdparty', 'jquery.fileTree/jquery.easing.1.3', 'js', 'script');
 include_file('3rdparty', 'jquery.fileTree/jqueryFileTree', 'js', 'script');
 include_file('desktop', 'script', 'js', 'script');
