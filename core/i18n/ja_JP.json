@@ -33,11 +33,6 @@
         "Cliquer sur ? pour afficher l'assistant cron": "Cliquer sur ? pour afficher l'assistant cron",
         "Délai avant d'actualiser les infos suite à une action (en secondes)": "Délai avant d'actualiser les infos suite à une action (en secondes)",
         "Ajouter une commande script": "Ajouter une commande script",
-        " Sous type :": "Sous type :",
-        "Curseur : mettre #slider# pour récupérer la valeur": "Curseur : mettre #slider# pour récupérer la valeur",
-        "Couleur : mettre #color# pour récupérer la valeur": "Couleur : mettre #color# pour récupérer la valeur",
-        "Message : mettre #title# et #message#": "Message : mettre #title# et #message#",
-        "Liste : value|display;": "Liste : value|display;",
         "Nom": "表題",
         "Type script": "Type script",
         "Type": "タイプ",
@@ -47,7 +42,6 @@
         "Actions": "Actions"
     },
     "plugins\/script\/desktop\/js\/script.js": {
-        "Etes-vous sûr de vouloir supprimer le script :": "Etes-vous sûr de vouloir supprimer le script :",
         "Script": "スクリプト",
         "HTTP": "HTTP",
         "HTML": "HTML",
@@ -59,8 +53,6 @@
         "Aucune": "Aucune",
         "Parcourir": "Parcourir",
         "Editer": "編集します",
-        "Nouveau": "新しいです",
-        "Supprimer": "取り除きます",
         "Vérifier SSL": "Vérifier SSL",
         "Retour vide": "Retour vide",
         "Pas d\\'erreurs": "Pas d\\'erreurs",
@@ -84,13 +76,6 @@
     },
     "plugins\/script\/core\/ajax\/script.ajax.php": {
         "401 - Accès non autorisé": "401-不正アクセス",
-        "Aucun fichier trouvé : ": "Aucun fichier trouvé :",
-        "Impossible de lire : ": "Impossible de lire :",
-        "Impossible de lire un dossier : ": "Impossible de lire un dossier :",
-        "Impossible d\\'écrire dans : ": "Impossible d\\'écrire dans :",
-        "Impossible d\\'écrire un dossier : ": "Impossible d\\'écrire un dossier :",
-        "Impossible de supprimer un dossier : ": "Impossible de supprimer un dossier :",
-        "Impossible de supprimer le fichier : ": "Impossible de supprimer le fichier :",
         "Aucune méthode correspondante à : ": "以下に対応するメソッドはありません："
     },
     "plugins\/script\/core\/class\/script.class.php": {

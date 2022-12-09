@@ -33,11 +33,6 @@
         "Cliquer sur ? pour afficher l'assistant cron": "Clique em ? para exibir o auxiliar cron",
         "Délai avant d'actualiser les infos suite à une action (en secondes)": "Tempo antes de atualizar as informações após uma ação (em segundos)",
         "Ajouter une commande script": "Adicionar um comando de script",
-        " Sous type :": "Subtipo:",
-        "Curseur : mettre #slider# pour récupérer la valeur": "Cursor: coloque # slider # para recuperar o valor",
-        "Couleur : mettre #color# pour récupérer la valeur": "Cor: coloque # cor # para recuperar o valor",
-        "Message : mettre #title# et #message#": "Mensagem: coloque # title # e # message #",
-        "Liste : value|display;": "Lista: valor | exibição;",
         "Nom": "Nome",
         "Type script": "Tipo de script",
         "Type": "Tipo",
@@ -47,7 +42,6 @@
         "Actions": "Ações"
     },
     "plugins\/script\/desktop\/js\/script.js": {
-        "Etes-vous sûr de vouloir supprimer le script :": "Tem certeza de que deseja excluir o script:",
         "Script": "Escrita",
         "HTTP": "HTTP",
         "HTML": "Html",
@@ -59,8 +53,6 @@
         "Aucune": "Nenhum",
         "Parcourir": "Procurar",
         "Editer": "Editar",
-        "Nouveau": "Novo",
-        "Supprimer": "Remover",
         "Vérifier SSL": "Verificar SSL",
         "Retour vide": "Retorno vazio",
         "Pas d\\'erreurs": "Sem erros",
@@ -84,13 +76,6 @@
     },
     "plugins\/script\/core\/ajax\/script.ajax.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Aucun fichier trouvé : ": "Nenhum arquivo encontrado:",
-        "Impossible de lire : ": "Não foi possível ler:",
-        "Impossible de lire un dossier : ": "Não foi possível ler uma pasta:",
-        "Impossible d\\'écrire dans : ": "Não foi possível gravar em:",
-        "Impossible d\\'écrire un dossier : ": "Não foi possível escrever uma pasta:",
-        "Impossible de supprimer un dossier : ": "Não foi possível excluir uma pasta:",
-        "Impossible de supprimer le fichier : ": "Não foi possível excluir o arquivo:",
         "Aucune méthode correspondante à : ": "Aucune methode correspondante à :"
     },
     "plugins\/script\/core\/class\/script.class.php": {
