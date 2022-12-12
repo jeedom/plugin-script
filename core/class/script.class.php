@@ -121,6 +121,16 @@ class scriptCmd extends cmd {
 		$this->refresh();
 	}
 
+	private function replaceTags($request) {
+		$request = scenarioExpression::setTags($request);
+		$replace = array(
+			'\'' => '',
+			'#eqLogic_id#' => $this->getEqLogic_id(),
+			'#cmd_id#' => $this->getId(),
+		);
+		return str_replace(array_keys($replace), $replace, $request);
+	}
+
 	public function execute($_options = null) {
 		if ($this->getLogicalId() == 'refresh') {
 			$this->getEqLogic()->refresh();
@@ -166,13 +176,7 @@ class scriptCmd extends cmd {
 					break;
 			}
 		}
-		$request = scenarioExpression::setTags($request);
-		$replace = array(
-			'\'' => '',
-			'#eqLogic_id#' => $this->getEqLogic_id(),
-			'#cmd_id#' => $this->getId(),
-		);
-		$request = str_replace(array_keys($replace), $replace, $request);
+		$request = $this->replaceTags($request);
 
 		switch ($this->getConfiguration('requestType')) {
 			case 'http':
@@ -240,20 +244,21 @@ class scriptCmd extends cmd {
 				break;
 			case 'xml':
 				$request = str_replace('"', '', $request);
-				if ($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlXml')])) {
-					$xml = script::$_requet_cache[$this->getConfiguration('urlXml')];
+				$urlXml = $this->replaceTags($this->getConfiguration('urlXml'));
+				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlXml])) {
+					$xml = script::$_requet_cache[$urlXml];
 				} else {
 					if ($this->getConfiguration('xml_username') != '' && $this->getConfiguration('xml_password') != '') {
-						$request_http = new com_http($this->getConfiguration('urlXml'), $this->getConfiguration('xml_username'), $this->getConfiguration('xml_password'));
+						$request_http = new com_http($urlXml, $this->getConfiguration('xml_username'), $this->getConfiguration('xml_password'));
 					} else {
-						$request_http = new com_http($this->getConfiguration('urlXml'));
+						$request_http = new com_http($urlXml);
 					}
 					if ($this->getConfiguration('xmlNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
 					}
 					$xml = trim($request_http->exec($this->getConfiguration('xmlTimeout', 2), $this->getConfiguration('maxXmlRetry', 3)));
 					if ($this->getType() == 'info') {
-						script::$_requet_cache[$this->getConfiguration('urlXml')] = $xml;
+						script::$_requet_cache[$urlXml] = $xml;
 					}
 				}
 				$xml = new SimpleXMLElement($xml);
@@ -278,20 +283,21 @@ class scriptCmd extends cmd {
 				break;
 			case 'json':
 				$request = str_replace('"', '', $request);
-				if ($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlJson')])) {
-					$json_str = script::$_requet_cache[$this->getConfiguration('urlJson')];
+				$urlJson = $this->replaceTags($this->getConfiguration('urlJson'));
+				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlJson])) {
+					$json_str = script::$_requet_cache[$urlJson];
 				} else {
 					if ($this->getConfiguration('json_username') != '' && $this->getConfiguration('json_password') != '') {
-						$request_http = new com_http($this->getConfiguration('urlJson'), $this->getConfiguration('json_username'), $this->getConfiguration('json_password'));
+						$request_http = new com_http($urlJson, $this->getConfiguration('json_username'), $this->getConfiguration('json_password'));
 					} else {
-						$request_http = new com_http($this->getConfiguration('urlJson'));
+						$request_http = new com_http($urlJson);
 					}
 					if ($this->getConfiguration('jsonNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
 					}
 					$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
 					if ($this->getType() == 'info') {
-						script::$_requet_cache[$this->getConfiguration('urlJson')] = $json_str;
+						script::$_requet_cache[$urlJson] = $json_str;
 					}
 				}
 				$json = json_decode($json_str, true);
@@ -351,20 +357,21 @@ class scriptCmd extends cmd {
 				break;
 			case 'html':
 				$request = str_replace('"', '', $request);
-				if ($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlHtml')])) {
-					$html = script::$_requet_cache[$this->getConfiguration('urlHtml')];
+				$urlHtml = $this->replaceTags($this->getConfiguration('urlHtml'));
+				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlHtml])) {
+					$html = script::$_requet_cache[$urlHtml];
 				} else {
 					if ($this->getConfiguration('html_username') != '' && $this->getConfiguration('html_password') != '') {
-						$request_http = new com_http($this->getConfiguration('urlHtml'), $this->getConfiguration('html_username'), $this->getConfiguration('html_password'));
+						$request_http = new com_http($urlHtml, $this->getConfiguration('html_username'), $this->getConfiguration('html_password'));
 					} else {
-						$request_http = new com_http($this->getConfiguration('urlHtml'));
+						$request_http = new com_http($urlHtml);
 					}
 					if ($this->getConfiguration('htmlNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
 					}
 					$html = $request_http->exec($this->getConfiguration('htmlTimeout', 2), $this->getConfiguration('maxHtmlRetry', 3));
 					if ($this->getType() == 'info') {
-						script::$_requet_cache[$this->getConfiguration('urlHtml')] = $html;
+						script::$_requet_cache[$urlHtml] = $html;
 					}
 				}
 				phpQuery::newDocumentHTML($html);
