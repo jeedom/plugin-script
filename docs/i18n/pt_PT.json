@@ -3,6 +3,7 @@
         "Changelog Script": "Script do Changelog",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto",
         "Suppression de l'éditeur intégré de script pour passage sur celui du core": "Remoção do editor de script integrado para alternar para o principal",
+        "Prise en charge des tags dans les URLs des commandes de type xml, json & html comme ce l'était déjà sur les commandes http": "Suporte para tags em URLs de comandos do tipo xml, json e html como já estava em comandos http",
         "17\/10\/2022": "17\/10\/2022",
         "Mise à jour liste des commandes pour Jeedom v4.3": "Atualizar lista de comandos para Jeedom v4.3",
         "24\/06\/2020": "24\/06\/2020",

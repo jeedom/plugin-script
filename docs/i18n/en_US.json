@@ -3,6 +3,7 @@
         "Changelog Script": "Changelog script",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
         "Suppression de l'éditeur intégré de script pour passage sur celui du core": "Removal of the integrated script editor to switch to the core one",
+        "Prise en charge des tags dans les URLs des commandes de type xml, json & html comme ce l'était déjà sur les commandes http": "Support for tags in URLs of xml, json & html type commands as it was already on http commands",
         "17\/10\/2022": "10\/17\/2022",
         "Mise à jour liste des commandes pour Jeedom v4.3": "Update command list for Jeedom v4.3",
         "24\/06\/2020": "6\/24\/2020",
