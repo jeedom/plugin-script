@@ -219,7 +219,7 @@ class scriptCmd extends cmd {
 				if ($this->getType() == 'info' && isset(script::$_requet_cache[$request])) {
 					return script::$_requet_cache[$request];
 				}
-				$cmd = 'sudo chmod +x ' . $request . ';';
+				$cmd = 'sudo chmod +x ' . explode(' ', $request)[0] . ' 2>/dev/null;';
 				if (strpos($request, '.php') !== false) {
 					$cmd .= 'php ' . $request;
 				} elseif (strpos($request, '.rb') !== false) {
