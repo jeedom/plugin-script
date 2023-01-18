@@ -282,7 +282,7 @@ class scriptCmd extends cmd {
 				}
 				break;
 			case 'json':
-				$request = str_replace('"', '', $request);
+				$request = str_replace('json::', '', str_replace('"', '', $request));
 				$urlJson = $this->replaceTags($this->getConfiguration('urlJson'));
 				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlJson])) {
 					$json_str = script::$_requet_cache[$urlJson];
@@ -294,6 +294,9 @@ class scriptCmd extends cmd {
 					}
 					if ($this->getConfiguration('jsonNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
+					}
+					if ($this->getType() == 'action') {
+						$request_http->setPost($request);
 					}
 					$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
 					if ($this->getType() == 'info') {
