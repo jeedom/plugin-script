@@ -182,6 +182,7 @@ class scriptCmd extends cmd {
 			case 'http':
 				$request = str_replace('"', '%22', $request);
 				$request = str_replace(' ', '%20', $request);
+				$request = str_replace('json::', '', $request);
 				if ($this->getType() == 'info' && isset(script::$_requet_cache[$request])) {
 					return script::$_requet_cache[$request];
 				}
@@ -199,6 +200,9 @@ class scriptCmd extends cmd {
 				if ($this->getConfiguration('doNotReportHttpError') == 1) {
 					$request_http->setNoReportError(true);
 				}
+				if ($this->getType() == 'action') {
+					$request_http->setPost($request);
+				}
 				if (isset($_options['speedAndNoErrorReport']) && $_options['speedAndNoErrorReport'] == true) {
 					$request_http->setNoReportError(true);
 					$request_http->exec(0.1, 1);
@@ -207,6 +211,9 @@ class scriptCmd extends cmd {
 					if ($this->getType() == 'info') {
 						script::$_requet_cache[$request] = $result;
 					}
+				}
+				if ($this->getType() == 'action') {
+					return;
 				}
 				if (trim($this->getConfiguration('reponseMustContain')) != '' && strpos($result, trim($this->getConfiguration('reponseMustContain'))) === false) {
 					throw new Exception(__('La réponse ne contient pas "', __FILE__) . $this->getConfiguration('reponseMustContain') . '" : "' . $result . '"');
@@ -244,6 +251,7 @@ class scriptCmd extends cmd {
 				break;
 			case 'xml':
 				$request = str_replace('"', '', $request);
+				$request = str_replace('json::', '', $request);
 				$urlXml = $this->replaceTags($this->getConfiguration('urlXml'));
 				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlXml])) {
 					$xml = script::$_requet_cache[$urlXml];
@@ -256,7 +264,13 @@ class scriptCmd extends cmd {
 					if ($this->getConfiguration('xmlNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
 					}
+					if ($this->getType() == 'action') {
+						$request_http->setPost($request);
+					}
 					$xml = trim($request_http->exec($this->getConfiguration('xmlTimeout', 2), $this->getConfiguration('maxXmlRetry', 3)));
+					if ($this->getType() == 'action') {
+						return;
+					}
 					if ($this->getType() == 'info') {
 						script::$_requet_cache[$urlXml] = $xml;
 					}
@@ -282,7 +296,8 @@ class scriptCmd extends cmd {
 				}
 				break;
 			case 'json':
-				$request = str_replace('json::', '', str_replace('"', '', $request));
+				$request = str_replace('"', '', $request);
+				$request = str_replace('json::', '', $request);
 				$urlJson = $this->replaceTags($this->getConfiguration('urlJson'));
 				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlJson])) {
 					$json_str = script::$_requet_cache[$urlJson];
@@ -299,6 +314,9 @@ class scriptCmd extends cmd {
 						$request_http->setPost($request);
 					}
 					$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
+					if ($this->getType() == 'action') {
+						return;
+					}
 					if ($this->getType() == 'info') {
 						script::$_requet_cache[$urlJson] = $json_str;
 					}
@@ -360,6 +378,7 @@ class scriptCmd extends cmd {
 				break;
 			case 'html':
 				$request = str_replace('"', '', $request);
+				$request = str_replace('json::', '', $request);
 				$urlHtml = $this->replaceTags($this->getConfiguration('urlHtml'));
 				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlHtml])) {
 					$html = script::$_requet_cache[$urlHtml];
@@ -372,7 +391,13 @@ class scriptCmd extends cmd {
 					if ($this->getConfiguration('htmlNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
 					}
+					if ($this->getType() == 'action') {
+						$request_http->setPost($request);
+					}
 					$html = $request_http->exec($this->getConfiguration('htmlTimeout', 2), $this->getConfiguration('maxHtmlRetry', 3));
+					if ($this->getType() == 'action') {
+						return;
+					}
 					if ($this->getType() == 'info') {
 						script::$_requet_cache[$urlHtml] = $html;
 					}
