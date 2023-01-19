@@ -62,7 +62,7 @@ $("#table_cmd tbody").delegate(".browseScriptFile", 'click', function (event) {
 });
 
 $("#table_cmd tbody").delegate(".editScriptFile", 'click', function (event) {
-  jeedomUtils.loadPage('index.php?v=d&p=editor&root='+userScriptDir.replace('/var/www/html/',''))
+  window.open('index.php?v=d&p=editor&root='+userScriptDir.replace('/var/www/html/',''), '_blank').focus();
 });
 
 $("#table_cmd").sortable({ axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true });
