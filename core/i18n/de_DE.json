@@ -1,7 +1,6 @@
 {
     "plugins\/script\/plugin_info\/configuration.php": {
-        "Chemin des scripts utilisateur": "Pfad zu Benutzerskripten",
-        "Collapser le code à l'ouverture": "Reduzieren Sie den Code beim Öffnen"
+        "Chemin des scripts utilisateur": "Pfad zu Benutzerskripten"
     },
     "plugins\/script\/desktop\/php\/script.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",

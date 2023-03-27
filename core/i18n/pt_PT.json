@@ -1,7 +1,6 @@
 {
     "plugins\/script\/plugin_info\/configuration.php": {
-        "Chemin des scripts utilisateur": "Caminho para scripts do usuário",
-        "Collapser le code à l'ouverture": "Recolher o código na abertura"
+        "Chemin des scripts utilisateur": "Caminho para scripts do usuário"
     },
     "plugins\/script\/desktop\/php\/script.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
