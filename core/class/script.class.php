@@ -243,7 +243,7 @@ class scriptCmd extends cmd {
 					$request_shell->setBackground(true);
 				}
 				$result = trim($request_shell->exec());
-				log::add('script', 'debug', 'Execution de : ' . $cmd . ' => ' . $result);
+				log::add('script', 'debug', 'Exécution de : ' . $cmd . ' => ' . $result);
 				if ($this->getType() == 'info') {
 					script::$_requet_cache[$request] = $result;
 					return $result;
