@@ -1,7 +1,6 @@
 {
     "plugins\/script\/plugin_info\/configuration.php": {
-        "Chemin des scripts utilisateur": "Chemin des scripts utilisateur",
-        "Collapser le code à l'ouverture": "Collapser le code à l'ouverture"
+        "Chemin des scripts utilisateur": "Chemin des scripts utilisateur"
     },
     "plugins\/script\/desktop\/php\/script.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
@@ -33,11 +32,6 @@
         "Cliquer sur ? pour afficher l'assistant cron": "Cliquer sur ? pour afficher l'assistant cron",
         "Délai avant d'actualiser les infos suite à une action (en secondes)": "Délai avant d'actualiser les infos suite à une action (en secondes)",
         "Ajouter une commande script": "Ajouter une commande script",
-        " Sous type :": " Sous type :",
-        "Curseur : mettre #slider# pour récupérer la valeur": "Curseur : mettre #slider# pour récupérer la valeur",
-        "Couleur : mettre #color# pour récupérer la valeur": "Couleur : mettre #color# pour récupérer la valeur",
-        "Message : mettre #title# et #message#": "Message : mettre #title# et #message#",
-        "Liste : value|display;": "Liste : value|display;",
         "Nom": "Nom",
         "Type script": "Type script",
         "Type": "Type",
@@ -47,7 +41,6 @@
         "Actions": "Actions"
     },
     "plugins\/script\/desktop\/js\/script.js": {
-        "Etes-vous sûr de vouloir supprimer le script :": "Etes-vous sûr de vouloir supprimer le script :",
         "Script": "Script",
         "HTTP": "HTTP",
         "HTML": "HTML",
@@ -59,8 +52,6 @@
         "Aucune": "Aucune",
         "Parcourir": "Parcourir",
         "Editer": "Editer",
-        "Nouveau": "Nouveau",
-        "Supprimer": "Supprimer",
         "Vérifier SSL": "Vérifier SSL",
         "Retour vide": "Retour vide",
         "Pas d\\'erreurs": "Pas d\\'erreurs",
@@ -79,17 +70,11 @@
         "Liste de valeur|texte séparé par ;": "Liste de valeur|texte séparé par ;",
         "Liste": "Liste",
         "Commande d\\'information à mettre à jour": "Commande d\\'information à mettre à jour",
-        "Valeur de l\\'information": "Valeur de l\\'information"
+        "Valeur de l\\'information": "Valeur de l\\'information",
+        "Tester": "Tester"
     },
     "plugins\/script\/core\/ajax\/script.ajax.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
-        "Aucun fichier trouvé : ": "Aucun fichier trouvé : ",
-        "Impossible de lire : ": "Impossible de lire : ",
-        "Impossible de lire un dossier : ": "Impossible de lire un dossier : ",
-        "Impossible d\\'écrire dans : ": "Impossible d\\'écrire dans : ",
-        "Impossible d\\'écrire un dossier : ": "Impossible d\\'écrire un dossier : ",
-        "Impossible de supprimer un dossier : ": "Impossible de supprimer un dossier : ",
-        "Impossible de supprimer le fichier : ": "Impossible de supprimer le fichier : ",
         "Aucune méthode correspondante à : ": "Aucune méthode correspondante à : "
     },
     "plugins\/script\/core\/class\/script.class.php": {

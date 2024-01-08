@@ -1,7 +1,6 @@
 {
     "plugins\/script\/plugin_info\/configuration.php": {
-        "Chemin des scripts utilisateur": "Pfad zu Benutzerskripten",
-        "Collapser le code à l'ouverture": "Reduzieren Sie den Code beim Öffnen"
+        "Chemin des scripts utilisateur": "Pfad zu Benutzerskripten"
     },
     "plugins\/script\/desktop\/php\/script.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
@@ -33,11 +32,6 @@
         "Cliquer sur ? pour afficher l'assistant cron": "Klicke auf ? um den Cron-Helfer anzuzeigen",
         "Délai avant d'actualiser les infos suite à une action (en secondes)": "Zeit vor dem Aktualisieren der Informationen nach einer Aktion (in Sekunden)",
         "Ajouter une commande script": "Fügen Sie einen Skriptbefehl hinzu",
-        " Sous type :": "Untertyp:",
-        "Curseur : mettre #slider# pour récupérer la valeur": "Cursor: Setzen Sie den Schieberegler #, um den Wert abzurufen",
-        "Couleur : mettre #color# pour récupérer la valeur": "Farbe: Geben Sie # color # ein, um den Wert abzurufen",
-        "Message : mettre #title# et #message#": "Nachricht: Geben Sie # title # und # message # ein",
-        "Liste : value|display;": "Liste: Wert | Anzeige;",
         "Nom": "Name",
         "Type script": "Skripttyp",
         "Type": "Typ",
@@ -47,7 +41,6 @@
         "Actions": "Anteile"
     },
     "plugins\/script\/desktop\/js\/script.js": {
-        "Etes-vous sûr de vouloir supprimer le script :": "Möchten Sie das Skript wirklich löschen:",
         "Script": "Skript",
         "HTTP": "Http",
         "HTML": "HTML",
@@ -59,8 +52,6 @@
         "Aucune": "Keiner",
         "Parcourir": "Reise",
         "Editer": "Bearbeiten",
-        "Nouveau": "Neu",
-        "Supprimer": "Löschen",
         "Vérifier SSL": "Überprüfen Sie SSL",
         "Retour vide": "Leere Rückgabe",
         "Pas d\\'erreurs": "Keine Fehler",
@@ -79,17 +70,11 @@
         "Liste de valeur|texte séparé par ;": "Werteliste | Text getrennt durch;",
         "Liste": "Auflistung",
         "Commande d\\'information à mettre à jour": "Bestellinformationen zu aktualisieren",
-        "Valeur de l\\'information": "Informationswert"
+        "Valeur de l\\'information": "Informationswert",
+        "Tester": "Prüfen"
     },
     "plugins\/script\/core\/ajax\/script.ajax.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Aucun fichier trouvé : ": "Keine Datei gefunden:",
-        "Impossible de lire : ": "Kann nicht lesen:",
-        "Impossible de lire un dossier : ": "Ordner kann nicht gelesen werden:",
-        "Impossible d\\'écrire dans : ": "Kann nicht schreiben an:",
-        "Impossible d\\'écrire un dossier : ": "Ordner kann nicht geschrieben werden:",
-        "Impossible de supprimer un dossier : ": "Ordner kann nicht gelöscht werden:",
-        "Impossible de supprimer le fichier : ": "Datei kann nicht gelöscht werden:",
         "Aucune méthode correspondante à : ": "Keine Methode entsprechend:"
     },
     "plugins\/script\/core\/class\/script.class.php": {

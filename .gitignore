@@ -2,6 +2,7 @@ nbproject/
 test.php
 core/config/common.config.php
 plugins
-sftp-config.json
+deployment-config.json
 .project
-.vscode/settings.json
+.remote-sync.json
+.vscode

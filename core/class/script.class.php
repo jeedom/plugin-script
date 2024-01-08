@@ -21,13 +21,13 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 require_once dirname(__FILE__) . '/../../vendor/autoload.php';
 
 class script extends eqLogic {
-	
+
 	/*     * *************************Attributs****************************** */
-	
+
 	public static $_requet_cache = array();
-	
+
 	/*     * ***********************Méthodes statiques*************************** */
-	
+
 	public static function cron() {
 		$dateRun = new DateTime();
 		foreach (eqLogic::byType('script') as $eqLogic) {
@@ -47,11 +47,10 @@ class script extends eqLogic {
 				}
 			}
 		}
-		
 	}
-	
+
 	/*     * *********************Méthodes d'instance************************* */
-	
+
 	public function postSave() {
 		$refresh = $this->getCmd(null, 'refresh');
 		if (!is_object($refresh)) {
@@ -65,7 +64,7 @@ class script extends eqLogic {
 		$refresh->setEqLogic_id($this->getId());
 		$refresh->save();
 	}
-	
+
 	public function refresh() {
 		foreach ($this->getCmd('info') as $cmd) {
 			try {
@@ -75,35 +74,31 @@ class script extends eqLogic {
 			}
 		}
 	}
-	
+
 	/*     * **********************Getteur Setteur*************************** */
-	
 }
 
 class scriptCmd extends cmd {
 	/*     * *************************Attributs****************************** */
-	
+
 	/*     * ***********************Méthodes statiques*************************** */
-	
+
 	/*     * *********************Méthodes d'instance************************* */
-	
+
 	public function dontRemoveCmd() {
 		if ($this->getLogicalId() == 'refresh') {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public function refresh() {
-		if ($this->getType() != 'info') {
-			return;
-		}
-		if (trim($this->getConfiguration('request')) == '') {
+		if ($this->getType() != 'info' || trim($this->getConfiguration('request')) == '') {
 			return;
 		}
 		$this->getEqLogic()->checkAndUpdateCmd($this, $this->execute());
 	}
-	
+
 	public function preSave() {
 		if ($this->getLogicalId() == 'refresh') {
 			return;
@@ -118,14 +113,24 @@ class scriptCmd extends cmd {
 			throw new Exception(__('Vous ne pouvez pas avoir un script de type XML et action', __FILE__));
 		}
 	}
-	
+
 	public function postSave() {
-		if ($this->getLogicalId() == 'refresh') {
+		if ($this->getLogicalId() == 'refresh' || $this->getEqlogic()->getIsEnable() != 1) {
 			return;
 		}
 		$this->refresh();
 	}
-	
+
+	private function replaceTags($request) {
+		$request = scenarioExpression::setTags($request);
+		$replace = array(
+			'\'' => '',
+			'#eqLogic_id#' => $this->getEqLogic_id(),
+			'#cmd_id#' => $this->getId(),
+		);
+		return str_replace(array_keys($replace), $replace, $request);
+	}
+
 	public function execute($_options = null) {
 		if ($this->getLogicalId() == 'refresh') {
 			$this->getEqLogic()->refresh();
@@ -139,53 +144,48 @@ class scriptCmd extends cmd {
 		if ($_options != null) {
 			switch ($this->getType()) {
 				case 'action':
-				switch ($this->getSubType()) {
-					case 'slider':
-					$request = str_replace('#slider#', $_options['slider'], $request);
-					break;
-					case 'color':
-					if ($this->getConfiguration('requestType') != 'http') {
-						$request = str_replace('#color#', $_options['color'], $request);
-					} else {
-						$request = str_replace('#color#', substr($_options['color'], 1), $request);
+					switch ($this->getSubType()) {
+						case 'slider':
+							$request = str_replace('#slider#', $_options['slider'], $request);
+							break;
+						case 'color':
+							if ($this->getConfiguration('requestType') != 'http') {
+								$request = str_replace('#color#', $_options['color'], $request);
+							} else {
+								$request = str_replace('#color#', substr($_options['color'], 1), $request);
+							}
+							break;
+						case 'select':
+							$request = str_replace('#select#', $_options['select'], $request);
+							break;
+						case 'message':
+							$replace = array('#title#', '#message#');
+							if ($this->getConfiguration('requestType') == 'http') {
+								$replaceBy = array(urlencode($_options['title']), urlencode($_options['message']));
+							} elseif ($this->getConfiguration('requestType') == 'script') {
+								$replaceBy = array($_options['title'], $_options['message']);
+							} else {
+								$replaceBy = array(escapeshellcmd($_options['title']), escapeshellcmd($_options['message']));
+							}
+							if ($_options['message'] == '' && $_options['title'] == '') {
+								throw new Exception(__('Le message et le sujet ne peuvent pas être vide', __FILE__));
+							}
+							$request = str_replace($replace, $replaceBy, $request);
+							break;
 					}
 					break;
-					case 'select':
-					$request = str_replace('#select#', $_options['select'], $request);
-					break;
-					case 'message':
-					$replace = array('#title#', '#message#');
-					if ($this->getConfiguration('requestType') == 'http') {
-						$replaceBy = array(urlencode($_options['title']), urlencode($_options['message']));
-					} elseif ($this->getConfiguration('requestType') == 'script') {
-						$replaceBy = array($_options['title'], $_options['message']);
-					} else {
-						$replaceBy = array(escapeshellcmd($_options['title']), escapeshellcmd($_options['message']));
-					}
-					if ($_options['message'] == '' && $_options['title'] == '') {
-						throw new Exception(__('Le message et le sujet ne peuvent pas être vide', __FILE__));
-					}
-					$request = str_replace($replace, $replaceBy, $request);
-					break;
-				}
-				break;
 			}
 		}
-		$request = scenarioExpression::setTags($request);
-		$replace = array(
-			'\'' => '',
-			'#eqLogic_id#' => $this->getEqLogic_id(),
-			'#cmd_id#' => $this->getId(),
-		);
-		$request = str_replace(array_keys($replace), $replace, $request);
-		
+		$request = $this->replaceTags($request);
+
 		switch ($this->getConfiguration('requestType')) {
 			case 'http':
-			$request = str_replace('"', '%22', $request);
-			$request = str_replace(' ', '%20', $request);
-			if($this->getType() == 'info' && isset(script::$_requet_cache[$request])){
-				$result = script::$_requet_cache[$request];
-			}else{
+				$request = str_replace('"', '%22', $request);
+				$request = str_replace(' ', '%20', $request);
+				$request = str_replace('json::', '', $request);
+				if ($this->getType() == 'info' && isset(script::$_requet_cache[$request])) {
+					return script::$_requet_cache[$request];
+				}
 				if ($this->getConfiguration('http_username') != '' && $this->getConfiguration('http_password') != '') {
 					$request_http = new com_http($request, $this->getConfiguration('http_username'), $this->getConfiguration('http_password'));
 				} else {
@@ -200,194 +200,222 @@ class scriptCmd extends cmd {
 				if ($this->getConfiguration('doNotReportHttpError') == 1) {
 					$request_http->setNoReportError(true);
 				}
+				if ($this->getType() == 'action') {
+					$request_http->setPost($request);
+				}
 				if (isset($_options['speedAndNoErrorReport']) && $_options['speedAndNoErrorReport'] == true) {
 					$request_http->setNoReportError(true);
 					$request_http->exec(0.1, 1);
-				}else{
+				} else {
 					$result = trim($request_http->exec($this->getConfiguration('timeout', 2), $this->getConfiguration('maxHttpRetry', 3)));
-					if($this->getType() == 'info'){
+					if ($this->getType() == 'info') {
 						script::$_requet_cache[$request] = $result;
 					}
 				}
-			}
-			if (trim($this->getConfiguration('reponseMustContain')) != '' && strpos($result, trim($this->getConfiguration('reponseMustContain'))) === false) {
-				throw new Exception(__('La réponse ne contient pas "', __FILE__) . $this->getConfiguration('reponseMustContain') . '" : "' . $result . '"');
-			}
-			if($this->getType() == 'info'){
-				return $result;
-			}
-			break;
-			case 'script':
-			if($this->getType() == 'info' && isset(script::$_requet_cache[$request])){
-				$result = script::$_requet_cache[$request];
-			}else{
-				if (strpos($request, '.php') !== false) {
-					$request_shell = new com_shell('php ' . $request . ' 2>&1');
-				} elseif (strpos($request, '.rb') !== false) {
-					$request_shell = new com_shell('ruby ' . $request . ' 2>&1');
-				} elseif (strpos($request, '.py') !== false) {
-					$request_shell = new com_shell('python ' . $request . ' 2>&1');
-				} elseif (strpos($request, '.pl') !== false) {
-					$request_shell = new com_shell('perl ' . $request . ' 2>&1');
-				} else {
-					$request_shell = new com_shell($request . ' 2>&1');
+				if ($this->getType() == 'action') {
+					return;
 				}
-				log::add('script', 'debug', 'Execution de : ' . $request_shell->getCmd());
+				if (trim($this->getConfiguration('reponseMustContain')) != '' && strpos($result, trim($this->getConfiguration('reponseMustContain'))) === false) {
+					throw new Exception(__('La réponse ne contient pas "', __FILE__) . $this->getConfiguration('reponseMustContain') . '" : "' . $result . '"');
+				}
+				if ($this->getType() == 'info') {
+					return $result;
+				}
+				break;
+			case 'script':
+				if ($this->getType() == 'info' && isset(script::$_requet_cache[$request])) {
+					return script::$_requet_cache[$request];
+				}
+				$cmd = 'sudo chmod +x ' . explode(' ', $request)[0] . ' 2>/dev/null;';
+				if (strpos($request, '.php') !== false) {
+					$cmd .= 'php ' . $request;
+				} elseif (strpos($request, '.rb') !== false) {
+					$cmd .= 'ruby ' . $request;
+				} elseif (strpos($request, '.py') !== false) {
+					$cmd .= 'python ' . $request;
+				} elseif (strpos($request, '.pl') !== false) {
+					$cmd .= 'perl ' . $request;
+				} else {
+					$cmd .= $request;
+				}
+				$request_shell = new com_shell($cmd . ' 2>&1');
 				if (isset($_options['speedAndNoErrorReport']) && $_options['speedAndNoErrorReport'] == true) {
 					$request_shell->setBackground(true);
 				}
 				$result = trim($request_shell->exec());
-				if($this->getType() == 'info'){
+				log::add('script', 'debug', 'Exécution de : ' . $cmd . ' => ' . $result);
+				if ($this->getType() == 'info') {
 					script::$_requet_cache[$request] = $result;
+					return $result;
 				}
-			}
-			if($this->getType() == 'info'){
-				return $result;
-			}
-			break;
+				break;
 			case 'xml':
-			$request = str_replace('"', '', $request);
-			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlXml')])){
-				$xml = script::$_requet_cache[$this->getConfiguration('urlXml')];
-			}else{
-				if ($this->getConfiguration('xml_username') != '' && $this->getConfiguration('xml_password') != '') {
-					$request_http = new com_http($this->getConfiguration('urlXml'), $this->getConfiguration('xml_username'), $this->getConfiguration('xml_password'));
+				$request = str_replace('"', '', $request);
+				$request = str_replace('json::', '', $request);
+				$urlXml = $this->replaceTags($this->getConfiguration('urlXml'));
+				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlXml])) {
+					$xml = script::$_requet_cache[$urlXml];
 				} else {
-					$request_http = new com_http($this->getConfiguration('urlXml'));
+					if ($this->getConfiguration('xml_username') != '' && $this->getConfiguration('xml_password') != '') {
+						$request_http = new com_http($urlXml, $this->getConfiguration('xml_username'), $this->getConfiguration('xml_password'));
+					} else {
+						$request_http = new com_http($urlXml);
+					}
+					if ($this->getConfiguration('xmlNoSslCheck') == 1) {
+						$request_http->setNoSslCheck(true);
+					}
+					if ($this->getType() == 'action') {
+						$request_http->setPost($request);
+					}
+					$xml = trim($request_http->exec($this->getConfiguration('xmlTimeout', 2), $this->getConfiguration('maxXmlRetry', 3)));
+					if ($this->getType() == 'action') {
+						return;
+					}
+					if ($this->getType() == 'info') {
+						script::$_requet_cache[$urlXml] = $xml;
+					}
 				}
-				if ($this->getConfiguration('xmlNoSslCheck') == 1) {
-					$request_http->setNoSslCheck(true);
+				$xml = new SimpleXMLElement($xml);
+				$json = json_decode(json_encode($xml), TRUE);
+				$tags = explode('>', $request);
+				foreach ($tags as $tag) {
+					$tag = trim($tag);
+					if (isset($json[$tag])) {
+						$json = $json[$tag];
+					} elseif (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
+						$json = $json[intval($tag)];
+					} elseif (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
+						$json = $json[count($json) + intval($tag)];
+					} else {
+						$json = '';
+						break;
+					}
 				}
-				$xml = trim($request_http->exec($this->getConfiguration('xmlTimeout', 2), $this->getConfiguration('maxXmlRetry', 3)));
-				if($this->getType() == 'info'){
-					script::$_requet_cache[$this->getConfiguration('urlXml')] = $xml;
+				if ($this->getType() == 'info') {
+					return (is_array($json)) ? json_encode($json) : $json;
 				}
-			}
-			$xml = new SimpleXMLElement($xml);
-			$json = json_decode(json_encode($xml), TRUE);
-			$tags = explode('>', $request);
-			foreach ($tags as $tag) {
-				$tag = trim($tag);
-				if (isset($json[$tag])) {
-					$json = $json[$tag];
-				} elseif (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
-					$json = $json[intval($tag)];
-				} elseif (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
-					$json = $json[count($json) + intval($tag)];
-				} else {
-					$json = '';
-					break;
-				}
-			}
-			if($this->getType() == 'info'){
-				return (is_array($json)) ? json_encode($json) : $json;
-			}
-			break;
+				break;
 			case 'json':
-			$request = str_replace('"', '', $request);
-			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlJson')])){
-				$json_str = script::$_requet_cache[$this->getConfiguration('urlJson')];
-			}else{
-				if ($this->getConfiguration('json_username') != '' && $this->getConfiguration('json_password') != '') {
-					$request_http = new com_http($this->getConfiguration('urlJson'), $this->getConfiguration('json_username'), $this->getConfiguration('json_password'));
+				$request = str_replace('"', '', $request);
+				$request = str_replace('json::', '', $request);
+				$urlJson = $this->replaceTags($this->getConfiguration('urlJson'));
+				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlJson])) {
+					$json_str = script::$_requet_cache[$urlJson];
 				} else {
-					$request_http = new com_http($this->getConfiguration('urlJson'));
+					if ($this->getConfiguration('json_username') != '' && $this->getConfiguration('json_password') != '') {
+						$request_http = new com_http($urlJson, $this->getConfiguration('json_username'), $this->getConfiguration('json_password'));
+					} else {
+						$request_http = new com_http($urlJson);
+					}
+					if ($this->getConfiguration('jsonNoSslCheck') == 1) {
+						$request_http->setNoSslCheck(true);
+					}
+					if ($this->getType() == 'action') {
+						$request_http->setPost($request);
+					}
+					$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
+					if ($this->getType() == 'action') {
+						return;
+					}
+					if ($this->getType() == 'info') {
+						script::$_requet_cache[$urlJson] = $json_str;
+					}
 				}
-				if ($this->getConfiguration('jsonNoSslCheck') == 1) {
-					$request_http->setNoSslCheck(true);
+				$json = json_decode($json_str, true);
+				if ($json === null) {
+					$json = json_decode($json_str, true, 512, JSON_INVALID_UTF8_IGNORE);
+					if ($json === null) {
+						throw new Exception(__('Json invalide ou non décodable : ', __FILE__) . $json_str);
+					}
 				}
-				$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
-				if($this->getType() == 'info'){
-					script::$_requet_cache[$this->getConfiguration('urlJson')] = $json_str;
-				}
-			}
-			$json = json_decode($json_str, true);
-			if ($json === null) {
-			      $json = json_decode($json_str, true, 512, JSON_INVALID_UTF8_IGNORE);
-			      if ($json === null) {
-				throw new Exception(__('Json invalide ou non décodable : ', __FILE__) . $json_str);
-			      }
-			}
-			log::add('script', 'debug', 'tags : ' . $request);
-			log::add('script', 'debug', 'json : ' . json_encode($json));
-			$tags = explode('>', $request);
-			foreach ($tags as $tag) {
-				$tag = trim($tag);
-				log::add('script', 'debug', 'tag : ' . $tag);
-				if (isset($json[$tag])) {
-					$json = $json[$tag];
-				} elseif (strpos($tag,'@')!==false && strpos($tag,'=')!==false) {
-					$tag = ltrim($tag,"@");
-					$conditions = explode('&', $tag);
-					foreach ($json as $json_element) {
-						$found = true;
-						foreach ($conditions as $condition) {
-							$condition_kv = explode('=',$condition,2);
-							$condition_k = trim($condition_kv[0]);
-							$condition_v = trim($condition_kv[1]);
-							if ($json_element[$condition_k]==$condition_v) {
-								$found = $found && true;
-							} else {
-								$found = false;
+				log::add('script', 'debug', 'tags : ' . $request);
+				log::add('script', 'debug', 'json : ' . json_encode($json));
+				$tags = explode('>', $request);
+				foreach ($tags as $tag) {
+					$tag = trim($tag);
+					log::add('script', 'debug', 'tag : ' . $tag);
+					if (isset($json[$tag])) {
+						$json = $json[$tag];
+					} elseif (strpos($tag, '@') !== false && strpos($tag, '=') !== false) {
+						$tag = ltrim($tag, "@");
+						$conditions = explode('&', $tag);
+						foreach ($json as $json_element) {
+							$found = true;
+							foreach ($conditions as $condition) {
+								$condition_kv = explode('=', $condition, 2);
+								$condition_k = trim($condition_kv[0]);
+								$condition_v = trim($condition_kv[1]);
+								if ($json_element[$condition_k] == $condition_v) {
+									$found = $found && true;
+								} else {
+									$found = false;
+								}
+							}
+							if ($found) {
+								$json = $json_element;
+								break;
 							}
 						}
-						if ($found) {
-							$json = $json_element;
+						if (!$found) {
+							$json = '';
+							log::add('script', 'debug', 'tag not found');
 							break;
 						}
-					}
-					if(!$found) {
+					} elseif (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
+						$json = $json[intval($tag)];
+					} elseif (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
+						$json = $json[count($json) + intval($tag)];
+					} else {
 						$json = '';
 						log::add('script', 'debug', 'tag not found');
 						break;
 					}
-				} elseif (is_numeric(intval($tag)) && isset($json[intval($tag)])) {
-					$json = $json[intval($tag)];
-				} elseif (is_numeric(intval($tag)) && intval($tag) < 0 && isset($json[count($json) + intval($tag)])) {
-					$json = $json[count($json) + intval($tag)];
-				} else {
-					$json = '';
-					log::add('script', 'debug', 'tag not found');
-					break;
+					log::add('script', 'debug', 'json : ' . json_encode($json));
 				}
-				log::add('script', 'debug', 'json : ' . json_encode($json));
-			}
-			if($this->getType() == 'info'){
-				return (is_array($json)) ? json_encode($json) : $json;
-			}
-			break;
+				if ($this->getType() == 'info') {
+					return (is_array($json)) ? json_encode($json) : $json;
+				}
+				break;
 			case 'html':
-			$request = str_replace('"', '', $request);
-			if($this->getType() == 'info' && isset(script::$_requet_cache[$this->getConfiguration('urlHtml')])){
-				$html = script::$_requet_cache[$this->getConfiguration('urlHtml')];
-			}else{
-				if ($this->getConfiguration('html_username') != '' && $this->getConfiguration('html_password') != '') {
-					$request_http = new com_http($this->getConfiguration('urlHtml'), $this->getConfiguration('html_username'), $this->getConfiguration('html_password'));
+				$request = str_replace('"', '', $request);
+				$request = str_replace('json::', '', $request);
+				$urlHtml = $this->replaceTags($this->getConfiguration('urlHtml'));
+				if ($this->getType() == 'info' && isset(script::$_requet_cache[$urlHtml])) {
+					$html = script::$_requet_cache[$urlHtml];
 				} else {
-					$request_http = new com_http($this->getConfiguration('urlHtml'));
+					if ($this->getConfiguration('html_username') != '' && $this->getConfiguration('html_password') != '') {
+						$request_http = new com_http($urlHtml, $this->getConfiguration('html_username'), $this->getConfiguration('html_password'));
+					} else {
+						$request_http = new com_http($urlHtml);
+					}
+					if ($this->getConfiguration('htmlNoSslCheck') == 1) {
+						$request_http->setNoSslCheck(true);
+					}
+					if ($this->getType() == 'action') {
+						$request_http->setPost($request);
+					}
+					$html = $request_http->exec($this->getConfiguration('htmlTimeout', 2), $this->getConfiguration('maxHtmlRetry', 3));
+					if ($this->getType() == 'action') {
+						return;
+					}
+					if ($this->getType() == 'info') {
+						script::$_requet_cache[$urlHtml] = $html;
+					}
 				}
-				if ($this->getConfiguration('htmlNoSslCheck') == 1) {
-					$request_http->setNoSslCheck(true);
+				phpQuery::newDocumentHTML($html);
+				if ($this->getType() == 'info') {
+					return pq(trim($request))->html();
 				}
-				$html = $request_http->exec($this->getConfiguration('htmlTimeout', 2), $this->getConfiguration('maxHtmlRetry', 3));
-				if($this->getType() == 'info'){
-					script::$_requet_cache[$this->getConfiguration('urlHtml')] = $html;
-				}
-			}
-			phpQuery::newDocumentHTML($html);
-			if($this->getType() == 'info'){
-				return pq(trim($request))->html();
-			}
-			break;
+				break;
 		}
 		if ($this->getType() == 'action') {
 			script::$_requet_cache = array();
-			if($this->getEqLogic()->getConfiguration('delayBeforeRefrehInfo') != ''){
+			if ($this->getEqLogic()->getConfiguration('delayBeforeRefrehInfo') != '') {
 				usleep($this->getEqLogic()->getConfiguration('delayBeforeRefrehInfo') * 1000000);
 			}
 			$this->getEqLogic()->refresh();
 		}
 	}
-	
+
 	/*     * **********************Getteur Setteur*************************** */
 }
