@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Script": "Script de registro de cambios",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        "08\/01\/2024": "08\/01\/2024",
+        "Préparation pour jeedom 4.4": "Preparándose para el apuro 4.4",
         "Suppression de l'éditeur intégré de script pour passage sur celui du core": "Eliminación del editor de secuencias de comandos integrado para cambiar al principal",
         "Prise en charge des tags dans les URLs des commandes de type xml, json & html comme ce l'était déjà sur les commandes http": "Soporte para etiquetas en URL de comandos de tipo xml, json y html como ya estaba en los comandos http",
         "Meilleurs support du json dans les actions de type http,json et xml (bien lire la documentation pour savoir comment faire": "Mejor compatibilidad con json en acciones de tipo http, json y xml (lea atentamente la documentación para saber cómo hacerlo)",
