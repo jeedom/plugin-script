@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Script": "Script do Changelog",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto",
+        "10\/01\/2024": "01\/10\/2024",
+        "Correction d'un bug sur les requetes de type get http": "Corrigido um bug ao obter solicitações do tipo http",
         "08\/01\/2024": "01\/08\/2024",
         "Préparation pour jeedom 4.4": "Preparando-se para Jeedom 4.4",
         "Suppression de l'éditeur intégré de script pour passage sur celui du core": "Remoção do editor de script integrado para alternar para o principal",
