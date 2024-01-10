@@ -310,7 +310,7 @@ class scriptCmd extends cmd {
 					if ($this->getConfiguration('jsonNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
 					}
-					if ($this->getType() == 'action') {
+					if ($this->getType() == 'action' && trim($request) != '') {
 						$request_http->setPost($request);
 					}
 					$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
