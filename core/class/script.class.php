@@ -200,9 +200,6 @@ class scriptCmd extends cmd {
 				if ($this->getConfiguration('doNotReportHttpError') == 1) {
 					$request_http->setNoReportError(true);
 				}
-				if ($this->getType() == 'action' && trim($request) != '') {
-					$request_http->setPost($request);
-				}
 				if (isset($_options['speedAndNoErrorReport']) && $_options['speedAndNoErrorReport'] == true) {
 					$request_http->setNoReportError(true);
 					$request_http->exec(0.1, 1);
@@ -264,9 +261,6 @@ class scriptCmd extends cmd {
 					if ($this->getConfiguration('xmlNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
 					}
-					if ($this->getType() == 'action' && trim($request) != '') {
-						$request_http->setPost($request);
-					}
 					$xml = trim($request_http->exec($this->getConfiguration('xmlTimeout', 2), $this->getConfiguration('maxXmlRetry', 3)));
 					if ($this->getType() == 'action') {
 						return;
@@ -309,9 +303,6 @@ class scriptCmd extends cmd {
 					}
 					if ($this->getConfiguration('jsonNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
-					}
-					if ($this->getType() == 'action' && trim($request) != '') {
-						$request_http->setPost($request);
 					}
 					$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
 					if ($this->getType() == 'action') {
@@ -390,9 +381,6 @@ class scriptCmd extends cmd {
 					}
 					if ($this->getConfiguration('htmlNoSslCheck') == 1) {
 						$request_http->setNoSslCheck(true);
-					}
-					if ($this->getType() == 'action' && trim($request) != '') {
-						$request_http->setPost($request);
 					}
 					$html = $request_http->exec($this->getConfiguration('htmlTimeout', 2), $this->getConfiguration('maxHtmlRetry', 3));
 					if ($this->getType() == 'action') {
