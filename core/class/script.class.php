@@ -209,9 +209,6 @@ class scriptCmd extends cmd {
 						script::$_requet_cache[$request] = $result;
 					}
 				}
-				if ($this->getType() == 'action') {
-					return;
-				}
 				if (trim($this->getConfiguration('reponseMustContain')) != '' && strpos($result, trim($this->getConfiguration('reponseMustContain'))) === false) {
 					throw new Exception(__('La réponse ne contient pas "', __FILE__) . $this->getConfiguration('reponseMustContain') . '" : "' . $result . '"');
 				}
@@ -262,9 +259,6 @@ class scriptCmd extends cmd {
 						$request_http->setNoSslCheck(true);
 					}
 					$xml = trim($request_http->exec($this->getConfiguration('xmlTimeout', 2), $this->getConfiguration('maxXmlRetry', 3)));
-					if ($this->getType() == 'action') {
-						return;
-					}
 					if ($this->getType() == 'info') {
 						script::$_requet_cache[$urlXml] = $xml;
 					}
@@ -305,9 +299,6 @@ class scriptCmd extends cmd {
 						$request_http->setNoSslCheck(true);
 					}
 					$json_str = trim($request_http->exec($this->getConfiguration('jsonTimeout', 2), $this->getConfiguration('maxJsonRetry', 3)));
-					if ($this->getType() == 'action') {
-						return;
-					}
 					if ($this->getType() == 'info') {
 						script::$_requet_cache[$urlJson] = $json_str;
 					}
@@ -383,9 +374,6 @@ class scriptCmd extends cmd {
 						$request_http->setNoSslCheck(true);
 					}
 					$html = $request_http->exec($this->getConfiguration('htmlTimeout', 2), $this->getConfiguration('maxHtmlRetry', 3));
-					if ($this->getType() == 'action') {
-						return;
-					}
 					if ($this->getType() == 'info') {
 						script::$_requet_cache[$urlHtml] = $html;
 					}
