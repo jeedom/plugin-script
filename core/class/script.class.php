@@ -34,7 +34,7 @@ class script extends eqLogic {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
 			if ($eqLogic->getIsEnable() == 1 && $autorefresh != '') {
 				try {
-					$c = new Cron\CronExpression($autorefresh, new Cron\FieldFactory);
+					$c = new Cron\CronExpression(checkAndFixCron($autorefresh), new Cron\FieldFactory);
 					if ($c->isDue($dateRun)) {
 						try {
 							$eqLogic->refresh();
