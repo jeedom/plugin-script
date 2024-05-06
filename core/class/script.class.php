@@ -30,14 +30,15 @@ class script extends eqLogic {
 
 	public static function cron() {
 		$dateRun = new DateTime();
-		foreach (eqLogic::byType('script') as $eqLogic) {
+		/** @var script */
+		foreach (eqLogic::byType('script', true) as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
-			if ($eqLogic->getIsEnable() == 1 && $autorefresh != '') {
+			if ($autorefresh != '') {
 				try {
 					$c = new Cron\CronExpression(checkAndFixCron($autorefresh), new Cron\FieldFactory);
 					if ($c->isDue($dateRun)) {
 						try {
-							$eqLogic->refresh();
+							$eqLogic->refreshAllInfo();
 						} catch (Exception $exc) {
 							log::add('script', 'error', __('Erreur pour ', __FILE__) . $eqLogic->getHumanName() . ' : ' . $exc->getMessage());
 						}
@@ -58,17 +59,18 @@ class script extends eqLogic {
 			$refresh->setLogicalId('refresh');
 			$refresh->setIsVisible(1);
 			$refresh->setName(__('Rafraichir', __FILE__));
+			$refresh->setType('action');
+			$refresh->setSubType('other');
+			$refresh->setEqLogic_id($this->getId());
+			$refresh->save();
 		}
-		$refresh->setType('action');
-		$refresh->setSubType('other');
-		$refresh->setEqLogic_id($this->getId());
-		$refresh->save();
 	}
 
-	public function refresh() {
+	public function refreshAllInfo() {
+		/** @var scriptCmd */
 		foreach ($this->getCmd('info') as $cmd) {
 			try {
-				$cmd->refresh();
+				$cmd->refreshInfo();
 			} catch (Exception $exc) {
 				log::add('script', 'error', __('Erreur pour ', __FILE__) . $cmd->getHumanName() . ' : ' . $exc->getMessage());
 			}
@@ -92,7 +94,7 @@ class scriptCmd extends cmd {
 		return false;
 	}
 
-	public function refresh() {
+	public function refreshInfo() {
 		if ($this->getType() != 'info' || trim($this->getConfiguration('request')) == '') {
 			return;
 		}
@@ -118,7 +120,7 @@ class scriptCmd extends cmd {
 		if ($this->getLogicalId() == 'refresh' || $this->getEqlogic()->getIsEnable() != 1) {
 			return;
 		}
-		$this->refresh();
+		$this->refreshInfo();
 	}
 
 	private function replaceTags($request) {
@@ -133,7 +135,7 @@ class scriptCmd extends cmd {
 
 	public function execute($_options = null) {
 		if ($this->getLogicalId() == 'refresh') {
-			$this->getEqLogic()->refresh();
+			$this->getEqLogic()->refreshAllInfo();
 			return;
 		}
 		$result = false;
@@ -389,7 +391,7 @@ class scriptCmd extends cmd {
 			if ($this->getEqLogic()->getConfiguration('delayBeforeRefrehInfo') != '') {
 				usleep($this->getEqLogic()->getConfiguration('delayBeforeRefrehInfo') * 1000000);
 			}
-			$this->getEqLogic()->refresh();
+			$this->getEqLogic()->refreshAllInfo();
 		}
 	}
 
