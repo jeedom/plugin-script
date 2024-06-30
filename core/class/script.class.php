@@ -29,8 +29,6 @@ class script extends eqLogic {
 	/*     * ***********************Méthodes statiques*************************** */
 
 	public static function cron() {
-		$dateRun = new DateTime();
-		/** @var script */
 		foreach (eqLogic::byType('script', true) as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
 			if ($autorefresh != '') {
@@ -38,6 +36,7 @@ class script extends eqLogic {
 					$c = new Cron\CronExpression(checkAndFixCron($autorefresh), new Cron\FieldFactory);
 					if ($c->isDue($dateRun)) {
 						try {
+							log:add('script','debug',__('Mise à jour des valeurs pour : ', __FILE__).$eqLogic->getHumanName());
 							$eqLogic->refreshAllInfo();
 						} catch (Exception $exc) {
 							log::add('script', 'error', __('Erreur pour ', __FILE__) . $eqLogic->getHumanName() . ' : ' . $exc->getMessage());
