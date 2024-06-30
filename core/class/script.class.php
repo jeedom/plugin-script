@@ -28,7 +28,7 @@ class script extends eqLogic {
 
 	/*     * ***********************Méthodes statiques*************************** */
 
-	public static function cron() {
+	public static function cronUpdate() {
 		foreach (eqLogic::byType('script', true) as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
 			if ($autorefresh != '') {
