@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Script": "Changelog script",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
+        "Isolation du systeme de mise à jour des equipements sur cron pour le fiabiliser": "Isolation of the equipment update system on cron to make it more reliable",
         "06\/05\/2024": "05\/06\/2024",
         "Changement interne pour éviter des effets de bord non désirés": "Internal change to avoid unwanted side effects",
         "La fonction \"refresh\" de la class": "The \"refresh\" function of the class",

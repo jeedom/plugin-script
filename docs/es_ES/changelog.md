@@ -4,6 +4,8 @@
 >
 >Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
 
+- Aislamiento del sistema de actualización de equipos en cron para hacerlo más confiable
+
 # 06/05/2024
 
 - Cambio interno para evitar efectos secundarios no deseados. La función "actualizar" de la clase *guion* pasó a llamarse "refreshAllInfo" y el de la clase *scriptCmd* pasó a llamarse "refreshInfo". Si utilizó estos métodos en sus escenarios de bloques de código, debe corregirlos.

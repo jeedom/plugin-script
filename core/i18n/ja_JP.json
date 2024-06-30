@@ -78,6 +78,7 @@
         "Aucune méthode correspondante à : ": "以下に対応するメソッドはありません："
     },
     "plugins\/script\/core\/class\/script.class.php": {
+        "Mise à jour des valeurs pour : ": "Mise à jour des valeurs pour :",
         "Erreur pour ": "Erreur pour",
         "Expression cron non valide pour ": "Expression cron non valide pour",
         "Rafraichir": "クール",

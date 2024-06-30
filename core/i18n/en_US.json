@@ -78,6 +78,7 @@
         "Aucune méthode correspondante à : ": "No method corresponding to:"
     },
     "plugins\/script\/core\/class\/script.class.php": {
+        "Mise à jour des valeurs pour : ": "Updated values for:",
         "Erreur pour ": "Error for",
         "Expression cron non valide pour ": "Invalid cron expression for",
         "Rafraichir": "Refresh",
