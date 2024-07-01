@@ -4,6 +4,9 @@
 >
 >Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto
 
+# 01/07/2024
+
+- Correção de bug
 - Isolamento do sistema de atualização de equipamentos no cron para torná-lo mais confiável
 
 # 05/06/2024

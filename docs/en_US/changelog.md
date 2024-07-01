@@ -4,6 +4,9 @@
 >
 >As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
 
+# 01/07/2024
+
+- Bug fix
 - Isolation of the equipment update system on cron to make it more reliable
 
 # 05/06/2024
