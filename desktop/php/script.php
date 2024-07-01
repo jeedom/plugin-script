@@ -3,11 +3,9 @@ if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 $plugin = plugin::byId('script');
-sendVarToJS('eqType', $plugin->getId());
 $eqLogics = eqLogic::byType($plugin->getId());
-$foldOnStart = config::byKey('foldOnStart', 'script', '0');
-sendVarToJS('foldOnStart', $foldOnStart);
-sendVarToJS('userScriptDir', getRootPath() . '/' . config::byKey('userScriptDir', 'script'));
+$rootPath = getRootPath();
+sendVarToJS(['eqType' => $plugin->getId(), 'userScriptDir' => $rootPath . '/' . config::byKey('userScriptDir', 'script'), 'rootPath' => $rootPath]);
 ?>
 <style>
 	.CodeMirror-scroll {

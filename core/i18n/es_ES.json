@@ -78,6 +78,7 @@
         "Aucune méthode correspondante à : ": "Ningún método correspondiente a:"
     },
     "plugins\/script\/core\/class\/script.class.php": {
+        "Mise à jour des valeurs pour : ": "Valores actualizados para:",
         "Erreur pour ": "Error para",
         "Expression cron non valide pour ": "Expresión cron inválida para",
         "Rafraichir": "Refrescar",
