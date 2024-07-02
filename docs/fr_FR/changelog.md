@@ -7,7 +7,7 @@
 # 01/07/2024
 
 - Correction de bug
-- Isolation du systeme de mise à jour des equipements sur cron pour le fiabiliser
+- Isolation du système de mise à jour des équipements sur cron pour le fiabiliser
 
 # 06/05/2024
 

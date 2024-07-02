@@ -29,14 +29,15 @@ class script extends eqLogic {
 	/*     * ***********************Méthodes statiques*************************** */
 
 	public static function cronUpdate() {
+		/** @var script */
 		foreach (eqLogic::byType('script', true) as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
 			if ($autorefresh != '') {
 				try {
 					$c = new Cron\CronExpression(checkAndFixCron($autorefresh), new Cron\FieldFactory);
-					if ($c->isDue($dateRun)) {
+					if ($c->isDue()) {
 						try {
-							log:add('script','debug',__('Mise à jour des valeurs pour : ', __FILE__).$eqLogic->getHumanName());
+							log::add('script', 'debug', __('Mise à jour des valeurs pour : ', __FILE__) . $eqLogic->getHumanName());
 							$eqLogic->refreshAllInfo();
 						} catch (Exception $exc) {
 							log::add('script', 'error', __('Erreur pour ', __FILE__) . $eqLogic->getHumanName() . ' : ' . $exc->getMessage());

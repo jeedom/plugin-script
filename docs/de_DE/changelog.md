@@ -4,6 +4,9 @@
 >
 >Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt
 
+# 01.07.2024
+
+- Bug-Fix
 - Isolierung des Geräteaktualisierungssystems auf Cron, um es zuverlässiger zu machen
 
 # 05.06.2024
