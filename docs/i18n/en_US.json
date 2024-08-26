@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Script": "Changelog script",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
+        "Support des images d'équipement personnalisées (Jeedom 4.5": "Support for custom equipment images (Jeedom 4.5",
         "01\/07\/2024": "01\/07\/2024",
         "Correction de bug": "Bug fix",
         "Isolation du système de mise à jour des équipements sur cron pour le fiabiliser": "Isolation of the equipment update system on cron to make it more reliable",
