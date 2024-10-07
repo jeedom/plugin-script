@@ -125,7 +125,6 @@ class scriptCmd extends cmd {
 		} catch (\Throwable $th) {
 			log::add('script','error',$th->getMessage());
 		}
-		
 	}
 
 	private function replaceTags($request) {
