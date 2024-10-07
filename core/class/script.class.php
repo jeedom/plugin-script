@@ -120,7 +120,12 @@ class scriptCmd extends cmd {
 		if ($this->getLogicalId() == 'refresh' || $this->getEqlogic()->getIsEnable() != 1) {
 			return;
 		}
-		$this->refreshInfo();
+		try {
+			$this->refreshInfo();
+		} catch (\Throwable $th) {
+			log::add('script','error',$th->getMessage());
+		}
+		
 	}
 
 	private function replaceTags($request) {
