@@ -6,6 +6,12 @@
 
 - Support des images d'équipement personnalisées (Jeedom 4.5)
 
+# xx/06/2025
+
+- Ajout de la possibilité de ne pas forcer l'interpréteur selon une règle propre à Jeedom et qui est incompatible avec certains systèmes (python3 sous Debian 11+).
+- Correction de l'erreur d'affichage des options pour un type "HTTP" lors de la création d'une commande alors que le type "script" est sélectionné à ce moment.
+- Mise à jour de la documentation et petites corrections de celle-ci
+
 # 01/07/2024
 
 - Correction de bug

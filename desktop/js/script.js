@@ -33,15 +33,9 @@ $("#table_cmd tbody").delegate(".cmdAttr[data-l1key=configuration][data-l2key=re
   if ($(this).value() == 'script') {
     $(this).closest('tr').find('.browseScriptFile').show()
     $(this).closest('tr').find('.editScriptFile').show()
-
-    $(this).closest('tr').find('.tdRequest').attr('colspan', '2')
-    $(this).closest('tr').find('.tdOptions').hide()
   } else {
     $(this).closest('tr').find('.browseScriptFile').hide()
     $(this).closest('tr').find('.editScriptFile').hide()
-
-    $(this).closest('tr').find('.tdRequest').attr('colspan', '1')
-    $(this).closest('tr').find('.tdOptions').show()
   }
 })
 
@@ -117,7 +111,15 @@ function addCmdToTable(_cmd) {
   tr += '</td>'
 
   tr += '<td class="tdOptions">'
-  tr += '<div class="requestTypeConfig" data-type="http">'
+  tr += '<div class="requestTypeConfig" data-type="script">'
+  tr += '<center>'
+  tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotForceInterpreter"/>{{Interpréteur shebang}}'
+  tr += '<sup><i class="fas fa-question-circle tooltips" title="{{Si cette option est cochée, l\'interpréteur à utiliser est celui de la ligne shebang}}"></i></sup>'
+  tr += '</label></span> '
+  tr += '</center>'
+  tr += '</div>'
+
+  tr += '<div class="requestTypeConfig" data-type="http" style="display : none;">'
   tr += '<center>'
   tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" />{{Vérifier SSL}} '
   tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" style="margin-left : 20px;"/>{{Retour vide}} '
