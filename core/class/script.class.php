@@ -229,14 +229,14 @@ class scriptCmd extends cmd {
 					return script::$_requet_cache[$request];
 				}
 				$cmd = 'sudo chmod +x ' . explode(' ', $request)[0] . ' 2>/dev/null;';
-				$force_interpreter = $this->getConfiguration('doNotForceInterpreter', '0') == '0';
-				if ($force_interpreter && strpos($request, '.php') !== false) {
+				$use_shebang = $this->getConfiguration('useShebang', '0') == '1';
+				if (!$use_shebang && strpos($request, '.php') !== false) {
 					$cmd .= 'php ' . $request;
-				} elseif ($force_interpreter && strpos($request, '.rb') !== false) {
+				} elseif (!$use_shebang && strpos($request, '.rb') !== false) {
 					$cmd .= 'ruby ' . $request;
-				} elseif ($force_interpreter && strpos($request, '.py') !== false) {
+				} elseif (!$use_shebang && strpos($request, '.py') !== false) {
 					$cmd .= 'python ' . $request;
-				} elseif ($force_interpreter && strpos($request, '.pl') !== false) {
+				} elseif (!$use_shebang && strpos($request, '.pl') !== false) {
 					$cmd .= 'perl ' . $request;
 				} else {
 					$cmd .= $request;

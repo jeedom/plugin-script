@@ -113,7 +113,7 @@ function addCmdToTable(_cmd) {
   tr += '<td class="tdOptions">'
   tr += '<div class="requestTypeConfig" data-type="script">'
   tr += '<center>'
-  tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="doNotForceInterpreter"/>{{Interpréteur shebang}}'
+  tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="useShebang"/>{{Interpréteur shebang}}'
   tr += '<sup><i class="fas fa-question-circle tooltips" title="{{Si cette option est cochée, l\'interpréteur à utiliser est celui de la ligne shebang}}"></i></sup>'
   tr += '</label></span> '
   tr += '</center>'
