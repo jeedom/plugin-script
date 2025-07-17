@@ -228,16 +228,28 @@ class scriptCmd extends cmd {
 				if ($this->getType() == 'info' && isset(script::$_requet_cache[$request])) {
 					return script::$_requet_cache[$request];
 				}
-				$cmd = 'sudo chmod +x ' . explode(' ', $request)[0] . ' 2>/dev/null;';
-				$use_shebang = $this->getConfiguration('useShebang', '0') == '1';
-				if (!$use_shebang && strpos($request, '.php') !== false) {
+				$first_element = explode(' ', $request)[0];
+				$use_shebang = false;
+				$from_path = false;
+				if (file_exists($first_element)) {
+					$env_path = explode(PATH_SEPARATOR, getenv('PATH'));
+					$from_path = in_array(dirname($first_element), $env_path);
+					if (!$from_path) {
+						$shebang = trim(file_get_contents($first_element, false, null, 0, 3));
+						$use_shebang = $shebang == '#!/';
+					}
+					if (!is_executable($first_element)) {
+						$cmd = 'sudo chmod +x ' . $first_element . ' 2>/dev/null;';
+					}
+				}
+				if (!$from_path && !$use_shebang && substr($request, -4) === '.php') {
 					$cmd .= 'php ' . $request;
-				} elseif (!$use_shebang && strpos($request, '.rb') !== false) {
-					$cmd .= 'ruby ' . $request;
-				} elseif (!$use_shebang && strpos($request, '.py') !== false) {
-					$cmd .= 'python ' . $request;
-				} elseif (!$use_shebang && strpos($request, '.pl') !== false) {
+				} elseif (!$from_path && !$use_shebang && substr($request, -3) === '.pl') {
 					$cmd .= 'perl ' . $request;
+				} elseif (!$from_path && !$use_shebang && substr($request, -3) === '.py') {
+					$cmd .= 'python ' . $request;
+				} elseif (!$from_path && !$use_shebang && substr($request, -3) === '.rb') {
+					$cmd .= 'ruby ' . $request;
 				} else {
 					$cmd .= $request;
 				}

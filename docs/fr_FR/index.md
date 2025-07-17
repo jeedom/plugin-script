@@ -51,7 +51,7 @@ Vous retrouvez ici la liste des commandes :
   - Le bouton **Editer** : permet d’éditer à l’aide d’un éditeur de code interne un des fichiers contenus dans le répertoire permettant l’accès au code du fichier.
   - Le bouton **Nouveau** : permet de créer un fichier de commande.
 
-        > Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sous peine de voir votre superbe script ne pas fonctionner. Sans extension Jeedom ne saura pas reconnaître le langage associé à votre fichier. Il est possible de contourner ce fonctionnement en cochant la case "Interpréteur shebang", ce point est détaillé plus loin.
+        > Ne pas oublier de saisir le nom du fichier ainsi que son extension complète sous peine de voir votre superbe script ne pas fonctionner. Sans extension Jeedom ne saura pas reconnaître le langage associé à votre fichier. Il est possible de contourner ce fonctionnement en précisant l'interpréteur dans la ligne shebang ou en plaçant l'interpréteur en première position de la ligne de commande, ce point est détaillé plus loin.
 
   - Le bouton **Supprimer** : permet de supprimer un fichier de commande.
 
@@ -194,25 +194,24 @@ Action : Lancez le script, via un équipement virtuel, lié à votre script !
 
 Le plus sympa mais pas le plus simple à expliquer.
 
-**Prérequis : savoir développer un script en php, python, perl ou ruby.**
+**Prérequis : savoir développer un script**
 
 >**IMPORTANT**
 >
-> L'extension de votre script doit absolument correspondre à son type. En effet Jeedom se base sur l'extension du script pour l'exécutable à lancer
+> - Si le script en première position de la ligne de commande contient une ligne shebang, le plugin script lancera un shell qui l’exécutera en se basant sur la directive de la 1ère ligne (shebang).
+> - Si le premier élément de la ligne de commande est un exécutable reconnu par le système, par exemple `/usr/bin/python3`, le plugin script lancera un shell qui exécutera cette ligne de commande.
+> - Si le script en première position de la ligne de commande ne contient pas de ligne shebang ET que le premier élément de laligne de commande n'est pas un exécutable reconnu par le système, l'extension de votre script doit absolument correspondre à son type. En effet le plugin script se base alors sur l'extension du script pour l'exécutable à lancer.
 
-Si le nom de votre fichier ne contient pas :
-- .php .py .pl .rb
+Dans ce dernier cas, si le nom de votre fichier ne termine pas par .php .py .pl ou .rb, le plugin script lancera un shell qui l’exécutera comme en ligne de commande.
 
-ou si la case "Interpréteur shebang" est cochée, le plugin script lancera un shell qui l’exécutera en se basant sur la directive de la 1ère ligne (shebang).
-Exemple :
+Exemples de ligne shebang :
 
-```bash
+```
 #!/bin/csh -f
 #!/bin/ksh
 #!/usr/bin/env python3
 #!/usr/bin/env php
 #!/usr/bin/env node
-etc ...
 ```
 
 Le script de monitoring température du Raspberry va servir d’exemple pour l’utilisation du type de script : Script
