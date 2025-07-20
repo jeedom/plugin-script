@@ -229,30 +229,30 @@ class scriptCmd extends cmd {
 					return script::$_requet_cache[$request];
 				}
 				$first_element = explode(' ', $request)[0];
-				$use_shebang = false;
 				$from_path = false;
-				if (file_exists($first_element)) {
+				$use_shebang = false;
+				if (is_readable($first_element)) {
 					$env_path = explode(PATH_SEPARATOR, getenv('PATH'));
 					$from_path = in_array(dirname($first_element), $env_path);
 					if (!$from_path) {
-						$shebang = trim(file_get_contents($first_element, false, null, 0, 3));
+						$shebang = file_get_contents($first_element, false, null, 0, 3);
 						$use_shebang = $shebang == '#!/';
 					}
 					if (!is_executable($first_element)) {
 						$cmd = 'sudo chmod +x ' . $first_element . ' 2>/dev/null;';
 					}
 				}
-				if (!$from_path && !$use_shebang && substr($request, -4) === '.php') {
-					$cmd .= 'php ' . $request;
-				} elseif (!$from_path && !$use_shebang && substr($request, -3) === '.pl') {
-					$cmd .= 'perl ' . $request;
-				} elseif (!$from_path && !$use_shebang && substr($request, -3) === '.py') {
-					$cmd .= 'python ' . $request;
-				} elseif (!$from_path && !$use_shebang && substr($request, -3) === '.rb') {
-					$cmd .= 'ruby ' . $request;
-				} else {
-					$cmd .= $request;
+				$interpreters = [
+					'.php' => 'php',
+					'.py'  => 'python',
+					'.pl'  => 'perl',
+					'.rb'  => 'ruby'
+				];
+				$extension = substr($first_element, strrpos($first_element, '.', -4));
+				if (isset($interpreters[$extension]) && !$from_path && !$use_shebang) {
+					$cmd .= $interpreters[$extension] . ' ';
 				}
+				$cmd .= $request;
 				$request_shell = new com_shell($cmd . ' 2>&1');
 				if (isset($_options['speedAndNoErrorReport']) && $_options['speedAndNoErrorReport'] == true) {
 					$request_shell->setBackground(true);

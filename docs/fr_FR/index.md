@@ -200,7 +200,7 @@ Le plus sympa mais pas le plus simple à expliquer.
 >
 > - Si le script en première position de la ligne de commande contient une ligne shebang, le plugin script lancera un shell qui l’exécutera en se basant sur la directive de la 1ère ligne (shebang).
 > - Si le premier élément de la ligne de commande est un exécutable reconnu par le système, par exemple `/usr/bin/python3`, le plugin script lancera un shell qui exécutera cette ligne de commande.
-> - Si le script en première position de la ligne de commande ne contient pas de ligne shebang ET que le premier élément de laligne de commande n'est pas un exécutable reconnu par le système, l'extension de votre script doit absolument correspondre à son type. En effet le plugin script se base alors sur l'extension du script pour l'exécutable à lancer.
+> - Si le script en première position de la ligne de commande ne contient pas de ligne shebang ET que le premier élément de la ligne de commande n'est pas un exécutable reconnu par le système, l'extension de votre script doit absolument correspondre à son type. En effet le plugin script se base alors sur l'extension du script pour l'exécutable à lancer.
 
 Dans ce dernier cas, si le nom de votre fichier ne termine pas par .php .py .pl ou .rb, le plugin script lancera un shell qui l’exécutera comme en ligne de commande.
 
