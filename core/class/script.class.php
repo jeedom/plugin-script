@@ -18,7 +18,9 @@
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-require_once dirname(__FILE__) . '/../../vendor/autoload.php';
+if(file_exists(dirname(__FILE__) . '/../../vendor/autoload.php')){
+	require_once dirname(__FILE__) . '/../../vendor/autoload.php';
+}
 
 class script extends eqLogic {
 
@@ -120,7 +122,11 @@ class scriptCmd extends cmd {
 		if ($this->getLogicalId() == 'refresh' || $this->getEqlogic()->getIsEnable() != 1) {
 			return;
 		}
-		$this->refreshInfo();
+		try {
+			$this->refreshInfo();
+		} catch (\Throwable $th) {
+			log::add('script','error',$th->getMessage());
+		}
 	}
 
 	private function replaceTags($request) {
