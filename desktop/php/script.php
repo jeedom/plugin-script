@@ -161,7 +161,7 @@ sendVarToJS(['eqType' => $plugin->getId(), 'userScriptDir' => $rootPath . '/' . 
 							<th style="width: 70px;">{{Type}}</th>
 							<th style="width: 300px;">{{Requête}}</th>
 							<th style="width: 360px;">{{Paramètres}}</th>
-							<th style="min-width:260px;width:400px">{{Options}}</th>
+							<th style="min-width:120px;width:260px">{{Options}}</th>
 							<th style="width: 100px;">{{Etat}}</th>
 							<th style="min-width:80px;width:100px;">{{Actions}}</th>
 						</tr>

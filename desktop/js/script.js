@@ -106,7 +106,7 @@ function addCmdToTable(_cmd) {
   tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>'
   tr += '</td>'
 
-  tr += '<td class="tdRequest">'
+  tr += '<td class="tdRequest" colspan="2">'
   tr += '<div class="btn-group" role="group">'
   tr += '<span class="input-group" style="margin-top : 5px;">'
   tr += '<a style="width:30px" class="btn btn-default browseScriptFile btn-xs roundedLeft" title="{{Parcourir}}"><i class="far fa-folder-open"></i></a>'
@@ -116,8 +116,12 @@ function addCmdToTable(_cmd) {
   tr += '<textarea style="height : 95px;margin-top:5px;" class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="request"></textarea>'
   tr += '</td>'
 
-  tr += '<td class="tdOptions">'
-  tr += '<div class="requestTypeConfig" data-type="http">'
+  tr += '<td class="tdOptions" style="display : none;">'
+
+  //tr += '<div class="requestTypeConfig" data-type="script">'
+  //tr += '</div>'
+
+  tr += '<div class="requestTypeConfig" data-type="http" style="display : none;">'
   tr += '<center>'
   tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="noSslCheck" />{{Vérifier SSL}} '
   tr += '<input type="checkbox" class="cmdAttr" data-l1key="configuration" data-l2key="allowEmptyResponse" style="margin-left : 20px;"/>{{Retour vide}} '
@@ -184,7 +188,8 @@ function addCmdToTable(_cmd) {
   tr += '</div>'
   tr += '</div>'
   tr += '</div>'
-  tr += '</td>'
+
+  tr += '</td>' // tdOptions
 
   tr += '<td>'
   tr += '<label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="isVisible" checked/>{{Afficher}}</label> '
