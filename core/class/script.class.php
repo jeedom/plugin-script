@@ -231,26 +231,33 @@ class scriptCmd extends cmd {
 				$first_element = explode(' ', $request)[0];
 				$from_path = false;
 				$use_shebang = false;
-				if (is_readable($first_element)) {
-					$env_path = explode(PATH_SEPARATOR, getenv('PATH'));
-					$from_path = in_array(dirname($first_element), $env_path);
-					if (!$from_path) {
-						$shebang = file_get_contents($first_element, false, null, 0, 3);
-						$use_shebang = $shebang == '#!/';
+				$sys_paths = explode(PATH_SEPARATOR, getenv('PATH'));
+				foreach ($sys_paths as $path) {
+					if (is_executable($path . DIRECTORY_SEPARATOR . $first_element)) {
+						$from_path = true;
+						break;
 					}
+				}
+				if (!$from_path && is_readable($first_element)) {
+					$env_path = explode(PATH_SEPARATOR, getenv('PATH'));
+					$shebang = file_get_contents($first_element, false, null, 0, 3);
+					$use_shebang = $shebang == '#!/';
 					if (!is_executable($first_element)) {
 						$cmd = 'sudo chmod +x ' . $first_element . ' 2>/dev/null;';
 					}
-				}
-				$interpreters = [
-					'.php' => 'php',
-					'.py'  => 'python',
-					'.pl'  => 'perl',
-					'.rb'  => 'ruby'
-				];
-				$extension = substr($first_element, strrpos($first_element, '.', -4));
-				if (isset($interpreters[$extension]) && !$from_path && !$use_shebang) {
-					$cmd .= $interpreters[$extension] . ' ';
+					if (!$use_shebang) {
+						$interpreters = [
+							'.php' => 'php',
+							'.py'  => 'python',
+							'.pl'  => 'perl',
+							'.rb'  => 'ruby'
+						];
+						$point_pos = strpos($first_element, '.', -4);
+						$extension = substr($first_element, $point_pos);
+						if (isset($interpreters[$extension])) {
+							$cmd .= $interpreters[$extension] . ' ';
+						}
+					}
 				}
 				$cmd .= $request;
 				$request_shell = new com_shell($cmd . ' 2>&1');
