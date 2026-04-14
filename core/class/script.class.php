@@ -18,7 +18,7 @@
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-if(file_exists(dirname(__FILE__) . '/../../vendor/autoload.php')){
+if (file_exists(dirname(__FILE__) . '/../../vendor/autoload.php')) {
 	require_once dirname(__FILE__) . '/../../vendor/autoload.php';
 }
 
@@ -125,7 +125,7 @@ class scriptCmd extends cmd {
 		try {
 			$this->refreshInfo();
 		} catch (\Throwable $th) {
-			log::add('script','error',$th->getMessage());
+			log::add('script', 'error', $th->getMessage());
 		}
 	}
 
@@ -239,7 +239,6 @@ class scriptCmd extends cmd {
 					}
 				}
 				if (!$from_path && is_readable($first_element)) {
-					$env_path = explode(PATH_SEPARATOR, getenv('PATH'));
 					$shebang = file_get_contents($first_element, false, null, 0, 3);
 					$use_shebang = $shebang == '#!/';
 					if (!is_executable($first_element)) {
