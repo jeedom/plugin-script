@@ -1,6 +1,7 @@
 {
     "plugins\/script\/core\/ajax\/script.ajax.php": {
-        "401 - Accès non autorisé": "401 - Acesso não autorizado"
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Aucune méthode correspondante à : ": "Não há nenhum método correspondente a: "
     },
     "plugins\/script\/core\/class\/script.class.php": {
         "Erreur pour ": "Erro para",
