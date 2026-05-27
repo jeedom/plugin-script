@@ -8,7 +8,7 @@
 
 - Corrections sur les conditions des commandes json
 
-# 15/04/2025
+# 15/04/2026
 
 - Correction de l'erreur d'affichage des options pour un type "HTTP" lors de la création d'une commande alors que le type "script" est sélectionné à ce moment.
 - Support de la directive shebang pour les commandes scripts
