@@ -4,6 +4,10 @@
 >
 >Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte
 
+# 28/05/2026
+
+- Corrections sur les conditions des commandes json
+
 # 15/04/2025
 
 - Correction de l'erreur d'affichage des options pour un type "HTTP" lors de la création d'une commande alors que le type "script" est sélectionné à ce moment.

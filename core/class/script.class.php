@@ -238,6 +238,7 @@ class scriptCmd extends cmd {
 						break;
 					}
 				}
+				$cmd = '';
 				if (!$from_path && is_readable($first_element)) {
 					$shebang = file_get_contents($first_element, false, null, 0, 3);
 					$use_shebang = $shebang == '#!/';
@@ -348,16 +349,16 @@ class scriptCmd extends cmd {
 					} elseif (strpos($tag, '@') !== false && strpos($tag, '=') !== false) {
 						$tag = ltrim($tag, "@");
 						$conditions = explode('&', $tag);
+						$found = false;
 						foreach ($json as $json_element) {
 							$found = true;
 							foreach ($conditions as $condition) {
 								$condition_kv = explode('=', $condition, 2);
 								$condition_k = trim($condition_kv[0]);
 								$condition_v = trim($condition_kv[1]);
-								if ($json_element[$condition_k] == $condition_v) {
-									$found = $found && true;
-								} else {
+								if ($json_element[$condition_k] != $condition_v) {
 									$found = false;
+									break;
 								}
 							}
 							if ($found) {
