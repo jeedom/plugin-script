@@ -248,7 +248,7 @@ class scriptCmd extends cmd {
 					if (!$use_shebang) {
 						$interpreters = [
 							'.php' => 'php',
-							'.py'  => 'python',
+							'.py'  => 'python3',
 							'.pl'  => 'perl',
 							'.rb'  => 'ruby'
 						];
